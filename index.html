@@ -1,14 +1,182 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>StormHacks Project</title>
-    <style>
-      body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-      h1 { color: #0066cc; }
-    </style>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>Our website is working.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StormHacks Project</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid #334155;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(to right, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid #334155;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">ProjectName</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Build something incredible together</h1>
+    <p>A quick summary of what your hackathon project does, who it's for, and the problem it solves.</p>
+    <button class="btn" id="actionBtn">Try It Out</button>
+  </header>
+
+  <!-- Features / Cards -->
+  <main class="features" id="features">
+    <div class="card">
+      <h3>🚀 Feature One</h3>
+      <p>Describe the first major capability or interactive part of your website.</p>
+    </div>
+    <div class="card">
+      <h3>💡 Feature Two</h3>
+      <p>Explain how this solves your hackathon prompt or makes life easier for the user.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Feature Three</h3>
+      <p>Highlight any smart logic, APIs, or unique components you built.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Built for StormHacks 2026</p>
+  </footer>
+
+  <script>
+    document.getElementById('actionBtn').addEventListener('click', () => {
+      alert('Replace this with your feature logic or navigation!');
+    });
+  </script>
+</body>
 </html>
