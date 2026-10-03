@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CareGuide Canada | Canadian Healthcare Navigator</title>
+  <title>CarePath BC | BC Healthcare Navigator & Companion</title>
   <style>
     :root {
       --primary: #0284c7;
       --primary-dark: #0369a1;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-      --success: #10b981;
-      --info: #3b82f6;
+      --navy: #0f172a;
+      --danger: #dc2626;
+      --warning: #d97706;
+      --success: #16a34a;
+      --purple: #7c3aed;
       --bg: #f8fafc;
       --surface: #ffffff;
       --text: #0f172a;
@@ -30,25 +31,29 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    /* Red Emergency Banner */
-    .emergency-banner {
+    /* Emergency Strip */
+    .emergency-bar {
       background: #fee2e2;
       border-bottom: 2px solid var(--danger);
       color: #991b1b;
-      padding: 0.85rem 1.5rem;
-      font-size: 0.95rem;
+      padding: 0.65rem 1rem;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    /* Navigation */
+    /* Top Nav */
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
+      padding: 0.85rem 1.75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -58,677 +63,807 @@
     }
 
     .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
     }
 
-    .lang-select {
-      padding: 0.45rem 0.85rem;
+    .brand span {
+      color: var(--navy);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #e0f2fe;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .lang-dropdown {
+      padding: 0.45rem 0.75rem;
       border-radius: 8px;
       border: 1px solid var(--border);
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 600;
       background: #fff;
       cursor: pointer;
     }
 
-    /* Container */
-    .container {
-      max-width: 950px;
-      margin: 2rem auto;
-      padding: 0 1.25rem;
+    /* Main Container */
+    .main-container {
+      max-width: 1000px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
     }
 
     /* Hero */
     .hero {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero h1 {
-      font-size: 2.3rem;
-      color: #0f172a;
-      margin-bottom: 0.75rem;
+      font-size: 2.2rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      max-width: 720px;
-      margin: 0 auto;
+      max-width: 680px;
+      margin: 0 auto 0.75rem auto;
     }
 
-    /* Interactive Questionnaire Card */
-    .navigator-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .question-title {
-      font-size: 1.25rem;
+    .team-badge {
+      display: inline-block;
+      font-size: 0.75rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
     }
 
-    .question-desc {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .options-grid {
+    /* 4-Pillar Tabs */
+    .nav-tabs {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      background: #e2e8f0;
+      padding: 0.35rem;
+      border-radius: 12px;
     }
 
-    .option-btn {
-      background: var(--bg);
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.75rem 0.5rem;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #64748b;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      transition: all 0.2s;
+    }
+
+    .tab-btn span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+    }
+
+    /* Tab Sections */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Shell */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px -3px rgba(0,0,0,0.04);
+    }
+
+    .panel-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    .panel-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Form & Option Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .choice-card {
       border: 2px solid var(--border);
       border-radius: 10px;
       padding: 1.25rem;
-      text-align: left;
+      background: #f8fafc;
       cursor: pointer;
-      transition: all 0.2s ease;
+      text-align: left;
+      transition: all 0.2s;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.25rem;
     }
 
-    .option-btn:hover {
+    .choice-card:hover {
       border-color: var(--primary);
       background: #f0f9ff;
     }
 
-    .option-btn strong {
+    .choice-card strong {
+      color: var(--navy);
       font-size: 1rem;
-      color: var(--text);
     }
 
-    .option-btn span {
-      font-size: 0.85rem;
+    .choice-card small {
       color: var(--text-muted);
+      font-size: 0.85rem;
     }
 
-    /* Recommendation Result Box */
-    .result-box {
-      display: none;
-      border-radius: var(--radius);
-      padding: 2rem;
-      margin-top: 1.5rem;
-      animation: fadeIn 0.3s ease;
+    /* Result Box */
+    .result-alert {
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1.25rem;
+      border-left: 6px solid var(--primary);
+      background: #f0f9ff;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .result-box.urgent {
+    .result-alert.urgent {
       background: #fef2f2;
-      border: 2px solid var(--danger);
+      border-left-color: var(--danger);
     }
 
-    .result-box.priority {
+    .result-alert.warning {
       background: #fffbeb;
-      border: 2px solid var(--warning);
+      border-left-color: var(--warning);
     }
 
-    .result-box.routine {
+    .result-alert.success {
       background: #f0fdf4;
-      border: 2px solid var(--success);
+      border-left-color: var(--success);
     }
 
-    .result-box.specialist {
-      background: #eff6ff;
-      border: 2px solid var(--info);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.3rem 0.8rem;
-      border-radius: 9999px;
-      font-size: 0.8rem;
+    .wait-time-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #e2e8f0;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
     }
 
-    .badge-danger { background: var(--danger); color: #fff; }
-    .badge-warning { background: var(--warning); color: #000; }
-    .badge-success { background: var(--success); color: #fff; }
-    .badge-info { background: var(--info); color: #fff; }
-
-    .result-box h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-box p {
-      margin-bottom: 1rem;
+    /* Communicate Tools */
+    .script-box {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+      font-style: italic;
       color: #334155;
     }
 
-    .action-checklist {
-      list-style: none;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px dashed rgba(0,0,0,0.15);
-    }
-
-    .action-checklist li {
-      margin-bottom: 0.5rem;
+    .qr-mock {
+      width: 130px;
+      height: 130px;
+      background: #f1f5f9;
+      border: 2px dashed #94a3b8;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 1rem auto;
     }
 
-    .btn-reset {
-      margin-top: 1.5rem;
-      background: #0f172a;
+    /* Buttons */
+    .btn {
+      background: var(--primary);
       color: #fff;
       border: none;
-      padding: 0.7rem 1.5rem;
+      padding: 0.65rem 1.25rem;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: 600;
-    }
-
-    /* Guide Grid for Healthcare Options */
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .section-desc {
-      text-align: center;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .guide-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .guide-card h4 {
-      display: flex;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1.15rem;
-      margin-bottom: 0.75rem;
+      gap: 0.4rem;
     }
 
-    .guide-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+    .btn:hover {
+      background: var(--primary-dark);
     }
 
-    .guide-card ul {
-      padding-left: 1.25rem;
-      font-size: 0.85rem;
+    .btn-secondary {
+      background: #e2e8f0;
       color: #334155;
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+
+    /* Pill list */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+    }
+
+    .tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 14px;
+    }
+
+    /* Follow Up Check In */
+    .status-picker {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .status-picker button {
+      flex: 1;
+      padding: 0.85rem;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .status-picker button.better { border-color: var(--success); color: var(--success); }
+    .status-picker button.same { border-color: var(--warning); color: var(--warning); }
+    .status-picker button.worse { border-color: var(--danger); color: var(--danger); }
+
+    /* Timeline */
+    .timeline-item {
+      padding-left: 1.5rem;
+      border-left: 3px solid #cbd5e1;
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      position: absolute;
+      left: -7.5px;
+      top: 4px;
     }
 
     footer {
-      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 2rem 1rem;
       color: var(--text-muted);
       font-size: 0.85rem;
-      background: #fff;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 680px) {
+      .nav-tabs { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Emergency Notice -->
-  <div class="emergency-banner" id="bannerText">
-    ⚠️ Immediate Life-Threatening Emergency? Call 9-1-1 or visit the nearest Hospital Emergency Department right away.
+  <!-- Emergency Banner -->
+  <div class="emergency-bar">
+    🚨 Severe chest pain, stroke signs (FAST), or heavy trauma? Call 9-1-1 or visit the Hospital ER immediately.
   </div>
 
   <header>
-    <div class="brand">🩻 <span id="brandName">CareGuide Canada</span></div>
-    <select class="lang-select" id="langSelect">
+    <div class="brand">
+      🧭 CarePath BC <span>BC Navigator</span>
+    </div>
+    <select class="lang-dropdown" id="langSelect">
       <option value="en">English</option>
       <option value="fr">Français (French)</option>
       <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
       <option value="zh">中文 (Simplified Chinese)</option>
+      <option value="ar">العربية (Arabic)</option>
+      <option value="tl">Tagalog (Filipino)</option>
     </select>
   </header>
 
-  <div class="container">
-    <section class="hero">
-      <h1 id="heroTitle">Find the Right Care, Without the Guesswork</h1>
-      <p id="heroDesc">
-        Unsure whether you should visit the ER, an Urgent Care Centre (UPCC), a walk-in clinic, or your local pharmacist? Answer three short questions to get directed to the most appropriate service.
+  <div class="main-container">
+    <div class="hero">
+      <div class="team-badge">SFU Surge Hackathon 2026 • SDG 3 & 10</div>
+      <h1 id="heroHeadline">Right Patient → Right Care → Right Place → Right Time</h1>
+      <p id="heroSub">
+        A patient-centered companion for refugees, newcomers, older adults, and anyone new to BC healthcare. Not a diagnostic tool — a navigation and continuity assistant.
       </p>
-    </section>
+    </div>
 
-    <!-- Interactive Triage Card -->
-    <div class="navigator-card">
-      <div id="stepContainer">
-        <!-- Step 1 -->
-        <div id="step1">
-          <div class="question-title">Step 1: What type of health concern are you experiencing?</div>
-          <div class="question-desc">Select the category that best matches your primary symptom.</div>
-          <div class="options-grid">
-            <button class="option-btn" onclick="selectCategory('eye')">
-              <strong>👁️ Eye or Vision Problem</strong>
-              <span>Sudden vision changes, pain, redness, irritation</span>
-            </button>
-            <button class="option-btn" onclick="selectCategory('respiratory')">
-              <strong>🫁 Cold, Flu, or Breathing</strong>
-              <span>Cough, sore throat, congestion, shortness of breath</span>
-            </button>
-            <button class="option-btn" onclick="selectCategory('injury')">
-              <strong>🩹 Cuts, Sprains, or Minor Injury</strong>
-              <span>Twisted ankle, small cuts, minor burns, bruising</span>
-            </button>
-            <button class="option-btn" onclick="selectCategory('teeth')">
-              <strong>🦷 Toothache or Mouth Pain</strong>
-              <span>Swollen gums, broken tooth, persistent jaw pain</span>
-            </button>
-            <button class="option-btn" onclick="selectCategory('skin_meds')">
-              <strong>💊 Minor Ailments or Refills</strong>
-              <span>Skin rashes, UTI symptoms, prescription renewal</span>
-            </button>
-            <button class="option-btn" onclick="selectCategory('severe')">
-              <strong>🚨 Severe or Unbearable Pain</strong>
-              <span>Chest pressure, numbness, heavy bleeding, fainting</span>
-            </button>
+    <!-- 4-Pillar Tabs Navigation -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="openTab('navigate')">
+        <span>01</span>
+        🧭 Navigate
+      </button>
+      <button class="tab-btn" onclick="openTab('communicate')">
+        <span>02</span>
+        💬 Communicate
+      </button>
+      <button class="tab-btn" onclick="openTab('manage')">
+        <span>03</span>
+        💊 Manage
+      </button>
+      <button class="tab-btn" onclick="openTab('followup')">
+        <span>04</span>
+        📋 Follow Up
+      </button>
+    </div>
+
+    <!-- PILLAR 01: NAVIGATE -->
+    <div id="navigate" class="tab-content active">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">01 Navigate: Where should I go?</div>
+          <div class="panel-subtitle">Symptoms screened with red-flag checks first to find the right BC door.</div>
+        </div>
+
+        <div id="triageStep1">
+          <p style="font-weight: 600; margin-bottom: 0.75rem;">Select your primary symptom concern:</p>
+          <div class="grid-2">
+            <div class="choice-card" onclick="startTriage('eye')">
+              <strong>👁️ Eye Irritation or Swollen Eye</strong>
+              <small>Redness, pain, scratch feeling, sudden vision concern</small>
+            </div>
+            <div class="choice-card" onclick="startTriage('respiratory')">
+              <strong>🫁 Cough, Cold, or Sore Throat</strong>
+              <small>Fever, congestion, breathing symptoms</small>
+            </div>
+            <div class="choice-card" onclick="startTriage('sprain')">
+              <strong>🩹 Sprained Ankle, Fall, or Cut</strong>
+              <small>Swelling, limping, cuts that may need stitches</small>
+            </div>
+            <div class="choice-card" onclick="startTriage('skin_uti')">
+              <strong>💊 Rash, Pink Eye, or Minor Infection</strong>
+              <small>Uncomplicated UTI, eczema flair, cold sore</small>
+            </div>
           </div>
         </div>
 
-        <!-- Step 2 (Dynamic Questions) -->
-        <div id="step2" style="display: none;">
-          <div class="question-title" id="step2Title">Step 2: Check for red flags</div>
-          <div class="question-desc" id="step2Desc">Select the situation that best reflects your current state:</div>
-          <div class="options-grid" id="step2Options"></div>
+        <div id="triageStep2" style="display: none;">
+          <p id="triageQuestion" style="font-weight: 600; margin-bottom: 0.75rem;"></p>
+          <div id="triageOptions" class="grid-2"></div>
+        </div>
+
+        <div id="triageResult" style="display: none;" class="result-alert">
+          <h3 id="resDoorTitle" style="font-size: 1.3rem; margin-bottom: 0.35rem;"></h3>
+          <p id="resDoorBody" style="margin-bottom: 0.75rem; color: #334155;"></p>
+          <div class="wait-time-chip" id="resWaitTime">⏱️ Estimated wait: Checking...</div>
+          <div style="margin-top: 1rem;">
+            <button class="btn" onclick="moveToCommunicate()">Step 2: Prepare what to say to this provider →</button>
+            <button class="btn btn-secondary" onclick="resetTriage()" style="margin-left: 0.5rem;">Start Over</button>
+          </div>
         </div>
       </div>
 
-      <!-- Recommendation View -->
-      <div id="resultBox" class="result-box">
-        <span class="badge" id="resultBadge">Recommended Service</span>
-        <h3 id="resultTitle">Where You Should Go</h3>
-        <p id="resultExplanation"></p>
-        <ul class="action-checklist" id="resultChecklist"></ul>
-        <button class="btn-reset" onclick="resetNavigator()">Start Over / Check Another Symptom</button>
+      <!-- Quick BC Door Matrix -->
+      <div class="grid-2">
+        <div class="panel" style="margin-bottom: 0;">
+          <div class="panel-title" style="font-size: 1.05rem;">🏥 Urgent & Primary Care Centre (UPCC)</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">Same-day care for issues that need attention within 12–24 hours (sprains, stitches, ear infections) avoiding hospital ER lines.</p>
+        </div>
+        <div class="panel" style="margin-bottom: 0;">
+          <div class="panel-title" style="font-size: 1.05rem;">👁️ Optometrist & 💊 Pharmacy First</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">BC Optometrists treat urgent eye issues with slit-lamp microscopes. BC Pharmacists directly assess & prescribe for 21 minor ailments.</p>
+        </div>
       </div>
     </div>
 
-    <!-- Quick Reference Comparison -->
-    <h2 class="section-title">Understanding Canadian Care Options</h2>
-    <p class="section-desc">Know who to see and what to bring before you leave the house.</p>
+    <!-- PILLAR 02: COMMUNICATE -->
+    <div id="communicate" class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">02 Communicate: How do I explain it?</div>
+          <div class="panel-subtitle">Turns messy stories into a clear clinical summary and spoken script.</div>
+        </div>
 
-    <div class="guide-grid">
-      <div class="guide-card">
-        <h4>🚨 Emergency Room (ER)</h4>
-        <p>Open 24/7 for life- or limb-threatening conditions requiring advanced hospital care.</p>
-        <ul>
-          <li>Chest pain, stroke signs (FAST)</li>
-          <li>Severe shortness of breath</li>
-          <li>Deep wounds, major fractures</li>
-        </ul>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div>
+            <label style="font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.35rem;">
+              Describe what happened (in your primary language):
+            </label>
+            <textarea id="patientStory" style="width: 100%; height: 90px; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem;" placeholder="e.g. My right eye has been itchy for two days. Yesterday it woke up glued shut with crust and is very red."></textarea>
+
+            <label style="font-weight: 700; font-size: 0.9rem; display: block; margin: 0.75rem 0 0.35rem 0;">
+              Questions you don't want to forget to ask:
+            </label>
+            <input id="patientQuestion" type="text" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem;" placeholder="e.g. Is it contagious to my kids? Can I wear contact lenses?" />
+
+            <button class="btn" style="margin-top: 1rem;" onclick="generateClinicalHandoff()">Generate Doctor-Ready Summary</button>
+          </div>
+
+          <div>
+            <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">🗣️ Short Script to Say Aloud:</div>
+            <div class="script-box" id="spokenScript">
+              "Doctor, I am experiencing eye irritation that began 2 days ago. I am having discharge and redness, but my vision is normal."
+            </div>
+
+            <div style="font-weight: 700; font-size: 0.9rem; margin: 1rem 0 0.35rem 0;">📋 30-Second Clinician QR Handoff:</div>
+            <div class="qr-mock">
+              <span style="font-size: 2rem;">📱</span>
+              <strong>Scan Summary</strong>
+              <span>30-min secure share</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="guide-card">
-        <h4>🏥 Urgent & Primary Care (UPCC)</h4>
-        <p>Same-day care for non-life-threatening issues that need attention within 12–24 hours.</p>
-        <ul>
-          <li>Sprains, small cuts needing stitches</li>
-          <li>High fevers, ear infections</li>
-          <li>Non-emergency injuries</li>
-        </ul>
+    <!-- PILLAR 03: MANAGE -->
+    <div id="manage" class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">03 Manage: Am I taking it right?</div>
+          <div class="panel-subtitle">Snap the prescription label with AI confirmation — never modifies the doctor's order.</div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">Active Medication Plan</p>
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+              <strong style="color: var(--primary);">Ciprofloxacin Eye Drops 0.3%</strong>
+              <div style="font-size: 0.85rem; color: #475569; margin: 0.2rem 0;">1 drop in right eye every 4 hours for 5 days</div>
+              <div class="tag-list">
+                <span class="tag">Next dose: 6:00 PM</span>
+                <span class="tag">Finish full 5-day course</span>
+              </div>
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="logAdherence('Taken')">✓ Taken</button>
+                <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="logAdherence('Snoozed 30m')">⏱️ Later</button>
+              </div>
+            </div>
+            <div id="adherenceLog" style="font-size: 0.8rem; color: var(--success); font-weight: 600;"></div>
+          </div>
+
+          <div>
+            <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">AI Prescription Scanner Verification</p>
+            <div style="border: 2px dashed #94a3b8; border-radius: 8px; padding: 1.5rem; text-align: center; background: #fafafa;">
+              <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">📷</div>
+              <div style="font-size: 0.9rem; font-weight: 600;">Take a photo of your pill bottle or bottle box</div>
+              <small style="color: var(--text-muted); display: block; margin: 0.35rem 0 0.75rem 0;">AI reads dosage, timing, and refill counts for you to confirm.</small>
+              <button class="btn btn-secondary" onclick="simulateScan()">Simulate Prescription Scan</button>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="guide-card">
-        <h4>🩺 Walk-In Clinic / GP</h4>
-        <p>Best for ongoing or non-urgent general health needs and non-emergency checkups.</p>
-        <ul>
-          <li>Chronic issue follow-ups</li>
-          <li>Preventive screenings & checkups</li>
-          <li>Referrals to medical specialists</li>
-        </ul>
-      </div>
+    <!-- PILLAR 04: FOLLOW UP -->
+    <div id="followup" class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">04 Follow Up: Is it getting better?</div>
+          <div class="panel-subtitle">Better / Same / Worse check-ins to catch complications and prepare for follow-ups.</div>
+        </div>
 
-      <div class="guide-card">
-        <h4>💊 Community Pharmacy</h4>
-        <p>Pharmacists can directly assess and prescribe for minor ailments in many provinces.</p>
-        <ul>
-          <li>Uncomplicated UTIs & mild rashes</li>
-          <li>Pink eye & cold sores</li>
-          <li>Emergency medication renewals</li>
-        </ul>
-      </div>
+        <p style="font-weight: 700; font-size: 0.95rem;">Day 3 Check-In: Compared to Day 0, how does your condition feel?</p>
+        <div class="status-picker">
+          <button class="better" onclick="logStatus('Better')">🟢 Better (Redness fading)</button>
+          <button class="same" onclick="logStatus('Same')">🟡 Same (No change)</button>
+          <button class="worse" onclick="logStatus('Worse')">🔴 Worse (Vision blur / more pain)</button>
+        </div>
 
-      <div class="guide-card">
-        <h4>👁️ Optometrist Clinic</h4>
-        <p>Primary eye doctors equipped with specialized microscope slit lamps.</p>
-        <ul>
-          <li>Corneal scratches & pink eye</li>
-          <li>Foreign particle in the eye</li>
-          <li>Sudden floaters or eye irritation</li>
-        </ul>
-      </div>
+        <div id="followUpAlert" style="display: none;" class="result-alert"></div>
 
-      <div class="guide-card">
-        <h4>📞 HealthLink 8-1-1</h4>
-        <p>Free, 24/7 confidential helpline staffed by Registered Nurses and Pharmacists.</p>
-        <ul>
-          <li>Free translation in 130+ languages</li>
-          <li>Unsure where to go after hours</li>
-          <li>Medication questions</li>
-        </ul>
+        <div style="margin-top: 2rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 1rem;">Timeline & Continuity Record</h4>
+          <div class="timeline-item">
+            <strong>Day 3 Check-In</strong>
+            <p id="timelineStatus" style="font-size: 0.85rem; color: var(--text-muted);">Awaiting your check-in above.</p>
+          </div>
+          <div class="timeline-item">
+            <strong>Day 0: Optometrist Visit</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Assessed for bacterial conjunctivitis. Prescribed 5-day eye drops.</p>
+          </div>
+          <div class="timeline-item">
+            <strong>Day 0: Initial Triage</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Routed away from ER to local Optometrist clinic (Wait saved: ~4 hours).</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <footer>
-    <p><strong>Disclaimer:</strong> CareGuide is an informational navigation guide designed for newcomers and community members, not a certified diagnostic medical tool. When in doubt, dial <strong>8-1-1</strong> to speak with a Registered Nurse, or <strong>9-1-1</strong> for emergencies.</p>
-    <p style="margin-top: 0.5rem;">Built for StormHacks 2026</p>
+    <p><strong>CarePath BC</strong> • Patient Navigation & Continuity Platform • SFU Surge Hackathon 2026</p>
+    <p style="font-size: 0.75rem; margin-top: 0.35rem; color: #94a3b8;">
+      Not a diagnostic tool. In life-threatening emergencies, dial 9-1-1. For non-emergency nursing triage, dial 8-1-1.
+    </p>
   </footer>
 
   <script>
-    // Triage Decision Logic
-    const triageData = {
+    // Tab Switching
+    function openTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      if (tabId === 'navigate') buttons[0].classList.add('active');
+      if (tabId === 'communicate') buttons[1].classList.add('active');
+      if (tabId === 'manage') buttons[2].classList.add('active');
+      if (tabId === 'followup') buttons[3].classList.add('active');
+    }
+
+    // Triage Data
+    const triageScenarios = {
       eye: {
-        title: "Step 2: Are you experiencing any of these severe eye symptoms?",
-        desc: "Eye clinics are often faster and better equipped for routine eye issues than hospital ERs.",
+        question: "Red Flag Check: Are you experiencing sudden blindness, chemical splashes, or intense deep pain?",
         options: [
           {
-            text: "Severe trauma, chemical burn, or sudden complete blindness",
-            sub: "High risk to vision",
-            result: {
-              type: "urgent",
-              badge: "Emergency Department (ER)",
-              title: "Go to the Nearest Emergency Room Immediately",
-              desc: "Chemical splashes, severe physical trauma, or sudden total vision loss require immediate emergency hospital care.",
-              checklist: [
-                "Have someone drive you or call 9-1-1; do not drive yourself.",
-                "If chemical exposure: flush eyes with clean water immediately for 15+ minutes.",
-                "Bring your health card (or refugee/visitor papers) and current medication list."
-              ]
+            label: "Yes: Severe trauma, chemical burn, or loss of eyesight",
+            sub: "Requires emergency medical equipment",
+            res: {
+              door: "🚨 Go to Nearest Hospital Emergency Room (ER)",
+              desc: "Chemical injuries or sudden severe loss of sight require urgent hospital intervention.",
+              wait: "⏱️ Triage Category 2: Seen urgently",
+              type: "urgent"
             }
           },
           {
-            text: "Redness, scratchy feeling, mild irritation, or suspected pink eye",
-            sub: "No sudden vision loss",
-            result: {
-              type: "specialist",
-              badge: "Optometrist or Community Pharmacy",
-              title: "Visit a Local Optometrist or Pharmacist",
-              desc: "Optometrists have specialized slit-lamp microscopes that most ERs and walk-in clinics do not have. Many community pharmacies can also assess and prescribe medication for pink eye (conjunctivitis).",
-              checklist: [
-                "Search 'Optometrist near me' and call ahead for an urgent same-day slot.",
-                "If it looks like pink eye, visit a community pharmacist for direct assessment.",
-                "Do not wear contact lenses until your eyes have been evaluated."
-              ]
+            label: "No: Swollen eyelid, pink eye crust, mild scratch, or redness",
+            sub: "Vision remains intact",
+            res: {
+              door: "👁️ Primary Optometrist Clinic (or Pharmacy for Pink Eye)",
+              desc: "BC Optometrists have slit-lamp microscopes to treat corneal scratches and infections same-day, sparing you a 5+ hour ER wait.",
+              wait: "⏱️ Same-day slot / Under 45 mins",
+              type: "success"
             }
           }
         ]
       },
       respiratory: {
-        title: "Step 2: How severe are your breathing difficulties?",
-        desc: "Emergency care is reserved for severe airway compromise.",
+        question: "Red Flag Check: Are you struggling to catch your breath or are your lips turning blue?",
         options: [
           {
-            text: "Struggling to breathe, lips turning blue, severe chest tightness",
-            sub: "Life-threatening breathing distress",
-            result: {
-              type: "urgent",
-              badge: "Call 9-1-1 / Emergency Room",
-              title: "Seek Emergency Medical Attention Now",
-              desc: "Inability to breathe easily or catch your breath is an emergency that cannot wait for a clinic queue.",
-              checklist: [
-                "Call 9-1-1 or have someone take you to the nearest hospital ER.",
-                "Rest upright in a seated position to maximize airway airflow."
-              ]
+            label: "Yes: Severe difficulty breathing or heavy chest tightness",
+            sub: "Life-threatening airway compromise",
+            res: {
+              door: "🚨 Call 9-1-1 / Emergency Room",
+              desc: "Severe breathing compromise cannot wait. Paramedics can start airway treatment en route.",
+              wait: "⏱️ Triage Priority 1",
+              type: "urgent"
             }
           },
           {
-            text: "Mild-to-moderate cough, fever, runny nose, or sore throat (speaking comfortably)",
-            sub: "Stable breathing",
-            result: {
-              type: "priority",
-              badge: "UPCC or Walk-In Clinic / 8-1-1",
-              title: "Urgent Primary Care Centre (UPCC) or Walk-In Clinic",
-              desc: "Your symptoms can be assessed safely outside the hospital, avoiding 6+ hour ER queues.",
-              checklist: [
-                "Check UPCC or walk-in clinic intake hours in your neighborhood.",
-                "Call 8-1-1 (free) to speak with a Registered Nurse for home-care advice.",
-                "Wear a mask when entering the clinic to protect vulnerable patients."
-              ]
+            label: "No: Mild cough, fever, sore throat, or congestion",
+            sub: "Breathing is stable",
+            res: {
+              door: "🏥 Urgent & Primary Care Centre (UPCC) or Call 8-1-1",
+              desc: "A UPCC can assess fevers and throat swabs same-day without hospital admission.",
+              wait: "⏱️ Estimated UPCC Wait: 60–90 mins",
+              type: "warning"
             }
           }
         ]
       },
-      injury: {
-        title: "Step 2: Assess the injury severity",
-        desc: "Minor fractures and lacerations can often be stitched and X-rayed at an Urgent Care Centre.",
+      sprain: {
+        question: "Red Flag Check: Is bone puncturing the skin or is the limb completely numb/cold?",
         options: [
           {
-            text: "Bone piercing the skin, limb deformity, or uncontrolled spurting blood",
-            sub: "Major trauma",
-            result: {
-              type: "urgent",
-              badge: "Emergency Department",
-              title: "Go to the Nearest Emergency Department",
-              desc: "Open fractures and uncontrolled bleeding require immediate hospital intervention.",
-              checklist: [
-                "Apply direct, clean pressure to bleeding wounds.",
-                "Do not attempt to push bones or dislocated joints back into place."
-              ]
+            label: "Yes: Visible deformity or open wound over a fracture",
+            sub: "Surgical emergency",
+            res: {
+              door: "🚨 Hospital Emergency Room (ER)",
+              desc: "Compound fractures and compromised blood flow require hospital trauma team care.",
+              wait: "⏱️ Immediate triage intake",
+              type: "urgent"
             }
           },
           {
-            text: "Sprained ankle, suspected simple fracture, or shallow cut needing stitches",
-            sub: "Subacute injury (stable)",
-            result: {
-              type: "priority",
-              badge: "Urgent & Primary Care Centre (UPCC)",
-              title: "Visit an Urgent & Primary Care Centre (UPCC)",
-              desc: "UPCCs are equipped with suture trays and diagnostic imaging referrals, freeing emergency beds for life-threatening cases.",
-              checklist: [
-                "Arrive early in the day as UPCCs can reach capacity.",
-                "Bring photo ID and your provincial health number (or private visitor insurance).",
-                "Apply ice and keep elevated while travelling."
-              ]
+            label: "No: Twisted ankle, swollen wrist, or shallow cut needing stitches",
+            sub: "Stable injury",
+            res: {
+              door: "🏥 Urgent & Primary Care Centre (UPCC)",
+              desc: "UPCCs are equipped with digital X-ray and suture trays for fast casting and stitches.",
+              wait: "⏱️ Estimated UPCC Wait: 45–75 mins",
+              type: "success"
             }
           }
         ]
       },
-      teeth: {
-        title: "Step 2: Is your face or jaw swelling obstructing your airway?",
-        desc: "Hospitals do not have general dentists on staff for standard dental work.",
+      skin_uti: {
+        question: "Red Flag Check: Do you have facial swelling, throat tightness, or high fever with severe back pain?",
         options: [
           {
-            text: "Severe infection causing swelling in the throat or difficulty swallowing",
-            sub: "Risk of airway obstruction",
-            result: {
-              type: "urgent",
-              badge: "Emergency Department",
-              title: "Go to Emergency Care",
-              desc: "Dental abscesses that spread to the neck or throat can close the airway and become life-threatening.",
-              checklist: ["Head to the emergency room immediately."]
+            label: "Yes: Anaphylaxis signs or severe flank pain with shaking chills",
+            sub: "Acute systemic complication",
+            res: {
+              door: "🚨 Emergency Department",
+              desc: "Severe systemic infections or allergic reactions require immediate emergency monitoring.",
+              wait: "⏱️️ Urgent intake",
+              type: "urgent"
             }
           },
           {
-            text: "Toothache, chipped tooth, bleeding gums, or cavity discomfort",
-            sub: "Airway is completely clear",
-            result: {
-              type: "specialist",
-              badge: "Emergency Dentist",
-              title: "Contact an Emergency Dental Clinic",
-              desc: "Hospital emergency rooms cannot perform root canals, fillings, or tooth extractions. You need a licensed dentist.",
-              checklist: [
-                "Look up an emergency dental clinic in your area.",
-                "Ask if they accept the Canadian Dental Care Plan (CDCP) or interim dental coverage if applicable.",
-                "Use an over-the-counter pain reliever temporarily as directed by a pharmacist."
-              ]
-            }
-          }
-        ]
-      },
-      skin_meds: {
-        title: "Step 2: Are you experiencing a rapid allergic reaction?",
-        desc: "Pharmacists in Canada can prescribe for many common conditions directly.",
-        options: [
-          {
-            text: "Swelling of lips/tongue, throat closure, or hives after eating/medication",
-            sub: "Anaphylaxis risk",
-            result: {
-              type: "urgent",
-              badge: "Call 9-1-1 Immediately",
-              title: "Emergency Care (Possible Anaphylaxis)",
-              desc: "Use an epinephrine auto-injector (EpiPen) if available and call 9-1-1 immediately.",
-              checklist: ["Inject epinephrine into outer mid-thigh if available.", "Call 9-1-1 right away."]
-            }
-          },
-          {
-            text: "Mild rash, uncomplicated UTI, cold sores, or running out of routine meds",
-            sub: "Stable condition",
-            result: {
-              type: "routine",
-              badge: "Community Pharmacy",
-              title: "See Your Local Community Pharmacist",
-              desc: "In many Canadian provinces, pharmacists can prescribe medications for minor ailments (UTIs, eczema, cold sores) and renew chronic prescriptions without seeing a doctor first.",
-              checklist: [
-                "Walk into any community pharmacy (Shoppers, Rexall, local pharmacy).",
-                "Bring your old pill bottles or health card.",
-                "Consultation is free with provincial health coverage."
-              ]
-            }
-          }
-        ]
-      },
-      severe: {
-        title: "Step 2: Confirmation of emergency",
-        desc: "Chest pressure, signs of stroke, or sudden numbness are critical emergencies.",
-        options: [
-          {
-            text: "Chest pain, arm weakness, facial drooping, or confusion",
-            sub: "Critical signs",
-            result: {
-              type: "urgent",
-              badge: "Call 9-1-1 Now",
-              title: "Call 9-1-1 for Paramedic Dispatch",
-              desc: "Paramedics begin cardiac and stroke treatment in the ambulance before you arrive at the hospital.",
-              checklist: [
-                "Call 9-1-1 immediately.",
-                "Unlock your front door so emergency responders can enter.",
-                "Chew an aspirin if recommended by the 9-1-1 dispatcher for cardiac signs."
-              ]
+            label: "No: Uncomplicated UTI symptoms, mild skin rash, cold sores, or eczema",
+            sub: "Standard minor condition",
+            res: {
+              door: "💊 Community Pharmacy (Prescribing Pharmacist)",
+              desc: "In British Columbia, community pharmacists can directly assess and prescribe medications for 21 minor ailments with your BC Services card.",
+              wait: "⏱️ Walk-in: 10–20 mins",
+              type: "success"
             }
           }
         ]
       }
     };
 
-    function selectCategory(categoryKey) {
-      const data = triageData[categoryKey];
-      if (!data) return;
+    function startTriage(category) {
+      const data = triageScenarios[category];
+      document.getElementById('triageStep1').style.display = 'none';
+      document.getElementById('triageStep2').style.display = 'block';
+      document.getElementById('triageQuestion').textContent = data.question;
 
-      document.getElementById('step1').style.display = 'none';
-      document.getElementById('step2').style.display = 'block';
-
-      document.getElementById('step2Title').textContent = data.title;
-      document.getElementById('step2Desc').textContent = data.desc;
-
-      const optionsContainer = document.getElementById('step2Options');
-      optionsContainer.innerHTML = '';
+      const optsContainer = document.getElementById('triageOptions');
+      optsContainer.innerHTML = '';
 
       data.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<strong>${opt.text}</strong><span>${opt.sub}</span>`;
-        btn.onclick = () => showResult(opt.result);
-        optionsContainer.appendChild(btn);
+        const btn = document.createElement('div');
+        btn.className = 'choice-card';
+        btn.innerHTML = `<strong>${opt.label}</strong><small>${opt.sub}</small>`;
+        btn.onclick = () => renderTriageResult(opt.res);
+        optsContainer.appendChild(btn);
       });
     }
 
-    function showResult(result) {
-      document.getElementById('stepContainer').style.display = 'none';
-      const box = document.getElementById('resultBox');
-      box.className = `result-box ${result.type}`;
+    function renderTriageResult(res) {
+      document.getElementById('triageStep2').style.display = 'none';
+      const box = document.getElementById('triageResult');
+      box.className = `result-alert ${res.type}`;
       box.style.display = 'block';
 
-      const badge = document.getElementById('resultBadge');
-      badge.textContent = result.badge;
-      badge.className = `badge badge-${result.type === 'urgent' ? 'danger' : result.type === 'priority' ? 'warning' : result.type === 'routine' ? 'success' : 'info'}`;
-
-      document.getElementById('resultTitle').textContent = result.title;
-      document.getElementById('resultExplanation').textContent = result.desc;
-
-      const list = document.getElementById('resultChecklist');
-      list.innerHTML = '';
-      result.checklist.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = '✓ ' + item;
-        list.appendChild(li);
-      });
+      document.getElementById('resDoorTitle').textContent = res.door;
+      document.getElementById('resDoorBody').textContent = res.desc;
+      document.getElementById('resWaitTime').textContent = res.wait;
     }
 
-    function resetNavigator() {
-      document.getElementById('resultBox').style.display = 'none';
-      document.getElementById('step2').style.display = 'none';
-      document.getElementById('step1').style.display = 'block';
-      document.getElementById('stepContainer').style.display = 'block';
+    function resetTriage() {
+      document.getElementById('triageResult').style.display = 'none';
+      document.getElementById('triageStep2').style.display = 'none';
+      document.getElementById('triageStep1').style.display = 'block';
     }
 
-    // Multilingual Translations
-    const translations = {
+    function moveToCommunicate() {
+      openTab('communicate');
+    }
+
+    // Pillar 2: Clinical Summary Generator
+    function generateClinicalHandoff() {
+      const story = document.getElementById('patientStory').value || "Swollen, crusty right eye for 2 days.";
+      const question = document.getElementById('patientQuestion').value || "Can I transmit this to family?";
+
+      document.getElementById('spokenScript').textContent = 
+        `"Doctor, here is what I am experiencing: ${story} My main question today is: ${question}"`;
+      alert("Doctor-ready clinical handoff summary updated!");
+    }
+
+    // Pillar 3: Manage
+    function logAdherence(status) {
+      const log = document.getElementById('adherenceLog');
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      log.textContent = `✓ Dose recorded as ${status} at ${time}. Adherence: 100% on track.`;
+    }
+
+    function simulateScan() {
+      alert("AI Label Scan Complete:\n• Drug: Ciprofloxacin 0.3% Opht Sol\n• Dosage: 1 drop Q4H (Right Eye)\n• Duration: 5 Days\n• Refills: 0\nSchedule verified with clinician order!");
+    }
+
+    // Pillar 4: Follow Up Check In
+    function logStatus(status) {
+      const alertBox = document.getElementById('followUpAlert');
+      alertBox.style.display = 'block';
+
+      if (status === 'Better') {
+        alertBox.className = 'result-alert success';
+        alertBox.innerHTML = `<strong>🟢 Recovery on track!</strong> Keep finishing your prescribed eye drop course to prevent bacterial rebound.`;
+        document.getElementById('timelineStatus').textContent = "Patient reported symptoms improving. Continuing full 5-day course.";
+      } else if (status === 'Same') {
+        alertBox.className = 'result-alert warning';
+        alertBox.innerHTML = `<strong>🟡 No change detected.</strong> If symptoms do not improve after 48 more hours, return to the clinic for a second look.`;
+        document.getElementById('timelineStatus').textContent = "Symptoms stable; monitoring for another 48 hours.";
+      } else {
+        alertBox.className = 'result-alert urgent';
+        alertBox.innerHTML = `<strong>🔴 Condition worsening!</strong> Re-routing: Please return to an Urgent Care Centre or Optometrist clinic for re-evaluation.`;
+        document.getElementById('timelineStatus').textContent = "Condition worse. Re-routed to provider for evaluation.";
+      }
+    }
+
+    // Multilingual Translations for Header/Hero
+    const langData = {
       en: {
-        banner: "⚠️ Immediate Life-Threatening Emergency? Call 9-1-1 or visit the nearest Hospital Emergency Department right away.",
-        heroTitle: "Find the Right Care, Without the Guesswork",
-        heroDesc: "Unsure whether you should visit the ER, an Urgent Care Centre (UPCC), a walk-in clinic, or your local pharmacist? Answer three short questions to get directed to the most appropriate service."
+        headline: "Right Patient → Right Care → Right Place → Right Time",
+        sub: "A patient-centered companion for refugees, newcomers, older adults, and anyone new to BC healthcare. Not a diagnostic tool — a navigation and continuity assistant."
       },
       fr: {
-        banner: "⚠️ Urgence vitale immédiate ? Composez le 9-1-1 ou rendez-vous directement aux urgences hospitalières.",
-        heroTitle: "Trouvez les soins appropriés, en toute simplicité",
-        heroDesc: "Vous hésitez entre l'urgence hospitalière, une clinique de soins sans rendez-vous ou votre pharmacien ? Répondez à quelques questions pour être orienté."
+        headline: "Le bon patient → Les bons soins → Le bon endroit → Au bon moment",
+        sub: "Un compagnon de santé pour les réfugiés, nouveaux arrivants et aînés en Colombie-Britannique. Outil d'orientation et de continuité."
       },
       pa: {
-        banner: "⚠️ ਕੀ ਇਹ ਇੱਕ ਗੰਭੀਰ ਐਮਰਜੈਂਸੀ ਹੈ? ਤੁਰੰਤ 9-1-1 'ਤੇ ਕਾਲ ਕਰੋ ਜਾਂ ਨਜ਼ਦੀਕੀ ਐਮਰਜੈਂਸੀ ਰੂਮ ਜਾਓ।",
-        heroTitle: "ਆਪਣੀ ਸਿਹਤ ਸਮੱਸਿਆ ਲਈ ਸਹੀ ਦੇਖਭਾਲ ਚੁਣੋ",
-        heroDesc: "ਕੀ ਤੁਹਾਨੂੰ ਐਮਰਜੈਂਸੀ, ਵਾਕ-ਇਨ ਕਲੀਨਿਕ ਜਾਂ ਫਾਰਮੇਸੀ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ? ਸਹੀ ਥਾਂ ਜਾਣਨ ਲਈ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿਓ।"
+        headline: "ਸਹੀ ਮਰੀਜ਼ → ਸਹੀ ਦੇਖਭਾਲ → ਸਹੀ ਥਾਂ → ਸਹੀ ਸਮਾਂ",
+        sub: "ਸ਼ਰਨਾਰਥੀਆਂ, ਨਵੇਂ ਆਏ ਲੋਕਾਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਬੀਸੀ ਹੈਲਥਕੇਅਰ ਨੇਵੀਗੇਟਰ। ਨੈਵੀਗੇਸ਼ਨ ਅਤੇ ਦੇਖਭਾਲ ਦਾ ਸਹਿਯੋਗੀ ਸਾਧਨ।"
       },
       zh: {
-        banner: "⚠️ 如果出现危及生命的严重紧急情况，请立即拨打 9-1-1 或前往最近的医院急诊室。",
-        heroTitle: "准确找到适合您的加拿大医疗服务",
-        heroDesc: "不确定应该去急诊室、紧急初级诊所（UPCC）、免预约诊所还是咨询药剂师？回答简单问题即可获取建议。"
+        headline: "合适患者 → 适宜护理 → 正确机构 → 适当时机",
+        sub: "为难民、新移民、长者及不熟悉BC省医疗体系的人群提供全流程就医导航与延续关怀。"
       }
     };
 
     document.getElementById('langSelect').addEventListener('change', (e) => {
-      const lang = e.target.value;
-      if (translations[lang]) {
-        document.getElementById('bannerText').textContent = translations[lang].banner;
-        document.getElementById('heroTitle').textContent = translations[lang].heroTitle;
-        document.getElementById('heroDesc').textContent = translations[lang].heroDesc;
-      }
+      const selected = langData[e.target.value] || langData['en'];
+      document.getElementById('heroHeadline').textContent = selected.headline;
+      document.getElementById('heroSub').textContent = selected.sub;
     });
   </script>
 </body>
