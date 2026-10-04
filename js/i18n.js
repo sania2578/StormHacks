@@ -15,8 +15,198 @@ fuWorseSub: "Symptoms are getting worse",},
  pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",t2h:"ਆਪਣੀ ਸਮੱਸਿਆ ਸਪਸ਼ਟ ਤਰੀਕੇ ਨਾਲ ਦੱਸੋ",t3h:"ਆਪਣੀਆਂ ਦਵਾਈਆਂ ਦਾ ਰਿਕਾਰਡ ਰੱਖੋ",t4h:"ਕੀ ਹੁਣ ਸੁਧਾਰ ਹੈ?",foot:"ਇਹ ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ ਹੈ। ਐਮਰਜੈਂਸੀ: 9-1-1। ਨਰਸ: 8-1-1। ਸੰਕਟ: 9-8-8।",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ",next:"ਕੀ ਕਹਿਣਾ ਹੈ ਤਿਆਰ ਕਰੋ",anyflag:"ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਐਮਰਜੈਂਸੀ ਹੋ ਸਕਦੀ ਹੈ",chooseList:"ਸੂਚੀ ਵਿਚੋਂ ਚੁਣੋ ਜਾਂ ਸੱਜੇ ਪਾਸੇ ਸਰੀਰ ਗਾਈਡ ਵਰਤੋ।",bodyTitle:"ਸਰੀਰ ਦੇ ਕਿਹੜੇ ਹਿੱਸੇ ਵਿੱਚ ਸਮੱਸਿਆ ਹੈ?",bodySub:"ਤੇਜ਼ ਰਾਹ ਲਈ ਸਰੀਰ ਦੇ ਹਿੱਸੇ 'ਤੇ ਟੈਪ ਕਰੋ।",closest:"ਕਿਹੜਾ ਸਭ ਤੋਂ ਨੇੜੇ ਹੈ?",closestSub:"ਉਹ ਸਮੱਸਿਆ ਚੁਣੋ ਜੋ ਤੁਹਾਡੇ ਲੱਛਣਾਂ ਨਾਲ ਸਭ ਤੋਂ ਵੱਧ ਮਿਲਦੀ ਹੈ।",notListed:"ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ? ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ",notListedSub:"ਆਪਣੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਦੱਸੋ ਕਿ ਕੀ ਹੋ ਰਿਹਾ ਹੈ।"},
  zh:{sos:"胸痛、中风症状、呼吸困难、大量出血？",h1:"从第一个症状到下一次复诊。",sub:"为新移民、难民、长者和不熟悉BC省医疗体系的人提供指引。帮助您选择去哪里就医，不做诊断。",t1:"导航",t2:"沟通",t3:"用药",t4:"跟进",t2h:"清楚地向医疗人员说明情况",t3h:"管理您的药物",t4h:"情况有好转吗？",foot:"非医疗建议。紧急情况请拨打9-1-1，护士咨询8-1-1，心理危机9-8-8。",q0:"您现在是否有以下情况？",none:"都没有，继续",pick:"您主要的问题是什么？",back:"重新开始",best:"最适合前往的地方",alt:"其他选择",worse:"出现以下情况请去急诊或拨打9-1-1",next:"准备如何说明情况",anyflag:"以下任一情况都需要紧急处理",chooseList:"从列表中选择，或使用右侧身体指引。",bodyTitle:"哪里感觉不舒服？",bodySub:"点击身体部位以更快找到选项。",closest:"哪个最接近？",closestSub:"请选择最符合您症状的问题。",notListed:"没有列出？开始对话",notListedSub:"用您自己的话描述发生了什么。"},
  ar:{sos:"ألم في الصدر، علامات سكتة، صعوبة في التنفس، نزيف شديد؟",h1:"من أول عَرَض إلى المتابعة التالية.",sub:"دليل للوافدين الجدد واللاجئين وكبار السن. يساعدك على اختيار المكان المناسب ولا يقدّم تشخيصًا.",t1:"التوجيه",t2:"التواصل",t3:"الدواء",t4:"المتابعة",t2h:"اشرح مشكلتك بوضوح لمقدم الرعاية",t3h:"تتبّع أدويتك",t4h:"هل تتحسن الحالة؟",foot:"ليست نصيحة طبية. الطوارئ: 9-1-1. الممرضة: 8-1-1. خط الأزمات: 9-8-8.",q0:"هل ينطبق عليك أي مما يلي الآن؟",none:"لا شيء. تابع",pick:"ما مشكلتك الرئيسية؟",back:"ابدأ من جديد",best:"أفضل مكان للذهاب",alt:"خيارات أخرى",worse:"اذهب إلى الطوارئ أو اتصل بـ 9-1-1 إذا",next:"حضّر ما ستقوله",anyflag:"أي من هذه العلامات قد تحتاج إلى رعاية طارئة",chooseList:"اختر من القائمة أو استخدم دليل الجسم على اليمين.",bodyTitle:"أين تشعر بالمشكلة؟",bodySub:"اضغط على منطقة من الجسم للوصول بشكل أسرع.",closest:"أي خيار هو الأقرب؟",closestSub:"اختر المشكلة الأقرب إلى الأعراض التي تشعر بها.",notListed:"غير موجود في القائمة؟ ابدأ محادثة",notListedSub:"صف ما يحدث بكلماتك الخاصة."},
- tl:{sos:"Pananakit ng dibdib, senyales ng stroke, hirap huminga, matinding pagdurugo?",h1:"Mula unang sintomas hanggang susunod na follow-up.",sub:"Gabay para sa mga bagong dating, refugee, at nakatatanda sa BC. Tinutulungan kang pumili kung saan pupunta. Hindi ito diagnosis.",t1:"Gabay",t2:"Magpaliwanag",t3:"Gamot",t4:"Follow-up",t2h:"Ipaliwanag nang malinaw sa iyong provider",t3h:"Subaybayan ang iyong gamot",t4h:"Gumagaling ba?",foot:"Hindi ito medikal na payo. Emergency: 9-1-1. Nurse: 8-1-1. Crisis: 9-8-8.",q0:"May alinman ba dito ngayon?",none:"Wala. Magpatuloy",pick:"Ano ang pangunahing problema mo?",back:"Magsimula ulit",best:"Pinakamainam na puntahan",alt:"Iba pang opsyon",worse:"Pumunta sa ER o tumawag sa 9-1-1 kung",next:"Ihanda ang sasabihin",anyflag:"Alinman dito ay maaaring mangailangan ng emergency care",chooseList:"Pumili sa listahan o gamitin ang body guide sa kanan.",bodyTitle:"Saan masama ang pakiramdam?",bodySub:"I-tap ang bahagi ng katawan para sa mas mabilis na ruta.",closest:"Alin ang pinakamalapit?",closestSub:"Piliin ang problemang pinakamalapit sa iyong nararamdaman.",notListed:"Wala sa listahan? Magsimula ng usapan",notListedSub:"Ilarawan sa sarili mong salita kung ano ang nangyayari."},
+tl: {
+  sos: "May pananakit ng dibdib, senyales ng stroke, matinding hirap sa paghinga, o pagdurugong hindi tumitigil?",
 
+  h1: "Mula sa unang sintomas hanggang sa susunod na follow-up.",
+
+  sub: "Gabay para sa mga bagong dating, refugee, nakatatanda, at sinumang hindi pamilyar sa sistema ng pangangalagang pangkalusugan sa BC.\nTinutulungan ka nitong malaman kung saan dapat pumunta, ngunit hindi ito nagbibigay ng diagnosis.",
+
+  t1: "Maghanap ng pangangalaga",
+  t2: "Ihanda ang sasabihin",
+  t3: "Pamahalaan ang gamot",
+  t4: "Follow-up",
+
+  t2h: "Ipaliwanag nang malinaw ang iyong sintomas sa healthcare provider",
+  t3h: "Subaybayan ang iyong mga gamot",
+  t4h: "Gumagaling ba ang iyong pakiramdam?",
+
+  foot: "Hindi ito kapalit ng medikal na payo o diagnosis. Emergency: 9-1-1. Payo mula sa nurse: 8-1-1. Crisis support: 9-8-8.",
+
+  q0: "Mayroon ka ba ngayon ng alinman sa mga sumusunod?",
+
+  none: "Wala sa mga ito. Magpatuloy",
+
+  pick: "Ano ang pangunahing problema mo?",
+
+  back: "Magsimula muli",
+
+  best: "Pinakaangkop na lugar para humingi ng pangangalaga",
+
+  alt: "Iba pang mga opsyon",
+
+  worse: "Pumunta sa emergency department o tumawag sa 9-1-1 kung",
+
+  next: "Ihanda ang sasabihin sa healthcare provider",
+
+  anyflag: "Maaaring kailanganin ng agarang pangangalaga kung mayroon kang alinman sa mga ito",
+
+  chooseList: "Pumili mula sa listahan o gamitin ang larawan ng katawan sa kanan.",
+
+  bodyTitle: "Saan mo nararamdaman ang problema?",
+
+  bodySub: "Pindutin ang bahagi ng katawan para mas mabilis makahanap ng tamang opsyon.",
+
+  closest: "Alin ang pinakamalapit sa nararamdaman mo?",
+
+  closestSub: "Piliin ang opsyong pinakamalapit sa iyong kasalukuyang sintomas.",
+
+  notListed: "Wala sa listahan? Magtanong sa chat",
+
+  notListedSub: "Ilarawan sa sarili mong salita kung ano ang nangyayari.",
+
+  chooseAny: "Piliin ang lahat ng naaangkop.",
+
+  selectOneFirst: "Pumili muna ng kahit isang opsyon.",
+
+  flagChest: "Pananakit o paninikip ng dibdib",
+
+  flagStroke: "Paglaylay ng mukha, panghihina ng braso, o malabong pananalita",
+
+  flagBreathing: "Matinding hirap sa paghinga",
+
+  flagBleeding: "Pagdurugong hindi tumitigil",
+
+  flagSeizure: "Pangingisay o pagkawala ng malay",
+
+  flagHarm: "Pag-iisip na saktan ang sarili o ibang tao",
+
+  chatTitle: "💬 Magtanong gamit ang sarili mong wika",
+
+  chatBefore: "Bago simulan ang chat",
+
+  chatConsent: "Ipinapadala ang iyong mga mensahe sa isang AI service upang makakuha ng sagot. Huwag ilagay ang iyong pangalan, address, o health card number. Huwag gamitin ang chat na ito sa emergency—tumawag sa 9-1-1.",
+
+  chatStart: "Nauunawaan ko. Simulan ang chat",
+
+  chatPlaceholder: "Ilarawan ang iyong mga sintomas…",
+
+  chatSend: "Ipadala",
+
+  chatNote: "Tinutulungan kang malaman kung saan dapat pumunta. Hindi ito nagbibigay ng diagnosis.",
+
+  chatHintNavigate: "Ilarawan ang iyong mga sintomas…",
+
+  chatHintCommunicate: "Magtanong kung paano ipapaliwanag ang problema sa healthcare provider…",
+
+  chatHintManage: "Magtanong tungkol sa iyong mga gamot…",
+
+  chatHintFollowup: "Sabihin kung ano ang pakiramdam mo ngayon…",
+
+  commIntro: "Punan ang anumang alam mo. Ang iyong summary ay mananatili sa browser na ito.",
+
+  commWhere: "Saan ka pupunta para magpagamot?",
+
+  commWherePlaceholder: "Halimbawa: optometrist",
+
+  commStory: "Ano ang nangyayari?",
+
+  commStoryPlaceholder: "Halimbawa: Namumula ang kanang mata ko at may discharge.",
+
+  commStart: "Kailan ito nagsimula?",
+
+  commToday: "Ngayon",
+
+  comm1to2: "1–2 araw na ang nakalipas",
+
+  comm3to7: "3–7 araw na ang nakalipas",
+
+  commWeekPlus: "Mahigit isang linggo na",
+
+  commSeverity: "Gaano kalala ang sintomas?",
+
+  commMeds: "Mga gamot at allergy",
+
+  commMedsPlaceholder: "Halimbawa: allergic sa penicillin; umiinom ng metformin",
+
+  commQuestions: "Mga tanong na ayaw kong makalimutan",
+
+  commQuestionsPlaceholder: "Halimbawa: Nakakahawa ba ito? Maaari ba akong magsuot ng contact lens?",
+
+  commInterpreter: "Kailangan ba ng interpreter?",
+
+  commInterpreterPlaceholder: "Halimbawa: Tagalog",
+
+  commMakeSummary: "Gumawa ng summary para sa healthcare provider",
+
+  commProviderSummary: "Summary para sa healthcare provider",
+
+  commSummaryEmpty: "Lalabas dito ang iyong summary.",
+
+  commSayAloud: "Maaari mong sabihin ito sa healthcare provider",
+
+  commCopy: "Kopyahin",
+
+  commPrint: "I-print",
+
+  medIntro: "Ilagay ang nakasulat sa label ng gamot. Hindi binabago ng feature na ito ang tagubilin ng iyong doktor o pharmacist.",
+
+  medName: "Pangalan ng gamot",
+
+  medNamePlaceholder: "Halimbawa: Ciprofloxacin 0.3% eye drops",
+
+  medDose: "Paano ito gamitin o inumin",
+
+  medDosePlaceholder: "Halimbawa: 1 patak sa kanang mata kada 4 na oras sa loob ng 5 araw",
+
+  medAdd: "Magdagdag ng gamot",
+
+  medEmpty: "Wala pang gamot na naidagdag.",
+
+  medTaken: "Nainom na",
+
+  medSkip: "Laktawan",
+
+  medLater: "Mamaya",
+
+  medTakenLog: "Nainom",
+
+  medSkippedLog: "Nilaktawan",
+
+  medLaterLog: "Inumin mamaya",
+
+  medAt: "Oras",
+
+  medPhotoTitle: "Basahin ang label gamit ang larawan (planado)",
+
+  medPhotoDesc: "Kunan ng larawan ang label, babasahin ito ng AI, at kukumpirmahin mo ang impormasyon. Kailangan nito ng image recognition kaya hindi pa ito available.",
+
+  nearbyTitle: "Pangangalagang malapit sa iyo",
+
+  nearbyDesc: "Gamitin ang iyong lokasyon upang makahanap ng malalapit na healthcare provider at maikumpara ang distansya at kung bukas sila.",
+
+  nearbyButton: "Maghanap ng pangangalaga sa malapit",
+
+  nearestERButton: "Hanapin ang pinakamalapit na emergency department",
+
+  waitTimeNote: "Maaaring magbago ang oras ng paghihintay depende sa araw at lokasyon. Nagpapakita lamang ang CarePath ng beripikadong impormasyon tungkol sa wait time kapag available. Kung hindi mo alam kung saan pupunta, tumawag sa 8-1-1. Hindi nagbibigay ng diagnosis ang tool na ito.",
+
+  fuIntro: "Mag-check in isang beses bawat araw. Ang iyong mga sagot ay ise-save sa device na ito.",
+
+  fuBetter: "Mas mabuti ang pakiramdam",
+
+  fuBetterSub: "Gumagaling ang mga sintomas",
+
+  fuSame: "Pareho pa rin",
+
+  fuSameSub: "Walang malaking pagbabago",
+
+  fuWorse: "Mas masama ang pakiramdam",
+
+  fuWorseSub: "Lumalala ang mga sintomas",
+
+  fuTimeline: "Kasaysayan ng sintomas"
+},
 ko: {
   sos: "가슴 통증, 뇌졸중 징후, 심한 호흡곤란, 멈추지 않는 출혈이 있나요?",
 
@@ -1594,6 +1784,363 @@ ru: {
     worse: [
       "Возникает тяжёлая реакция на лекарство",
       "Из-за рвоты невозможно принимать лекарство"
+    ]
+  }
+
+},
+tl: {
+
+  eye: {
+    name: "Problema sa mata",
+    hint: "Namumula, namamaga, masakit, o may discharge ang mata",
+
+    flags: [
+      "Biglaang pagkawala o matinding pagbabago ng paningin",
+      "May kemikal na pumasok sa mata",
+      "May bagay na nakapasok sa mata o may pinsala sa mata",
+      "Matinding pananakit ng mata na may pagduduwal o pagsusuka"
+    ],
+
+    best: "Optometrist (same-day kung available; tumawag muna)",
+
+    why: "Maaaring suriin ng mga optometrist sa BC ang agarang problema sa mata gaya ng impeksiyon at gasgas sa cornea. Marami ang tumatanggap ng same-day appointments. Maaaring mag-iba ang coverage, kaya magtanong kapag tumawag.",
+
+    alt: [
+      "Pharmacist para sa ilang banayad na problema sa mata gaya ng conjunctivitis",
+      "UPCC kung hindi makapagpatingin sa optometrist",
+      "Tumawag sa 8-1-1 para sa payo ng nurse"
+    ],
+
+    worse: [
+      "Lumalabo o humihina ang paningin",
+      "Lumalala ang pananakit",
+      "Lalong namamaga ang talukap o kumakalat ang pamumula sa mukha"
+    ]
+  },
+
+  cold: {
+    name: "Ubo, sipon, lagnat",
+    hint: "Masakit na lalamunan, baradong ilong, banayad na lagnat",
+
+    flags: [
+      "Matinding hirap sa paghinga o nangingitim/nangingasul ang labi",
+      "May lagnat ang sanggol na wala pang 3 buwan",
+      "Nalilito o napakahirap gisingin",
+      "Tumatagal nang higit sa 3 araw ang lagnat o hindi bumababa"
+    ],
+
+    best: "Pharmacist o family doctor / walk-in clinic",
+
+    why: "Karamihan ng sipon at sore throat ay maaaring masuri sa community care. Makakatulong ang pharmacist sa pag-manage ng sintomas at pagsabi kung kailan kailangang magpatingin sa doktor.",
+
+    alt: [
+      "Tumawag sa 8-1-1 para sa payo ng nurse",
+      "UPCC o walk-in clinic kung kailangan ng same-day assessment",
+      "Virtual care sa telepono o video"
+    ],
+
+    worse: [
+      "Lalong nahihirapang huminga",
+      "Sumasakit ang dibdib kapag humihinga",
+      "Hindi makainom o mapanatili ang fluids sa loob ng isang araw"
+    ]
+  },
+
+  injury: {
+    name: "Pilay, pagkahulog, o sugat",
+    hint: "Pamamaga, pagkapilay, o sugat na maaaring kailanganing tahiin",
+
+    flags: [
+      "Malakas na pagdurugo na hindi tumitigil",
+      "Nakikita ang buto o malinaw na deformity",
+      "Nagbago ang kamalayan pagkatapos ng head injury",
+      "Hindi maigalaw ang braso o binti"
+    ],
+
+    best: "Walk-in clinic o UPCC",
+
+    why: "Ang banayad na pilay, pagkahulog, at sugat ay maaaring masuri sa community care. Maaari rin nilang malaman kung kailangan ng tahi o X-ray.",
+
+    alt: [
+      "Family doctor",
+      "Pharmacist para sa payo tungkol sa pain relief",
+      "8-1-1 para sa payo ng nurse"
+    ],
+
+    worse: [
+      "Mabilis na lumalala ang sakit o pamamaga",
+      "Namamanhid o nanlalamig ang braso o binti",
+      "Patuloy ang pagdurugo"
+    ]
+  },
+
+  skin: {
+    name: "Pantal, masakit na pag-ihi, o banayad na impeksiyon",
+    hint: "Simpleng UTI, eczema, cold sore",
+
+    flags: [
+      "Mabilis kumalat ang pulang pantal at may mataas na lagnat",
+      "Namamaga ang mukha o lalamunan at nahihirapang huminga",
+      "Mabilis kumakalat ang matinding sakit o mga paltos"
+    ],
+
+    best: "Pharmacist o walk-in clinic",
+
+    why: "Sa BC, maaaring suriin at gamutin ng pharmacist ang ilang minor ailments. Maaaring kailangan ng doktor kung komplikado o malala ang mga sintomas.",
+
+    alt: [
+      "Family doctor",
+      "UPCC",
+      "8-1-1 para sa payo ng nurse"
+    ],
+
+    worse: [
+      "Nagkakaroon ng mataas na lagnat",
+      "Mabilis kumakalat ang pamumula",
+      "Nagkakaroon ng matinding sakit o pamamaga"
+    ]
+  },
+
+  dental: {
+    name: "Sakit ng ngipin o bibig",
+    hint: "Masakit na ngipin, sirang ngipin, namamagang gilagid",
+
+    flags: [
+      "Matinding pamamaga ng mukha o lalamunan at hirap sa paghinga",
+      "Nahihirapang lumunok o hindi malunok ang laway",
+      "May dental infection na may mataas na lagnat o matinding panghihina"
+    ],
+
+    best: "Dentist",
+
+    why: "Maaaring tukuyin ng dentist ang sanhi ng sakit ng ngipin, sirang ngipin, o namamagang gilagid at magbigay ng kinakailangang paggamot.",
+
+    alt: [
+      "Pharmacist para sa pansamantalang payo sa pain relief",
+      "UPCC o emergency department kung malubha ang impeksiyon",
+      "Tumawag sa 8-1-1 kung hindi sigurado"
+    ],
+
+    worse: [
+      "Kumakalat ang pamamaga papunta sa leeg o paligid ng mata",
+      "Nahihirapang huminga o lumunok",
+      "Nagkakalagnat at mabilis lumalala ang pakiramdam"
+    ]
+  },
+
+  stomach: {
+    name: "Problema sa tiyan / abdomen",
+    hint: "Pananakit ng tiyan, pagsusuka, diarrhea, constipation",
+
+    flags: [
+      "Matindi o lumalalang pananakit ng tiyan",
+      "Pagsusuka ng dugo o maitim na dumi",
+      "Hindi makapanatili ng fluids at parang mahihimatay",
+      "Buntis at may matinding pananakit ng tiyan o malakas na pagdurugo"
+    ],
+
+    best: "Family doctor / walk-in clinic o UPCC",
+
+    why: "Karamihan ng hindi emergency na problema sa tiyan ay maaaring magsimula sa primary o urgent care. Ang matinding sakit, dehydration, o pagdurugo ay nangangailangan ng mas agarang assessment.",
+
+    alt: [
+      "Pharmacist para sa banayad na sintomas",
+      "Tumawag sa 8-1-1 kung hindi sigurado",
+      "Emergency department kung biglaan o matindi ang sakit, may pagdurugo, o nahihimatay"
+    ],
+
+    worse: [
+      "Nagiging matindi o nakapokus sa isang lugar ang sakit",
+      "Nade-dehydrate o nahihimatay",
+      "May dugo sa suka o dumi"
+    ]
+  },
+
+  neuro: {
+    name: "Sakit ng ulo / pagkahilo",
+    hint: "Headache, vertigo, lightheadedness, pakiramdam na mahihimatay",
+
+    flags: [
+      "Biglaang pinakamatinding sakit ng ulo na naranasan mo",
+      "Bagong panghihina, paglaylay ng mukha, o hirap magsalita",
+      "Sakit ng ulo pagkatapos ng malakas na head injury",
+      "Pagkahimatay na may pananakit ng dibdib o patuloy na pagkalito"
+    ],
+
+    best: "Family doctor / walk-in clinic o UPCC",
+
+    why: "Karamihan ng headache at dizziness ay maaaring masuri sa primary care, ngunit ang biglaang neurological symptoms ay nangangailangan ng emergency care.",
+
+    alt: [
+      "Tumawag sa 8-1-1 para sa payo ng nurse",
+      "Pharmacist kung maaaring dulot ng gamot ang pagkahilo",
+      "Emergency department para sa biglaang malubhang neurological symptoms"
+    ],
+
+    worse: [
+      "Nagkakaroon ng panghihina o hirap magsalita",
+      "Nagiging biglaan at napakatindi ang sakit ng ulo",
+      "Nawawalan ng malay o hindi makalakad nang ligtas"
+    ]
+  },
+
+  ent: {
+    name: "Tainga / ilong / lalamunan",
+    hint: "Sakit ng tainga, nosebleed, sore throat, sinus pressure",
+
+    flags: [
+      "Hirap huminga o lumunok",
+      "Malakas na nosebleed na hindi tumitigil",
+      "Matinding pamamaga ng lalamunan o leeg",
+      "Mataas na lagnat na may matinding paninigas ng leeg"
+    ],
+
+    best: "Pharmacist o family doctor / walk-in clinic",
+
+    why: "Maraming karaniwang problema sa tainga, ilong, at lalamunan ang maaaring masuri sa community care. Ang matinding pagdurugo o hirap sa paghinga o paglunok ay nangangailangan ng agarang pangangalaga.",
+
+    alt: [
+      "Tumawag sa 8-1-1",
+      "UPCC para sa same-day assessment kung lumalala ang sintomas",
+      "Emergency department kung may matinding problema sa airway o pagdurugo"
+    ],
+
+    worse: [
+      "Kumakalat ang pamamaga",
+      "Hindi makalunok ng fluids",
+      "Hindi tumitigil ang pagdurugo"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "Sakit sa likod / kalamnan / kasukasuan",
+    hint: "Back pain, muscle strain, masakit na kasukasuan, paninigas",
+
+    flags: [
+      "Bagong pagkawala ng kontrol sa pag-ihi o pagdumi",
+      "Pamamanhid sa singit",
+      "Malamig, maputla, o biglang mahina ang braso o binti",
+      "Matinding sakit pagkatapos ng malaking pagkahulog o aksidente"
+    ],
+
+    best: "Family doctor / walk-in clinic o physiotherapy",
+
+    why: "Karamihan ng hindi emergency na problema sa kalamnan, kasukasuan, at likod ay maaaring magsimula sa primary care o musculoskeletal provider.",
+
+    alt: [
+      "Physiotherapist",
+      "Pharmacist para sa payo sa pain relief",
+      "UPCC"
+    ],
+
+    worse: [
+      "Biglang nagkakaroon ng pamamanhid o panghihina",
+      "Nahihirapang kontrolin ang pag-ihi o pagdumi",
+      "Mabilis na lumalala ang sakit"
+    ]
+  },
+
+  breathing: {
+    name: "Problema sa paghinga / asthma",
+    hint: "Wheezing, shortness of breath, lumalalang asthma",
+
+    flags: [
+      "Hindi makahinga nang maayos",
+      "Nangingasul ang labi o mukha",
+      "Sobrang hingal at hindi makapagsalita ng buong pangungusap"
+    ],
+
+    best: "UPCC o family doctor / walk-in clinic",
+
+    why: "Ang banayad na asthma flare o iba pang breathing symptoms ay maaaring masuri sa community care, ngunit emergency ang matinding hirap sa paghinga.",
+
+    alt: [
+      "Pharmacist para sa payo tungkol sa inhaler",
+      "8-1-1 para sa payo ng nurse"
+    ],
+
+    worse: [
+      "Lalong nahihirapang huminga",
+      "Hindi nakakatulong ang inhaler",
+      "Nangingasul ang labi"
+    ]
+  },
+
+  pregnancy: {
+    name: "Pagbubuntis / sexual health",
+    hint: "Mga sintomas sa pagbubuntis, pagdurugo, contraception, mga tanong tungkol sa STI",
+
+    flags: [
+      "Malakas na pagdurugo habang buntis",
+      "Matinding pananakit ng tiyan o pagkahimatay",
+      "Matinding hirap sa paghinga habang buntis"
+    ],
+
+    best: "Family doctor, pregnancy care provider, o sexual health clinic",
+
+    why: "Ang mga alalahanin tungkol sa pagbubuntis at sexual health ay maaaring masuri ng family doctor, pregnancy care provider, o sexual health clinic depende sa sintomas.",
+
+    alt: [
+      "UPCC",
+      "Pharmacist",
+      "8-1-1 para sa payo ng nurse"
+    ],
+
+    worse: [
+      "Malakas na pagdurugo",
+      "Matinding pananakit ng tiyan",
+      "Pagkahimatay o mabilis na paglala ng pakiramdam"
+    ]
+  },
+
+  mental: {
+    name: "Stress, mababang mood, o crisis",
+    hint: "Pakiramdam na overwhelmed, balisa, o hindi ligtas",
+
+    flags: [
+      "May iniisip na saktan o patayin ang sarili",
+      "May iniisip na saktan ang ibang tao",
+      "Pakiramdam na hindi ligtas ngayon"
+    ],
+
+    best: "Crisis support o mental health service",
+
+    why: "Kung nasa crisis, maaari kang humingi agad ng tulong. Hindi mo kailangan ng diagnosis para makatanggap ng suporta.",
+
+    alt: [
+      "Tumawag o mag-text sa 9-8-8",
+      "Tumawag sa 8-1-1 at magtanong tungkol sa mental health services",
+      "Family doctor o walk-in clinic"
+    ],
+
+    worse: [
+      "Pakiramdam mong hindi ka ligtas",
+      "May konkreto kang plano na saktan ang sarili"
+    ]
+  },
+
+  meds: {
+    name: "Prescription refill o tanong tungkol sa gamot",
+    hint: "Nauubusan ng gamot, side effects, o kung paano ito inumin",
+
+    flags: [
+      "Namamaga ang mukha o lalamunan pagkatapos uminom ng gamot",
+      "Nahihirapang huminga pagkatapos uminom ng gamot",
+      "Posibleng nakainom ng sobrang dami ng gamot"
+    ],
+
+    best: "Pharmacist",
+
+    why: "Makakatulong ang pharmacist sa mga tanong tungkol sa paggamit ng gamot, side effects, at sa maraming kaso ay prescription renewals.",
+
+    alt: [
+      "Tumawag sa 8-1-1 at humingi ng pharmacist",
+      "Family doctor o walk-in clinic kung kailangan ng bagong prescription"
+    ],
+
+    worse: [
+      "Nagkakaroon ng malubhang reaction sa gamot",
+      "Hindi mainom ang gamot dahil sa pagsusuka"
     ]
   }
 
