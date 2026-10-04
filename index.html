@@ -30,6 +30,79 @@ h2{font-size:1.3rem;margin-bottom:.25rem}
 .opt{border:1.5px solid var(--line);border-radius:var(--r);padding:1rem;background:#fff;text-align:start;font:inherit;cursor:pointer;color:var(--ink)}
 .opt:hover{border-color:var(--pri);background:#f0f9ff}
 .opt small{display:block;color:var(--mut);font-size:.84rem;margin-top:.15rem}
+.opt.chat-start{border-style:dashed;background:#f8fafc}
+.opt.chat-start:hover{border-color:var(--pri);background:#f0f9ff}
+
+.nav-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:1rem;align-items:start}
+.body-widget{border:1.5px solid var(--line);border-radius:var(--r);padding:1rem;background:#f8fafc;position:sticky;top:5.5rem}
+.body-widget h3{font-size:1rem;margin-bottom:.25rem}
+.body-widget p{font-size:.82rem;color:var(--mut);margin-bottom:.75rem}
+.body-map{display:grid;gap:.4rem;justify-items:center}
+@media(min-width:981px){
+  .body-map .body-btn:not([data-body="general"]){display:none}
+}
+.body-btn{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;padding:.5rem .6rem;font:inherit;font-weight:700;cursor:pointer;text-align:left}
+.body-btn:hover{border-color:var(--pri);background:#f0f9ff}
+.body-btn small{display:block;font-weight:400;color:var(--mut);font-size:.76rem;margin-top:.1rem}
+.body-figure{width:100%;display:flex;justify-content:center;margin:.4rem 0 .8rem}
+.body-svg{width:170px;max-width:100%;height:auto;overflow:visible}
+.body-silhouette{fill:#dbe4ec;stroke:#94a3b8;stroke-width:1.2}
+.body-hotspot{fill:rgba(3,105,161,.08);stroke:rgba(3,105,161,.22);stroke-width:1.1;cursor:pointer;transition:fill .16s ease,stroke .16s ease}
+.body-hotspot:hover,.body-hotspot:focus{fill:rgba(3,105,161,.28);stroke:var(--pri);outline:none}
+.body-hotspot.active{fill:rgba(3,105,161,.35);stroke:var(--pri);stroke-width:1.5}
+.body-label{font-size:9px;font-weight:700;fill:#334155;pointer-events:none;text-anchor:middle}
+
+.body-widget{overflow:visible}
+.body-popover{
+  position:absolute;
+  z-index:20;
+  width:230px;
+  padding:.75rem;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.16);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(4px);
+  transition:opacity .14s ease,transform .14s ease;
+}
+.body-popover.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.body-popover strong{display:block;font-size:.92rem;margin-bottom:.2rem}
+.body-popover small{display:block;color:var(--mut);font-size:.78rem;line-height:1.35}
+.body-popover .mini-options{display:grid;gap:.35rem;margin-top:.55rem}
+.body-popover .mini-options button{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#f8fafc;
+  padding:.42rem .5rem;
+  font:inherit;
+  font-size:.78rem;
+  cursor:pointer;
+}
+.body-popover .mini-options button:hover{border-color:var(--pri);background:#f0f9ff}
+@media(max-width:980px){
+  .body-popover{
+    position:static;
+    width:100%;
+    margin-top:.6rem;
+    display:none;
+    opacity:1;
+    transform:none;
+    box-shadow:none;
+  }
+  .body-popover.show{display:block}
+}
+@media(max-width:980px){
+  .nav-layout{grid-template-columns:1fr}
+  .body-widget{position:static}
+}
 .chk{display:flex;gap:.7rem;align-items:flex-start;padding:.75rem;border:1.5px solid var(--line);border-radius:8px;margin-bottom:.5rem;cursor:pointer}
 .chk input{width:1.2rem;height:1.2rem;margin-top:.2rem;flex:none}
 .chk:has(input:checked){border-color:var(--red);background:var(--redbg)}
@@ -930,6 +1003,36 @@ const CATS={
   best:"Dentist (call and say it is urgent)",why:"Many dental offices keep same-day emergency slots. Ask about the Canadian Dental Care Plan if you do not have insurance.",
   alt:["Pharmacist for temporary pain relief advice","Call 8-1-1","Hospital ER only if swelling is spreading or you have a fever"],
   worse:["Face swelling grows","Fever starts","You cannot open your mouth or swallow"]},
+ stomach:{icon:"🤢",name:"Stomach / abdominal problem",hint:"Stomach pain, vomiting, diarrhea, constipation",
+  flags:["Severe or worsening abdominal pain","Vomiting blood or black stools","Cannot keep fluids down and feel faint","Pregnant with severe abdominal pain or heavy bleeding"],
+  best:"Family doctor / walk-in clinic or UPCC",why:"Most non-emergency stomach problems can start with primary or urgent care. Severe pain, dehydration or bleeding needs urgent assessment.",
+  alt:["Pharmacist for mild symptom advice","Call 8-1-1 if unsure","ER if pain is severe, sudden or associated with bleeding or fainting"],
+  worse:["Pain becomes severe or localized","You become dehydrated or faint","You see blood in vomit or stool"]},
+ neuro:{icon:"🤕",name:"Headache / dizziness",hint:"Headache, vertigo, lightheadedness, faint feeling",
+  flags:["Sudden worst headache of your life","New weakness, facial droop or trouble speaking","Headache after a major head injury","Fainting with chest pain or ongoing confusion"],
+  best:"Family doctor / walk-in clinic or UPCC",why:"Most headaches and dizziness can be assessed in primary care, but sudden neurological symptoms need emergency care.",
+  alt:["Call 8-1-1 for nurse advice","Pharmacist for medication-related dizziness","ER for sudden severe neurological symptoms"],
+  worse:["You develop weakness or trouble speaking","The headache becomes sudden and severe","You pass out or cannot walk safely"]},
+ ent:{icon:"👂",name:"Ear / nose / throat",hint:"Ear pain, nosebleed, sore throat, sinus pressure",
+  flags:["Trouble breathing or swallowing","Heavy nosebleed that will not stop","Severe swelling of the throat or neck","High fever with severe neck stiffness"],
+  best:"Pharmacist or family doctor / walk-in clinic",why:"Many common ear, nose and throat problems can be assessed in the community. Severe bleeding, breathing or swallowing problems need urgent care.",
+  alt:["Call 8-1-1","UPCC for same-day assessment if symptoms are worsening","ER for severe airway or bleeding concerns"],
+  worse:["Swelling spreads","You cannot swallow fluids","Bleeding does not stop"]},
+ musculoskeletal:{icon:"🦴",name:"Back / muscle / joint pain",hint:"Back pain, muscle strain, sore joint, stiffness",
+  flags:["New loss of bladder or bowel control","Numbness in the groin area","Limb is cold, pale or suddenly weak","Severe pain after a major fall or accident"],
+  best:"Family doctor / walk-in clinic or physiotherapy",why:"Most non-emergency muscle, joint and back problems can begin with primary care or a musculoskeletal provider.",
+  alt:["UPCC if pain is severe or you cannot move safely","Pharmacist for pain-relief advice","Call 8-1-1 if unsure"],
+  worse:["You develop weakness or numbness","You cannot walk safely","Pain follows a major injury"]},
+ breathing:{icon:"🫁",name:"Breathing / asthma problem",hint:"Wheezing, shortness of breath, asthma flare",
+  flags:["Severe trouble breathing","Blue lips or face","Cannot speak in full sentences because of breathlessness","Breathing trouble with chest pain or fainting"],
+  best:"UPCC or family doctor / walk-in clinic",why:"Mild breathing problems can be assessed urgently in the community, but severe breathing difficulty is an emergency.",
+  alt:["Call 8-1-1","Use your prescribed rescue inhaler as directed if you have one","ER for severe breathing trouble"],
+  worse:["Breathing gets harder","You need your rescue inhaler more often","You feel faint or develop chest pain"]},
+ pregnancy:{icon:"🤰",name:"Pregnancy / sexual health",hint:"Pregnancy concerns, bleeding, contraception, STI questions",
+  flags:["Heavy vaginal bleeding","Severe one-sided abdominal pain in pregnancy","Fainting during pregnancy","Possible pregnancy with severe pain and bleeding"],
+  best:"Family doctor, sexual health clinic or maternity care provider",why:"Pregnancy and sexual health concerns are usually handled by primary care, sexual health clinics or maternity providers unless there are emergency warning signs.",
+  alt:["Pharmacist for contraception or medication questions","Call 8-1-1","ER for heavy bleeding, severe pain or fainting"],
+  worse:["Bleeding increases","Pain becomes severe","You become dizzy or faint"]},
  mental:{icon:"💬",name:"Stress, low mood, crisis",hint:"Feeling overwhelmed, anxious or unsafe",
   flags:["You are thinking about ending your life right now","You are in danger of harming someone"],
   best:"Call or text 9-8-8 (Suicide Crisis Helpline, any time)",why:"Trained responders are available 24/7. You do not need a diagnosis to call. Interpreters may be available.",
@@ -992,11 +1095,190 @@ function result(k){
 function navRender(){
   if(st.step==='g')return checklist(t('q0'),GLOBAL_FLAGS,emergency,()=>{st.step=st.cat?'f':'c';navRender()});
   if(st.step==='c'){
-    $('flow').innerHTML=`<h2>${esc(t('pick'))}</h2><p class="sub">&nbsp;</p><div class="grid">`+
-     Object.entries(CATS).map(([k,c])=>`<button class="opt" data-k="${k}"><strong>${c.icon} ${esc(c.name)}</strong><small>${esc(c.hint)}</small></button>`).join('')+`</div>
-     <button class="btn g" id="rs">${esc(t('back'))}</button>`;
-    document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.cat=b.dataset.k;st.step='f';navRender()});
-    $('rs').onclick=()=>{st={step:'g'};navRender()}; return; }
+    $('flow').innerHTML=`<h2>${esc(t('pick'))}</h2><p class="sub">Choose from the list, or use the body guide on the right.</p>
+      <div class="nav-layout">
+        <div>
+          <div class="grid">`+
+            Object.entries(CATS).map(([k,c])=>`<button class="opt" data-k="${k}"><strong>${c.icon} ${esc(c.name)}</strong><small>${esc(c.hint)}</small></button>`).join('')+
+            `<button class="opt chat-start" id="startChat">
+              <strong>💬 Not listed? Start a conversation</strong>
+              <small>Describe what is happening in your own words and the AI assistant will help guide you.</small>
+            </button>
+          </div>
+          <button class="btn g" id="rs">${esc(t('back'))}</button>
+        </div>
+
+        <aside class="body-widget" aria-label="Quick body navigator">
+          <h3>🧍 Where does it feel wrong?</h3>
+          <p>Tap a body area for a faster route.</p>
+
+          <div class="body-figure">
+            <svg class="body-svg" viewBox="0 0 180 360" role="img" aria-label="Clickable body map">
+              <title>Clickable body map</title>
+
+              <!-- base human silhouette -->
+              <circle class="body-silhouette" cx="90" cy="34" r="22"/>
+              <rect class="body-silhouette" x="74" y="55" width="32" height="18" rx="10"/>
+              <path class="body-silhouette" d="M62 72 Q90 60 118 72 L125 155 Q120 190 112 212 L108 340 H87 L82 220 H78 L73 340 H52 L57 212 Q50 190 55 155 Z"/>
+              <path class="body-silhouette" d="M60 78 L39 105 L23 182 L35 186 L53 121 L67 102 Z"/>
+              <path class="body-silhouette" d="M120 78 L141 105 L157 182 L145 186 L127 121 L113 102 Z"/>
+
+              <!-- clickable hotspots -->
+              <circle class="body-hotspot" data-body="head" tabindex="0" cx="90" cy="34" r="24"/>
+              <text class="body-label" x="90" y="37">HEAD</text>
+
+              <path class="body-hotspot" data-body="chest" tabindex="0"
+                    d="M61 77 Q90 65 119 77 L121 132 Q90 145 59 132 Z"/>
+              <text class="body-label" x="90" y="108">CHEST</text>
+
+              <path class="body-hotspot" data-body="stomach" tabindex="0"
+                    d="M59 133 Q90 145 121 133 L119 188 Q90 201 61 188 Z"/>
+              <text class="body-label" x="90" y="165">ABDOMEN</text>
+
+              <path class="body-hotspot" data-body="arm" tabindex="0"
+                    d="M59 80 L39 106 L23 182 L36 186 L53 122 L68 101 Z"/>
+              <path class="body-hotspot" data-body="arm" tabindex="0"
+                    d="M121 80 L141 106 L157 182 L144 186 L127 122 L112 101 Z"/>
+              <text class="body-label" x="30" y="142">ARM</text>
+              <text class="body-label" x="150" y="142">ARM</text>
+
+              <path class="body-hotspot" data-body="leg" tabindex="0"
+                    d="M60 187 L86 190 L82 340 H52 L57 212 Z"/>
+              <path class="body-hotspot" data-body="leg" tabindex="0"
+                    d="M94 190 L120 187 L123 212 L128 340 H98 Z"/>
+              <text class="body-label" x="68" y="275">LEG</text>
+              <text class="body-label" x="112" y="275">LEG</text>
+            </svg>
+          </div>
+
+          <div class="body-popover" id="bodyPopover" role="dialog" aria-live="polite"></div>
+
+          <div class="body-map">
+            <button class="body-btn" data-body="head"><strong>👁️ Head / face</strong><small>Eye, ear, nose, throat, headache, dizziness, dental</small></button>
+            <button class="body-btn" data-body="chest"><strong>🫁 Chest / breathing</strong><small>Cough, fever, asthma, breathing problems</small></button>
+            <button class="body-btn" data-body="stomach"><strong>🤢 Stomach / pelvis</strong><small>Abdominal pain, vomiting, urinary or pregnancy concerns</small></button>
+            <button class="body-btn" data-body="arm"><strong>🖐 Arms / hands</strong><small>Injury, rash, joint or muscle pain</small></button>
+            <button class="body-btn" data-body="leg"><strong>🦵 Legs / feet</strong><small>Injury, swelling, rash, joint or muscle pain</small></button>
+            <button class="body-btn" data-body="general"><strong>❓ Whole body / not sure</strong><small>Medicine, stress, fever, or something not listed</small></button>
+          </div>
+        </aside>
+      </div>`;
+
+    document.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+      st.cat=b.dataset.k;
+      st.step='f';
+      navRender();
+    });
+
+    const bodyRoutes={
+      head:["eye","ent","neuro","dental"],
+      chest:["cold","breathing"],
+      stomach:["stomach","skin","pregnancy"],
+      arm:["injury","skin","musculoskeletal"],
+      leg:["injury","skin","musculoskeletal"],
+      general:["meds","mental","cold"]
+    };
+
+    const bodyNames={
+      head:"Head / face",
+      chest:"Chest / breathing",
+      stomach:"Stomach / pelvis",
+      arm:"Arm / hand",
+      leg:"Leg / foot",
+      general:"Whole body / not sure"
+    };
+
+    const popover=$('bodyPopover');
+
+    function showBodyPopover(el,key){
+      const keys=bodyRoutes[key]||[];
+      const cards=keys.map(k=>{
+        const c=CATS[k];
+        return `<button type="button" data-body-k="${k}">${c.icon} ${esc(c.name)}</button>`;
+      }).join('');
+
+      popover.innerHTML=`
+        <strong>${esc(bodyNames[key]||'Choose a problem')}</strong>
+        <small>Choose what feels closest to your symptom.</small>
+        <div class="mini-options">${cards}</div>
+      `;
+
+      popover.querySelectorAll('[data-body-k]').forEach(x=>x.onclick=()=>{
+        st.cat=x.dataset.bodyK;
+        st.step='f';
+        navRender();
+      });
+
+      document.querySelectorAll('.body-hotspot').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll(`.body-hotspot[data-body="${key}"]`).forEach(x=>x.classList.add('active'));
+
+      // Desktop: position beside the body part
+      if(window.innerWidth>980 && el.classList.contains('body-hotspot')){
+        const widget=$('bodyPopover').closest('.body-widget');
+        const wr=widget.getBoundingClientRect();
+        const er=el.getBoundingClientRect();
+
+        let left=er.right-wr.left+10;
+        let top=er.top-wr.top;
+
+        if(left+230>wr.width){
+          left=er.left-wr.left-240;
+        }
+
+        popover.style.left=Math.max(6,left)+'px';
+        popover.style.top=Math.max(6,top)+'px';
+      }else{
+        popover.style.left='';
+        popover.style.top='';
+      }
+
+      popover.classList.add('show');
+    }
+
+    function hideBodyPopoverSoon(){
+      setTimeout(()=>{
+        if(!popover.matches(':hover') && !document.activeElement?.closest?.('#bodyPopover')){
+          popover.classList.remove('show');
+          document.querySelectorAll('.body-hotspot').forEach(x=>x.classList.remove('active'));
+        }
+      },120);
+    }
+
+    document.querySelectorAll('.body-hotspot').forEach(b=>{
+      const key=b.dataset.body;
+
+      b.addEventListener('mouseenter',()=>showBodyPopover(b,key));
+      b.addEventListener('focus',()=>showBodyPopover(b,key));
+      b.addEventListener('mouseleave',hideBodyPopoverSoon);
+
+      b.addEventListener('click',e=>{
+        e.preventDefault();
+        showBodyPopover(b,key);
+      });
+
+      b.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          showBodyPopover(b,key);
+        }
+      });
+    });
+
+    popover.addEventListener('mouseleave',hideBodyPopoverSoon);
+
+    // Text fallback buttons still work, especially on mobile.
+    document.querySelectorAll('.body-btn[data-body]').forEach(b=>{
+      b.onclick=()=>showBodyPopover(b,b.dataset.body);
+    });
+
+    $('startChat').onclick=()=>{
+      setDock(true);
+      if(!$('chatbox').hidden)$('cin').focus();
+    };
+
+    $('rs').onclick=()=>{st={step:'g'};navRender()};
+    return;
+  }
   if(st.step==='f'){const c=CATS[st.cat];
     return checklist(c.name+": "+t('q0'),c.flags,()=>{c.flags.some(f=>/9-8-8|ending your life|overdose/i.test(f))?emergency():emergency()},()=>result(st.cat)); }
 }
