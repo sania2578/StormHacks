@@ -48,25 +48,23 @@ label{display:block;font-weight:700;font-size:.9rem;margin:.9rem 0 .3rem}
 .paper{background:#fafafa;border:1px dashed #94a3b8;border-radius:8px;padding:1rem;white-space:pre-wrap;font-size:.9rem;min-height:6rem}
 #qr{display:flex;justify-content:center;margin:1rem 0}
 .med{border:1px solid var(--line);border-radius:8px;padding:.9rem;margin-bottom:.6rem}
-
 .log{font-size:.82rem;color:var(--grn);margin-top:.4rem}
-.nearby{margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem}
-.nearby-head{display:flex;justify-content:space-between;gap:.75rem;align-items:center;flex-wrap:wrap}
-.place{border:1px solid var(--line);border-radius:10px;padding:.85rem;margin:.65rem 0;background:#fff}
-.place-top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start}
-.place-name{font-weight:800}
-.badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.76rem;font-weight:800;background:#e2e8f0;color:#334155;margin:.15rem .25rem .15rem 0}
-.badge.open{background:#dcfce7;color:#166534}
-.badge.closed{background:#fee2e2;color:#991b1b}
-.badge.wait{background:#fef3c7;color:#92400e}
-.place-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
-.place-actions a{font-size:.82rem;text-decoration:none;padding:.35rem .65rem;border-radius:7px;background:#e2e8f0;color:#0f172a;font-weight:700}
-.gpsmsg{font-size:.84rem;color:var(--mut);margin:.5rem 0}
-
 .tl{border-inline-start:3px solid var(--line);padding-inline-start:1rem;margin:0 0 .9rem .4rem}
 .tl small{color:var(--mut);display:block}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
 .three button{padding:.8rem;border-radius:8px;border:2px solid;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+body{padding-bottom:3.6rem}
+.dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(920px,100%);z-index:30;background:#fff;border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -4px 18px rgba(15,23,42,.14)}
+.dockbar{width:100%;background:var(--pri2);color:#fff;border:0;border-radius:12px 12px 0 0;padding:.85rem 1rem;font:inherit;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+#dockbody{padding:.8rem}
+@media print{.dock{display:none}}
+#log{height:min(300px,38vh);overflow-y:auto;border:1px solid var(--line);border-radius:var(--r);padding:.8rem;background:#f8fafc;margin-bottom:.7rem}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:12px;margin-bottom:.6rem;font-size:.95rem}
+.msg.me{background:var(--pri);color:#fff;margin-inline-start:auto}
+.msg.bot{background:#fff;border:1px solid var(--line)}
+.msg.sos{background:var(--redbg);border-color:var(--red);color:var(--red);font-weight:600}
+.msg .btn{padding:.4rem .8rem;font-size:.85rem;margin-top:.5rem}
+.send{display:flex;gap:.5rem}.send .btn{margin:0}
 footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;border-top:1px solid var(--line)}
 @media(max-width:680px){.two,.three{grid-template-columns:1fr}}
 @media print{.sos,header,.tabs,.btn,footer,.hero{display:none}.panel{display:none!important}#communicate{display:block!important;border:0}}
@@ -119,7 +117,7 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;b
         <button class="btn g" id="cp">Copy</button><button class="btn g" id="pr">Print</button>
       </div>
     </div>
-    <p class="note">Free text is not translated yet. Connect a translation service (for example Google Cloud Translation) to enable "my language to English".</p>
+    <p class="note">You can type in your own language. The AI writes a neat English summary and a script to say aloud, and shows you what it means in your language. Read it before you show your provider. If something is wrong, edit your answers and try again.</p>
   </section>
 
   <section id="manage" class="panel">
@@ -150,6 +148,24 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;b
     <div id="tl"></div>
   </section>
 </main>
+
+<div class="dock" id="dock">
+  <button class="dockbar" id="dockbar" aria-expanded="false" aria-controls="dockbody">
+    <span>💬 Ask in your own language</span><span id="chev">▲</span>
+  </button>
+  <div id="dockbody" hidden>
+    <div id="consent" class="res">
+      <strong>Before you chat</strong>
+      <p>Your messages are sent to an AI service to get a reply. Do not type your name, address or health card number. Do not use this chat in an emergency: call 9-1-1.</p>
+      <button class="btn" id="ok">I understand, start chat</button>
+    </div>
+    <div id="chatbox" hidden>
+      <div id="log" role="log" aria-live="polite"></div>
+      <div class="send"><input id="cin" placeholder="Describe your symptoms…" aria-label="Your message" maxlength="1000"><button class="btn" id="snd">Send</button></div>
+      <p class="note" style="margin-top:.5rem">Helps you choose where to go. It does not diagnose.</p>
+    </div>
+  </div>
+</div>
 <footer>
   <p><strong>CarePath BC</strong> · SFU Surge Hackathon 2026</p>
   <p data-i="foot" style="margin-top:.3rem">Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.</p>
@@ -163,7 +179,7 @@ const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{re
 
 /* ---------- i18n (UI shell only; falls back to English). Have native speakers review. ---------- */
 const I18N={
- en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
+ en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t5:"Ask",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
   q0:"Do any of these apply right now?",none:"None of these. Continue",pick:"What is your main concern?",back:"Start over",best:"Best place to go",alt:"Other options",worse:"Go to the ER or call 9-1-1 if",next:"Prepare what to say",anyflag:"Any of these needs emergency care"},
  fr:{sos:"Douleur thoracique, signes d'AVC, difficulté à respirer, saignement important ?",h1:"Du premier symptôme au prochain suivi.",sub:"Un guide pour les nouveaux arrivants, réfugiés et aînés en Colombie-Britannique. Il vous aide à choisir où aller. Il ne pose pas de diagnostic.",t1:"S'orienter",t2:"Communiquer",t3:"Gérer",t4:"Suivi",foot:"Ne remplace pas un avis médical. Urgence : 9-1-1. Infirmière : 8-1-1. Crise : 9-8-8.",q0:"Est-ce que l'un de ces cas s'applique maintenant ?",none:"Aucun. Continuer",pick:"Quel est votre problème principal ?",back:"Recommencer",best:"Meilleur endroit où aller",alt:"Autres options",worse:"Allez aux urgences ou appelez le 9-1-1 si",next:"Préparer quoi dire"},
  pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ"},
@@ -183,119 +199,9 @@ $('lang').onchange=e=>{lang=e.target.value;applyLang()};
 function openTab(id){
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));
+  curTab=id; $('cin').placeholder=HINT[id]||HINT.navigate;
   if(id==='manage')renderMeds(); if(id==='followup')renderTL(); }
 $('tabs').onclick=e=>{if(e.target.dataset.tab)openTab(e.target.dataset.tab)};
-
-
-/* ---------- Nearby care finder ----------
-   Add your Google Maps JavaScript API key at the bottom of this file.
-   Google Places provides distance / hours / open-now, but NOT medical wait times.
-   Verified wait-time data should come from a health-authority source or your own backend.
------------------------------------------------------- */
-const WAIT_TIMES_URL='https://www.edwaittimes.ca/welcome';
-
-function careSearchFor(best){
-  const s=(best||'').toLowerCase();
-  if(s.includes('optometrist')) return {type:'doctor', keyword:'optometrist'};
-  if(s.includes('pharmacist')) return {type:'pharmacy', keyword:'pharmacy'};
-  if(s.includes('dentist')) return {type:'dentist', keyword:'dentist'};
-  if(s.includes('urgent') || s.includes('upcc')) return {type:'doctor', keyword:'urgent primary care centre'};
-  if(s.includes('er') || s.includes('emergency')) return {type:'hospital', keyword:'emergency department'};
-  return {type:'doctor', keyword:'walk-in clinic family doctor'};
-}
-
-function distanceKm(a,b,c,d){
-  const R=6371, rad=x=>x*Math.PI/180;
-  const dLat=rad(c-a), dLon=rad(d-b);
-  const q=Math.sin(dLat/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dLon/2)**2;
-  return 2*R*Math.asin(Math.sqrt(q));
-}
-
-function nearbyShell(best, isEmergency=false){
-  return `<div class="nearby">
-    <div class="nearby-head">
-      <div>
-        <h4 style="margin:0">📍 Care near you</h4>
-        <p class="gpsmsg">Use your location to find nearby places, see what is open, and compare distance.</p>
-      </div>
-      <button class="btn" id="findCare">${isEmergency?'Find nearest ER':'Find nearby care'}</button>
-    </div>
-    <div id="gpsStatus"></div>
-    <div id="nearbyList"></div>
-  </div>`;
-}
-
-function findNearbyCare(best){
-  const status=$('gpsStatus'), list=$('nearbyList');
-  if(!navigator.geolocation){
-    status.innerHTML='<p class="gpsmsg">Location is not supported by this browser.</p>'; return;
-  }
-  status.innerHTML='<p class="gpsmsg">Requesting your location…</p>';
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const lat=pos.coords.latitude, lng=pos.coords.longitude;
-    status.innerHTML='<p class="gpsmsg">Location found. Searching nearby care…</p>';
-
-    if(!(window.google && google.maps && google.maps.places)){
-      const q=encodeURIComponent(careSearchFor(best).keyword);
-      list.innerHTML=`<div class="place"><strong>Google Places is not connected yet.</strong>
-        <p class="gpsmsg">Add a Google Maps JavaScript API key to show an in-app list.</p>
-        <div class="place-actions">
-          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}&center=${lat},${lng}">Open nearby results in Google Maps</a>
-          ${/er|emergency|urgent|upcc/i.test(best)?`<a target="_blank" rel="noopener" href="${WAIT_TIMES_URL}">Check BC wait times</a>`:''}
-        </div></div>`;
-      return;
-    }
-
-    const cfg=careSearchFor(best);
-    const loc=new google.maps.LatLng(lat,lng);
-    const service=new google.maps.places.PlacesService(document.createElement('div'));
-    service.nearbySearch({
-      location:loc,
-      radius:12000,
-      type:cfg.type,
-      keyword:cfg.keyword
-    },(results,stat)=>{
-      if(stat!==google.maps.places.PlacesServiceStatus.OK || !results?.length){
-        status.innerHTML='<p class="gpsmsg">No nearby results found. Try Google Maps or call 8-1-1.</p>'; return;
-      }
-
-      const rows=results.map(p=>{
-        const plat=p.geometry?.location?.lat(), plng=p.geometry?.location?.lng();
-        const km=(plat!=null&&plng!=null)?distanceKm(lat,lng,plat,plng):999;
-        const open=p.opening_hours?.open_now;
-        return {...p,_km:km,_open:open};
-      }).sort((a,b)=>{
-        const ao=a._open===true?0:a._open===false?2:1;
-        const bo=b._open===true?0:b._open===false?2:1;
-        return ao-bo || a._km-b._km;
-      }).slice(0,6);
-
-      status.innerHTML='<p class="gpsmsg">Sorted by open status first, then distance. Wait times are shown only from verified sources.</p>';
-      list.innerHTML=rows.map((p,i)=>{
-        const open=p._open===true?'<span class="badge open">Open now</span>':
-                   p._open===false?'<span class="badge closed">Closed</span>':
-                   '<span class="badge">Hours unavailable</span>';
-        const rating=p.rating?`<span class="badge">★ ${p.rating}</span>`:'';
-        const wait=/er|emergency|urgent|upcc/i.test(best)
-          ? `<span class="badge wait">Live wait: check BC source</span>`:'';
-        const dest=encodeURIComponent(`${p.name} ${p.vicinity||''}`);
-        return `<div class="place">
-          <div class="place-top"><div>
-            <div class="place-name">${i+1}. ${esc(p.name)}</div>
-            <div class="gpsmsg">${esc(p.vicinity||'Address unavailable')}</div>
-          </div><strong>${p._km<999?p._km.toFixed(1)+' km':''}</strong></div>
-          <div>${open}${rating}${wait}</div>
-          <div class="place-actions">
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${dest}">Directions</a>
-            ${/er|emergency|urgent|upcc/i.test(best)?`<a target="_blank" rel="noopener" href="${WAIT_TIMES_URL}">BC wait times</a>`:''}
-          </div>
-        </div>`;
-      }).join('');
-    });
-  },err=>{
-    status.innerHTML=`<p class="gpsmsg">Location permission was not available. You can still search manually in Google Maps.</p>`;
-  },{enableHighAccuracy:true,timeout:10000,maximumAge:300000});
-}
 
 /* ---------- Navigate: data-driven triage ---------- */
 const GLOBAL_FLAGS=["Chest pain or pressure","Face drooping, arm weakness or slurred speech","Severe trouble breathing","Bleeding that will not stop","Seizure or passing out","Thoughts of ending your life, or of harming someone"];
@@ -351,9 +257,7 @@ function emergency(){
   $('flow').innerHTML=`<div class="res urgent" role="alert"><h3>🚨 Call 9-1-1 or go to the nearest ER now</h3>
    <p>Do not drive yourself. Tell the operator your location and what is happening.</p>
    <p style="margin-top:.6rem"><strong>If you are thinking about suicide:</strong> call or text <strong>9-8-8</strong> any time, or 9-1-1 if you are in immediate danger.</p>
-   <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a><button class="btn g" id="rs">${esc(t('back'))}</button>
-   ${nearbyShell('Emergency department',true)}</div>`;
-  $('findCare').onclick=()=>findNearbyCare('Emergency department');
+   <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a><button class="btn g" id="rs">${esc(t('back'))}</button></div>`;
   $('rs').onclick=()=>{st={step:'g'};navRender()}; }
 
 function result(k){
@@ -368,7 +272,7 @@ function result(k){
   $('rs').onclick=()=>{st={step:'g'};navRender()}; }
 
 function navRender(){
-  if(st.step==='g')return checklist(t('q0'),GLOBAL_FLAGS,emergency,()=>{st.step='c';navRender()});
+  if(st.step==='g')return checklist(t('q0'),GLOBAL_FLAGS,emergency,()=>{st.step=st.cat?'f':'c';navRender()});
   if(st.step==='c'){
     $('flow').innerHTML=`<h2>${esc(t('pick'))}</h2><p class="sub">&nbsp;</p><div class="grid">`+
      Object.entries(CATS).map(([k,c])=>`<button class="opt" data-k="${k}"><strong>${c.icon} ${esc(c.name)}</strong><small>${esc(c.hint)}</small></button>`).join('')+`</div>
@@ -382,7 +286,7 @@ function navRender(){
 /* ---------- Communicate ---------- */
 $('f_sev').oninput=e=>$('sevv').textContent=e.target.value;
 let summaryText='';
-$('mk').onclick=()=>{
+function localSummary(){
   const g=id=>$(id).value.trim();
   const lines=[`Visit summary (${new Date().toLocaleDateString('en-CA')})`,
    `Seeing: ${g('f_where')||'not stated'}`,`Problem: ${g('f_story')||'not stated'}`,
@@ -394,6 +298,26 @@ $('mk').onclick=()=>{
   $('qr').innerHTML='';
   if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}
   store.set('summary',summaryText); log('Summary created');
+}
+const SUM_URL='/.netlify/functions/summarize';
+function drawQR(){$('qr').innerHTML='';if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}}
+$('mk').onclick=async()=>{
+  const g=id=>$(id).value.trim();
+  localSummary(); // instant basic version, replaced if the AI answers
+  if(!g('f_story'))return;
+  const btn=$('mk');btn.disabled=true;btn.textContent='Writing your summary…';
+  try{
+    const r=await fetch(SUM_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      lang,fields:{where:g('f_where'),story:g('f_story'),start:$('f_start').value,severity:$('f_sev').value,meds:g('f_meds'),questions:g('f_q'),interpreter:g('f_int')}})});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    summaryText=d.summary_en;$('sum').textContent=summaryText;
+    $('say').innerHTML='<strong>Say in English:</strong><br>"'+esc(d.say_en)+'"'+
+      (d.say_native?'<br><br><strong>'+esc(d.label_native||'In your language:')+'</strong><br>'+esc(d.say_native):'');
+    drawQR();store.set('summary',summaryText);log('AI summary created');
+  }catch(e){
+    $('say').textContent+='\n(The AI summary is not available right now. This is a basic version of what you typed.)';
+  }finally{btn.disabled=false;btn.textContent='Make my summary'}
 };
 $('cp').onclick=()=>{if(summaryText)navigator.clipboard?.writeText(summaryText).then(()=>$('cp').textContent='Copied')};
 $('pr').onclick=()=>window.print();
@@ -422,17 +346,41 @@ document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{
   else{box.innerHTML='<div class="res urgent"><strong>Getting worse. Re-check where to go.</strong><br><button class="btn" id="rr">Re-route me</button> <a class="btn g" href="tel:811" style="text-decoration:none;display:inline-block">Call 8-1-1</a></div>';
     $('rr').onclick=()=>{st={step:'g'};openTab('navigate');navRender()}}});
 
-/* OPTIONAL: enable the in-app nearby provider list.
-   Replace YOUR_GOOGLE_MAPS_API_KEY below with your key.
-   Required Google Cloud APIs: Maps JavaScript API + Places API.
-*/
-(function(){
-  const GOOGLE_MAPS_API_KEY='YOUR_GOOGLE_MAPS_API_KEY';
-  if(GOOGLE_MAPS_API_KEY==='YOUR_GOOGLE_MAPS_API_KEY') return;
-  const s=document.createElement('script');
-  s.src=`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
-  s.async=true;s.defer=true;document.head.appendChild(s);
-})();
+/* ---------- Ask: AI chat (calls your backend, never the AI API directly) ---------- */
+const API_URL='/.netlify/functions/chat'; // change if you host the backend elsewhere
+const URGENT_RE=/chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
+let chat=[],busy=false,curTab='navigate';
+const HINT={navigate:"Describe your symptoms…",communicate:"Ask how to explain your problem…",manage:"Ask about your medication…",followup:"Tell me how you feel today…"};
+function setDock(open){$('dockbody').hidden=!open;$('dockbar').setAttribute('aria-expanded',open);$('chev').textContent=open?'▼':'▲';
+  if(open&&!$('chatbox').hidden)$('cin').focus()}
+$('dockbar').onclick=()=>setDock($('dockbody').hidden);
+function addMsg(cls,html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;$('log').appendChild(d);$('log').scrollTop=1e9;return d}
+$('ok').onclick=()=>{$('consent').hidden=true;$('chatbox').hidden=false;
+  addMsg('bot','Hello. Tell me what is happening and how long it has been going on. You can write in any language.');$('cin').focus()};
+async function send(){
+  const text=$('cin').value.trim();if(!text||busy)return;
+  $('cin').value='';addMsg('me',esc(text));chat.push({role:'user',content:text});
+  if(URGENT_RE.test(text))addMsg('bot sos','This may be an emergency. Call 9-1-1 now. If you are thinking about suicide, call or text 9-8-8. <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none;background:var(--red)">Call 9-1-1</a>');
+  busy=true;const w=addMsg('bot','…');
+  try{
+    const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:chat.slice(-10),lang,tab:curTab})});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    chat.push({role:'assistant',content:d.reply});
+    w.innerHTML=esc(d.reply).replace(/\n/g,'<br>');
+    if(d.urgent&&!URGENT_RE.test(text))addMsg('bot sos','This may be an emergency. Call 9-1-1 now. <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none;background:var(--red)">Call 9-1-1</a>');
+    if(!d.urgent&&d.category&&CATS[d.category]){
+      const b=document.createElement('button');b.className='btn';b.textContent='Check where to go: '+CATS[d.category].name;
+      b.onclick=()=>{st={step:'g',cat:d.category};setDock(false);openTab('navigate');navRender();window.scrollTo({top:0,behavior:'smooth'})};w.appendChild(document.createElement('br'));w.appendChild(b)}
+    if(d.summary_en){
+      const b=document.createElement('button');b.className='btn g';b.textContent='Use in my provider summary';
+      b.onclick=()=>{$('f_story').value=d.summary_en;setDock(false);openTab('communicate');window.scrollTo({top:0,behavior:'smooth'})};w.appendChild(b)}
+  }catch(e){
+    w.textContent='The assistant is not available right now. Use the Navigate tab, or call 8-1-1 to talk to a nurse.';
+  }finally{busy=false}
+}
+$('snd').onclick=send;
+$('cin').onkeydown=e=>{if(e.key==='Enter')send()};
 
 applyLang();
 </script>
