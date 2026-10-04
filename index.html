@@ -15,7 +15,7 @@ header{background:var(--card);border-bottom:1px solid var(--line);padding:.8rem 
 .brand{font-weight:800;font-size:1.2rem;color:var(--pri2)}
 select,input,textarea{font:inherit;padding:.55rem .7rem;border:1px solid #94a3b8;border-radius:8px;background:#fff;width:100%}
 header select{width:auto}
-main{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+main{max-width:1400px;margin:0 auto;padding:1.5rem 2rem 3rem}
 .hero{margin-bottom:1.5rem}
 .hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;color:var(--pri2);letter-spacing:-.02em;margin-bottom:.5rem}
 .hero p{color:var(--mut);max-width:62ch}
@@ -33,7 +33,7 @@ h2{font-size:1.3rem;margin-bottom:.25rem}
 .opt.chat-start{border-style:dashed;background:#f8fafc}
 .opt.chat-start:hover{border-color:var(--pri);background:#f0f9ff}
 
-.nav-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:1rem;align-items:start}
+.nav-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:1.5rem;align-items:start}
 .body-widget{border:1.5px solid var(--line);border-radius:var(--r);padding:1rem;background:#f8fafc;position:sticky;top:5.5rem}
 .body-widget h3{font-size:1rem;margin-bottom:.25rem}
 .body-widget p{font-size:.82rem;color:var(--mut);margin-bottom:.75rem}
@@ -45,7 +45,7 @@ h2{font-size:1.3rem;margin-bottom:.25rem}
 .body-btn:hover{border-color:var(--pri);background:#f0f9ff}
 .body-btn small{display:block;font-weight:400;color:var(--mut);font-size:.76rem;margin-top:.1rem}
 .body-figure{width:100%;display:flex;justify-content:center;margin:.4rem 0 .8rem}
-.body-svg{width:170px;max-width:100%;height:auto;overflow:visible}
+.body-svg{width:220px;max-width:100%;height:auto;overflow:visible}
 .body-silhouette{fill:#dbe4ec;stroke:#94a3b8;stroke-width:1.2}
 .body-hotspot{fill:rgba(3,105,161,.08);stroke:rgba(3,105,161,.22);stroke-width:1.1;cursor:pointer;transition:fill .16s ease,stroke .16s ease}
 .body-hotspot:hover,.body-hotspot:focus{fill:rgba(3,105,161,.28);stroke:var(--pri);outline:none}
@@ -140,8 +140,38 @@ label{display:block;font-weight:700;font-size:.9rem;margin:.9rem 0 .3rem}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
 .three button{padding:.8rem;border-radius:8px;border:2px solid;background:#fff;font:inherit;font-weight:700;cursor:pointer}
 body{padding-bottom:3.6rem}
-.dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(920px,100%);z-index:30;background:#fff;border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -4px 18px rgba(15,23,42,.14)}
-.dockbar{width:100%;background:var(--pri2);color:#fff;border:0;border-radius:12px 12px 0 0;padding:.85rem 1rem;font:inherit;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.dock{
+  position:fixed;
+  right:1.25rem;
+  bottom:0;
+  width:min(420px,calc(100% - 2rem));
+  z-index:30;
+  background:#fff;
+  border:1px solid var(--line);
+  border-bottom:0;
+  border-radius:12px 12px 0 0;
+  box-shadow:0 -4px 18px rgba(15,23,42,.14)
+}
+.dockbar{
+  width:100%;
+  background:var(--pri2);
+  color:#fff;
+  border:0;
+  border-radius:12px 12px 0 0;
+  padding:.85rem 1rem;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+@media(max-width:680px){
+  .dock{
+    right:.5rem;
+    width:calc(100% - 1rem);
+  }
+}
 #dockbody{padding:.8rem}
 @media print{.dock{display:none}}
 #log{height:min(300px,38vh);overflow-y:auto;border:1px solid var(--line);border-radius:var(--r);padding:.8rem;background:#f8fafc;margin-bottom:.7rem}
