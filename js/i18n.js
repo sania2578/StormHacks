@@ -180,7 +180,198 @@ ko: {
 
   fuWorse: "더 나빠졌어요",
   fuWorseSub: "증상이 심해지고 있어요",},
- ja:{sos:"胸の痛み、脳卒中の兆候、重い呼吸困難、大量出血がありますか？",h1:"最初の症状から次のフォローアップまで。",sub:"BC州の医療制度に不慣れな新来者、難民、高齢者などのための案内です。受診先選びを支援しますが、診断はしません。",t1:"受診先を探す",t2:"説明する",t3:"薬を管理",t4:"経過確認",t2h:"医療者に症状をわかりやすく伝える",t3h:"薬を管理する",t4h:"よくなっていますか？",foot:"医療上の診断ではありません。緊急時: 9-1-1。看護師相談: 8-1-1。危機支援: 9-8-8。",q0:"今、次の症状がありますか？",none:"どれもない。続ける",pick:"主な心配ごとは何ですか？",back:"最初から",best:"最適な受診先",alt:"その他の選択肢",worse:"次の場合はERへ行くか9-1-1へ",next:"医療者に伝える内容を準備",anyflag:"いずれかに当てはまる場合は緊急対応が必要です",chooseList:"一覧から選ぶか、右側の身体ガイドを使ってください。",bodyTitle:"どこに違和感がありますか？",bodySub:"身体の部位をタップすると早く探せます。",closest:"どれが一番近いですか？",closestSub:"症状に最も近いものを選んでください。",notListed:"一覧にない？会話を始める",notListedSub:"今起きていることを自分の言葉で説明してください。"},
+ja: {
+  sos: "胸の痛み、脳卒中の兆候、重い呼吸困難、止まらない出血がありますか？",
+
+  h1: "最初の症状から次の受診まで。",
+
+  sub: "BC州の医療制度に不慣れな新来者、難民、高齢者などのための案内です。\nどこで診てもらうべきかを案内しますが、診断は行いません。",
+
+  t1: "受診先を探す",
+  t2: "説明の準備",
+  t3: "薬の管理",
+  t4: "経過確認",
+
+  t2h: "医療者に症状をわかりやすく伝えましょう",
+  t3h: "服用中の薬を管理しましょう",
+  t4h: "症状は良くなっていますか？",
+
+  foot: "医療上の診断や処方に代わるものではありません。緊急時：9-1-1。看護師相談：8-1-1。危機支援：9-8-8。",
+
+  q0: "今、次のうち当てはまるものはありますか？",
+
+  none: "どれも当てはまらない。続ける",
+
+  pick: "最も気になる症状は何ですか？",
+
+  back: "最初から",
+
+  best: "最も適した受診先",
+
+  alt: "その他の選択肢",
+
+  worse: "次の場合は救急外来へ行くか、9-1-1に電話してください",
+
+  next: "医療者に伝える内容を準備",
+
+  anyflag: "次のうち一つでも当てはまる場合、緊急の診療が必要な可能性があります",
+
+  chooseList: "一覧から選ぶか、右側の身体図を押してください。",
+
+  bodyTitle: "どこがつらいですか？",
+
+  bodySub: "身体の部位を押すと、より早く探せます。",
+
+  closest: "どの症状が最も近いですか？",
+
+  closestSub: "現在感じている症状に最も近い項目を選んでください。",
+
+  notListed: "一覧にありませんか？ チャットで探す",
+
+  notListedSub: "今起きていることを、ご自身の言葉で説明してください。",
+
+  chooseAny: "当てはまる項目をすべて選んでください。",
+
+  selectOneFirst: "まず1つ以上の項目を選んでください。",
+
+  flagChest: "胸の痛み、または圧迫感",
+
+  flagStroke: "顔の片側が下がる、腕に力が入らない、またはろれつが回らない",
+
+  flagBreathing: "重い呼吸困難",
+
+  flagBleeding: "止まらない出血",
+
+  flagSeizure: "けいれん、または意識を失う",
+
+  flagHarm: "自分や他人を傷つけたいという考えがある",
+
+  chatTitle: "💬 ご希望の言語で質問する",
+
+  chatBefore: "チャットを始める前に",
+
+  chatConsent: "回答を得るため、メッセージはAIサービスに送信されます。氏名、住所、健康保険カード番号は入力しないでください。緊急時にはこのチャットを使用せず、9-1-1に電話してください。",
+
+  chatStart: "理解しました。チャットを開始",
+
+  chatPlaceholder: "症状を説明してください…",
+
+  chatSend: "送信",
+
+  chatNote: "どこで診てもらうべきかを案内します。診断は行いません。",
+
+  chatHintNavigate: "症状を説明してください…",
+
+  chatHintCommunicate: "医療者にどう説明すればよいか質問してください…",
+
+  chatHintManage: "服用中の薬について質問してください…",
+
+  chatHintFollowup: "今日の体調を教えてください…",
+
+  commIntro: "分かる範囲で入力してください。要約内容はこのブラウザ内に保存されます。",
+
+  commWhere: "どこを受診する予定ですか？",
+
+  commWherePlaceholder: "例：検眼医",
+
+  commStory: "どのような症状がありますか？",
+
+  commStoryPlaceholder: "例：右目が赤く、目やにが出ています。",
+
+  commStart: "いつから始まりましたか？",
+
+  commToday: "今日",
+
+  comm1to2: "1～2日前",
+
+  comm3to7: "3～7日前",
+
+  commWeekPlus: "1週間以上前",
+
+  commSeverity: "症状はどのくらいつらいですか？",
+
+  commMeds: "服用中の薬とアレルギー",
+
+  commMedsPlaceholder: "例：ペニシリンアレルギー、メトホルミン服用中",
+
+  commQuestions: "忘れずに聞きたいこと",
+
+  commQuestionsPlaceholder: "例：うつりますか？ コンタクトレンズを使ってもいいですか？",
+
+  commInterpreter: "通訳が必要ですか？",
+
+  commInterpreterPlaceholder: "例：日本語",
+
+  commMakeSummary: "医療者向けの要約を作成",
+
+  commProviderSummary: "医療者に見せる要約",
+
+  commSummaryEmpty: "ここに要約が表示されます。",
+
+  commSayAloud: "医療者にはこのように伝えてください",
+
+  commCopy: "コピー",
+
+  commPrint: "印刷",
+
+  medIntro: "薬のラベルに書かれている内容を入力してください。この機能が医師や薬剤師から指示された服用方法を変更することはありません。",
+
+  medName: "薬の名前",
+
+  medNamePlaceholder: "例：シプロフロキサシン0.3％点眼液",
+
+  medDose: "使用・服用方法",
+
+  medDosePlaceholder: "例：右目に4時間ごとに1滴、5日間",
+
+  medAdd: "薬を追加",
+
+  medEmpty: "まだ薬は登録されていません。",
+
+  medTaken: "服用済み",
+
+  medSkip: "今回は服用しない",
+
+  medLater: "あとで",
+
+  medTakenLog: "服用",
+
+  medSkippedLog: "服用せず",
+
+  medLaterLog: "あとで服用",
+
+  medAt: "時刻",
+
+  medPhotoTitle: "薬ラベルを写真で読み取る（予定）",
+
+  medPhotoDesc: "薬のラベルを撮影するとAIが内容を読み取り、ユーザーが確認する機能です。画像認識機能が必要なため、現在は利用できません。",
+
+  nearbyTitle: "近くの医療機関",
+
+  nearbyDesc: "現在地を使用して近くの医療機関を探し、営業状況や距離を比較します。",
+
+  nearbyButton: "近くの医療機関を探す",
+
+  nearestERButton: "最寄りの救急外来を探す",
+
+  waitTimeNote: "待ち時間は日や場所によって変わります。CarePathは、利用可能な場合に確認済みの待ち時間情報のみを案内します。どこへ行けばよいか分からない場合は8-1-1に電話してください。このツールは診断を行いません。",
+
+  fuIntro: "1日1回、体調の変化を記録してください。回答はこの端末に保存されます。",
+
+  fuBetter: "良くなった",
+
+  fuBetterSub: "症状が改善しています",
+
+  fuSame: "変わらない",
+
+  fuSameSub: "大きな変化はありません",
+
+  fuWorse: "悪くなった",
+
+  fuWorseSub: "症状が悪化しています",
+
+  fuTimeline: "経過記録"
+},
  es:{sos:"¿Dolor de pecho, signos de derrame cerebral, dificultad grave para respirar o sangrado abundante?",h1:"Desde el primer síntoma hasta el seguimiento.",sub:"Una guía para recién llegados, refugiados, adultos mayores y cualquier persona nueva en el sistema de salud de BC. Ayuda a elegir dónde acudir. No diagnostica.",t1:"Orientación",t2:"Comunicar",t3:"Medicamentos",t4:"Seguimiento",t2h:"Explique claramente su problema al profesional",t3h:"Lleve el control de sus medicamentos",t4h:"¿Está mejorando?",foot:"No sustituye el consejo médico. Emergencias: 9-1-1. Enfermería: 8-1-1. Crisis: 9-8-8.",q0:"¿Tiene alguno de estos síntomas ahora?",none:"Ninguno. Continuar",pick:"¿Cuál es su principal preocupación?",back:"Empezar de nuevo",best:"Mejor lugar para acudir",alt:"Otras opciones",worse:"Vaya a urgencias o llame al 9-1-1 si",next:"Prepare lo que va a decir",anyflag:"Cualquiera de estos signos puede requerir atención de emergencia",chooseList:"Elija de la lista o use la guía corporal de la derecha.",bodyTitle:"¿Dónde siente el problema?",bodySub:"Toque una zona del cuerpo para encontrar una ruta más rápida.",closest:"¿Cuál se parece más?",closestSub:"Elija el problema que más se parezca a lo que siente.",notListed:"¿No aparece? Inicie una conversación",notListedSub:"Describa con sus propias palabras lo que está pasando."},
  pt:{sos:"Dor no peito, sinais de AVC, dificuldade grave para respirar ou sangramento intenso?",h1:"Do primeiro sintoma ao próximo acompanhamento.",sub:"Um guia para recém-chegados, refugiados, idosos e qualquer pessoa nova no sistema de saúde da Colúmbia Britânica. Ajuda a escolher onde ir. Não faz diagnóstico.",t1:"Orientação",t2:"Comunicar",t3:"Medicamentos",t4:"Acompanhamento",t2h:"Explique claramente o seu problema ao profissional",t3h:"Acompanhe os seus medicamentos",t4h:"Está melhorando?",foot:"Não substitui orientação médica. Emergência: 9-1-1. Enfermagem: 8-1-1. Crise: 9-8-8.",q0:"Algum destes sintomas está acontecendo agora?",none:"Nenhum. Continuar",pick:"Qual é a sua principal preocupação?",back:"Começar de novo",best:"Melhor lugar para procurar atendimento",alt:"Outras opções",worse:"Vá ao pronto-socorro ou ligue 9-1-1 se",next:"Prepare o que dizer",anyflag:"Qualquer um destes sinais pode precisar de atendimento de emergência",chooseList:"Escolha na lista ou use o guia corporal à direita.",bodyTitle:"Onde você sente o problema?",bodySub:"Toque em uma área do corpo para encontrar uma opção mais rapidamente.",closest:"Qual é o mais parecido?",closestSub:"Escolha o problema que mais se aproxima do que você está sentindo.",notListed:"Não está na lista? Inicie uma conversa",notListedSub:"Descreva com suas próprias palavras o que está acontecendo."},
  ru:{sos:"Боль в груди, признаки инсульта, сильная одышка или сильное кровотечение?",h1:"От первого симптома до последующего наблюдения.",sub:"Путеводитель для новых иммигрантов, беженцев, пожилых людей и всех, кто плохо знаком с системой здравоохранения Британской Колумбии. Помогает выбрать, куда обратиться. Не ставит диагноз.",t1:"Куда обратиться",t2:"Объяснить",t3:"Лекарства",t4:"Наблюдение",t2h:"Четко объясните проблему медицинскому работнику",t3h:"Следите за приемом лекарств",t4h:"Становится лучше?",foot:"Не является медицинской консультацией. Экстренная помощь: 9-1-1. Медсестра: 8-1-1. Кризисная линия: 9-8-8.",q0:"Есть ли сейчас что-то из перечисленного?",none:"Нет. Продолжить",pick:"Что вас беспокоит больше всего?",back:"Начать заново",best:"Куда лучше обратиться",alt:"Другие варианты",worse:"Обратитесь в ER или позвоните 9-1-1, если",next:"Подготовьте, что сказать",anyflag:"Любой из этих признаков может требовать экстренной помощи",chooseList:"Выберите из списка или используйте схему тела справа.",bodyTitle:"Где вы чувствуете проблему?",bodySub:"Нажмите на область тела для более быстрого выбора.",closest:"Что подходит больше всего?",closestSub:"Выберите проблему, наиболее похожую на ваши симптомы.",notListed:"Нет в списке? Начать разговор",notListedSub:"Опишите своими словами, что происходит."}
@@ -472,21 +663,363 @@ const CAT_I18N={
       ]
     }
   },
- ja:{
-  eye:["目の問題","赤み、腫れ、痛み、目やに"],
-  cold:["せき・かぜ・発熱","のどの痛み、鼻づまり、軽い発熱"],
-  injury:["ねんざ・転倒・切り傷","腫れ、足を引きずる、縫合が必要かもしれない傷"],
-  skin:["発疹・排尿時の痛み・軽い感染","単純な尿路感染、湿疹、口唇ヘルペス"],
-  dental:["歯・口の痛み","歯痛、欠けた歯、腫れた歯ぐき"],
-  stomach:["胃・腹部の問題","腹痛、嘔吐、下痢、便秘"],
-  neuro:["頭痛・めまい","頭痛、回転性めまい、ふらつき、失神しそう"],
-  ent:["耳・鼻・のど","耳の痛み、鼻血、のどの痛み、副鼻腔の圧迫感"],
-  musculoskeletal:["背中・筋肉・関節の痛み","腰痛、筋肉の痛み、関節痛、こわばり"],
-  breathing:["呼吸・ぜんそくの問題","喘鳴、息切れ、ぜんそく悪化"],
-  pregnancy:["妊娠・性の健康","妊娠に関する心配、出血、避妊、STIの質問"],
-  mental:["ストレス・気分の落ち込み・危機","圧倒される、不安、安全でないと感じる"],
-  meds:["処方の更新・薬の質問","薬が切れそう、副作用、飲み方"]
- },
+ja: {
+
+  eye: {
+    name: "目の問題",
+    hint: "赤み、腫れ、痛み、目やに",
+
+    flags: [
+      "突然視力が低下した",
+      "目に化学物質が入った",
+      "目に異物が入った、または目をけがした",
+      "吐き気や嘔吐を伴う激しい目の痛み"
+    ],
+
+    best: "検眼医（当日受診できるか事前に電話確認）",
+
+    why: "BC州の検眼医は、感染症や角膜の傷などの急な目の問題を診察できます。当日受診できる場合もあります。費用の補償については事前に確認してください。",
+
+    alt: [
+      "薬剤師：結膜炎など一部の軽い目の症状を相談できます",
+      "検眼医を受診できない場合はUPCC",
+      "8-1-1に電話して看護師に相談"
+    ],
+
+    worse: [
+      "視界がぼやける、または視力が低下する",
+      "痛みが強くなる",
+      "まぶたが大きく腫れる、または赤みが顔まで広がる"
+    ]
+  },
+
+  cold: {
+    name: "せき・かぜ・発熱",
+    hint: "のどの痛み、鼻づまり、軽い発熱",
+
+    flags: [
+      "呼吸が非常に苦しい、または唇が青くなる",
+      "生後3か月未満の赤ちゃんに発熱がある",
+      "混乱している、または非常に起こしにくい",
+      "熱が3日以上続く、または下がらない"
+    ],
+
+    best: "薬剤師または家庭医／ウォークインクリニック",
+
+    why: "多くのかぜやのどの痛みは地域の医療機関で診てもらえます。薬剤師は症状を和らげる方法や、医師を受診すべきタイミングについて相談できます。",
+
+    alt: [
+      "8-1-1に電話して看護師に相談",
+      "当日診察が必要な場合はUPCCまたはウォークインクリニック",
+      "電話またはビデオによるオンライン診療"
+    ],
+
+    worse: [
+      "呼吸がだんだん苦しくなる",
+      "呼吸すると胸が痛む",
+      "1日中、水分を保てない"
+    ]
+  },
+
+  injury: {
+    name: "ねんざ・転倒・切り傷",
+    hint: "腫れ、足を引きずる、縫合が必要かもしれない傷",
+
+    flags: [
+      "激しい出血が止まらない",
+      "骨が見える、または大きく変形している",
+      "頭をけがした後に意識状態がおかしい",
+      "腕や脚をまったく動かせない"
+    ],
+
+    best: "ウォークインクリニックまたはUPCC",
+
+    why: "軽いねんざ、転倒、切り傷は地域の医療機関で評価できます。縫合やX線検査が必要かどうかも確認できます。",
+
+    alt: [
+      "家庭医",
+      "薬剤師に痛みの対処法を相談",
+      "8-1-1で看護師に相談"
+    ],
+
+    worse: [
+      "痛みや腫れが急速にひどくなる",
+      "感覚がなくなる、または手足が冷たくなる",
+      "出血が続く"
+    ]
+  },
+
+  skin: {
+    name: "発疹・排尿時の痛み・軽い感染",
+    hint: "単純な尿路感染、湿疹、口唇ヘルペス",
+
+    flags: [
+      "赤い発疹が急速に広がり、高熱がある",
+      "顔や喉が腫れて呼吸しにくい",
+      "激しい痛みや水ぶくれが急速に広がる"
+    ],
+
+    best: "薬剤師またはウォークインクリニック",
+
+    why: "BC州では薬剤師が一部の軽い症状を評価・治療できます。症状が複雑または重い場合は医師の診察が必要になることがあります。",
+
+    alt: [
+      "家庭医",
+      "UPCC",
+      "8-1-1で看護師に相談"
+    ],
+
+    worse: [
+      "高熱が出る",
+      "赤い範囲が急速に広がる",
+      "強い痛みや腫れが出る"
+    ]
+  },
+
+  dental: {
+    name: "歯・口の痛み",
+    hint: "歯痛、欠けた歯、腫れた歯ぐき",
+
+    flags: [
+      "顔や喉が大きく腫れ、呼吸しにくい",
+      "飲み込みにくい、または唾液を飲み込めない",
+      "歯の感染に加えて高熱や強い全身症状がある"
+    ],
+
+    best: "歯科医院",
+
+    why: "歯痛、欠けた歯、歯ぐきの腫れは歯科医院で原因を確認し、必要な治療を受けることができます。",
+
+    alt: [
+      "歯科受診までの一時的な痛み対策を薬剤師に相談",
+      "感染が重い場合はUPCCまたは救急外来",
+      "必要に応じて8-1-1に相談"
+    ],
+
+    worse: [
+      "腫れが首や目の周囲まで広がる",
+      "呼吸や飲み込みが難しくなる",
+      "発熱し、急速に具合が悪くなる"
+    ]
+  },
+
+  stomach: {
+    name: "胃・腹部の問題",
+    hint: "腹痛、嘔吐、下痢、便秘",
+
+    flags: [
+      "強い、または悪化している腹痛",
+      "血を吐く、または黒い便が出る",
+      "水分を保てず、ふらつく",
+      "妊娠中で強い腹痛または大量出血がある"
+    ],
+
+    best: "家庭医／ウォークインクリニックまたはUPCC",
+
+    why: "多くの緊急性のない胃腸症状は、まずプライマリケアや緊急外来で診てもらえます。強い痛み、脱水、出血がある場合は早めの評価が必要です。",
+
+    alt: [
+      "軽い症状は薬剤師に相談",
+      "迷う場合は8-1-1",
+      "強い痛み、突然の痛み、出血や失神がある場合は救急外来"
+    ],
+
+    worse: [
+      "痛みが強くなる、または特定の場所に集中する",
+      "脱水症状や失神が起こる",
+      "吐物や便に血が混じる"
+    ]
+  },
+
+  neuro: {
+    name: "頭痛・めまい",
+    hint: "頭痛、回転性めまい、ふらつき、失神しそう",
+
+    flags: [
+      "突然、人生で最もひどい頭痛が起きた",
+      "新しく片側の力が入らない、顔が下がる、または話しにくい",
+      "大きな頭部外傷の後の頭痛",
+      "胸痛や混乱を伴う失神"
+    ],
+
+    best: "家庭医／ウォークインクリニックまたはUPCC",
+
+    why: "多くの頭痛やめまいはプライマリケアで評価できますが、突然の神経症状がある場合は救急診療が必要です。",
+
+    alt: [
+      "8-1-1で看護師に相談",
+      "薬によるめまいについて薬剤師に相談",
+      "突然の重い神経症状がある場合は救急外来"
+    ],
+
+    worse: [
+      "新しく力が入らない、または話しにくくなる",
+      "突然激しい頭痛になる",
+      "意識を失う、または安全に歩けない"
+    ]
+  },
+
+  ent: {
+    name: "耳・鼻・のど",
+    hint: "耳の痛み、鼻血、のどの痛み、副鼻腔の圧迫感",
+
+    flags: [
+      "呼吸または飲み込みが難しい",
+      "大量の鼻血が止まらない",
+      "喉や首がひどく腫れている",
+      "高熱と強い首のこわばりがある"
+    ],
+
+    best: "薬剤師または家庭医／ウォークインクリニック",
+
+    why: "多くの一般的な耳・鼻・のどの症状は地域の医療機関で評価できます。大量出血、呼吸困難、飲み込みの問題は緊急診療が必要です。",
+
+    alt: [
+      "8-1-1に相談",
+      "症状が悪化している場合はUPCCで当日評価",
+      "呼吸や大量出血の問題がある場合は救急外来"
+    ],
+
+    worse: [
+      "腫れが広がる",
+      "水分を飲み込めない",
+      "出血が止まらない"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "背中・筋肉・関節の痛み",
+    hint: "腰痛、筋肉の痛み、関節痛、こわばり",
+
+    flags: [
+      "新しく尿や便をコントロールできなくなった",
+      "鼠径部周辺にしびれがある",
+      "手足が冷たい、青白い、または急に力が入らない",
+      "大きな転倒や事故の後に激しい痛みがある"
+    ],
+
+    best: "家庭医／ウォークインクリニックまたは理学療法",
+
+    why: "多くの緊急性のない筋肉、関節、腰の問題は、プライマリケアや筋骨格系の医療提供者から診療を始められます。",
+
+    alt: [
+      "理学療法士",
+      "薬剤師に痛みの対処法を相談",
+      "UPCC"
+    ],
+
+    worse: [
+      "突然しびれや力が入らない症状が出る",
+      "尿や便のコントロールが難しくなる",
+      "痛みが急速に悪化する"
+    ]
+  },
+
+  breathing: {
+    name: "呼吸・ぜんそくの問題",
+    hint: "喘鳴、息切れ、ぜんそく悪化",
+
+    flags: [
+      "十分に呼吸できない",
+      "唇や顔が青くなる",
+      "息切れがひどく、文章で話せない"
+    ],
+
+    best: "UPCCまたは家庭医／ウォークインクリニック",
+
+    why: "軽いぜんそくの悪化や呼吸器症状は地域で評価できますが、重い呼吸困難は緊急事態です。",
+
+    alt: [
+      "吸入薬について薬剤師に相談",
+      "8-1-1で看護師に相談"
+    ],
+
+    worse: [
+      "呼吸がさらに苦しくなる",
+      "吸入薬を使っても改善しない",
+      "唇が青くなる"
+    ]
+  },
+
+  pregnancy: {
+    name: "妊娠・性の健康",
+    hint: "妊娠に関する心配、出血、避妊、STIの質問",
+
+    flags: [
+      "妊娠中に大量出血がある",
+      "強い腹痛または失神がある",
+      "妊娠中に重い呼吸困難がある"
+    ],
+
+    best: "家庭医、妊婦健診の医療提供者、または性の健康クリニック",
+
+    why: "妊娠や性の健康に関する問題は、症状や状況に応じて家庭医、妊婦健診の医療提供者、または性の健康クリニックで評価できます。",
+
+    alt: [
+      "UPCC",
+      "薬剤師",
+      "8-1-1で看護師に相談"
+    ],
+
+    worse: [
+      "大量出血",
+      "激しい腹痛",
+      "失神または急速な体調悪化"
+    ]
+  },
+
+  mental: {
+    name: "ストレス・気分の落ち込み・危機",
+    hint: "圧倒される、不安、安全でないと感じる",
+
+    flags: [
+      "自傷または自殺を考えている",
+      "他人を傷つけたいと考えている",
+      "今、安全ではないと感じる"
+    ],
+
+    best: "危機支援またはメンタルヘルスサービス",
+
+    why: "危機的な状況ではすぐに助けを求めることができます。診断がなくても支援を受けられます。",
+
+    alt: [
+      "9-8-8に電話またはテキスト",
+      "8-1-1に電話してメンタルヘルスサービスについて相談",
+      "家庭医またはウォークインクリニック"
+    ],
+
+    worse: [
+      "自分が安全ではないと感じる",
+      "自傷する具体的な計画がある"
+    ]
+  },
+
+  meds: {
+    name: "処方の更新・薬の質問",
+    hint: "薬が切れそう、副作用、飲み方",
+
+    flags: [
+      "薬を飲んだ後に顔や喉が腫れる",
+      "薬を飲んだ後に呼吸困難が起こる",
+      "過量服用の可能性がある"
+    ],
+
+    best: "薬剤師",
+
+    why: "薬剤師は薬の使い方、副作用、処方の更新などについて相談できます。",
+
+    alt: [
+      "8-1-1に電話して薬剤師に相談",
+      "新しい処方が必要な場合は家庭医またはウォークインクリニック"
+    ],
+
+    worse: [
+      "重い薬の副作用がある",
+      "薬を吐いてしまい服用できない"
+    ]
+  }
+
+},
  es:{
   eye:["Problema de los ojos","Ojo rojo, hinchado, doloroso o con secreción"],
   cold:["Tos, resfriado, fiebre","Dolor de garganta, congestión, fiebre leve"],
