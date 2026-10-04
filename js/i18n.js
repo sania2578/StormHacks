@@ -6533,8 +6533,7 @@ function catText(k, c) {
 }
 function applyLang(){
   document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
+  document.documentElement.dir = ['ar', 'fa'].includes(lang) ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i]').forEach(e => {
     e.textContent = t(e.dataset.i);
   });
