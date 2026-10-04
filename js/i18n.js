@@ -11,8 +11,198 @@ fuSameSub: "No major change",
 
 fuWorse: "Feeling worse",
 fuWorseSub: "Symptoms are getting worse",},
- fr:{sos:"Douleur thoracique, signes d'AVC, difficulté à respirer, saignement important ?",h1:"Du premier symptôme au prochain suivi.",sub:"Un guide pour les nouveaux arrivants, réfugiés et aînés en Colombie-Britannique. Il vous aide à choisir où aller. Il ne pose pas de diagnostic.",t1:"S'orienter",t2:"Communiquer",t3:"Gérer",t4:"Suivi",t2h:"Expliquez clairement votre problème au professionnel",t3h:"Suivez vos médicaments",t4h:"Est-ce que ça va mieux ?",foot:"Ne remplace pas un avis médical. Urgence : 9-1-1. Infirmière : 8-1-1. Crise : 9-8-8.",q0:"Est-ce que l'un de ces cas s'applique maintenant ?",none:"Aucun. Continuer",pick:"Quel est votre principal problème ?",back:"Recommencer",best:"Meilleur endroit où aller",alt:"Autres options",worse:"Allez aux urgences ou appelez le 9-1-1 si",next:"Préparer quoi dire",anyflag:"L'un de ces signes nécessite des soins d'urgence",chooseList:"Choisissez dans la liste ou utilisez le guide du corps à droite.",bodyTitle:"Où ressentez-vous le problème ?",bodySub:"Touchez une zone du corps pour aller plus vite.",closest:"Quel choix correspond le mieux ?",closestSub:"Choisissez le problème qui ressemble le plus à vos symptômes.",notListed:"Pas dans la liste ? Commencer une conversation",notListedSub:"Décrivez ce qui se passe avec vos propres mots."},
- pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",t2h:"ਆਪਣੀ ਸਮੱਸਿਆ ਸਪਸ਼ਟ ਤਰੀਕੇ ਨਾਲ ਦੱਸੋ",t3h:"ਆਪਣੀਆਂ ਦਵਾਈਆਂ ਦਾ ਰਿਕਾਰਡ ਰੱਖੋ",t4h:"ਕੀ ਹੁਣ ਸੁਧਾਰ ਹੈ?",foot:"ਇਹ ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ ਹੈ। ਐਮਰਜੈਂਸੀ: 9-1-1। ਨਰਸ: 8-1-1। ਸੰਕਟ: 9-8-8।",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ",next:"ਕੀ ਕਹਿਣਾ ਹੈ ਤਿਆਰ ਕਰੋ",anyflag:"ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਐਮਰਜੈਂਸੀ ਹੋ ਸਕਦੀ ਹੈ",chooseList:"ਸੂਚੀ ਵਿਚੋਂ ਚੁਣੋ ਜਾਂ ਸੱਜੇ ਪਾਸੇ ਸਰੀਰ ਗਾਈਡ ਵਰਤੋ।",bodyTitle:"ਸਰੀਰ ਦੇ ਕਿਹੜੇ ਹਿੱਸੇ ਵਿੱਚ ਸਮੱਸਿਆ ਹੈ?",bodySub:"ਤੇਜ਼ ਰਾਹ ਲਈ ਸਰੀਰ ਦੇ ਹਿੱਸੇ 'ਤੇ ਟੈਪ ਕਰੋ।",closest:"ਕਿਹੜਾ ਸਭ ਤੋਂ ਨੇੜੇ ਹੈ?",closestSub:"ਉਹ ਸਮੱਸਿਆ ਚੁਣੋ ਜੋ ਤੁਹਾਡੇ ਲੱਛਣਾਂ ਨਾਲ ਸਭ ਤੋਂ ਵੱਧ ਮਿਲਦੀ ਹੈ।",notListed:"ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ? ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ",notListedSub:"ਆਪਣੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਦੱਸੋ ਕਿ ਕੀ ਹੋ ਰਿਹਾ ਹੈ।"},
+fr: {
+  sos: "Douleur à la poitrine, signes d’AVC, difficulté importante à respirer ou saignement qui ne s’arrête pas ?",
+
+  h1: "Du premier symptôme jusqu’au prochain suivi.",
+
+  sub: "Un guide pour les nouveaux arrivants, les réfugiés, les personnes âgées et toute personne peu familière avec le système de santé de la Colombie-Britannique.\nIl vous aide à savoir où consulter, mais ne pose pas de diagnostic.",
+
+  t1: "Trouver des soins",
+  t2: "Préparer ce que vous direz",
+  t3: "Médicaments",
+  t4: "Suivi",
+
+  t2h: "Expliquez clairement vos symptômes au professionnel de la santé",
+  t3h: "Suivez vos médicaments",
+  t4h: "Est-ce que votre état s’améliore ?",
+
+  foot: "Ne remplace pas un avis ou un diagnostic médical. Urgence : 9-1-1. Conseils infirmiers : 8-1-1. Soutien en situation de crise : 9-8-8.",
+
+  q0: "Avez-vous actuellement l’un des symptômes suivants ?",
+
+  none: "Aucun de ceux-ci. Continuer",
+
+  pick: "Quel est votre principal problème ?",
+
+  back: "Recommencer",
+
+  best: "Lieu le plus approprié pour obtenir des soins",
+
+  alt: "Autres options",
+
+  worse: "Allez aux urgences ou appelez le 9-1-1 si",
+
+  next: "Préparer ce que vous direz au professionnel de la santé",
+
+  anyflag: "L’un de ces signes peut nécessiter des soins urgents",
+
+  chooseList: "Choisissez dans la liste ou utilisez l’image du corps à droite.",
+
+  bodyTitle: "Où ressentez-vous le problème ?",
+
+  bodySub: "Appuyez sur une partie du corps pour trouver plus rapidement l’option appropriée.",
+
+  closest: "Quelle option correspond le mieux à vos symptômes ?",
+
+  closestSub: "Choisissez l’option qui décrit le mieux ce que vous ressentez maintenant.",
+
+  notListed: "Pas dans la liste ? Utilisez le clavardage",
+
+  notListedSub: "Décrivez avec vos propres mots ce qui se passe.",
+
+  chooseAny: "Sélectionnez toutes les options qui s’appliquent.",
+
+  selectOneFirst: "Sélectionnez d’abord au moins une option.",
+
+  flagChest: "Douleur ou pression dans la poitrine",
+
+  flagStroke: "Affaissement d’un côté du visage, faiblesse d’un bras ou difficulté à parler",
+
+  flagBreathing: "Difficulté importante à respirer",
+
+  flagBleeding: "Saignement qui ne s’arrête pas",
+
+  flagSeizure: "Convulsion ou perte de connaissance",
+
+  flagHarm: "Pensées de vous faire du mal ou de faire du mal à quelqu’un",
+
+  chatTitle: "💬 Posez votre question dans votre langue",
+
+  chatBefore: "Avant de commencer le clavardage",
+
+  chatConsent: "Vos messages sont envoyés à un service d’intelligence artificielle pour obtenir une réponse. N’entrez pas votre nom, votre adresse ni votre numéro de carte de santé. N’utilisez pas ce clavardage en cas d’urgence : appelez le 9-1-1.",
+
+  chatStart: "J’ai compris. Commencer le clavardage",
+
+  chatPlaceholder: "Décrivez vos symptômes…",
+
+  chatSend: "Envoyer",
+
+  chatNote: "Vous aide à savoir où consulter. Ne pose pas de diagnostic.",
+
+  chatHintNavigate: "Décrivez vos symptômes…",
+
+  chatHintCommunicate: "Demandez comment expliquer votre problème au professionnel de la santé…",
+
+  chatHintManage: "Posez une question sur vos médicaments…",
+
+  chatHintFollowup: "Dites-nous comment vous vous sentez aujourd’hui…",
+
+  commIntro: "Remplissez ce que vous pouvez. Votre résumé reste dans ce navigateur.",
+
+  commWhere: "Où allez-vous consulter ?",
+
+  commWherePlaceholder: "Exemple : optométriste",
+
+  commStory: "Que se passe-t-il ?",
+
+  commStoryPlaceholder: "Exemple : Mon œil droit est rouge et il y a des sécrétions.",
+
+  commStart: "Quand cela a-t-il commencé ?",
+
+  commToday: "Aujourd’hui",
+
+  comm1to2: "Il y a 1 à 2 jours",
+
+  comm3to7: "Il y a 3 à 7 jours",
+
+  commWeekPlus: "Il y a plus d’une semaine",
+
+  commSeverity: "Quelle est la gravité du problème ?",
+
+  commMeds: "Médicaments et allergies",
+
+  commMedsPlaceholder: "Exemple : allergie à la pénicilline ; prend de la metformine",
+
+  commQuestions: "Questions que je ne veux pas oublier",
+
+  commQuestionsPlaceholder: "Exemple : Est-ce contagieux ? Puis-je porter des lentilles de contact ?",
+
+  commInterpreter: "Avez-vous besoin d’un interprète ?",
+
+  commInterpreterPlaceholder: "Exemple : français",
+
+  commMakeSummary: "Créer un résumé pour le professionnel de la santé",
+
+  commProviderSummary: "Résumé pour le professionnel de la santé",
+
+  commSummaryEmpty: "Votre résumé apparaîtra ici.",
+
+  commSayAloud: "Vous pouvez dire ceci au professionnel de la santé",
+
+  commCopy: "Copier",
+
+  commPrint: "Imprimer",
+
+  medIntro: "Entrez ce qui est écrit sur l’étiquette du médicament. Cette fonction ne modifie pas les instructions de votre médecin ou pharmacien.",
+
+  medName: "Nom du médicament",
+
+  medNamePlaceholder: "Exemple : gouttes ophtalmiques de ciprofloxacine à 0,3 %",
+
+  medDose: "Comment le prendre ou l’utiliser",
+
+  medDosePlaceholder: "Exemple : 1 goutte dans l’œil droit toutes les 4 heures pendant 5 jours",
+
+  medAdd: "Ajouter un médicament",
+
+  medEmpty: "Aucun médicament n’a encore été ajouté.",
+
+  medTaken: "Pris",
+
+  medSkip: "Sauter",
+
+  medLater: "Plus tard",
+
+  medTakenLog: "Pris",
+
+  medSkippedLog: "Sauté",
+
+  medLaterLog: "À prendre plus tard",
+
+  medAt: "Heure",
+
+  medPhotoTitle: "Lire l’étiquette à partir d’une photo (prévu)",
+
+  medPhotoDesc: "Prenez une photo de l’étiquette, l’IA lira l’information, puis vous la confirmerez. Cette fonction nécessite la reconnaissance d’image et n’est donc pas encore disponible.",
+
+  nearbyTitle: "Soins près de chez vous",
+
+  nearbyDesc: "Utilisez votre emplacement pour trouver des services de santé à proximité et comparer la distance et les heures d’ouverture.",
+
+  nearbyButton: "Trouver des soins à proximité",
+
+  nearestERButton: "Trouver le service d’urgence le plus proche",
+
+  waitTimeNote: "Les temps d’attente peuvent varier selon le jour et l’emplacement. CarePath affiche uniquement des renseignements vérifiés sur les temps d’attente lorsqu’ils sont disponibles. Si vous ne savez pas où aller, appelez le 8-1-1. Cet outil ne pose pas de diagnostic.",
+
+  fuIntro: "Faites un suivi une fois par jour. Vos réponses sont enregistrées sur cet appareil.",
+
+  fuBetter: "Je me sens mieux",
+
+  fuBetterSub: "Les symptômes s’améliorent",
+
+  fuSame: "Pas de changement",
+
+  fuSameSub: "Aucun changement important",
+
+  fuWorse: "Je me sens moins bien",
+
+  fuWorseSub: "Les symptômes s’aggravent",
+
+  fuTimeline: "Historique du suivi"
+}, pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",t2h:"ਆਪਣੀ ਸਮੱਸਿਆ ਸਪਸ਼ਟ ਤਰੀਕੇ ਨਾਲ ਦੱਸੋ",t3h:"ਆਪਣੀਆਂ ਦਵਾਈਆਂ ਦਾ ਰਿਕਾਰਡ ਰੱਖੋ",t4h:"ਕੀ ਹੁਣ ਸੁਧਾਰ ਹੈ?",foot:"ਇਹ ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ ਹੈ। ਐਮਰਜੈਂਸੀ: 9-1-1। ਨਰਸ: 8-1-1। ਸੰਕਟ: 9-8-8।",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ",next:"ਕੀ ਕਹਿਣਾ ਹੈ ਤਿਆਰ ਕਰੋ",anyflag:"ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਐਮਰਜੈਂਸੀ ਹੋ ਸਕਦੀ ਹੈ",chooseList:"ਸੂਚੀ ਵਿਚੋਂ ਚੁਣੋ ਜਾਂ ਸੱਜੇ ਪਾਸੇ ਸਰੀਰ ਗਾਈਡ ਵਰਤੋ।",bodyTitle:"ਸਰੀਰ ਦੇ ਕਿਹੜੇ ਹਿੱਸੇ ਵਿੱਚ ਸਮੱਸਿਆ ਹੈ?",bodySub:"ਤੇਜ਼ ਰਾਹ ਲਈ ਸਰੀਰ ਦੇ ਹਿੱਸੇ 'ਤੇ ਟੈਪ ਕਰੋ।",closest:"ਕਿਹੜਾ ਸਭ ਤੋਂ ਨੇੜੇ ਹੈ?",closestSub:"ਉਹ ਸਮੱਸਿਆ ਚੁਣੋ ਜੋ ਤੁਹਾਡੇ ਲੱਛਣਾਂ ਨਾਲ ਸਭ ਤੋਂ ਵੱਧ ਮਿਲਦੀ ਹੈ।",notListed:"ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ? ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ",notListedSub:"ਆਪਣੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਦੱਸੋ ਕਿ ਕੀ ਹੋ ਰਿਹਾ ਹੈ।"},
  zh:{sos:"胸痛、中风症状、呼吸困难、大量出血？",h1:"从第一个症状到下一次复诊。",sub:"为新移民、难民、长者和不熟悉BC省医疗体系的人提供指引。帮助您选择去哪里就医，不做诊断。",t1:"导航",t2:"沟通",t3:"用药",t4:"跟进",t2h:"清楚地向医疗人员说明情况",t3h:"管理您的药物",t4h:"情况有好转吗？",foot:"非医疗建议。紧急情况请拨打9-1-1，护士咨询8-1-1，心理危机9-8-8。",q0:"您现在是否有以下情况？",none:"都没有，继续",pick:"您主要的问题是什么？",back:"重新开始",best:"最适合前往的地方",alt:"其他选择",worse:"出现以下情况请去急诊或拨打9-1-1",next:"准备如何说明情况",anyflag:"以下任一情况都需要紧急处理",chooseList:"从列表中选择，或使用右侧身体指引。",bodyTitle:"哪里感觉不舒服？",bodySub:"点击身体部位以更快找到选项。",closest:"哪个最接近？",closestSub:"请选择最符合您症状的问题。",notListed:"没有列出？开始对话",notListedSub:"用您自己的话描述发生了什么。"},
 ar: {
   sos: "هل لديك ألم في الصدر، علامات سكتة دماغية، صعوبة شديدة في التنفس، أو نزيف لا يتوقف؟",
@@ -3221,6 +3411,363 @@ ar: {
     worse: [
       "حدوث تفاعل شديد مع الدواء",
       "عدم القدرة على تناول الدواء بسبب القيء"
+    ]
+  }
+
+},
+fr: {
+
+  eye: {
+    name: "Problème aux yeux",
+    hint: "Œil rouge, enflé, douloureux ou avec écoulement",
+
+    flags: [
+      "Perte soudaine ou changement important de la vision",
+      "Produit chimique projeté dans l’œil",
+      "Objet coincé dans l’œil ou blessure à l’œil",
+      "Douleur intense à l’œil avec nausées ou vomissements"
+    ],
+
+    best: "Optométriste (appelez d’abord pour vérifier la disponibilité le jour même)",
+
+    why: "Les optométristes de la Colombie-Britannique peuvent évaluer les problèmes oculaires urgents comme les infections et les égratignures de la cornée. Plusieurs offrent des rendez-vous le jour même. Vérifiez la couverture et les frais lorsque vous appelez.",
+
+    alt: [
+      "Pharmacien pour certains problèmes mineurs comme la conjonctivite",
+      "UPCC si vous ne pouvez pas consulter un optométriste",
+      "Appelez le 8-1-1 pour parler à une infirmière"
+    ],
+
+    worse: [
+      "La vision devient floue ou diminue",
+      "La douleur augmente",
+      "La paupière enfle beaucoup ou la rougeur s’étend au visage"
+    ]
+  },
+
+  cold: {
+    name: "Toux, rhume, fièvre",
+    hint: "Mal de gorge, congestion, légère fièvre",
+
+    flags: [
+      "Difficulté importante à respirer ou lèvres bleutées",
+      "Fièvre chez un bébé de moins de 3 mois",
+      "Confusion ou grande difficulté à se réveiller",
+      "Fièvre qui dure plus de 3 jours ou qui ne baisse pas"
+    ],
+
+    best: "Pharmacien ou médecin de famille / clinique sans rendez-vous",
+
+    why: "La plupart des rhumes et maux de gorge peuvent être évalués dans la communauté. Un pharmacien peut vous aider à soulager les symptômes et vous dire quand consulter un médecin.",
+
+    alt: [
+      "Appelez le 8-1-1 pour obtenir des conseils infirmiers",
+      "UPCC ou clinique sans rendez-vous pour une évaluation le jour même",
+      "Consultation virtuelle par téléphone ou vidéo"
+    ],
+
+    worse: [
+      "Il devient de plus en plus difficile de respirer",
+      "Une douleur thoracique apparaît à la respiration",
+      "Vous n’arrivez pas à garder de liquides pendant la journée"
+    ]
+  },
+
+  injury: {
+    name: "Entorse, chute ou coupure",
+    hint: "Enflure, boiterie ou coupure pouvant nécessiter des points de suture",
+
+    flags: [
+      "Saignement important qui ne s’arrête pas",
+      "Os visible ou déformation importante",
+      "Changement de l’état de conscience après une blessure à la tête",
+      "Impossible de bouger un bras ou une jambe"
+    ],
+
+    best: "Clinique sans rendez-vous ou UPCC",
+
+    why: "Les entorses légères, les chutes et les coupures peuvent être évaluées dans les services communautaires. On peut aussi déterminer si vous avez besoin de points de suture ou d’une radiographie.",
+
+    alt: [
+      "Médecin de famille",
+      "Pharmacien pour des conseils sur le soulagement de la douleur",
+      "8-1-1 pour parler à une infirmière"
+    ],
+
+    worse: [
+      "La douleur ou l’enflure augmente rapidement",
+      "Un engourdissement apparaît ou le membre devient froid",
+      "Le saignement continue"
+    ]
+  },
+
+  skin: {
+    name: "Éruption cutanée, douleur à la miction ou infection mineure",
+    hint: "Infection urinaire simple, eczéma, feu sauvage",
+
+    flags: [
+      "Éruption rouge qui s’étend rapidement avec forte fièvre",
+      "Enflure du visage ou de la gorge avec difficulté à respirer",
+      "Douleur intense ou cloques qui s’étendent rapidement"
+    ],
+
+    best: "Pharmacien ou clinique sans rendez-vous",
+
+    why: "En Colombie-Britannique, les pharmaciens peuvent évaluer et traiter certaines affections mineures. Les symptômes plus graves ou complexes peuvent nécessiter l’évaluation d’un médecin.",
+
+    alt: [
+      "Médecin de famille",
+      "UPCC",
+      "8-1-1 pour parler à une infirmière"
+    ],
+
+    worse: [
+      "Une forte fièvre apparaît",
+      "La rougeur s’étend rapidement",
+      "Une douleur intense ou une enflure apparaît"
+    ]
+  },
+
+  dental: {
+    name: "Douleur dentaire ou dans la bouche",
+    hint: "Mal de dents, dent cassée, gencive enflée",
+
+    flags: [
+      "Enflure importante du visage ou de la gorge avec difficulté à respirer",
+      "Difficulté à avaler ou incapacité à avaler la salive",
+      "Infection dentaire avec forte fièvre ou état général très mauvais"
+    ],
+
+    best: "Dentiste",
+
+    why: "Un dentiste peut déterminer la cause d’un mal de dents, d’une dent cassée ou d’une gencive enflée et fournir le traitement approprié.",
+
+    alt: [
+      "Pharmacien pour des conseils temporaires sur le soulagement de la douleur",
+      "UPCC ou service d’urgence si l’infection est grave",
+      "Appelez le 8-1-1 si vous n’êtes pas certain"
+    ],
+
+    worse: [
+      "L’enflure s’étend au cou ou autour de l’œil",
+      "Il devient difficile de respirer ou d’avaler",
+      "Une fièvre apparaît et votre état se détériore rapidement"
+    ]
+  },
+
+  stomach: {
+    name: "Problème d’estomac / abdominal",
+    hint: "Douleur abdominale, vomissements, diarrhée, constipation",
+
+    flags: [
+      "Douleur abdominale intense ou qui s’aggrave",
+      "Vomissements de sang ou selles noires",
+      "Impossible de garder les liquides et sensation de faiblesse ou d’évanouissement",
+      "Grossesse avec douleur abdominale intense ou saignement abondant"
+    ],
+
+    best: "Médecin de famille / clinique sans rendez-vous ou UPCC",
+
+    why: "La plupart des problèmes d’estomac non urgents peuvent commencer par une évaluation en soins primaires ou urgents. Une douleur intense, la déshydratation ou un saignement nécessitent une évaluation plus rapide.",
+
+    alt: [
+      "Pharmacien pour les symptômes légers",
+      "Appelez le 8-1-1 si vous n’êtes pas certain",
+      "Urgences si la douleur est intense, soudaine ou accompagnée de saignement ou d’évanouissement"
+    ],
+
+    worse: [
+      "La douleur devient intense ou se localise dans une zone précise",
+      "Vous devenez déshydraté ou vous vous évanouissez",
+      "Il y a du sang dans les vomissements ou les selles"
+    ]
+  },
+
+  neuro: {
+    name: "Mal de tête / étourdissement",
+    hint: "Mal de tête, vertige, sensation de tête légère, impression de s’évanouir",
+
+    flags: [
+      "Mal de tête soudain, le pire de votre vie",
+      "Nouvelle faiblesse, affaissement du visage ou difficulté à parler",
+      "Mal de tête après une blessure importante à la tête",
+      "Évanouissement avec douleur thoracique ou confusion persistante"
+    ],
+
+    best: "Médecin de famille / clinique sans rendez-vous ou UPCC",
+
+    why: "La plupart des maux de tête et étourdissements peuvent être évalués en soins primaires, mais les symptômes neurologiques soudains nécessitent des soins d’urgence.",
+
+    alt: [
+      "Appelez le 8-1-1 pour obtenir des conseils infirmiers",
+      "Pharmacien si les étourdissements peuvent être liés à un médicament",
+      "Urgences en cas de symptômes neurologiques soudains et graves"
+    ],
+
+    worse: [
+      "Une faiblesse ou une difficulté à parler apparaît",
+      "Le mal de tête devient soudain et très intense",
+      "Vous perdez connaissance ou ne pouvez pas marcher en sécurité"
+    ]
+  },
+
+  ent: {
+    name: "Oreille / nez / gorge",
+    hint: "Douleur à l’oreille, saignement de nez, mal de gorge, pression des sinus",
+
+    flags: [
+      "Difficulté à respirer ou à avaler",
+      "Saignement de nez important qui ne s’arrête pas",
+      "Enflure importante de la gorge ou du cou",
+      "Forte fièvre avec raideur importante du cou"
+    ],
+
+    best: "Pharmacien ou médecin de famille / clinique sans rendez-vous",
+
+    why: "Plusieurs problèmes courants des oreilles, du nez et de la gorge peuvent être évalués dans la communauté. Un saignement important ou des problèmes de respiration ou de déglutition nécessitent des soins urgents.",
+
+    alt: [
+      "Appelez le 8-1-1",
+      "UPCC pour une évaluation le jour même si les symptômes s’aggravent",
+      "Urgences en cas de problème grave de respiration ou de saignement"
+    ],
+
+    worse: [
+      "L’enflure s’étend",
+      "Vous ne pouvez pas avaler de liquides",
+      "Le saignement ne s’arrête pas"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "Douleur au dos / muscles / articulations",
+    hint: "Mal de dos, élongation musculaire, douleur articulaire, raideur",
+
+    flags: [
+      "Nouvelle perte de contrôle de la vessie ou des intestins",
+      "Engourdissement dans la région de l’aine",
+      "Un membre devient froid, pâle ou soudainement faible",
+      "Douleur intense après une chute importante ou un accident"
+    ],
+
+    best: "Médecin de famille / clinique sans rendez-vous ou physiothérapie",
+
+    why: "La plupart des problèmes non urgents des muscles, articulations et du dos peuvent commencer par une évaluation en soins primaires ou auprès d’un professionnel musculosquelettique.",
+
+    alt: [
+      "Physiothérapeute",
+      "Pharmacien pour des conseils sur le contrôle de la douleur",
+      "UPCC"
+    ],
+
+    worse: [
+      "Une faiblesse ou un engourdissement apparaît soudainement",
+      "Vous avez de la difficulté à contrôler la vessie ou les intestins",
+      "La douleur s’aggrave rapidement"
+    ]
+  },
+
+  breathing: {
+    name: "Problème respiratoire / asthme",
+    hint: "Respiration sifflante, essoufflement, aggravation de l’asthme",
+
+    flags: [
+      "Impossible de respirer correctement",
+      "Les lèvres ou le visage deviennent bleutés",
+      "Essoufflement si important que vous ne pouvez pas parler en phrases complètes"
+    ],
+
+    best: "UPCC ou médecin de famille / clinique sans rendez-vous",
+
+    why: "Une légère aggravation de l’asthme ou d’autres symptômes respiratoires peuvent être évalués dans la communauté, mais une difficulté importante à respirer est une urgence.",
+
+    alt: [
+      "Pharmacien pour des conseils sur l’inhalateur",
+      "8-1-1 pour obtenir des conseils infirmiers"
+    ],
+
+    worse: [
+      "Il devient de plus en plus difficile de respirer",
+      "L’inhalateur ne vous aide pas",
+      "Les lèvres deviennent bleutées"
+    ]
+  },
+
+  pregnancy: {
+    name: "Grossesse / santé sexuelle",
+    hint: "Symptômes liés à la grossesse, saignement, contraception, questions sur les ITS",
+
+    flags: [
+      "Saignement abondant pendant la grossesse",
+      "Douleur abdominale intense ou évanouissement",
+      "Difficulté importante à respirer pendant la grossesse"
+    ],
+
+    best: "Médecin de famille, professionnel de soins prénataux ou clinique de santé sexuelle",
+
+    why: "Les préoccupations liées à la grossesse et à la santé sexuelle peuvent être évaluées par un médecin de famille, un professionnel de soins prénataux ou une clinique de santé sexuelle selon les symptômes.",
+
+    alt: [
+      "UPCC",
+      "Pharmacien",
+      "8-1-1 pour parler à une infirmière"
+    ],
+
+    worse: [
+      "Saignement abondant",
+      "Douleur abdominale intense",
+      "Évanouissement ou détérioration rapide de l’état"
+    ]
+  },
+
+  mental: {
+    name: "Stress, humeur basse ou crise",
+    hint: "Se sentir dépassé, anxieux ou en danger",
+
+    flags: [
+      "Pensées de vous faire du mal ou de vous suicider",
+      "Pensées de faire du mal à quelqu’un d’autre",
+      "Vous ne vous sentez pas en sécurité maintenant"
+    ],
+
+    best: "Soutien en situation de crise ou services de santé mentale",
+
+    why: "Vous pouvez obtenir de l’aide immédiatement en situation de crise. Vous n’avez pas besoin d’un diagnostic officiel pour demander du soutien.",
+
+    alt: [
+      "Appelez ou envoyez un message au 9-8-8",
+      "Appelez le 8-1-1 et demandez des renseignements sur les services de santé mentale",
+      "Médecin de famille ou clinique sans rendez-vous"
+    ],
+
+    worse: [
+      "Vous sentez que vous êtes en danger",
+      "Vous avez un plan précis pour vous faire du mal"
+    ]
+  },
+
+  meds: {
+    name: "Renouvellement d’ordonnance ou question sur un médicament",
+    hint: "Médicament presque terminé, effets secondaires ou façon de le prendre",
+
+    flags: [
+      "Enflure du visage ou de la gorge après avoir pris un médicament",
+      "Difficulté à respirer après avoir pris un médicament",
+      "Possibilité de surdose"
+    ],
+
+    best: "Pharmacien",
+
+    why: "Un pharmacien peut vous aider avec l’utilisation des médicaments, les effets secondaires et, dans plusieurs cas, le renouvellement d’ordonnances existantes.",
+
+    alt: [
+      "Appelez le 8-1-1 et demandez à parler à un pharmacien",
+      "Médecin de famille ou clinique sans rendez-vous si vous avez besoin d’une nouvelle ordonnance"
+    ],
+
+    worse: [
+      "Vous avez une réaction grave au médicament",
+      "Vous ne pouvez pas prendre le médicament à cause de vomissements"
     ]
   }
 
