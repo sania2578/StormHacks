@@ -16,10 +16,221 @@ main{max-width:1400px;margin:0 auto;padding:1.5rem 2rem 3rem}
   max-width: 62ch;
   white-space: pre-line;
 }
-.tabs{display:flex;border-bottom:2px solid var(--line);margin-bottom:1.25rem;overflow-x:auto}
-.tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:.8rem 1.1rem;font:inherit;font-weight:700;color:var(--mut);cursor:pointer;white-space:nowrap}
-.tabs button[aria-selected=true]{color:var(--pri);border-color:var(--pri)}
-.panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem}
+/* ==========================================
+   JOURNEY / TOP SECTION BUTTONS
+   ========================================== */
+
+.journey-tabs {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(180px, 1fr));
+
+  gap: 1.25rem;
+
+  margin: 2rem 0 2.2rem;
+
+  border: 0;
+  overflow: visible;
+}
+
+
+/* Base card */
+
+.journey-tab {
+  position: relative;
+
+  min-height: 125px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+
+  gap: .55rem .8rem;
+
+  padding: 1.05rem;
+
+  border: 2px solid transparent;
+  border-radius: 20px;
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+
+/* Hover */
+
+.journey-tab:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 26px
+    rgba(27, 63, 59, .10);
+}
+
+
+/* Number */
+
+.journey-num {
+  grid-column: 1 / 3;
+
+  font-size: .8rem;
+  font-weight: 900;
+
+  letter-spacing: .08em;
+
+  opacity: .65;
+}
+
+
+/* Icon */
+
+.journey-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, .72);
+
+  font-size: 1.3rem;
+
+  align-self: center;
+}
+
+
+/* Text */
+
+.journey-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+.journey-text strong {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #173e3b;
+}
+
+.journey-text small {
+  margin-top: .18rem;
+
+  font-size: .76rem;
+  font-weight: 600;
+
+  color: #53706e;
+}
+
+
+/* ==========================================
+   INDIVIDUAL COLORS
+   ========================================== */
+
+.nav-tab {
+  background: #EEF8F4;
+  color: #23403D;
+}
+
+.comm-tab {
+  background: #DCEFF3;
+  color: #23403D;
+}
+
+.med-tab {
+  background: #D9EEE9;
+  color: #23403D;
+}
+
+.follow-tab {
+  background: #F7E3CF;
+  color: #23403D;
+}
+
+/* Active state */
+
+.journey-tab[aria-selected="true"] {
+
+  box-shadow:
+    0 10px 28px
+    rgba(21, 118, 109, .16);
+}
+.nav-tab[aria-selected="true"] {
+  border-color: #A7D9CF;
+}
+
+.comm-tab[aria-selected="true"] {
+  border-color: #B5D9E0;
+}
+
+.med-tab[aria-selected="true"] {
+  border-color: #A9D4CA;
+}
+
+.follow-tab[aria-selected="true"] {
+  border-color: #E8B77F;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1100px) {
+
+  .journey-tabs {
+    grid-template-columns:
+      repeat(2, minmax(240px, 1fr));
+
+    gap: 1.1rem;
+  }
+}
+
+
+@media (max-width: 620px) {
+
+  .journey-tabs {
+    grid-template-columns: 1fr;
+
+    gap: .85rem;
+  }
+
+  .journey-tab {
+    min-height: 95px;
+  }
+}
+.panel {
+  display: none;
+
+  position: relative;
+  z-index: 1;
+
+  background: var(--card);
+
+  border: 2px solid #d3e4e2;
+
+  border-radius: 0 22px 22px 22px;
+
+  padding: 2rem 1.5rem 1.5rem;
+
+  min-height: 300px;
+
+  box-shadow:
+    0 12px 30px rgba(25, 70, 65, .06);
+}
 .panel.on{display:block}
 h2{font-size:1.3rem;margin-bottom:.25rem}
 .sub{color:var(--mut);margin-bottom:1rem;font-size:.95rem}
@@ -326,4 +537,213 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;b
     width: 100%;
     justify-content: flex-start;
   }
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #0f6b63;
+  color: #fff;
+
+  font-size: 1.35rem;
+  font-weight: 900;
+
+  box-shadow: 0 6px 16px rgba(15, 107, 99, .18);
+}
+
+.brand-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #173e3b;
+}
+
+.brand-subtitle {
+  margin-top: .08rem;
+  font-size: .68rem;
+  font-weight: 700;
+  color: #66807e;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+/* ==========================================
+   ACTIVE JOURNEY TAB = FILE FOLDER EFFECT
+   ========================================== */
+
+.journey-tabs {
+  position: relative;
+  z-index: 2;
+
+  /* panel과 가까이 붙이기 */
+  margin-bottom: 0;
+}
+
+
+/* 기본 카드 */
+.journey-tab {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* 선택된 stage */
+.journey-tab[aria-selected="true"] {
+  z-index: 5;
+
+  transform: translateY(16px);
+
+  border: 2px solid #15766d;
+
+  /* 아래쪽은 panel과 이어지는 느낌 */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  box-shadow:
+    0 -5px 18px rgba(21, 118, 109, .08);
+}
+
+
+/* active tab 밑의 경계선을 덮어서
+   panel과 실제로 이어진 것처럼 보이게 */
+.journey-tab[aria-selected="true"]::after {
+  content: "";
+
+  position: absolute;
+
+  left: -2px;
+  right: -2px;
+
+  bottom: -20px;
+
+  height: 22px;
+
+  background: inherit;
+
+  border-left: 2px solid #15766d;
+  border-right: 2px solid #15766d;
+
+  z-index: 5;
+}
+
+#navigate.panel.on {
+  border-color: #a8dccc;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f0faf6 0,
+      #ffffff 110px
+    );
+}
+#communicate.panel.on {
+  border-color: #9bcfdf;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f1fafd 0,
+      #ffffff 110px
+    );
+}
+#manage.panel.on {
+  border-color: #86cfc5;
+  background:
+    linear-gradient(
+      180deg,
+      #f0fbf9 0,
+      #ffffff 110px
+    );
+}
+#followup.panel.on {
+  border-color: #E59A3A;
+
+  background:
+    linear-gradient(
+      180deg,
+      #FCE6C8 0px,
+      #FFF6E9 110px,
+      #FFFFFF 230px
+    );
+}
+
+/* ==========================================
+   FINAL ACTIVE STAGE BORDER COLORS
+   Keep tab + connector + panel matching
+   ========================================== */
+
+/* 01 */
+.nav-tab[aria-selected="true"] {
+  border-color: #A7D9CF !important;
+}
+
+.nav-tab[aria-selected="true"]::after {
+  border-left-color: #A7D9CF !important;
+  border-right-color: #A7D9CF !important;
+}
+
+#navigate.panel.on {
+  border-color: #A7D9CF !important;
+}
+
+
+/* 02 */
+.comm-tab[aria-selected="true"] {
+  border-color: #B6D8DF !important;
+}
+
+.comm-tab[aria-selected="true"]::after {
+  border-left-color: #B6D8DF !important;
+  border-right-color: #B6D8DF !important;
+}
+
+#communicate.panel.on {
+  border-color: #B6D8DF !important;
+}
+
+
+/* 03 */
+.med-tab[aria-selected="true"] {
+  border-color: #A8D4CA !important;
+}
+
+.med-tab[aria-selected="true"]::after {
+  border-left-color: #A8D4CA !important;
+  border-right-color: #A8D4CA !important;
+}
+
+#manage.panel.on {
+  border-color: #A8D4CA !important;
+}
+
+
+/* 04 */
+.follow-tab[aria-selected="true"] {
+  border-color: #E9B77D !important;
+}
+
+.follow-tab[aria-selected="true"]::after {
+  border-left-color: #E9B77D !important;
+  border-right-color: #E9B77D !important;
+}
+
+#followup.panel.on {
+  border-color: #E9B77D !important;
+  
+    background:
+      linear-gradient(
+        180deg,
+        #FFF9F4 0px,
+        #FFFFFF 90px
+      );
 }
