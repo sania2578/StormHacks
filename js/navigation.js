@@ -115,7 +115,7 @@ function result(k){
     <button class="btn" id="go">${esc(t('next'))}</button>
     <button class="btn g" id="rs">${esc(t('back'))}</button>
   </div>`;
-  $('findCare').onclick=()=>findNearbyCare(c.best);
+  $('findCare').onclick = () => findNearbyCare(base.best);
   $('go').onclick=()=>{
     $('f_where').value=c.best.split(' (')[0];
     $('f_story').placeholder=c.name+": ";
