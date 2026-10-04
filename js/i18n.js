@@ -2,7 +2,15 @@
 const I18N={
  en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
   q0:"Do any of these apply right now?",none:"None of these. Continue",pick:"What is your main concern?",back:"Start over",best:"Best place to go",alt:"Other options",worse:"Go to the ER or call 9-1-1 if",next:"Prepare what to say",anyflag:"Any of these needs emergency care",
-  chooseList:"Choose from the list, or use the body guide on the right.",bodyTitle:"Where does it feel wrong?",bodySub:"Tap a body area for a faster route.",closest:"Which one is closest?",closestSub:"Choose the problem that best matches what you are feeling.",notListed:"Not listed? Start a conversation",notListedSub:"Describe what is happening in your own words and the AI assistant will help guide you."},
+  chooseList:"Choose from the list, or use the body guide on the right.",bodyTitle:"Where does it feel wrong?",bodySub:"Tap a body area for a faster route.",closest:"Which one is closest?",closestSub:"Choose the problem that best matches what you are feeling.",notListed:"Not listed? Start a conversation",notListedSub:"Describe what is happening in your own words and the AI assistant will help guide you.",
+fuBetter: "Feeling better",
+fuBetterSub: "Symptoms are improving",
+
+fuSame: "About the same",
+fuSameSub: "No major change",
+
+fuWorse: "Feeling worse",
+fuWorseSub: "Symptoms are getting worse",},
  fr:{sos:"Douleur thoracique, signes d'AVC, difficulté à respirer, saignement important ?",h1:"Du premier symptôme au prochain suivi.",sub:"Un guide pour les nouveaux arrivants, réfugiés et aînés en Colombie-Britannique. Il vous aide à choisir où aller. Il ne pose pas de diagnostic.",t1:"S'orienter",t2:"Communiquer",t3:"Gérer",t4:"Suivi",t2h:"Expliquez clairement votre problème au professionnel",t3h:"Suivez vos médicaments",t4h:"Est-ce que ça va mieux ?",foot:"Ne remplace pas un avis médical. Urgence : 9-1-1. Infirmière : 8-1-1. Crise : 9-8-8.",q0:"Est-ce que l'un de ces cas s'applique maintenant ?",none:"Aucun. Continuer",pick:"Quel est votre principal problème ?",back:"Recommencer",best:"Meilleur endroit où aller",alt:"Autres options",worse:"Allez aux urgences ou appelez le 9-1-1 si",next:"Préparer quoi dire",anyflag:"L'un de ces signes nécessite des soins d'urgence",chooseList:"Choisissez dans la liste ou utilisez le guide du corps à droite.",bodyTitle:"Où ressentez-vous le problème ?",bodySub:"Touchez une zone du corps pour aller plus vite.",closest:"Quel choix correspond le mieux ?",closestSub:"Choisissez le problème qui ressemble le plus à vos symptômes.",notListed:"Pas dans la liste ? Commencer une conversation",notListedSub:"Décrivez ce qui se passe avec vos propres mots."},
  pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",t2h:"ਆਪਣੀ ਸਮੱਸਿਆ ਸਪਸ਼ਟ ਤਰੀਕੇ ਨਾਲ ਦੱਸੋ",t3h:"ਆਪਣੀਆਂ ਦਵਾਈਆਂ ਦਾ ਰਿਕਾਰਡ ਰੱਖੋ",t4h:"ਕੀ ਹੁਣ ਸੁਧਾਰ ਹੈ?",foot:"ਇਹ ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ ਹੈ। ਐਮਰਜੈਂਸੀ: 9-1-1। ਨਰਸ: 8-1-1। ਸੰਕਟ: 9-8-8।",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ",next:"ਕੀ ਕਹਿਣਾ ਹੈ ਤਿਆਰ ਕਰੋ",anyflag:"ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਐਮਰਜੈਂਸੀ ਹੋ ਸਕਦੀ ਹੈ",chooseList:"ਸੂਚੀ ਵਿਚੋਂ ਚੁਣੋ ਜਾਂ ਸੱਜੇ ਪਾਸੇ ਸਰੀਰ ਗਾਈਡ ਵਰਤੋ।",bodyTitle:"ਸਰੀਰ ਦੇ ਕਿਹੜੇ ਹਿੱਸੇ ਵਿੱਚ ਸਮੱਸਿਆ ਹੈ?",bodySub:"ਤੇਜ਼ ਰਾਹ ਲਈ ਸਰੀਰ ਦੇ ਹਿੱਸੇ 'ਤੇ ਟੈਪ ਕਰੋ।",closest:"ਕਿਹੜਾ ਸਭ ਤੋਂ ਨੇੜੇ ਹੈ?",closestSub:"ਉਹ ਸਮੱਸਿਆ ਚੁਣੋ ਜੋ ਤੁਹਾਡੇ ਲੱਛਣਾਂ ਨਾਲ ਸਭ ਤੋਂ ਵੱਧ ਮਿਲਦੀ ਹੈ।",notListed:"ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ? ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ",notListedSub:"ਆਪਣੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਦੱਸੋ ਕਿ ਕੀ ਹੋ ਰਿਹਾ ਹੈ।"},
  zh:{sos:"胸痛、中风症状、呼吸困难、大量出血？",h1:"从第一个症状到下一次复诊。",sub:"为新移民、难民、长者和不熟悉BC省医疗体系的人提供指引。帮助您选择去哪里就医，不做诊断。",t1:"导航",t2:"沟通",t3:"用药",t4:"跟进",t2h:"清楚地向医疗人员说明情况",t3h:"管理您的药物",t4h:"情况有好转吗？",foot:"非医疗建议。紧急情况请拨打9-1-1，护士咨询8-1-1，心理危机9-8-8。",q0:"您现在是否有以下情况？",none:"都没有，继续",pick:"您主要的问题是什么？",back:"重新开始",best:"最适合前往的地方",alt:"其他选择",worse:"出现以下情况请去急诊或拨打9-1-1",next:"准备如何说明情况",anyflag:"以下任一情况都需要紧急处理",chooseList:"从列表中选择，或使用右侧身体指引。",bodyTitle:"哪里感觉不舒服？",bodySub:"点击身体部位以更快找到选项。",closest:"哪个最接近？",closestSub:"请选择最符合您症状的问题。",notListed:"没有列出？开始对话",notListedSub:"用您自己的话描述发生了什么。"},
@@ -14,7 +22,7 @@ ko: {
 
   h1: "첫 증상부터 다음 진료까지.",
 
-  sub: "BC 의료 시스템이 익숙하지 않은 신규 이민자, 난민, 고령자 등을 위한 안내입니다. 어디로 가야 할지 돕지만 진단은 하지 않습니다.",
+  sub: "BC 의료 시스템이 익숙하지 않은 신규 이민자, 난민, 고령자 등을 위한 안내입니다. \n 어디로 가야 할지 돕지만 진단은 하지 않습니다.",
 
   t1: "진료 찾기",
   t2: "설명 준비",
@@ -87,8 +95,91 @@ ko: {
 
   chatSend: "보내기",
 
-  chatNote: "어디로 진료를 받으러 가야 할지 안내합니다. 진단은 하지 않습니다."
-},
+  chatNote: "어디로 진료를 받으러 가야 할지 안내합니다. 진단은 하지 않습니다.",
+  chatHintNavigate: "증상을 설명해 주세요…",
+  chatHintCommunicate: "의료진에게 어떻게 설명할지 물어보세요…",
+  chatHintManage: "복용 중인 약에 대해 물어보세요…",
+  chatHintFollowup: "오늘 상태가 어떤지 알려주세요…",
+
+  commIntro: "아는 내용만 입력하세요. 요약 내용은 이 브라우저에만 저장됩니다.",
+
+  commWhere: "어디로 진료를 받으러 가나요?",
+  commWherePlaceholder: "예: 검안사",
+
+  commStory: "어떤 증상이 있나요?",
+  commStoryPlaceholder: "예: 오른쪽 눈이 빨갛고 눈곱이 낍니다.",
+
+  commStart: "언제부터 시작됐나요?",
+
+  commToday: "오늘",
+  comm1to2: "1–2일 전",
+  comm3to7: "3–7일 전",
+  commWeekPlus: "일주일 이상 전",
+
+  commSeverity: "증상이 얼마나 심한가요?",
+
+  commMeds: "복용 중인 약과 알레르기",
+  commMedsPlaceholder: "예: 페니실린 알레르기, 메트포르민 복용 중",
+
+  commQuestions: "잊지 않고 물어보고 싶은 질문",
+  commQuestionsPlaceholder: "예: 전염되나요? 콘택트렌즈를 착용해도 되나요?",
+
+  commInterpreter: "통역이 필요한가요?",
+  commInterpreterPlaceholder: "예: 한국어",
+
+  commMakeSummary: "의료진용 요약 만들기",
+
+  commProviderSummary: "의료진에게 보여줄 요약",
+  commSummaryEmpty: "여기에 요약 내용이 표시됩니다.",
+
+  commSayAloud: "의료진에게 이렇게 말하세요",
+
+  commCopy: "복사",
+  commPrint: "인쇄",
+
+  nearbyTitle: "내 주변 진료기관",
+
+  nearbyDesc: "현재 위치를 사용해 가까운 진료기관을 찾고 운영 여부와 거리를 비교합니다.",
+
+  nearbyButton: "가까운 진료기관 찾기",
+
+  nearestERButton: "가장 가까운 응급실 찾기",
+
+  waitTimeNote: "대기 시간은 날짜와 위치에 따라 달라질 수 있습니다. CarePath는 확인 가능한 경우 검증된 대기 시간 정보만 제공합니다. 어디로 가야 할지 확실하지 않다면 8-1-1에 전화하세요. 이 도구는 진단을 하지 않습니다.",
+  medIntro: "약 라벨에 적힌 내용을 입력하세요. 이 기능은 의사나 약사가 안내한 복용법을 변경하지 않습니다.",
+
+  medName: "약 이름",
+  medNamePlaceholder: "예: 시프로플록사신 0.3% 점안액",
+
+  medDose: "복용 방법",
+  medDosePlaceholder: "예: 오른쪽 눈에 4시간마다 1방울씩 5일간",
+
+  medAdd: "약 추가",
+
+  medEmpty: "아직 등록된 약이 없습니다.",
+
+  medTaken: "복용함",
+  medSkip: "건너뜀",
+  medLater: "나중에",
+
+  medTakenLog: "복용",
+  medSkippedLog: "건너뜀",
+  medLaterLog: "나중에 복용",
+
+  medAt: "시간",
+
+  medPhotoTitle: "사진으로 약 라벨 읽기 (예정)",
+
+  medPhotoDesc: "약 라벨을 촬영하면 AI가 내용을 읽고 사용자가 확인하는 기능입니다. 이미지 인식 기능이 필요하므로 현재는 사용할 수 없습니다.",
+
+  fuBetter: "나아졌어요",
+  fuBetterSub: "증상이 호전되고 있어요",
+
+  fuSame: "비슷해요",
+  fuSameSub: "큰 변화가 없어요",
+
+  fuWorse: "더 나빠졌어요",
+  fuWorseSub: "증상이 심해지고 있어요",},
  ja:{sos:"胸の痛み、脳卒中の兆候、重い呼吸困難、大量出血がありますか？",h1:"最初の症状から次のフォローアップまで。",sub:"BC州の医療制度に不慣れな新来者、難民、高齢者などのための案内です。受診先選びを支援しますが、診断はしません。",t1:"受診先を探す",t2:"説明する",t3:"薬を管理",t4:"経過確認",t2h:"医療者に症状をわかりやすく伝える",t3h:"薬を管理する",t4h:"よくなっていますか？",foot:"医療上の診断ではありません。緊急時: 9-1-1。看護師相談: 8-1-1。危機支援: 9-8-8。",q0:"今、次の症状がありますか？",none:"どれもない。続ける",pick:"主な心配ごとは何ですか？",back:"最初から",best:"最適な受診先",alt:"その他の選択肢",worse:"次の場合はERへ行くか9-1-1へ",next:"医療者に伝える内容を準備",anyflag:"いずれかに当てはまる場合は緊急対応が必要です",chooseList:"一覧から選ぶか、右側の身体ガイドを使ってください。",bodyTitle:"どこに違和感がありますか？",bodySub:"身体の部位をタップすると早く探せます。",closest:"どれが一番近いですか？",closestSub:"症状に最も近いものを選んでください。",notListed:"一覧にない？会話を始める",notListedSub:"今起きていることを自分の言葉で説明してください。"},
  es:{sos:"¿Dolor de pecho, signos de derrame cerebral, dificultad grave para respirar o sangrado abundante?",h1:"Desde el primer síntoma hasta el seguimiento.",sub:"Una guía para recién llegados, refugiados, adultos mayores y cualquier persona nueva en el sistema de salud de BC. Ayuda a elegir dónde acudir. No diagnostica.",t1:"Orientación",t2:"Comunicar",t3:"Medicamentos",t4:"Seguimiento",t2h:"Explique claramente su problema al profesional",t3h:"Lleve el control de sus medicamentos",t4h:"¿Está mejorando?",foot:"No sustituye el consejo médico. Emergencias: 9-1-1. Enfermería: 8-1-1. Crisis: 9-8-8.",q0:"¿Tiene alguno de estos síntomas ahora?",none:"Ninguno. Continuar",pick:"¿Cuál es su principal preocupación?",back:"Empezar de nuevo",best:"Mejor lugar para acudir",alt:"Otras opciones",worse:"Vaya a urgencias o llame al 9-1-1 si",next:"Prepare lo que va a decir",anyflag:"Cualquiera de estos signos puede requerir atención de emergencia",chooseList:"Elija de la lista o use la guía corporal de la derecha.",bodyTitle:"¿Dónde siente el problema?",bodySub:"Toque una zona del cuerpo para encontrar una ruta más rápida.",closest:"¿Cuál se parece más?",closestSub:"Elija el problema que más se parezca a lo que siente.",notListed:"¿No aparece? Inicie una conversación",notListedSub:"Describa con sus propias palabras lo que está pasando."},
  pt:{sos:"Dor no peito, sinais de AVC, dificuldade grave para respirar ou sangramento intenso?",h1:"Do primeiro sintoma ao próximo acompanhamento.",sub:"Um guia para recém-chegados, refugiados, idosos e qualquer pessoa nova no sistema de saúde da Colúmbia Britânica. Ajuda a escolher onde ir. Não faz diagnóstico.",t1:"Orientação",t2:"Comunicar",t3:"Medicamentos",t4:"Acompanhamento",t2h:"Explique claramente o seu problema ao profissional",t3h:"Acompanhe os seus medicamentos",t4h:"Está melhorando?",foot:"Não substitui orientação médica. Emergência: 9-1-1. Enfermagem: 8-1-1. Crise: 9-8-8.",q0:"Algum destes sintomas está acontecendo agora?",none:"Nenhum. Continuar",pick:"Qual é a sua principal preocupação?",back:"Começar de novo",best:"Melhor lugar para procurar atendimento",alt:"Outras opções",worse:"Vá ao pronto-socorro ou ligue 9-1-1 se",next:"Prepare o que dizer",anyflag:"Qualquer um destes sinais pode precisar de atendimento de emergência",chooseList:"Escolha na lista ou use o guia corporal à direita.",bodyTitle:"Onde você sente o problema?",bodySub:"Toque em uma área do corpo para encontrar uma opção mais rapidamente.",closest:"Qual é o mais parecido?",closestSub:"Escolha o problema que mais se aproxima do que você está sentindo.",notListed:"Não está na lista? Inicie uma conversa",notListedSub:"Descreva com suas próprias palavras o que está acontecendo."},
@@ -98,21 +189,289 @@ let lang='en';
 const t=k=>(I18N[lang]&&I18N[lang][k])||I18N.en[k]||k;
 
 const CAT_I18N={
- ko:{
-  eye:["눈 문제","충혈, 부기, 통증, 눈곱"],
-  cold:["기침, 감기, 발열","인후통, 코막힘, 가벼운 발열"],
-  injury:["삠, 넘어짐, 베인 상처","부기, 절뚝거림, 봉합이 필요할 수 있는 상처"],
-  skin:["발진, 소변 시 통증, 가벼운 감염","단순 요로감염, 습진, 구순포진"],
-  dental:["치아 또는 입 통증","치통, 깨진 치아, 잇몸 부기"],
-  stomach:["복부 / 위장 문제","복통, 구토, 설사, 변비"],
-  neuro:["두통 / 어지러움","두통, 현기증, 어질어질함, 실신 느낌"],
-  ent:["귀 / 코 / 목","귀 통증, 코피, 인후통, 부비동 압박감"],
-  musculoskeletal:["허리 / 근육 / 관절 통증","허리 통증, 근육 염좌, 관절통, 뻣뻣함"],
-  breathing:["호흡 / 천식 문제","쌕쌕거림, 숨참, 천식 악화"],
-  pregnancy:["임신 / 성 건강","임신 관련 증상, 출혈, 피임, STI 질문"],
-  mental:["스트레스, 우울감, 위기","압도됨, 불안함, 안전하지 않다고 느낌"],
-  meds:["처방전 리필 또는 약 질문","약이 부족함, 부작용, 복용 방법"]
- },
+ ko: {
+    eye: {
+      name: "눈 문제",
+      hint: "충혈, 부기, 통증, 눈곱",
+      flags: [
+        "갑작스러운 시력 저하",
+        "눈에 화학물질이 들어감",
+        "눈에 이물질이 들어갔거나 눈을 다침",
+        "메스꺼움이나 구토를 동반한 심한 눈 통증"
+      ],
+      best: "검안사 (당일 진료 가능 여부 전화 확인)",
+      why: "BC의 검안사는 안구 감염이나 각막 찰과상 같은 급성 눈 문제를 평가할 수 있습니다. 당일 진료가 가능한 곳도 많습니다. 비용 보장 여부는 방문 전 확인하세요.",
+      alt: [
+        "약사: 결막염 같은 경미한 안과 질환을 평가할 수 있음",
+        "검안사를 이용할 수 없으면 UPCC",
+        "8-1-1에 전화해 간호사 상담"
+      ],
+      worse: [
+        "시야가 흐려지거나 시력이 떨어짐",
+        "통증이 심해짐",
+        "눈꺼풀이 심하게 붓거나 얼굴 쪽으로 붉은기가 번짐"
+      ]
+    },
+
+    cold: {
+      name: "기침, 감기, 발열",
+      hint: "인후통, 코막힘, 가벼운 발열",
+      flags: [
+        "숨쉬기 매우 힘들거나 입술이 파래짐",
+        "생후 3개월 미만 아기에게 발열이 있음",
+        "혼란스럽거나 깨우기 매우 어려움",
+        "열이 3일 이상 지속되거나 잘 내려가지 않음"
+      ],
+      best: "약사 또는 가정의 / 워크인 클리닉",
+      why: "대부분의 감기와 인후통은 지역사회에서 평가받을 수 있습니다. 약사는 증상 완화 방법과 의사를 만나야 하는 시점을 안내할 수 있습니다.",
+      alt: [
+        "8-1-1에 전화해 간호사 상담 받기",
+        "당일 진료가 필요하면 UPCC 또는 워크인 클리닉",
+        "전화 또는 영상으로 가상 진료 받기"
+      ],
+      worse: [
+        "호흡이 점점 어려워짐",
+        "숨쉴 때 가슴 통증이 있음",
+        "하루 동안 물이나 음료를 유지하지 못함"
+      ]
+    },
+
+    injury: {
+      name: "삠, 넘어짐, 베인 상처",
+      hint: "부기, 절뚝거림, 봉합이 필요할 수 있는 상처",
+      flags: [
+        "심한 출혈이 멈추지 않음",
+        "뼈가 보이거나 심하게 변형됨",
+        "머리를 다친 뒤 의식 변화가 있음",
+        "팔이나 다리를 전혀 움직일 수 없음"
+      ],
+      best: "워크인 클리닉 또는 UPCC",
+      why: "가벼운 염좌, 낙상, 베인 상처는 지역사회 진료기관에서 평가할 수 있습니다. 봉합이나 X-ray가 필요한지 확인받을 수 있습니다.",
+      alt: [
+        "가정의",
+        "약사에게 통증 조절 방법 문의",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "통증이나 부기가 빠르게 심해짐",
+        "감각이 없어지거나 손발이 차가워짐",
+        "출혈이 계속됨"
+      ]
+    },
+
+    skin: {
+      name: "발진, 소변 시 통증, 가벼운 감염",
+      hint: "단순 요로감염, 습진, 구순포진",
+      flags: [
+        "빠르게 퍼지는 붉은 발진과 고열",
+        "얼굴이나 목이 붓고 숨쉬기 어려움",
+        "심한 통증과 물집이 빠르게 번짐"
+      ],
+      best: "약사 또는 워크인 클리닉",
+      why: "BC 약사는 일부 경미한 질환을 평가하고 치료할 수 있습니다. 더 복잡하거나 심한 증상은 의사의 진료가 필요할 수 있습니다.",
+      alt: [
+        "가정의",
+        "UPCC",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "고열이 생김",
+        "붉은 부위가 빠르게 넓어짐",
+        "심한 통증이나 부종이 생김"
+      ]
+    },
+
+    dental: {
+      name: "치아 또는 입 통증",
+      hint: "치통, 깨진 치아, 잇몸 부기",
+      flags: [
+        "얼굴이나 목이 심하게 붓고 숨쉬기 어려움",
+        "삼키기 어렵거나 침을 삼키지 못함",
+        "치과 감염과 함께 고열 또는 심한 전신 증상이 있음"
+      ],
+      best: "치과",
+      why: "치통, 깨진 치아, 잇몸 부종은 치과에서 원인을 확인하고 필요한 치료를 받을 수 있습니다.",
+      alt: [
+        "치과 진료를 기다리는 동안 약사에게 통증 조절 상담",
+        "심한 감염이 의심되면 UPCC 또는 응급실"
+      ],
+      worse: [
+        "붓기가 목이나 눈 주위로 번짐",
+        "숨쉬거나 삼키기 어려움",
+        "열이 나고 상태가 급격히 악화됨"
+      ]
+    },
+
+    stomach: {
+      name: "복부 / 위장 문제",
+      hint: "복통, 구토, 설사, 변비",
+      flags: [
+        "심하고 지속적인 복통",
+        "토혈 또는 검은색 변",
+        "심한 탈수 또는 의식 저하"
+      ],
+      best: "가정의 또는 워크인 클리닉",
+      why: "대부분의 경미한 위장 증상은 지역사회에서 평가받을 수 있습니다. 탈수나 심한 통증 여부에 따라 더 긴급한 진료가 필요할 수 있습니다.",
+      alt: [
+        "약사에게 증상 완화 상담",
+        "UPCC",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "복통이 갑자기 심해짐",
+        "물을 전혀 마실 수 없음",
+        "피가 섞인 구토나 변이 있음"
+      ]
+    },
+
+    neuro: {
+      name: "두통 / 어지러움",
+      hint: "두통, 현기증, 어질어질함, 실신 느낌",
+      flags: [
+        "갑작스럽고 매우 심한 두통",
+        "한쪽 마비 또는 말이 어눌함",
+        "의식 소실 또는 경련"
+      ],
+      best: "가정의 또는 워크인 클리닉",
+      why: "가벼운 두통이나 어지러움은 지역사회에서 평가할 수 있지만, 갑작스럽거나 신경학적 증상이 있으면 응급 평가가 필요합니다.",
+      alt: [
+        "UPCC",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "새로운 마비나 말하기 어려움",
+        "의식을 잃음",
+        "두통이 갑자기 극심해짐"
+      ]
+    },
+
+    ent: {
+      name: "귀 / 코 / 목",
+      hint: "귀 통증, 코피, 인후통, 부비동 압박감",
+      flags: [
+        "숨쉬기 어려움",
+        "침을 삼키지 못함",
+        "멈추지 않는 심한 코피"
+      ],
+      best: "약사 또는 가정의 / 워크인 클리닉",
+      why: "경미한 귀, 코, 목 증상은 지역사회 진료기관에서 평가할 수 있습니다.",
+      alt: [
+        "UPCC",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "호흡이 어려워짐",
+        "고열과 심한 목 통증이 생김",
+        "출혈이 멈추지 않음"
+      ]
+    },
+
+    musculoskeletal: {
+      name: "허리 / 근육 / 관절 통증",
+      hint: "허리 통증, 근육 염좌, 관절통, 뻣뻣함",
+      flags: [
+        "다리를 움직일 수 없거나 심한 마비",
+        "대소변 조절이 갑자기 어려워짐",
+        "큰 사고 후 심한 허리 통증"
+      ],
+      best: "가정의 또는 워크인 클리닉",
+      why: "대부분의 근육과 관절 통증은 지역사회에서 평가받을 수 있습니다. 필요하면 물리치료나 추가 검사를 안내받을 수 있습니다.",
+      alt: [
+        "물리치료사",
+        "약사에게 통증 조절 상담",
+        "UPCC"
+      ],
+      worse: [
+        "갑작스러운 마비",
+        "대소변 조절 문제",
+        "통증이 빠르게 악화됨"
+      ]
+    },
+
+    breathing: {
+      name: "호흡 / 천식 문제",
+      hint: "쌕쌕거림, 숨참, 천식 악화",
+      flags: [
+        "숨을 제대로 쉬지 못함",
+        "입술이나 얼굴이 파래짐",
+        "말을 이어서 하기 어려울 정도로 숨참"
+      ],
+      best: "UPCC 또는 가정의 / 워크인 클리닉",
+      why: "가벼운 천식 악화나 호흡기 증상은 지역사회에서 평가할 수 있지만, 심한 호흡곤란은 응급 상황입니다.",
+      alt: [
+        "약사에게 흡입기 관련 상담",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "숨쉬기가 점점 더 어려워짐",
+        "흡입기를 사용해도 호전되지 않음",
+        "입술이 파래짐"
+      ]
+    },
+
+    pregnancy: {
+      name: "임신 / 성 건강",
+      hint: "임신 관련 증상, 출혈, 피임, STI 질문",
+      flags: [
+        "임신 중 심한 출혈",
+        "심한 복통 또는 실신",
+        "임신 중 심한 호흡곤란"
+      ],
+      best: "가정의, 산전 진료 제공자 또는 성 건강 클리닉",
+      why: "임신 및 성 건강 관련 문제는 증상과 상황에 따라 가정의, 산전 진료 제공자 또는 성 건강 클리닉에서 평가할 수 있습니다.",
+      alt: [
+        "UPCC",
+        "약사",
+        "8-1-1 간호사 상담"
+      ],
+      worse: [
+        "심한 출혈",
+        "심한 복통",
+        "실신 또는 상태 악화"
+      ]
+    },
+
+    mental: {
+      name: "스트레스, 우울감, 위기",
+      hint: "압도됨, 불안함, 안전하지 않다고 느낌",
+      flags: [
+        "자해 또는 자살 생각이 있음",
+        "다른 사람을 해칠 생각이 있음",
+        "지금 안전하지 않다고 느낌"
+      ],
+      best: "위기 지원 또는 정신건강 서비스",
+      why: "위기 상황에서는 즉시 도움을 받을 수 있습니다. 진단이 없어도 도움을 요청할 수 있습니다.",
+      alt: [
+        "9-8-8에 전화 또는 문자",
+        "8-1-1에 전화해 정신건강 서비스 문의",
+        "가정의 또는 워크인 클리닉"
+      ],
+      worse: [
+        "자신이 안전하지 않다고 느낌",
+        "자해 계획이 있음"
+      ]
+    },
+
+    meds: {
+      name: "처방전 리필 또는 약 질문",
+      hint: "약이 부족함, 부작용, 복용 방법",
+      flags: [
+        "약 복용 후 얼굴이나 목이 붓기 시작함",
+        "약 복용 후 호흡곤란이 생김",
+        "과다복용 가능성이 있음"
+      ],
+      best: "약사",
+      why: "약사는 복약 상담, 부작용, 처방전 갱신과 관련된 도움을 줄 수 있습니다.",
+      alt: [
+        "8-1-1에 전화해 약사 상담",
+        "새 처방이 필요하면 가정의 또는 워크인 클리닉"
+      ],
+      worse: [
+        "심한 약물 반응이 있음",
+        "약을 계속 토해서 복용할 수 없음"
+      ]
+    }
+  },
  ja:{
   eye:["目の問題","赤み、腫れ、痛み、目やに"],
   cold:["せき・かぜ・発熱","のどの痛み、鼻づまり、軽い発熱"],
@@ -175,14 +534,32 @@ const CAT_I18N={
  }
 };
 
-function catText(k,c){
-  const x=CAT_I18N[lang]?.[k];
-  return {name:x?.[0]||c.name,hint:x?.[1]||c.hint};
+function catText(k, c) {
+  const x = CAT_I18N[lang]?.[k];
+
+  return {
+    icon: c.icon,
+    name: x?.name || c.name,
+    hint: x?.hint || c.hint,
+    flags: x?.flags || c.flags,
+    best: x?.best || c.best,
+    why: x?.why || c.why,
+    alt: x?.alt || c.alt,
+    worse: x?.worse || c.worse
+  };
 }
 function applyLang(){
-  document.documentElement.lang=lang;
-  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-i]').forEach(e => {
+    e.textContent = t(e.dataset.i);
+  });
+
+  document.querySelectorAll('[data-i-placeholder]').forEach(e => {
+    e.placeholder = t(e.dataset.iPlaceholder);
+  });
+
   navRender();
 }
 $('lang').onchange=e=>{lang=e.target.value;applyLang()};

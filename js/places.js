@@ -377,15 +377,19 @@ function distanceKm(a,b,c,d){
   return 2*R*Math.asin(Math.sqrt(q));
 }
 
-function nearbyShell(best,isEmergency=false){
+function nearbyShell(best, isEmergency = false) {
   return `<div class="nearby">
     <div class="nearby-head">
       <div>
-        <h4 style="margin:0">📍 Care near you</h4>
-        <p class="gpsmsg">Use your location to find nearby places and compare open status and distance.</p>
+        <h4 style="margin:0">📍 ${esc(t("nearbyTitle"))}</h4>
+        <p class="gpsmsg">${esc(t("nearbyDesc"))}</p>
       </div>
-      <button class="btn" id="findCare">${isEmergency?'Find nearest ER':'Find nearby care'}</button>
+
+      <button class="btn" id="findCare">
+        ${esc(isEmergency ? t("nearestERButton") : t("nearbyButton"))}
+      </button>
     </div>
+
     <div id="gpsStatus"></div>
     <div id="nearbyList"></div>
   </div>`;

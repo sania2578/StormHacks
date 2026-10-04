@@ -2,7 +2,16 @@
 const API_URL='/.netlify/functions/chat'; // change if you host the backend elsewhere
 const URGENT_RE=/chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
 let chat=[],busy=false,curTab='navigate';
-const HINT={navigate:"Describe your symptoms…",communicate:"Ask how to explain your problem…",manage:"Ask about your medication…",followup:"Tell me how you feel today…"};
+function getHint(id) {
+  const hints = {
+    navigate: t("chatHintNavigate"),
+    communicate: t("chatHintCommunicate"),
+    manage: t("chatHintManage"),
+    followup: t("chatHintFollowup")
+  };
+
+  return hints[id] || hints.navigate;
+}
 function setDock(open){$('dockbody').hidden=!open;$('dockbar').setAttribute('aria-expanded',open);$('chev').textContent=open?'▼':'▲';
   if(open&&!$('chatbox').hidden)$('cin').focus()}
 $('dockbar').onclick=()=>setDock($('dockbody').hidden);

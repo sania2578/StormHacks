@@ -11,7 +11,11 @@ header select{width:auto}
 main{max-width:1400px;margin:0 auto;padding:1.5rem 2rem 3rem}
 .hero{margin-bottom:1.5rem}
 .hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;color:var(--pri2);letter-spacing:-.02em;margin-bottom:.5rem}
-.hero p{color:var(--mut);max-width:62ch}
+.hero p {
+  color: var(--mut);
+  max-width: 62ch;
+  white-space: pre-line;
+}
 .tabs{display:flex;border-bottom:2px solid var(--line);margin-bottom:1.25rem;overflow-x:auto}
 .tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:.8rem 1.1rem;font:inherit;font-weight:700;color:var(--mut);cursor:pointer;white-space:nowrap}
 .tabs button[aria-selected=true]{color:var(--pri);border-color:var(--pri)}
@@ -177,3 +181,102 @@ body{padding-bottom:3.6rem}
 footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;border-top:1px solid var(--line)}
 @media(max-width:680px){.two,.three{grid-template-columns:1fr}}
 @media print{.sos,header,.tabs,.btn,footer,.hero{display:none}.panel{display:none!important}#communicate{display:block!important;border:0}}
+/* ---------- Follow-up status buttons ---------- */
+
+.followup-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.fu-btn {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 120px;
+
+  border-radius: 16px;
+  border: 2px solid transparent;
+  padding: 1rem 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.35rem;
+
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.fu-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.fu-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.fu-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.fu-btn small {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Better */
+.fu-btn.better {
+  background: #edf8f1;
+  border-color: #5aa875;
+  color: #24613a;
+}
+
+/* Same */
+.fu-btn.same {
+  background: #fff8e8;
+  border-color: #d6a63c;
+  color: #8a6415;
+}
+
+/* Worse */
+.fu-btn.worse {
+  background: #fdf0f0;
+  border-color: #d76b6b;
+  color: #9f3535;
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .followup-options {
+    grid-template-columns: 1fr;
+  }
+}
+#followup .followup-options {
+  width: 100%;
+  max-width: none;
+}
+
+#followup .followup-options .fu-btn {
+  width: 100%;
+}
+
+#followup .three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}

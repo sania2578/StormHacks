@@ -100,7 +100,8 @@ function emergency(){
 }
 
 function result(k){
-  const c=CATS[k];
+  const base = CATS[k];
+  const c = catText(k, base); 
   $('flow').innerHTML=`<div class="res ok">
     <h3>${c.icon} ${esc(c.best)}</h3>
     <p>${esc(c.why)}</p>
@@ -108,7 +109,7 @@ function result(k){
     <ul>${c.alt.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>
     <h4>${esc(t('worse'))}</h4>
     <ul>${c.worse.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>
-    <p class="note">Wait times change by day and location. CarePath only links to verified wait-time information when available. Call 8-1-1 if you are unsure where to go. This tool does not diagnose.</p>
+    <p class="note">${esc(t("waitTimeNote"))}</p>
     ${nearbyShell(c.best)}
     <button class="btn" id="go">${esc(t('next'))}</button>
     <button class="btn g" id="rs">${esc(t('back'))}</button>
@@ -311,6 +312,15 @@ function navRender(){
     $('rs').onclick=()=>{st={step:'g'};navRender()};
     return;
   }
-  if(st.step==='f'){const c=CATS[st.cat];
-    return checklist(c.name+": "+t('q0'),c.flags,()=>{c.flags.some(f=>/9-8-8|ending your life|overdose/i.test(f))?emergency():emergency()},()=>result(st.cat)); }
+if(st.step==='f'){
+  const base = CATS[st.cat];
+  const c = catText(st.cat, base);
+
+  return checklist(
+    c.name + ": " + t('q0'),
+    c.flags,
+    ()=>{c.flags.some(f=>/9-8-8|ending your life|overdose/i.test(f)) ? emergency() : emergency()},
+    ()=>result(st.cat)
+  );
+  }
 }
