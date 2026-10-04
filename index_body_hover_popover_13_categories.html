@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CarePath BC | BC Healthcare Navigator</title>
+<style>
+:root{--pri:#0369a1;--pri2:#0c4a6e;--ink:#0f172a;--mut:#475569;--bg:#f6f8fa;--card:#fff;--line:#d9e2ec;--red:#b91c1c;--redbg:#fef2f2;--amb:#92400e;--ambbg:#fffbeb;--grn:#166534;--grnbg:#f0fdf4;--r:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.sos{background:var(--red);color:#fff;padding:.6rem 1rem;display:flex;gap:.75rem;justify-content:center;align-items:center;flex-wrap:wrap;font-weight:600;font-size:.92rem;position:sticky;top:0;z-index:20}
+.sos a{background:#fff;color:var(--red);padding:.25rem .8rem;border-radius:99px;text-decoration:none;font-weight:800}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:.8rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.brand{font-weight:800;font-size:1.2rem;color:var(--pri2)}
+select,input,textarea{font:inherit;padding:.55rem .7rem;border:1px solid #94a3b8;border-radius:8px;background:#fff;width:100%}
+header select{width:auto}
+main{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.hero{margin-bottom:1.5rem}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;color:var(--pri2);letter-spacing:-.02em;margin-bottom:.5rem}
+.hero p{color:var(--mut);max-width:62ch}
+.tabs{display:flex;border-bottom:2px solid var(--line);margin-bottom:1.25rem;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:.8rem 1.1rem;font:inherit;font-weight:700;color:var(--mut);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--pri);border-color:var(--pri)}
+.panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem}
+.panel.on{display:block}
+h2{font-size:1.3rem;margin-bottom:.25rem}
+.sub{color:var(--mut);margin-bottom:1rem;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.75rem}
+.opt{border:1.5px solid var(--line);border-radius:var(--r);padding:1rem;background:#fff;text-align:start;font:inherit;cursor:pointer;color:var(--ink)}
+.opt:hover{border-color:var(--pri);background:#f0f9ff}
+.opt small{display:block;color:var(--mut);font-size:.84rem;margin-top:.15rem}
+.opt.chat-start{border-style:dashed;background:#f8fafc}
+.opt.chat-start:hover{border-color:var(--pri);background:#f0f9ff}
+
+.nav-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:1rem;align-items:start}
+.body-widget{border:1.5px solid var(--line);border-radius:var(--r);padding:1rem;background:#f8fafc;position:sticky;top:5.5rem}
+.body-widget h3{font-size:1rem;margin-bottom:.25rem}
+.body-widget p{font-size:.82rem;color:var(--mut);margin-bottom:.75rem}
+.body-map{display:grid;gap:.4rem;justify-items:center}
+@media(min-width:981px){
+  .body-map .body-btn:not([data-body="general"]){display:none}
+}
+.body-btn{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;padding:.5rem .6rem;font:inherit;font-weight:700;cursor:pointer;text-align:left}
+.body-btn:hover{border-color:var(--pri);background:#f0f9ff}
+.body-btn small{display:block;font-weight:400;color:var(--mut);font-size:.76rem;margin-top:.1rem}
+.body-figure{width:100%;display:flex;justify-content:center;margin:.4rem 0 .8rem}
+.body-svg{width:170px;max-width:100%;height:auto;overflow:visible}
+.body-silhouette{fill:#dbe4ec;stroke:#94a3b8;stroke-width:1.2}
+.body-hotspot{fill:rgba(3,105,161,.08);stroke:rgba(3,105,161,.22);stroke-width:1.1;cursor:pointer;transition:fill .16s ease,stroke .16s ease}
+.body-hotspot:hover,.body-hotspot:focus{fill:rgba(3,105,161,.28);stroke:var(--pri);outline:none}
+.body-hotspot.active{fill:rgba(3,105,161,.35);stroke:var(--pri);stroke-width:1.5}
+.body-label{font-size:9px;font-weight:700;fill:#334155;pointer-events:none;text-anchor:middle}
+
+.body-widget{overflow:visible}
+.body-popover{
+  position:absolute;
+  z-index:20;
+  width:230px;
+  padding:.75rem;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.16);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(4px);
+  transition:opacity .14s ease,transform .14s ease;
+}
+.body-popover.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.body-popover strong{display:block;font-size:.92rem;margin-bottom:.2rem}
+.body-popover small{display:block;color:var(--mut);font-size:.78rem;line-height:1.35}
+.body-popover .mini-options{display:grid;gap:.35rem;margin-top:.55rem}
+.body-popover .mini-options button{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#f8fafc;
+  padding:.42rem .5rem;
+  font:inherit;
+  font-size:.78rem;
+  cursor:pointer;
+}
+.body-popover .mini-options button:hover{border-color:var(--pri);background:#f0f9ff}
+@media(max-width:980px){
+  .body-popover{
+    position:static;
+    width:100%;
+    margin-top:.6rem;
+    display:none;
+    opacity:1;
+    transform:none;
+    box-shadow:none;
+  }
+  .body-popover.show{display:block}
+}
+@media(max-width:980px){
+  .nav-layout{grid-template-columns:1fr}
+  .body-widget{position:static}
+}
+.chk{display:flex;gap:.7rem;align-items:flex-start;padding:.75rem;border:1.5px solid var(--line);border-radius:8px;margin-bottom:.5rem;cursor:pointer}
+.chk input{width:1.2rem;height:1.2rem;margin-top:.2rem;flex:none}
+.chk:has(input:checked){border-color:var(--red);background:var(--redbg)}
+.btn{background:var(--pri);color:#fff;border:0;border-radius:8px;padding:.65rem 1.1rem;font:inherit;font-weight:700;cursor:pointer;margin:.5rem .5rem 0 0}
+.btn:hover{background:var(--pri2)}
+.btn.g{background:#e2e8f0;color:#1e293b}
+.res{border-inline-start:6px solid var(--pri);background:#f0f9ff;border-radius:var(--r);padding:1.25rem}
+.res.urgent{border-color:var(--red);background:var(--redbg)}
+.res.ok{border-color:var(--grn);background:var(--grnbg)}
+.res h3{font-size:1.25rem;margin-bottom:.4rem}
+.res h4{margin:1rem 0 .25rem;font-size:.95rem}
+.res ul{padding-inline-start:1.2rem}
+.note{font-size:.82rem;color:var(--mut);margin-top:1rem}
+label{display:block;font-weight:700;font-size:.9rem;margin:.9rem 0 .3rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.paper{background:#fafafa;border:1px dashed #94a3b8;border-radius:8px;padding:1rem;white-space:pre-wrap;font-size:.9rem;min-height:6rem}
+#qr{display:flex;justify-content:center;margin:1rem 0}
+.med{border:1px solid var(--line);border-radius:8px;padding:.9rem;margin-bottom:.6rem}
+.log{font-size:.82rem;color:var(--grn);margin-top:.4rem}
+.nearby{margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem}
+.nearby-head{display:flex;justify-content:space-between;gap:.75rem;align-items:center;flex-wrap:wrap}
+.place{border:1px solid var(--line);border-radius:10px;padding:.85rem;margin:.65rem 0;background:#fff}
+.place-top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start}
+.place-name{font-weight:800}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.76rem;font-weight:800;background:#e2e8f0;color:#334155;margin:.15rem .25rem .15rem 0}
+.badge.open{background:#dcfce7;color:#166534}
+.badge.closed{background:#fee2e2;color:#991b1b}
+.badge.wait{background:#fef3c7;color:#92400e}
+.place-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
+.place-actions a{font-size:.82rem;text-decoration:none;padding:.35rem .65rem;border-radius:7px;background:#e2e8f0;color:#0f172a;font-weight:700}
+.gpsmsg{font-size:.84rem;color:var(--mut);margin:.5rem 0}
+
+.tl{border-inline-start:3px solid var(--line);padding-inline-start:1rem;margin:0 0 .9rem .4rem}
+.tl small{color:var(--mut);display:block}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
+.three button{padding:.8rem;border-radius:8px;border:2px solid;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+body{padding-bottom:3.6rem}
+.dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(920px,100%);z-index:30;background:#fff;border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -4px 18px rgba(15,23,42,.14)}
+.dockbar{width:100%;background:var(--pri2);color:#fff;border:0;border-radius:12px 12px 0 0;padding:.85rem 1rem;font:inherit;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+#dockbody{padding:.8rem}
+@media print{.dock{display:none}}
+#log{height:min(300px,38vh);overflow-y:auto;border:1px solid var(--line);border-radius:var(--r);padding:.8rem;background:#f8fafc;margin-bottom:.7rem}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:12px;margin-bottom:.6rem;font-size:.95rem}
+.msg.me{background:var(--pri);color:#fff;margin-inline-start:auto}
+.msg.bot{background:#fff;border:1px solid var(--line)}
+.msg.sos{background:var(--redbg);border-color:var(--red);color:var(--red);font-weight:600}
+.msg .btn{padding:.4rem .8rem;font-size:.85rem;margin-top:.5rem}
+.send{display:flex;gap:.5rem}.send .btn{margin:0}
+footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;border-top:1px solid var(--line)}
+@media(max-width:680px){.two,.three{grid-template-columns:1fr}}
+@media print{.sos,header,.tabs,.btn,footer,.hero{display:none}.panel{display:none!important}#communicate{display:block!important;border:0}}
+</style>
+</head>
+<body>
+<div class="sos"><span data-i="sos">Chest pain, stroke signs, trouble breathing, heavy bleeding?</span><a href="tel:911">Call 9-1-1</a></div>
+<header>
+  <div class="brand">CarePath BC</div>
+  <select id="lang" aria-label="Language">
+    <option value="en">English</option><option value="fr">Français</option><option value="pa">ਪੰਜਾਬੀ</option>
+    <option value="zh">中文</option><option value="ar">العربية</option><option value="tl">Tagalog</option>
+  </select>
+</header>
+<main>
+  <section class="hero">
+    <h1 data-i="h1">From first symptom to next follow-up.</h1>
+    <p data-i="sub">A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.</p>
+  </section>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" aria-selected="true" data-tab="navigate" data-i="t1">Navigate</button>
+    <button role="tab" aria-selected="false" data-tab="communicate" data-i="t2">Communicate</button>
+    <button role="tab" aria-selected="false" data-tab="manage" data-i="t3">Manage</button>
+    <button role="tab" aria-selected="false" data-tab="followup" data-i="t4">Follow up</button>
+  </div>
+
+  <section id="navigate" class="panel on"><div id="flow"></div></section>
+
+  <section id="communicate" class="panel">
+    <h2 data-i="t2h">Explain it clearly to your provider</h2>
+    <p class="sub">Fill in what you can. Your summary stays in your browser.</p>
+    <div class="two">
+      <div>
+        <label for="f_where">Where you are going</label><input id="f_where" placeholder="e.g. Optometrist">
+        <label for="f_story">What is happening?</label><textarea id="f_story" rows="3" placeholder="e.g. My right eye is red and crusty."></textarea>
+        <label for="f_start">When did it start?</label>
+        <select id="f_start"><option>Today</option><option>1–2 days ago</option><option>3–7 days ago</option><option>More than a week ago</option></select>
+        <label for="f_sev">How bad is it? (<span id="sevv">5</span>/10)</label><input id="f_sev" type="range" min="1" max="10" value="5" style="padding:0">
+        <label for="f_meds">Medications and allergies</label><input id="f_meds" placeholder="e.g. Penicillin allergy; takes metformin">
+        <label for="f_q">Questions I don't want to forget</label><input id="f_q" placeholder="e.g. Is it contagious? Can I wear contacts?">
+        <label for="f_int">Interpreter needed?</label><input id="f_int" placeholder="e.g. Punjabi">
+        <button class="btn" id="mk">Make my summary</button>
+      </div>
+      <div>
+        <label style="margin-top:0">Provider summary</label>
+        <div class="paper" id="sum">Your summary will appear here.</div>
+        <label>Say this aloud</label>
+        <div class="paper" id="say" style="min-height:3rem"></div>
+        <div id="qr"></div>
+        <button class="btn g" id="cp">Copy</button><button class="btn g" id="pr">Print</button>
+      </div>
+    </div>
+    <p class="note">You can type in your own language. The AI writes a neat English summary and a script to say aloud, and shows you what it means in your language. Read it before you show your provider. If something is wrong, edit your answers and try again.</p>
+  </section>
+
+  <section id="manage" class="panel">
+    <h2 data-i="t3h">Keep track of your medication</h2>
+    <p class="sub">Enter what is written on your label. This never changes what your doctor or pharmacist told you.</p>
+    <div class="two">
+      <div>
+        <label for="m_name">Medication</label><input id="m_name" placeholder="e.g. Ciprofloxacin 0.3% eye drops">
+        <label for="m_dose">How to take it</label><input id="m_dose" placeholder="e.g. 1 drop right eye every 4 hours for 5 days">
+        <button class="btn" id="m_add">Add medication</button>
+      </div>
+      <div><div id="meds"></div>
+        <div class="med" style="background:#f8fafc"><strong>Photo scan (planned)</strong><p class="sub" style="margin:0">Snap the label, AI reads it, you confirm. Needs a vision backend, so it is not active yet.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="followup" class="panel">
+    <h2 data-i="t4h">Is it getting better?</h2>
+    <p class="sub">Check in once a day. Your answers are saved on this device.</p>
+    <div class="three">
+      <button style="border-color:var(--grn);color:var(--grn)" data-s="Better">Better</button>
+      <button style="border-color:var(--amb);color:var(--amb)" data-s="Same">Same</button>
+      <button style="border-color:var(--red);color:var(--red)" data-s="Worse">Worse</button>
+    </div>
+    <div id="fuMsg"></div>
+    <h3 style="margin:1.25rem 0 .6rem;font-size:1rem">Timeline</h3>
+    <div id="tl"></div>
+  </section>
+</main>
+
+<div class="dock" id="dock">
+  <button class="dockbar" id="dockbar" aria-expanded="false" aria-controls="dockbody">
+    <span>💬 Ask in your own language</span><span id="chev">▲</span>
+  </button>
+  <div id="dockbody" hidden>
+    <div id="consent" class="res">
+      <strong>Before you chat</strong>
+      <p>Your messages are sent to an AI service to get a reply. Do not type your name, address or health card number. Do not use this chat in an emergency: call 9-1-1.</p>
+      <button class="btn" id="ok">I understand, start chat</button>
+    </div>
+    <div id="chatbox" hidden>
+      <div id="log" role="log" aria-live="polite"></div>
+      <div class="send"><input id="cin" placeholder="Describe your symptoms…" aria-label="Your message" maxlength="1000"><button class="btn" id="snd">Send</button></div>
+      <p class="note" style="margin-top:.5rem">Helps you choose where to go. It does not diagnose.</p>
+    </div>
+  </div>
+</div>
+<footer>
+  <p><strong>CarePath BC</strong> · SFU Surge Hackathon 2026</p>
+  <p data-i="foot" style="margin-top:.3rem">Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+
+/* ---------- i18n (UI shell only; falls back to English). Have native speakers review. ---------- */
+const I18N={
+ en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t5:"Ask",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
+  q0:"Do any of these apply right now?",none:"None of these. Continue",pick:"What is your main concern?",back:"Start over",best:"Best place to go",alt:"Other options",worse:"Go to the ER or call 9-1-1 if",next:"Prepare what to say",anyflag:"Any of these needs emergency care"},
+ fr:{sos:"Douleur thoracique, signes d'AVC, difficulté à respirer, saignement important ?",h1:"Du premier symptôme au prochain suivi.",sub:"Un guide pour les nouveaux arrivants, réfugiés et aînés en Colombie-Britannique. Il vous aide à choisir où aller. Il ne pose pas de diagnostic.",t1:"S'orienter",t2:"Communiquer",t3:"Gérer",t4:"Suivi",foot:"Ne remplace pas un avis médical. Urgence : 9-1-1. Infirmière : 8-1-1. Crise : 9-8-8.",q0:"Est-ce que l'un de ces cas s'applique maintenant ?",none:"Aucun. Continuer",pick:"Quel est votre problème principal ?",back:"Recommencer",best:"Meilleur endroit où aller",alt:"Autres options",worse:"Allez aux urgences ou appelez le 9-1-1 si",next:"Préparer quoi dire"},
+ pa:{sos:"ਛਾਤੀ ਵਿੱਚ ਦਰਦ, ਸਟ੍ਰੋਕ ਦੇ ਲੱਛਣ, ਸਾਹ ਦੀ ਤਕਲੀਫ਼, ਬਹੁਤ ਖੂਨ ਵਗਣਾ?",h1:"ਪਹਿਲੇ ਲੱਛਣ ਤੋਂ ਅਗਲੀ ਫਾਲੋ-ਅੱਪ ਤੱਕ।",sub:"ਨਵੇਂ ਆਏ ਲੋਕਾਂ, ਸ਼ਰਨਾਰਥੀਆਂ ਅਤੇ ਬਜ਼ੁਰਗਾਂ ਲਈ ਗਾਈਡ। ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਕਿੱਥੇ ਜਾਣਾ ਹੈ, ਬਿਮਾਰੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰਦੀ।",t1:"ਰਾਹ ਲੱਭੋ",t2:"ਗੱਲ ਕਰੋ",t3:"ਦਵਾਈ",t4:"ਫਾਲੋ-ਅੱਪ",q0:"ਕੀ ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਹੁਣ ਹੈ?",none:"ਕੋਈ ਨਹੀਂ। ਅੱਗੇ ਵਧੋ",pick:"ਤੁਹਾਡੀ ਮੁੱਖ ਸਮੱਸਿਆ ਕੀ ਹੈ?",back:"ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",best:"ਜਾਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਥਾਂ",alt:"ਹੋਰ ਵਿਕਲਪ",worse:"ER ਜਾਓ ਜਾਂ 9-1-1 ਕਾਲ ਕਰੋ ਜੇ"},
+ zh:{sos:"胸痛、中风症状、呼吸困难、大量出血？",h1:"从第一个症状到下一次复诊。",sub:"为新移民、难民、长者和不熟悉BC省医疗体系的人提供指引。帮助您选择去哪里就医，不做诊断。",t1:"导航",t2:"沟通",t3:"用药",t4:"跟进",foot:"非医疗建议。紧急情况请拨打9-1-1，护士咨询8-1-1，心理危机9-8-8。",q0:"您现在是否有以下情况？",none:"都没有，继续",pick:"您主要的问题是什么？",back:"重新开始",best:"最适合前往的地方",alt:"其他选择",worse:"出现以下情况请去急诊或拨打9-1-1",next:"准备如何向医生说明"},
+ ar:{sos:"ألم في الصدر، علامات سكتة، صعوبة في التنفس، نزيف شديد؟",h1:"من أول عَرَض إلى المتابعة التالية.",sub:"دليل للوافدين الجدد واللاجئين وكبار السن. يساعدك على اختيار المكان المناسب ولا يقدّم تشخيصًا.",t1:"التوجيه",t2:"التواصل",t3:"الدواء",t4:"المتابعة",q0:"هل ينطبق عليك أي مما يلي الآن؟",none:"لا شيء. تابع",pick:"ما مشكلتك الرئيسية؟",back:"ابدأ من جديد",best:"أفضل مكان للذهاب",alt:"خيارات أخرى",worse:"اذهب إلى الطوارئ أو اتصل بـ 9-1-1 إذا"},
+ tl:{sos:"Pananakit ng dibdib, senyales ng stroke, hirap huminga, matinding pagdurugo?",h1:"Mula unang sintomas hanggang susunod na follow-up.",sub:"Gabay para sa mga bagong dating, refugee, at nnakatatanda sa BC. Tinutulungan kang pumili kung saan pupunta. Hindi ito diagnosis.",t1:"Gabay",t2:"Magpaliwanag",t3:"Gamot",t4:"Follow-up",q0:"May alinman ba dito ngayon?",none:"Wala. Magpatuloy",pick:"Ano ang pangunahing problema mo?",back:"Magsimula ulit",best:"Pinakamainam na puntahan",alt:"Iba pang opsyon",worse:"Pumunta sa ER o tumawag sa 9-1-1 kung"}
+};
+let lang='en';
+const t=k=>(I18N[lang]&&I18N[lang][k])||I18N.en[k]||k;
+function applyLang(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+  navRender(); }
+$('lang').onchange=e=>{lang=e.target.value;applyLang()};
+
+/* ---------- Tabs ---------- */
+function openTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));
+  curTab=id; $('cin').placeholder=HINT[id]||HINT.navigate;
+  if(id==='manage')renderMeds(); if(id==='followup')renderTL(); }
+$('tabs').onclick=e=>{if(e.target.dataset.tab)openTab(e.target.dataset.tab)};
+
+
+/* ---------- Nearby care finder ---------- */
+const WAIT_TIMES_URL='https://www.edwaittimes.ca/welcome';
+
+async function searchPlaces(lat, lng, mode, queryOrType) {
+  try {
+    const {
+      Place,
+      SearchByTextRankPreference,
+      SearchNearbyRankPreference
+    } = await google.maps.importLibrary("places");
+
+    let places = [];
+
+    // -----------------------------------
+    // TEXT SEARCH
+    // Used for:
+    // - family doctor
+    // - walk-in clinic
+    // -----------------------------------
+    if (mode === "text") {
+      const request = {
+        textQuery: queryOrType,
+
+        fields: [
+          "displayName",
+          "formattedAddress",
+          "location",
+          "businessStatus",
+          "rating",
+          "regularOpeningHours"
+        ],
+
+        locationBias: {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          radius: 10000
+        },
+
+        maxResultCount: 10,
+
+        rankPreference:
+          SearchByTextRankPreference.DISTANCE
+      };
+
+      const response =
+        await Place.searchByText(request);
+
+      places = response.places || [];
+    }
+
+    // -----------------------------------
+    // NEARBY SEARCH
+    // Used for:
+    // - pharmacy
+    // -----------------------------------
+    else if (mode === "nearby") {
+      const request = {
+        fields: [
+          "displayName",
+          "formattedAddress",
+          "location",
+          "businessStatus",
+          "rating",
+          "regularOpeningHours"
+        ],
+
+        locationRestriction: {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          radius: 10000
+        },
+
+        includedPrimaryTypes: [
+          queryOrType
+        ],
+
+        maxResultCount: 10,
+
+        rankPreference:
+          SearchNearbyRankPreference.DISTANCE
+      };
+
+      const response =
+        await Place.searchNearby(request);
+
+      places = response.places || [];
+    }
+
+    // -----------------------------------
+    // Convert Google results into
+    // CarePath-friendly data
+    // -----------------------------------
+    const results = places.map(place => {
+
+      const pLat =
+        typeof place.location?.lat === "function"
+          ? place.location.lat()
+          : place.location?.lat;
+
+      const pLng =
+        typeof place.location?.lng === "function"
+          ? place.location.lng()
+          : place.location?.lng;
+
+      // Calculate distance from user
+      const distance =
+        pLat != null && pLng != null
+          ? distanceKm(
+              lat,
+              lng,
+              pLat,
+              pLng
+            )
+          : 999;
+
+      // Check if open now
+      let open = undefined;
+
+      if (
+        place.regularOpeningHours &&
+        typeof place.regularOpeningHours.isOpen === "function"
+      ) {
+        try {
+          open =
+            place.regularOpeningHours.isOpen(
+              new Date()
+            );
+        } catch (error) {
+          open = undefined;
+        }
+      }
+
+      return {
+        name:
+          place.displayName ||
+          "Unknown location",
+
+        vicinity:
+          place.formattedAddress ||
+          "Address unavailable",
+
+        distance:
+          distance,
+
+        rating:
+          place.rating,
+
+        open:
+          open,
+
+        businessStatus:
+          place.businessStatus
+      };
+    });
+
+    // -----------------------------------
+    // Sorting:
+    // 1. Open now
+    // 2. Unknown hours
+    // 3. Closed
+    // Then nearest first
+    // -----------------------------------
+    const openRank = value => {
+      if (value === true) return 0;
+      if (value === undefined) return 1;
+      if (value === false) return 2;
+      return 1;
+    };
+
+    results.sort((a, b) => {
+      const openDifference =
+        openRank(a.open) -
+        openRank(b.open);
+
+      if (openDifference !== 0) {
+        return openDifference;
+      }
+
+      return (
+        a.distance -
+        b.distance
+      );
+    });
+
+    // Only return top 5
+    return results.slice(0, 5);
+
+  } catch (error) {
+    console.error(
+      "Places API search error:",
+      mode,
+      queryOrType,
+      error
+    );
+
+    return [];
+  }
+}
+
+async function findPrimaryCareOptions(
+  lat,
+  lng
+) {
+  const list = $("nearbyList");
+
+  list.innerHTML = `
+    <p class="gpsmsg">
+      Finding family doctors,
+      walk-in clinics and pharmacies near you...
+    </p>
+  `;
+
+  try {
+
+    const [
+      familyDoctors,
+      walkIns,
+      pharmacies
+    ] = await Promise.all([
+
+      // Family doctors
+      searchPlaces(
+        lat,
+        lng,
+        "text",
+        "family doctor"
+      ),
+
+      // Walk-in clinics
+      searchPlaces(
+        lat,
+        lng,
+        "text",
+        "walk-in clinic"
+      ),
+
+      // Pharmacies
+      searchPlaces(
+        lat,
+        lng,
+        "nearby",
+        "pharmacy"
+      )
+    ]);
+
+    list.innerHTML =
+
+      renderPlaceGroup(
+        "👨‍⚕️ Family doctors",
+        familyDoctors
+      )
+
+      +
+
+      renderPlaceGroup(
+        "🏥 Walk-in clinics",
+        walkIns
+      )
+
+      +
+
+      renderPlaceGroup(
+        "💊 Pharmacies",
+        pharmacies
+      );
+
+  } catch (error) {
+
+    console.error(
+      "Primary care search failed:",
+      error
+    );
+
+    list.innerHTML = `
+      <div class="place">
+        <strong>
+          Nearby search failed.
+        </strong>
+
+        <p class="gpsmsg">
+          Please try again.
+        </p>
+      </div>
+    `;
+  }
+}
+
+function renderPlaceGroup(title, places) {
+
+  if (!places.length) {
+    return `
+      <div style="margin-top:1.5rem">
+        <h4>${title}</h4>
+        <p class="gpsmsg">
+          No nearby locations found.
+        </p>
+      </div>
+    `;
+  }
+
+  return `
+    <div style="margin-top:1.5rem">
+
+      <h4>${title}</h4>
+
+      ${places.map((p, index) => {
+
+        const openStatus =
+          p.open === true
+            ? '<span class="badge open">Open now</span>'
+            : p.open === false
+            ? '<span class="badge closed">Closed</span>'
+            : '<span class="badge">Hours unavailable</span>';
+
+        const rating =
+          p.rating
+            ? `<span class="badge">★ ${p.rating}</span>`
+            : '';
+
+        const distanceText =
+          p.distance < 999
+            ? `${p.distance.toFixed(1)} km`
+            : '';
+
+        return `
+          <div class="place">
+
+            <div class="place-top">
+
+              <div>
+                <div class="place-name">
+                  ${index + 1}. ${esc(p.name)}
+                </div>
+
+                <div class="gpsmsg">
+                  ${esc(p.vicinity || 'Address unavailable')}
+                </div>
+              </div>
+
+              <strong>
+                ${distanceText}
+              </strong>
+
+            </div>
+
+            <div>
+              ${openStatus}
+              ${rating}
+            </div>
+
+          </div>
+        `;
+
+      }).join('')}
+
+    </div>
+  `;
+}
+function careSearchFor(best){
+  const s=(best||'').toLowerCase();
+  if(s.includes('optometrist')) return {type:'doctor',keyword:'optometrist'};
+  if(s.includes('pharmacist')) return {type:'pharmacy',keyword:'pharmacy'};
+  if(s.includes('dentist')) return {type:'dentist',keyword:'dentist'};
+  if(s.includes('urgent')||s.includes('upcc')) return {type:'doctor',keyword:'urgent primary care centre'};
+  if(s.includes('er')||s.includes('emergency')) return {type:'hospital',keyword:'emergency department'};
+  return {type:'doctor',keyword:'walk-in clinic family doctor'};
+}
+
+function distanceKm(a,b,c,d){
+  const R=6371, rad=x=>x*Math.PI/180;
+  const dLat=rad(c-a), dLng=rad(d-b);
+  const q=Math.sin(dLat/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(q));
+}
+
+function nearbyShell(best,isEmergency=false){
+  return `<div class="nearby">
+    <div class="nearby-head">
+      <div>
+        <h4 style="margin:0">📍 Care near you</h4>
+        <p class="gpsmsg">Use your location to find nearby places and compare open status and distance.</p>
+      </div>
+      <button class="btn" id="findCare">${isEmergency?'Find nearest ER':'Find nearby care'}</button>
+    </div>
+    <div id="gpsStatus"></div>
+    <div id="nearbyList"></div>
+  </div>`;
+}
+
+async function findNearbyCare(best) {
+
+  const status = $("gpsStatus");
+  const list = $("nearbyList");
+
+  // -----------------------------------
+  // Check browser geolocation support
+  // -----------------------------------
+  if (!navigator.geolocation) {
+
+    status.innerHTML = `
+      <p class="gpsmsg">
+        Location is not supported by this browser.
+      </p>
+    `;
+
+    return;
+  }
+
+  status.innerHTML = `
+    <p class="gpsmsg">
+      Requesting your location...
+    </p>
+  `;
+
+
+  // -----------------------------------
+  // Get user's current location
+  // -----------------------------------
+  navigator.geolocation.getCurrentPosition(
+
+    async position => {
+
+      const lat =
+        position.coords.latitude;
+
+      const lng =
+        position.coords.longitude;
+
+
+      status.innerHTML = `
+        <p class="gpsmsg">
+          Location found.
+        </p>
+      `;
+
+
+      // -----------------------------------
+      // Check Google Places loaded
+      // -----------------------------------
+      if (
+        !window.google ||
+        !google.maps
+      ) {
+
+        list.innerHTML = `
+          <div class="place">
+
+            <strong>
+              Nearby search is still loading.
+            </strong>
+
+            <p class="gpsmsg">
+              Please wait a few seconds
+              and press "Find nearby care" again.
+            </p>
+
+          </div>
+        `;
+
+        return;
+      }
+
+
+      try {
+
+        const lower =
+          best.toLowerCase();
+
+
+        // ===================================
+        // FAMILY DOCTOR / WALK-IN RESULT
+        // Show 3 different groups
+        // ===================================
+
+        if (
+          lower.includes("family doctor") ||
+          lower.includes("walk-in")
+        ) {
+
+          await findPrimaryCareOptions(
+            lat,
+            lng
+          );
+
+          return;
+        }
+
+
+        // ===================================
+        // ALL OTHER CARE TYPES
+        // ===================================
+
+        let title =
+          "📍 Nearby care";
+
+        let mode =
+          "text";
+
+        let query =
+          best;
+
+
+        // -----------------------------------
+        // Optometrist
+        // -----------------------------------
+        if (
+          lower.includes("optometrist")
+        ) {
+
+          title =
+            "👁️ Nearby optometrists";
+
+          mode =
+            "text";
+
+          query =
+            "optometrist";
+        }
+
+
+        // -----------------------------------
+        // Dentist
+        // -----------------------------------
+        else if (
+          lower.includes("dentist")
+        ) {
+
+          title =
+            "🦷 Nearby dentists";
+
+          mode =
+            "text";
+
+          query =
+            "dentist";
+        }
+
+
+        // -----------------------------------
+        // Emergency room
+        // -----------------------------------
+        else if (
+          lower.includes("emergency") ||
+          lower.includes(" er") ||
+          lower.startsWith("er")
+        ) {
+
+          title =
+            "🚨 Nearby emergency departments";
+
+          mode =
+            "text";
+
+          query =
+            "hospital emergency department";
+        }
+
+
+        // -----------------------------------
+        // UPCC / urgent care
+        // -----------------------------------
+        else if (
+          lower.includes("upcc") ||
+          lower.includes("urgent")
+        ) {
+
+          title =
+            "🏥 Nearby urgent care centres";
+
+          mode =
+            "text";
+
+          query =
+            "urgent primary care centre";
+        }
+
+
+        // -----------------------------------
+        // Pharmacy / pharmacist
+        // -----------------------------------
+        else if (
+          lower.includes("pharmacist") ||
+          lower.includes("pharmacy")
+        ) {
+
+          title =
+            "💊 Nearby pharmacies";
+
+          mode =
+            "nearby";
+
+          query =
+            "pharmacy";
+        }
+
+
+        // -----------------------------------
+        // Run Places API (New)
+        // -----------------------------------
+        list.innerHTML = `
+          <p class="gpsmsg">
+            Searching nearby care...
+          </p>
+        `;
+
+
+        const results =
+          await searchPlaces(
+            lat,
+            lng,
+            mode,
+            query
+          );
+
+
+        // -----------------------------------
+        // Show results
+        // -----------------------------------
+        list.innerHTML =
+          renderPlaceGroup(
+            title,
+            results
+          );
+
+
+      } catch (error) {
+
+        console.error(
+          "Nearby care search failed:",
+          error
+        );
+
+        list.innerHTML = `
+          <div class="place">
+
+            <strong>
+              Nearby search failed.
+            </strong>
+
+            <p class="gpsmsg">
+              Please try again.
+            </p>
+
+          </div>
+        `;
+      }
+
+    },
+
+
+    // -----------------------------------
+    // Geolocation error
+    // -----------------------------------
+    error => {
+
+      console.error(
+        "Location error:",
+        error
+      );
+
+      status.innerHTML = `
+        <p class="gpsmsg">
+          Location permission was not available.
+        </p>
+      `;
+
+    },
+
+
+    // -----------------------------------
+    // Location settings
+    // -----------------------------------
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 300000
+    }
+
+  );
+}
+/* ---------- Navigate: data-driven triage ---------- */
+const GLOBAL_FLAGS=["Chest pain or pressure","Face drooping, arm weakness or slurred speech","Severe trouble breathing","Bleeding that will not stop","Seizure or passing out","Thoughts of ending your life, or of harming someone"];
+/* NOTE: door names/availability vary by region. Have a BC clinician review all clinical content before launch. */
+const CATS={
+ eye:{icon:"👁️",name:"Eye problem",hint:"Red, swollen, painful, crusty eye",
+  flags:["Sudden loss of vision","Chemical splashed in the eye","Something stuck in the eye or an eye injury","Severe eye pain with nausea or vomiting"],
+  best:"Optometrist (same-day, call first)",why:"BC optometrists examine urgent eye problems such as infections and scratches. Many take same-day visits. Coverage varies, so ask when you call.",
+  alt:["Pharmacist: can assess pink eye (conjunctivitis) as a minor ailment","Urgent & Primary Care Centre (UPCC) if no optometrist is available","Call 8-1-1 to talk to a nurse"],
+  worse:["Your vision becomes blurry or drops","Pain gets worse","The eyelid swells shut or the redness spreads to the face"]},
+ cold:{icon:"🤧",name:"Cough, cold, fever",hint:"Sore throat, congestion, mild fever",
+  flags:["Struggling to breathe or blue lips","Baby under 3 months with a fever","Confusion or very hard to wake","Fever over 3 days or not coming down"],
+  best:"Pharmacist or family doctor / walk-in clinic",why:"Most colds and sore throats can be assessed in the community. A pharmacist can advise on symptom relief and when to see a doctor.",
+  alt:["Call 8-1-1 for nurse advice","UPCC or walk-in clinic for a same-day exam","Virtual care visit (phone or video)"],
+  worse:["Breathing becomes difficult","Chest pain with breathing","You cannot keep fluids down for a day"]},
+ injury:{icon:"🩹",name:"Sprain, fall, or cut",hint:"Swelling, limping, cut that may need stitches",
+  flags:["Bone visible or limb looks badly out of shape","Limb is numb, pale or cold","Head injury with vomiting, confusion or drowsiness","Cut will not stop bleeding after 10 minutes of pressure"],
+  best:"Urgent & Primary Care Centre (UPCC) or urgent care clinic",why:"Many UPCCs can do X-rays, stitches and splints the same day, usually with shorter lines than an ER. Not every community has one, so check what is near you.",
+  alt:["Walk-in clinic for minor sprains and small cuts","Call 8-1-1 if unsure"],
+  worse:["Numbness or colour change in the limb","Pain becomes severe","A cut shows spreading redness, pus or fever"]},
+ skin:{icon:"💊",name:"Rash, urinary burning, minor infection",hint:"Uncomplicated UTI, eczema, cold sore",
+  flags:["Swelling of the face, lips or throat","Fever with shaking chills and back or side pain","Red streaks spreading from a wound","Rash with trouble breathing"],
+  best:"Pharmacist (minor ailments service)",why:"In BC, pharmacists can assess and prescribe for a list of minor ailments, including uncomplicated urinary infections, cold sores and some rashes. Bring your BC Services Card or ask about coverage.",
+  alt:["Walk-in clinic or virtual visit if the pharmacist refers you","Call 8-1-1"],
+  worse:["Fever or back pain starts","Symptoms do not improve in 2–3 days","The rash spreads quickly"]},
+ dental:{icon:"🦷",name:"Tooth or mouth pain",hint:"Toothache, broken tooth, swollen gum",
+  flags:["Swelling spreading to the eye, jaw or neck","Trouble swallowing or breathing","Heavy bleeding after an injury to the mouth"],
+  best:"Dentist (call and say it is urgent)",why:"Many dental offices keep same-day emergency slots. Ask about the Canadian Dental Care Plan if you do not have insurance.",
+  alt:["Pharmacist for temporary pain relief advice","Call 8-1-1","Hospital ER only if swelling is spreading or you have a fever"],
+  worse:["Face swelling grows","Fever starts","You cannot open your mouth or swallow"]},
+ stomach:{icon:"🤢",name:"Stomach / abdominal problem",hint:"Stomach pain, vomiting, diarrhea, constipation",
+  flags:["Severe or worsening abdominal pain","Vomiting blood or black stools","Cannot keep fluids down and feel faint","Pregnant with severe abdominal pain or heavy bleeding"],
+  best:"Family doctor / walk-in clinic or UPCC",why:"Most non-emergency stomach problems can start with primary or urgent care. Severe pain, dehydration or bleeding needs urgent assessment.",
+  alt:["Pharmacist for mild symptom advice","Call 8-1-1 if unsure","ER if pain is severe, sudden or associated with bleeding or fainting"],
+  worse:["Pain becomes severe or localized","You become dehydrated or faint","You see blood in vomit or stool"]},
+ neuro:{icon:"🤕",name:"Headache / dizziness",hint:"Headache, vertigo, lightheadedness, faint feeling",
+  flags:["Sudden worst headache of your life","New weakness, facial droop or trouble speaking","Headache after a major head injury","Fainting with chest pain or ongoing confusion"],
+  best:"Family doctor / walk-in clinic or UPCC",why:"Most headaches and dizziness can be assessed in primary care, but sudden neurological symptoms need emergency care.",
+  alt:["Call 8-1-1 for nurse advice","Pharmacist for medication-related dizziness","ER for sudden severe neurological symptoms"],
+  worse:["You develop weakness or trouble speaking","The headache becomes sudden and severe","You pass out or cannot walk safely"]},
+ ent:{icon:"👂",name:"Ear / nose / throat",hint:"Ear pain, nosebleed, sore throat, sinus pressure",
+  flags:["Trouble breathing or swallowing","Heavy nosebleed that will not stop","Severe swelling of the throat or neck","High fever with severe neck stiffness"],
+  best:"Pharmacist or family doctor / walk-in clinic",why:"Many common ear, nose and throat problems can be assessed in the community. Severe bleeding, breathing or swallowing problems need urgent care.",
+  alt:["Call 8-1-1","UPCC for same-day assessment if symptoms are worsening","ER for severe airway or bleeding concerns"],
+  worse:["Swelling spreads","You cannot swallow fluids","Bleeding does not stop"]},
+ musculoskeletal:{icon:"🦴",name:"Back / muscle / joint pain",hint:"Back pain, muscle strain, sore joint, stiffness",
+  flags:["New loss of bladder or bowel control","Numbness in the groin area","Limb is cold, pale or suddenly weak","Severe pain after a major fall or accident"],
+  best:"Family doctor / walk-in clinic or physiotherapy",why:"Most non-emergency muscle, joint and back problems can begin with primary care or a musculoskeletal provider.",
+  alt:["UPCC if pain is severe or you cannot move safely","Pharmacist for pain-relief advice","Call 8-1-1 if unsure"],
+  worse:["You develop weakness or numbness","You cannot walk safely","Pain follows a major injury"]},
+ breathing:{icon:"🫁",name:"Breathing / asthma problem",hint:"Wheezing, shortness of breath, asthma flare",
+  flags:["Severe trouble breathing","Blue lips or face","Cannot speak in full sentences because of breathlessness","Breathing trouble with chest pain or fainting"],
+  best:"UPCC or family doctor / walk-in clinic",why:"Mild breathing problems can be assessed urgently in the community, but severe breathing difficulty is an emergency.",
+  alt:["Call 8-1-1","Use your prescribed rescue inhaler as directed if you have one","ER for severe breathing trouble"],
+  worse:["Breathing gets harder","You need your rescue inhaler more often","You feel faint or develop chest pain"]},
+ pregnancy:{icon:"🤰",name:"Pregnancy / sexual health",hint:"Pregnancy concerns, bleeding, contraception, STI questions",
+  flags:["Heavy vaginal bleeding","Severe one-sided abdominal pain in pregnancy","Fainting during pregnancy","Possible pregnancy with severe pain and bleeding"],
+  best:"Family doctor, sexual health clinic or maternity care provider",why:"Pregnancy and sexual health concerns are usually handled by primary care, sexual health clinics or maternity providers unless there are emergency warning signs.",
+  alt:["Pharmacist for contraception or medication questions","Call 8-1-1","ER for heavy bleeding, severe pain or fainting"],
+  worse:["Bleeding increases","Pain becomes severe","You become dizzy or faint"]},
+ mental:{icon:"💬",name:"Stress, low mood, crisis",hint:"Feeling overwhelmed, anxious or unsafe",
+  flags:["You are thinking about ending your life right now","You are in danger of harming someone"],
+  best:"Call or text 9-8-8 (Suicide Crisis Helpline, any time)",why:"Trained responders are available 24/7. You do not need a diagnosis to call. Interpreters may be available.",
+  alt:["Family doctor or walk-in clinic for a longer-term plan","Call 8-1-1 for help finding services","Community or settlement organizations"],
+  worse:["You feel unsafe","You have a plan to hurt yourself"]},
+ meds:{icon:"📋",name:"Prescription refill or medicine question",hint:"Running out, side effects, how to take it",
+  flags:["Swelling of the face or throat after a medicine","Trouble breathing after a medicine","Possible overdose (call Poison Control 1-800-567-8911 and 9-1-1)"],
+  best:"Your pharmacist",why:"Pharmacists can answer medicine questions and, in many cases, renew or adjust ongoing prescriptions in BC.",
+  alt:["Call 8-1-1 and ask for a pharmacist","Your doctor or walk-in clinic for a new prescription"],
+  worse:["You have a bad reaction","You cannot keep your medicine down"]}
+};
+let st={step:'g',cat:null,res:null};
+
+function checklist(title,items,onYes,onNo){
+  $('flow').innerHTML=`<h2>${esc(title)}</h2><p class="sub">Choose any that apply.</p>`+
+   items.map((x,i)=>`<label class="chk"><input type="checkbox" value="${i}"><span>${esc(x)}</span></label>`).join('')+
+   `<button class="btn" id="yes" style="background:var(--red)">${esc(t('anyflag'))}</button><button class="btn" id="no">${esc(t('none'))}</button>`;
+  $('yes').onclick=()=>{ if(document.querySelector('#flow input:checked'))onYes(); else $('yes').textContent='Select at least one box first'; };
+  $('no').onclick=onNo; }
+
+function emergency(){
+  st.res={urgent:true};
+  $('flow').innerHTML=`<div class="res urgent" role="alert">
+    <h3>🚨 Call 9-1-1 or go to the nearest ER now</h3>
+    <p>Do not drive yourself. Tell the operator your location and what is happening.</p>
+    <p style="margin-top:.6rem"><strong>If you are thinking about suicide:</strong> call or text <strong>9-8-8</strong> any time, or 9-1-1 if you are in immediate danger.</p>
+    <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a>
+    <button class="btn g" id="rs">${esc(t('back'))}</button>
+    ${nearbyShell('Emergency department',true)}
+  </div>`;
+  $('findCare').onclick=()=>findNearbyCare('Emergency department');
+  $('rs').onclick=()=>{st={step:'g'};navRender()};
+}
+
+function result(k){
+  const c=CATS[k];
+  $('flow').innerHTML=`<div class="res ok">
+    <h3>${c.icon} ${esc(c.best)}</h3>
+    <p>${esc(c.why)}</p>
+    <h4>${esc(t('alt'))}</h4>
+    <ul>${c.alt.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>
+    <h4>${esc(t('worse'))}</h4>
+    <ul>${c.worse.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>
+    <p class="note">Wait times change by day and location. CarePath only links to verified wait-time information when available. Call 8-1-1 if you are unsure where to go. This tool does not diagnose.</p>
+    ${nearbyShell(c.best)}
+    <button class="btn" id="go">${esc(t('next'))}</button>
+    <button class="btn g" id="rs">${esc(t('back'))}</button>
+  </div>`;
+  $('findCare').onclick=()=>findNearbyCare(c.best);
+  $('go').onclick=()=>{
+    $('f_where').value=c.best.split(' (')[0];
+    $('f_story').placeholder=c.name+": ";
+    store.set('episode',{cat:c.name,door:c.best,date:new Date().toISOString()});
+    log('Triage: '+c.name+' → '+c.best);
+    openTab('communicate');
+  };
+  $('rs').onclick=()=>{st={step:'g'};navRender()};
+}
+
+function navRender(){
+  if(st.step==='g')return checklist(t('q0'),GLOBAL_FLAGS,emergency,()=>{st.step=st.cat?'f':'c';navRender()});
+  if(st.step==='c'){
+    $('flow').innerHTML=`<h2>${esc(t('pick'))}</h2><p class="sub">Choose from the list, or use the body guide on the right.</p>
+      <div class="nav-layout">
+        <div>
+          <div class="grid">`+
+            Object.entries(CATS).map(([k,c])=>`<button class="opt" data-k="${k}"><strong>${c.icon} ${esc(c.name)}</strong><small>${esc(c.hint)}</small></button>`).join('')+
+            `<button class="opt chat-start" id="startChat">
+              <strong>💬 Not listed? Start a conversation</strong>
+              <small>Describe what is happening in your own words and the AI assistant will help guide you.</small>
+            </button>
+          </div>
+          <button class="btn g" id="rs">${esc(t('back'))}</button>
+        </div>
+
+        <aside class="body-widget" aria-label="Quick body navigator">
+          <h3>🧍 Where does it feel wrong?</h3>
+          <p>Tap a body area for a faster route.</p>
+
+          <div class="body-figure">
+            <svg class="body-svg" viewBox="0 0 180 360" role="img" aria-label="Clickable body map">
+              <title>Clickable body map</title>
+
+              <!-- base human silhouette -->
+              <circle class="body-silhouette" cx="90" cy="34" r="22"/>
+              <rect class="body-silhouette" x="74" y="55" width="32" height="18" rx="10"/>
+              <path class="body-silhouette" d="M62 72 Q90 60 118 72 L125 155 Q120 190 112 212 L108 340 H87 L82 220 H78 L73 340 H52 L57 212 Q50 190 55 155 Z"/>
+              <path class="body-silhouette" d="M60 78 L39 105 L23 182 L35 186 L53 121 L67 102 Z"/>
+              <path class="body-silhouette" d="M120 78 L141 105 L157 182 L145 186 L127 121 L113 102 Z"/>
+
+              <!-- clickable hotspots -->
+              <circle class="body-hotspot" data-body="head" tabindex="0" cx="90" cy="34" r="24"/>
+              <text class="body-label" x="90" y="37">HEAD</text>
+
+              <path class="body-hotspot" data-body="chest" tabindex="0"
+                    d="M61 77 Q90 65 119 77 L121 132 Q90 145 59 132 Z"/>
+              <text class="body-label" x="90" y="108">CHEST</text>
+
+              <path class="body-hotspot" data-body="stomach" tabindex="0"
+                    d="M59 133 Q90 145 121 133 L119 188 Q90 201 61 188 Z"/>
+              <text class="body-label" x="90" y="165">ABDOMEN</text>
+
+              <path class="body-hotspot" data-body="arm" tabindex="0"
+                    d="M59 80 L39 106 L23 182 L36 186 L53 122 L68 101 Z"/>
+              <path class="body-hotspot" data-body="arm" tabindex="0"
+                    d="M121 80 L141 106 L157 182 L144 186 L127 122 L112 101 Z"/>
+              <text class="body-label" x="30" y="142">ARM</text>
+              <text class="body-label" x="150" y="142">ARM</text>
+
+              <path class="body-hotspot" data-body="leg" tabindex="0"
+                    d="M60 187 L86 190 L82 340 H52 L57 212 Z"/>
+              <path class="body-hotspot" data-body="leg" tabindex="0"
+                    d="M94 190 L120 187 L123 212 L128 340 H98 Z"/>
+              <text class="body-label" x="68" y="275">LEG</text>
+              <text class="body-label" x="112" y="275">LEG</text>
+            </svg>
+          </div>
+
+          <div class="body-popover" id="bodyPopover" role="dialog" aria-live="polite"></div>
+
+          <div class="body-map">
+            <button class="body-btn" data-body="head"><strong>👁️ Head / face</strong><small>Eye, ear, nose, throat, headache, dizziness, dental</small></button>
+            <button class="body-btn" data-body="chest"><strong>🫁 Chest / breathing</strong><small>Cough, fever, asthma, breathing problems</small></button>
+            <button class="body-btn" data-body="stomach"><strong>🤢 Stomach / pelvis</strong><small>Abdominal pain, vomiting, urinary or pregnancy concerns</small></button>
+            <button class="body-btn" data-body="arm"><strong>🖐 Arms / hands</strong><small>Injury, rash, joint or muscle pain</small></button>
+            <button class="body-btn" data-body="leg"><strong>🦵 Legs / feet</strong><small>Injury, swelling, rash, joint or muscle pain</small></button>
+            <button class="body-btn" data-body="general"><strong>❓ Whole body / not sure</strong><small>Medicine, stress, fever, or something not listed</small></button>
+          </div>
+        </aside>
+      </div>`;
+
+    document.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+      st.cat=b.dataset.k;
+      st.step='f';
+      navRender();
+    });
+
+    const bodyRoutes={
+      head:["eye","ent","neuro","dental"],
+      chest:["cold","breathing"],
+      stomach:["stomach","skin","pregnancy"],
+      arm:["injury","skin","musculoskeletal"],
+      leg:["injury","skin","musculoskeletal"],
+      general:["meds","mental","cold"]
+    };
+
+    const bodyNames={
+      head:"Head / face",
+      chest:"Chest / breathing",
+      stomach:"Stomach / pelvis",
+      arm:"Arm / hand",
+      leg:"Leg / foot",
+      general:"Whole body / not sure"
+    };
+
+    const popover=$('bodyPopover');
+
+    function showBodyPopover(el,key){
+      const keys=bodyRoutes[key]||[];
+      const cards=keys.map(k=>{
+        const c=CATS[k];
+        return `<button type="button" data-body-k="${k}">${c.icon} ${esc(c.name)}</button>`;
+      }).join('');
+
+      popover.innerHTML=`
+        <strong>${esc(bodyNames[key]||'Choose a problem')}</strong>
+        <small>Choose what feels closest to your symptom.</small>
+        <div class="mini-options">${cards}</div>
+      `;
+
+      popover.querySelectorAll('[data-body-k]').forEach(x=>x.onclick=()=>{
+        st.cat=x.dataset.bodyK;
+        st.step='f';
+        navRender();
+      });
+
+      document.querySelectorAll('.body-hotspot').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll(`.body-hotspot[data-body="${key}"]`).forEach(x=>x.classList.add('active'));
+
+      // Desktop: position beside the body part
+      if(window.innerWidth>980 && el.classList.contains('body-hotspot')){
+        const widget=$('bodyPopover').closest('.body-widget');
+        const wr=widget.getBoundingClientRect();
+        const er=el.getBoundingClientRect();
+
+        let left=er.right-wr.left+10;
+        let top=er.top-wr.top;
+
+        if(left+230>wr.width){
+          left=er.left-wr.left-240;
+        }
+
+        popover.style.left=Math.max(6,left)+'px';
+        popover.style.top=Math.max(6,top)+'px';
+      }else{
+        popover.style.left='';
+        popover.style.top='';
+      }
+
+      popover.classList.add('show');
+    }
+
+    function hideBodyPopoverSoon(){
+      setTimeout(()=>{
+        if(!popover.matches(':hover') && !document.activeElement?.closest?.('#bodyPopover')){
+          popover.classList.remove('show');
+          document.querySelectorAll('.body-hotspot').forEach(x=>x.classList.remove('active'));
+        }
+      },120);
+    }
+
+    document.querySelectorAll('.body-hotspot').forEach(b=>{
+      const key=b.dataset.body;
+
+      b.addEventListener('mouseenter',()=>showBodyPopover(b,key));
+      b.addEventListener('focus',()=>showBodyPopover(b,key));
+      b.addEventListener('mouseleave',hideBodyPopoverSoon);
+
+      b.addEventListener('click',e=>{
+        e.preventDefault();
+        showBodyPopover(b,key);
+      });
+
+      b.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          showBodyPopover(b,key);
+        }
+      });
+    });
+
+    popover.addEventListener('mouseleave',hideBodyPopoverSoon);
+
+    // Text fallback buttons still work, especially on mobile.
+    document.querySelectorAll('.body-btn[data-body]').forEach(b=>{
+      b.onclick=()=>showBodyPopover(b,b.dataset.body);
+    });
+
+    $('startChat').onclick=()=>{
+      setDock(true);
+      if(!$('chatbox').hidden)$('cin').focus();
+    };
+
+    $('rs').onclick=()=>{st={step:'g'};navRender()};
+    return;
+  }
+  if(st.step==='f'){const c=CATS[st.cat];
+    return checklist(c.name+": "+t('q0'),c.flags,()=>{c.flags.some(f=>/9-8-8|ending your life|overdose/i.test(f))?emergency():emergency()},()=>result(st.cat)); }
+}
+
+/* ---------- Communicate ---------- */
+$('f_sev').oninput=e=>$('sevv').textContent=e.target.value;
+let summaryText='';
+function localSummary(){
+  const g=id=>$(id).value.trim();
+  const lines=[`Visit summary (${new Date().toLocaleDateString('en-CA')})`,
+   `Seeing: ${g('f_where')||'not stated'}`,`Problem: ${g('f_story')||'not stated'}`,
+   `Started: ${$('f_start').value}`,`Severity: ${$('f_sev').value}/10`,
+   `Medications/allergies: ${g('f_meds')||'none stated'}`,`Questions: ${g('f_q')||'none'}`];
+  if(g('f_int'))lines.push(`Interpreter needed: ${g('f_int')}`);
+  summaryText=lines.join('\n'); $('sum').textContent=summaryText;
+  $('say').textContent=`"Hello. ${g('f_story')||'I need help.'} It started ${$('f_start').value.toLowerCase()}. On a scale of 1 to 10 it is a ${$('f_sev').value}. ${g('f_q')?'My question is: '+g('f_q'):''}"`;
+  $('qr').innerHTML='';
+  if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}
+  store.set('summary',summaryText); log('Summary created');
+}
+const SUM_URL='/.netlify/functions/summarize';
+function drawQR(){$('qr').innerHTML='';if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}}
+$('mk').onclick=async()=>{
+  const g=id=>$(id).value.trim();
+  localSummary(); // instant basic version, replaced if the AI answers
+  if(!g('f_story'))return;
+  const btn=$('mk');btn.disabled=true;btn.textContent='Writing your summary…';
+  try{
+    const r=await fetch(SUM_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      lang,fields:{where:g('f_where'),story:g('f_story'),start:$('f_start').value,severity:$('f_sev').value,meds:g('f_meds'),questions:g('f_q'),interpreter:g('f_int')}})});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    summaryText=d.summary_en;$('sum').textContent=summaryText;
+    $('say').innerHTML='<strong>Say in English:</strong><br>"'+esc(d.say_en)+'"'+
+      (d.say_native?'<br><br><strong>'+esc(d.label_native||'In your language:')+'</strong><br>'+esc(d.say_native):'');
+    drawQR();store.set('summary',summaryText);log('AI summary created');
+  }catch(e){
+    $('say').textContent+='\n(The AI summary is not available right now. This is a basic version of what you typed.)';
+  }finally{btn.disabled=false;btn.textContent='Make my summary'}
+};
+$('cp').onclick=()=>{if(summaryText)navigator.clipboard?.writeText(summaryText).then(()=>$('cp').textContent='Copied')};
+$('pr').onclick=()=>window.print();
+
+/* ---------- Manage ---------- */
+function renderMeds(){
+  const m=store.get('meds',[]);
+  $('meds').innerHTML=m.length?m.map((x,i)=>`<div class="med"><strong>${esc(x.n)}</strong><div>${esc(x.d)}</div>
+   <button class="btn" data-a="Taken" data-i="${i}" style="padding:.35rem .8rem">Taken</button><button class="btn g" data-a="Skipped" data-i="${i}" style="padding:.35rem .8rem">Skip</button><button class="btn g" data-a="Later" data-i="${i}" style="padding:.35rem .8rem">Later</button>
+   <div class="log">${x.l?esc(x.l):''}</div></div>`).join(''):'<p class="sub">No medications yet.</p>';
+  $('meds').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const arr=store.get('meds',[]);arr[b.dataset.i].l=`${b.dataset.a} at ${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`;
+    store.set('meds',arr);log(`${arr[b.dataset.i].n}: ${b.dataset.a}`);renderMeds()}); }
+$('m_add').onclick=()=>{const n=$('m_name').value.trim(),d=$('m_dose').value.trim();if(!n)return;
+  const a=store.get('meds',[]);a.push({n,d});store.set('meds',a);$('m_name').value=$('m_dose').value='';renderMeds()};
+
+/* ---------- Follow up ---------- */
+function log(msg){const a=store.get('timeline',[]);a.unshift({m:msg,t:new Date().toLocaleString()});store.set('timeline',a.slice(0,50))}
+function renderTL(){const a=store.get('timeline',[]);
+  $('tl').innerHTML=a.length?a.map(x=>`<div class="tl"><strong>${esc(x.m)}</strong><small>${esc(x.t)}</small></div>`).join(''):'<p class="sub">Nothing yet. Start with Navigate.</p>'}
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{
+  const s=b.dataset.s;log('Check-in: '+s);renderTL();
+  const box=$('fuMsg');
+  if(s==='Better')box.innerHTML='<div class="res ok"><strong>Good. Keep finishing your treatment as prescribed.</strong></div>';
+  else if(s==='Same')box.innerHTML='<div class="res" style="border-color:#d97706;background:var(--ambbg)"><strong>No change.</strong> If nothing improves in 48 hours, contact your provider or call 8-1-1.</div>';
+  else{box.innerHTML='<div class="res urgent"><strong>Getting worse. Re-check where to go.</strong><br><button class="btn" id="rr">Re-route me</button> <a class="btn g" href="tel:811" style="text-decoration:none;display:inline-block">Call 8-1-1</a></div>';
+    $('rr').onclick=()=>{st={step:'g'};openTab('navigate');navRender()}}});
+
+/* ---------- Ask: AI chat (calls your backend, never the AI API directly) ---------- */
+const API_URL='/.netlify/functions/chat'; // change if you host the backend elsewhere
+const URGENT_RE=/chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
+let chat=[],busy=false,curTab='navigate';
+const HINT={navigate:"Describe your symptoms…",communicate:"Ask how to explain your problem…",manage:"Ask about your medication…",followup:"Tell me how you feel today…"};
+function setDock(open){$('dockbody').hidden=!open;$('dockbar').setAttribute('aria-expanded',open);$('chev').textContent=open?'▼':'▲';
+  if(open&&!$('chatbox').hidden)$('cin').focus()}
+$('dockbar').onclick=()=>setDock($('dockbody').hidden);
+function addMsg(cls,html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;$('log').appendChild(d);$('log').scrollTop=1e9;return d}
+$('ok').onclick=()=>{$('consent').hidden=true;$('chatbox').hidden=false;
+  addMsg('bot','Hello. Tell me what is happening and how long it has been going on. You can write in any language.');$('cin').focus()};
+async function send(){
+  const text=$('cin').value.trim();if(!text||busy)return;
+  $('cin').value='';addMsg('me',esc(text));chat.push({role:'user',content:text});
+  if(URGENT_RE.test(text))addMsg('bot sos','This may be an emergency. Call 9-1-1 now. If you are thinking about suicide, call or text 9-8-8. <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none;background:var(--red)">Call 9-1-1</a>');
+  busy=true;const w=addMsg('bot','…');
+  try{
+    const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:chat.slice(-10),lang,tab:curTab})});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    chat.push({role:'assistant',content:d.reply});
+    w.innerHTML=esc(d.reply).replace(/\n/g,'<br>');
+    if(d.urgent&&!URGENT_RE.test(text))addMsg('bot sos','This may be an emergency. Call 9-1-1 now. <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none;background:var(--red)">Call 9-1-1</a>');
+    if(!d.urgent&&d.category&&CATS[d.category]){
+      const b=document.createElement('button');b.className='btn';b.textContent='Check where to go: '+CATS[d.category].name;
+      b.onclick=()=>{st={step:'g',cat:d.category};setDock(false);openTab('navigate');navRender();window.scrollTo({top:0,behavior:'smooth'})};w.appendChild(document.createElement('br'));w.appendChild(b)}
+    if(d.summary_en){
+      const b=document.createElement('button');b.className='btn g';b.textContent='Use in my provider summary';
+      b.onclick=()=>{$('f_story').value=d.summary_en;setDock(false);openTab('communicate');window.scrollTo({top:0,behavior:'smooth'})};w.appendChild(b)}
+  }catch(e){
+    w.textContent='The assistant is not available right now. Use the Navigate tab, or call 8-1-1 to talk to a nurse.';
+  }finally{busy=false}
+}
+$('snd').onclick=send;
+$('cin').onkeydown=e=>{if(e.key==='Enter')send()};
+
+
+/* ---------- Google Maps API ---------- */
+(function(){
+  const GOOGLE_MAPS_API_KEY='AIzaSyA-pnQ_tYg4HEk_DsQnkQ-cwYbMs_6Y_ms';
+
+  if(!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY==='YOUR_GOOGLE_MAPS_API_KEY'){
+    console.warn('Add your Google Maps API key.');
+    return;
+  }
+
+  const s=document.createElement('script');
+
+  s.src=`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+
+  s.async=true;
+  s.defer=true;
+
+  document.head.appendChild(s);
+})();
+applyLang();
+</script>
+</body>
+</html>
