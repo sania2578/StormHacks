@@ -177,3 +177,24 @@ body{padding-bottom:3.6rem}
 footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;border-top:1px solid var(--line)}
 @media(max-width:680px){.two,.three{grid-template-columns:1fr}}
 @media print{.sos,header,.tabs,.btn,footer,.hero{display:none}.panel{display:none!important}#communicate{display:block!important;border:0}}
+/* Chat bubble overflow fix */
+.msg {
+  width: fit-content;
+  max-width: 85%;
+  min-width: 0;
+  height: auto;
+  max-height: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.msg.sos {
+  position: static;
+  display: block;
+}
+
+.msg .btn {
+  max-width: 100%;
+  white-space: normal;
+}
