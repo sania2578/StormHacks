@@ -48,7 +48,21 @@ label{display:block;font-weight:700;font-size:.9rem;margin:.9rem 0 .3rem}
 .paper{background:#fafafa;border:1px dashed #94a3b8;border-radius:8px;padding:1rem;white-space:pre-wrap;font-size:.9rem;min-height:6rem}
 #qr{display:flex;justify-content:center;margin:1rem 0}
 .med{border:1px solid var(--line);border-radius:8px;padding:.9rem;margin-bottom:.6rem}
+
 .log{font-size:.82rem;color:var(--grn);margin-top:.4rem}
+.nearby{margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem}
+.nearby-head{display:flex;justify-content:space-between;gap:.75rem;align-items:center;flex-wrap:wrap}
+.place{border:1px solid var(--line);border-radius:10px;padding:.85rem;margin:.65rem 0;background:#fff}
+.place-top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start}
+.place-name{font-weight:800}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.76rem;font-weight:800;background:#e2e8f0;color:#334155;margin:.15rem .25rem .15rem 0}
+.badge.open{background:#dcfce7;color:#166534}
+.badge.closed{background:#fee2e2;color:#991b1b}
+.badge.wait{background:#fef3c7;color:#92400e}
+.place-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
+.place-actions a{font-size:.82rem;text-decoration:none;padding:.35rem .65rem;border-radius:7px;background:#e2e8f0;color:#0f172a;font-weight:700}
+.gpsmsg{font-size:.84rem;color:var(--mut);margin:.5rem 0}
+
 .tl{border-inline-start:3px solid var(--line);padding-inline-start:1rem;margin:0 0 .9rem .4rem}
 .tl small{color:var(--mut);display:block}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
@@ -172,6 +186,117 @@ function openTab(id){
   if(id==='manage')renderMeds(); if(id==='followup')renderTL(); }
 $('tabs').onclick=e=>{if(e.target.dataset.tab)openTab(e.target.dataset.tab)};
 
+
+/* ---------- Nearby care finder ----------
+   Add your Google Maps JavaScript API key at the bottom of this file.
+   Google Places provides distance / hours / open-now, but NOT medical wait times.
+   Verified wait-time data should come from a health-authority source or your own backend.
+------------------------------------------------------ */
+const WAIT_TIMES_URL='https://www.edwaittimes.ca/welcome';
+
+function careSearchFor(best){
+  const s=(best||'').toLowerCase();
+  if(s.includes('optometrist')) return {type:'doctor', keyword:'optometrist'};
+  if(s.includes('pharmacist')) return {type:'pharmacy', keyword:'pharmacy'};
+  if(s.includes('dentist')) return {type:'dentist', keyword:'dentist'};
+  if(s.includes('urgent') || s.includes('upcc')) return {type:'doctor', keyword:'urgent primary care centre'};
+  if(s.includes('er') || s.includes('emergency')) return {type:'hospital', keyword:'emergency department'};
+  return {type:'doctor', keyword:'walk-in clinic family doctor'};
+}
+
+function distanceKm(a,b,c,d){
+  const R=6371, rad=x=>x*Math.PI/180;
+  const dLat=rad(c-a), dLon=rad(d-b);
+  const q=Math.sin(dLat/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.sqrt(q));
+}
+
+function nearbyShell(best, isEmergency=false){
+  return `<div class="nearby">
+    <div class="nearby-head">
+      <div>
+        <h4 style="margin:0">📍 Care near you</h4>
+        <p class="gpsmsg">Use your location to find nearby places, see what is open, and compare distance.</p>
+      </div>
+      <button class="btn" id="findCare">${isEmergency?'Find nearest ER':'Find nearby care'}</button>
+    </div>
+    <div id="gpsStatus"></div>
+    <div id="nearbyList"></div>
+  </div>`;
+}
+
+function findNearbyCare(best){
+  const status=$('gpsStatus'), list=$('nearbyList');
+  if(!navigator.geolocation){
+    status.innerHTML='<p class="gpsmsg">Location is not supported by this browser.</p>'; return;
+  }
+  status.innerHTML='<p class="gpsmsg">Requesting your location…</p>';
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=pos.coords.latitude, lng=pos.coords.longitude;
+    status.innerHTML='<p class="gpsmsg">Location found. Searching nearby care…</p>';
+
+    if(!(window.google && google.maps && google.maps.places)){
+      const q=encodeURIComponent(careSearchFor(best).keyword);
+      list.innerHTML=`<div class="place"><strong>Google Places is not connected yet.</strong>
+        <p class="gpsmsg">Add a Google Maps JavaScript API key to show an in-app list.</p>
+        <div class="place-actions">
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}&center=${lat},${lng}">Open nearby results in Google Maps</a>
+          ${/er|emergency|urgent|upcc/i.test(best)?`<a target="_blank" rel="noopener" href="${WAIT_TIMES_URL}">Check BC wait times</a>`:''}
+        </div></div>`;
+      return;
+    }
+
+    const cfg=careSearchFor(best);
+    const loc=new google.maps.LatLng(lat,lng);
+    const service=new google.maps.places.PlacesService(document.createElement('div'));
+    service.nearbySearch({
+      location:loc,
+      radius:12000,
+      type:cfg.type,
+      keyword:cfg.keyword
+    },(results,stat)=>{
+      if(stat!==google.maps.places.PlacesServiceStatus.OK || !results?.length){
+        status.innerHTML='<p class="gpsmsg">No nearby results found. Try Google Maps or call 8-1-1.</p>'; return;
+      }
+
+      const rows=results.map(p=>{
+        const plat=p.geometry?.location?.lat(), plng=p.geometry?.location?.lng();
+        const km=(plat!=null&&plng!=null)?distanceKm(lat,lng,plat,plng):999;
+        const open=p.opening_hours?.open_now;
+        return {...p,_km:km,_open:open};
+      }).sort((a,b)=>{
+        const ao=a._open===true?0:a._open===false?2:1;
+        const bo=b._open===true?0:b._open===false?2:1;
+        return ao-bo || a._km-b._km;
+      }).slice(0,6);
+
+      status.innerHTML='<p class="gpsmsg">Sorted by open status first, then distance. Wait times are shown only from verified sources.</p>';
+      list.innerHTML=rows.map((p,i)=>{
+        const open=p._open===true?'<span class="badge open">Open now</span>':
+                   p._open===false?'<span class="badge closed">Closed</span>':
+                   '<span class="badge">Hours unavailable</span>';
+        const rating=p.rating?`<span class="badge">★ ${p.rating}</span>`:'';
+        const wait=/er|emergency|urgent|upcc/i.test(best)
+          ? `<span class="badge wait">Live wait: check BC source</span>`:'';
+        const dest=encodeURIComponent(`${p.name} ${p.vicinity||''}`);
+        return `<div class="place">
+          <div class="place-top"><div>
+            <div class="place-name">${i+1}. ${esc(p.name)}</div>
+            <div class="gpsmsg">${esc(p.vicinity||'Address unavailable')}</div>
+          </div><strong>${p._km<999?p._km.toFixed(1)+' km':''}</strong></div>
+          <div>${open}${rating}${wait}</div>
+          <div class="place-actions">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${dest}">Directions</a>
+            ${/er|emergency|urgent|upcc/i.test(best)?`<a target="_blank" rel="noopener" href="${WAIT_TIMES_URL}">BC wait times</a>`:''}
+          </div>
+        </div>`;
+      }).join('');
+    });
+  },err=>{
+    status.innerHTML=`<p class="gpsmsg">Location permission was not available. You can still search manually in Google Maps.</p>`;
+  },{enableHighAccuracy:true,timeout:10000,maximumAge:300000});
+}
+
 /* ---------- Navigate: data-driven triage ---------- */
 const GLOBAL_FLAGS=["Chest pain or pressure","Face drooping, arm weakness or slurred speech","Severe trouble breathing","Bleeding that will not stop","Seizure or passing out","Thoughts of ending your life, or of harming someone"];
 /* NOTE: door names/availability vary by region. Have a BC clinician review all clinical content before launch. */
@@ -226,7 +351,9 @@ function emergency(){
   $('flow').innerHTML=`<div class="res urgent" role="alert"><h3>🚨 Call 9-1-1 or go to the nearest ER now</h3>
    <p>Do not drive yourself. Tell the operator your location and what is happening.</p>
    <p style="margin-top:.6rem"><strong>If you are thinking about suicide:</strong> call or text <strong>9-8-8</strong> any time, or 9-1-1 if you are in immediate danger.</p>
-   <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a><button class="btn g" id="rs">${esc(t('back'))}</button></div>`;
+   <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a><button class="btn g" id="rs">${esc(t('back'))}</button>
+   ${nearbyShell('Emergency department',true)}</div>`;
+  $('findCare').onclick=()=>findNearbyCare('Emergency department');
   $('rs').onclick=()=>{st={step:'g'};navRender()}; }
 
 function result(k){
@@ -294,6 +421,18 @@ document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{
   else if(s==='Same')box.innerHTML='<div class="res" style="border-color:#d97706;background:var(--ambbg)"><strong>No change.</strong> If nothing improves in 48 hours, contact your provider or call 8-1-1.</div>';
   else{box.innerHTML='<div class="res urgent"><strong>Getting worse. Re-check where to go.</strong><br><button class="btn" id="rr">Re-route me</button> <a class="btn g" href="tel:811" style="text-decoration:none;display:inline-block">Call 8-1-1</a></div>';
     $('rr').onclick=()=>{st={step:'g'};openTab('navigate');navRender()}}});
+
+/* OPTIONAL: enable the in-app nearby provider list.
+   Replace YOUR_GOOGLE_MAPS_API_KEY below with your key.
+   Required Google Cloud APIs: Maps JavaScript API + Places API.
+*/
+(function(){
+  const GOOGLE_MAPS_API_KEY='YOUR_GOOGLE_MAPS_API_KEY';
+  if(GOOGLE_MAPS_API_KEY==='YOUR_GOOGLE_MAPS_API_KEY') return;
+  const s=document.createElement('script');
+  s.src=`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+  s.async=true;s.defer=true;document.head.appendChild(s);
+})();
 
 applyLang();
 </script>
