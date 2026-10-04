@@ -9,7 +9,86 @@ const I18N={
  ar:{sos:"ألم في الصدر، علامات سكتة، صعوبة في التنفس، نزيف شديد؟",h1:"من أول عَرَض إلى المتابعة التالية.",sub:"دليل للوافدين الجدد واللاجئين وكبار السن. يساعدك على اختيار المكان المناسب ولا يقدّم تشخيصًا.",t1:"التوجيه",t2:"التواصل",t3:"الدواء",t4:"المتابعة",t2h:"اشرح مشكلتك بوضوح لمقدم الرعاية",t3h:"تتبّع أدويتك",t4h:"هل تتحسن الحالة؟",foot:"ليست نصيحة طبية. الطوارئ: 9-1-1. الممرضة: 8-1-1. خط الأزمات: 9-8-8.",q0:"هل ينطبق عليك أي مما يلي الآن؟",none:"لا شيء. تابع",pick:"ما مشكلتك الرئيسية؟",back:"ابدأ من جديد",best:"أفضل مكان للذهاب",alt:"خيارات أخرى",worse:"اذهب إلى الطوارئ أو اتصل بـ 9-1-1 إذا",next:"حضّر ما ستقوله",anyflag:"أي من هذه العلامات قد تحتاج إلى رعاية طارئة",chooseList:"اختر من القائمة أو استخدم دليل الجسم على اليمين.",bodyTitle:"أين تشعر بالمشكلة؟",bodySub:"اضغط على منطقة من الجسم للوصول بشكل أسرع.",closest:"أي خيار هو الأقرب؟",closestSub:"اختر المشكلة الأقرب إلى الأعراض التي تشعر بها.",notListed:"غير موجود في القائمة؟ ابدأ محادثة",notListedSub:"صف ما يحدث بكلماتك الخاصة."},
  tl:{sos:"Pananakit ng dibdib, senyales ng stroke, hirap huminga, matinding pagdurugo?",h1:"Mula unang sintomas hanggang susunod na follow-up.",sub:"Gabay para sa mga bagong dating, refugee, at nakatatanda sa BC. Tinutulungan kang pumili kung saan pupunta. Hindi ito diagnosis.",t1:"Gabay",t2:"Magpaliwanag",t3:"Gamot",t4:"Follow-up",t2h:"Ipaliwanag nang malinaw sa iyong provider",t3h:"Subaybayan ang iyong gamot",t4h:"Gumagaling ba?",foot:"Hindi ito medikal na payo. Emergency: 9-1-1. Nurse: 8-1-1. Crisis: 9-8-8.",q0:"May alinman ba dito ngayon?",none:"Wala. Magpatuloy",pick:"Ano ang pangunahing problema mo?",back:"Magsimula ulit",best:"Pinakamainam na puntahan",alt:"Iba pang opsyon",worse:"Pumunta sa ER o tumawag sa 9-1-1 kung",next:"Ihanda ang sasabihin",anyflag:"Alinman dito ay maaaring mangailangan ng emergency care",chooseList:"Pumili sa listahan o gamitin ang body guide sa kanan.",bodyTitle:"Saan masama ang pakiramdam?",bodySub:"I-tap ang bahagi ng katawan para sa mas mabilis na ruta.",closest:"Alin ang pinakamalapit?",closestSub:"Piliin ang problemang pinakamalapit sa iyong nararamdaman.",notListed:"Wala sa listahan? Magsimula ng usapan",notListedSub:"Ilarawan sa sarili mong salita kung ano ang nangyayari."},
 
- ko:{sos:"가슴 통증, 뇌졸중 징후, 심한 호흡곤란, 멈추지 않는 출혈이 있나요?",h1:"첫 증상부터 다음 진료까지.",sub:"BC 의료 시스템이 익숙하지 않은 신규 이민자, 난민, 고령자 등을 위한 안내입니다. 어디로 가야 할지 돕지만 진단은 하지 않습니다.",t1:"진료 찾기",t2:"설명 준비",t3:"약 관리",t4:"경과 확인",t2h:"의료진에게 증상을 명확히 설명하세요",t3h:"복용 중인 약을 관리하세요",t4h:"증상이 나아지고 있나요?",foot:"의학적 진단이나 처방을 대신하지 않습니다. 응급상황: 9-1-1. 간호사 상담: 8-1-1. 위기상담: 9-8-8.",q0:"지금 다음 중 해당되는 것이 있나요?",none:"해당 없음. 계속",pick:"가장 불편한 증상은 무엇인가요?",back:"처음부터",best:"가장 적절한 진료 장소",alt:"다른 선택지",worse:"다음 경우 ER로 가거나 9-1-1에 전화하세요",next:"의료진에게 말할 내용 준비",anyflag:"다음 중 하나라도 있으면 응급 진료가 필요할 수 있습니다",chooseList:"목록에서 고르거나 오른쪽 몸 그림을 눌러보세요.",bodyTitle:"어디가 불편한가요?",bodySub:"몸 부위를 누르면 더 빠르게 찾을 수 있어요.",closest:"어느 증상과 가장 비슷한가요?",closestSub:"현재 느끼는 증상과 가장 가까운 항목을 선택하세요.",notListed:"목록에 없나요? 대화로 찾아보기",notListedSub:"지금 어떤 일이 있는지 편하게 설명해 주세요."},
+ko: {
+  sos: "가슴 통증, 뇌졸중 징후, 심한 호흡곤란, 멈추지 않는 출혈이 있나요?",
+
+  h1: "첫 증상부터 다음 진료까지.",
+
+  sub: "BC 의료 시스템이 익숙하지 않은 신규 이민자, 난민, 고령자 등을 위한 안내입니다. 어디로 가야 할지 돕지만 진단은 하지 않습니다.",
+
+  t1: "진료 찾기",
+  t2: "설명 준비",
+  t3: "약 관리",
+  t4: "경과 확인",
+
+  t2h: "의료진에게 증상을 명확히 설명하세요",
+  t3h: "복용 중인 약을 관리하세요",
+  t4h: "증상이 나아지고 있나요?",
+
+  foot: "의학적 진단이나 처방을 대신하지 않습니다. 응급상황: 9-1-1. 간호사 상담: 8-1-1. 위기상담: 9-8-8.",
+
+  q0: "지금 다음 중 해당되는 것이 있나요?",
+
+  none: "해당 없음. 계속",
+
+  pick: "가장 불편한 증상은 무엇인가요?",
+
+  back: "처음부터",
+
+  best: "가장 적절한 진료 장소",
+
+  alt: "다른 선택지",
+
+  worse: "다음 경우 ER로 가거나 9-1-1에 전화하세요",
+
+  next: "의료진에게 말할 내용 준비",
+
+  anyflag: "다음 중 하나라도 있으면 응급 진료가 필요할 수 있습니다",
+
+  chooseList: "목록에서 고르거나 오른쪽 몸 그림을 눌러보세요.",
+
+  bodyTitle: "어디가 불편한가요?",
+
+  bodySub: "몸 부위를 누르면 더 빠르게 찾을 수 있어요.",
+
+  closest: "어느 증상과 가장 비슷한가요?",
+
+  closestSub: "현재 느끼는 증상과 가장 가까운 항목을 선택하세요.",
+
+  notListed: "목록에 없나요? 대화로 찾아보기",
+
+  notListedSub: "지금 어떤 일이 있는지 편하게 설명해 주세요.",
+
+  chooseAny: "해당되는 항목을 모두 선택하세요.",
+
+  selectOneFirst: "먼저 하나 이상의 항목을 선택하세요.",
+
+  flagChest: "가슴 통증 또는 압박감",
+
+  flagStroke: "한쪽 얼굴 처짐, 팔 힘 빠짐 또는 말이 어눌함",
+
+  flagBreathing: "심한 호흡곤란",
+
+  flagBleeding: "멈추지 않는 출혈",
+
+  flagSeizure: "경련 또는 의식 소실",
+
+  flagHarm: "자해 또는 타인을 해칠 생각이 듦",
+
+  chatTitle: "💬 원하는 언어로 물어보세요",
+
+  chatBefore: "채팅을 시작하기 전에",
+
+  chatConsent: "메시지는 답변을 받기 위해 AI 서비스로 전송됩니다. 이름, 주소 또는 건강카드 번호는 입력하지 마세요. 응급상황에서는 이 채팅을 사용하지 말고 9-1-1에 전화하세요.",
+
+  chatStart: "이해했습니다. 채팅 시작",
+
+  chatPlaceholder: "증상을 설명해 주세요…",
+
+  chatSend: "보내기",
+
+  chatNote: "어디로 진료를 받으러 가야 할지 안내합니다. 진단은 하지 않습니다."
+},
  ja:{sos:"胸の痛み、脳卒中の兆候、重い呼吸困難、大量出血がありますか？",h1:"最初の症状から次のフォローアップまで。",sub:"BC州の医療制度に不慣れな新来者、難民、高齢者などのための案内です。受診先選びを支援しますが、診断はしません。",t1:"受診先を探す",t2:"説明する",t3:"薬を管理",t4:"経過確認",t2h:"医療者に症状をわかりやすく伝える",t3h:"薬を管理する",t4h:"よくなっていますか？",foot:"医療上の診断ではありません。緊急時: 9-1-1。看護師相談: 8-1-1。危機支援: 9-8-8。",q0:"今、次の症状がありますか？",none:"どれもない。続ける",pick:"主な心配ごとは何ですか？",back:"最初から",best:"最適な受診先",alt:"その他の選択肢",worse:"次の場合はERへ行くか9-1-1へ",next:"医療者に伝える内容を準備",anyflag:"いずれかに当てはまる場合は緊急対応が必要です",chooseList:"一覧から選ぶか、右側の身体ガイドを使ってください。",bodyTitle:"どこに違和感がありますか？",bodySub:"身体の部位をタップすると早く探せます。",closest:"どれが一番近いですか？",closestSub:"症状に最も近いものを選んでください。",notListed:"一覧にない？会話を始める",notListedSub:"今起きていることを自分の言葉で説明してください。"},
  es:{sos:"¿Dolor de pecho, signos de derrame cerebral, dificultad grave para respirar o sangrado abundante?",h1:"Desde el primer síntoma hasta el seguimiento.",sub:"Una guía para recién llegados, refugiados, adultos mayores y cualquier persona nueva en el sistema de salud de BC. Ayuda a elegir dónde acudir. No diagnostica.",t1:"Orientación",t2:"Comunicar",t3:"Medicamentos",t4:"Seguimiento",t2h:"Explique claramente su problema al profesional",t3h:"Lleve el control de sus medicamentos",t4h:"¿Está mejorando?",foot:"No sustituye el consejo médico. Emergencias: 9-1-1. Enfermería: 8-1-1. Crisis: 9-8-8.",q0:"¿Tiene alguno de estos síntomas ahora?",none:"Ninguno. Continuar",pick:"¿Cuál es su principal preocupación?",back:"Empezar de nuevo",best:"Mejor lugar para acudir",alt:"Otras opciones",worse:"Vaya a urgencias o llame al 9-1-1 si",next:"Prepare lo que va a decir",anyflag:"Cualquiera de estos signos puede requerir atención de emergencia",chooseList:"Elija de la lista o use la guía corporal de la derecha.",bodyTitle:"¿Dónde siente el problema?",bodySub:"Toque una zona del cuerpo para encontrar una ruta más rápida.",closest:"¿Cuál se parece más?",closestSub:"Elija el problema que más se parezca a lo que siente.",notListed:"¿No aparece? Inicie una conversación",notListedSub:"Describa con sus propias palabras lo que está pasando."},
  pt:{sos:"Dor no peito, sinais de AVC, dificuldade grave para respirar ou sangramento intenso?",h1:"Do primeiro sintoma ao próximo acompanhamento.",sub:"Um guia para recém-chegados, refugiados, idosos e qualquer pessoa nova no sistema de saúde da Colúmbia Britânica. Ajuda a escolher onde ir. Não faz diagnóstico.",t1:"Orientação",t2:"Comunicar",t3:"Medicamentos",t4:"Acompanhamento",t2h:"Explique claramente o seu problema ao profissional",t3h:"Acompanhe os seus medicamentos",t4h:"Está melhorando?",foot:"Não substitui orientação médica. Emergência: 9-1-1. Enfermagem: 8-1-1. Crise: 9-8-8.",q0:"Algum destes sintomas está acontecendo agora?",none:"Nenhum. Continuar",pick:"Qual é a sua principal preocupação?",back:"Começar de novo",best:"Melhor lugar para procurar atendimento",alt:"Outras opções",worse:"Vá ao pronto-socorro ou ligue 9-1-1 se",next:"Prepare o que dizer",anyflag:"Qualquer um destes sinais pode precisar de atendimento de emergência",chooseList:"Escolha na lista ou use o guia corporal à direita.",bodyTitle:"Onde você sente o problema?",bodySub:"Toque em uma área do corpo para encontrar uma opção mais rapidamente.",closest:"Qual é o mais parecido?",closestSub:"Escolha o problema que mais se aproxima do que você está sentindo.",notListed:"Não está na lista? Inicie uma conversa",notListedSub:"Descreva com suas próprias palavras o que está acontecendo."},

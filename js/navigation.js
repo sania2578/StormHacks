@@ -1,6 +1,14 @@
 /* ---------- Navigate: data-driven triage ---------- */
-const GLOBAL_FLAGS=["Chest pain or pressure","Face drooping, arm weakness or slurred speech","Severe trouble breathing","Bleeding that will not stop","Seizure or passing out","Thoughts of ending your life, or of harming someone"];
-/* NOTE: door names/availability vary by region. Have a BC clinician review all clinical content before launch. */
+function getGlobalFlags() {
+  return [
+    t("flagChest"),
+    t("flagStroke"),
+    t("flagBreathing"),
+    t("flagBleeding"),
+    t("flagSeizure"),
+    t("flagHarm")
+  ];
+}/* NOTE: door names/availability vary by region. Have a BC clinician review all clinical content before launch. */
 const CATS={
  eye:{icon:"👁️",name:"Eye problem",hint:"Red, swollen, painful, crusty eye",
   flags:["Sudden loss of vision","Chemical splashed in the eye","Something stuck in the eye or an eye injury","Severe eye pain with nausea or vomiting"],
@@ -71,10 +79,10 @@ const CATS={
 let st={step:'g',cat:null,res:null};
 
 function checklist(title,items,onYes,onNo){
-  $('flow').innerHTML=`<h2>${esc(title)}</h2><p class="sub">Choose any that apply.</p>`+
+  $('flow').innerHTML=`<h2>${esc(title)}</h2><p class="sub">${esc(t("chooseAny"))}</p>`+
    items.map((x,i)=>`<label class="chk"><input type="checkbox" value="${i}"><span>${esc(x)}</span></label>`).join('')+
    `<button class="btn" id="yes" style="background:var(--red)">${esc(t('anyflag'))}</button><button class="btn" id="no">${esc(t('none'))}</button>`;
-  $('yes').onclick=()=>{ if(document.querySelector('#flow input:checked'))onYes(); else $('yes').textContent='Select at least one box first'; };
+  $('yes').onclick=()=>{ if(document.querySelector('#flow input:checked'))onYes(); else $('yes').textContent=t("selectOneFirst"); };
   $('no').onclick=onNo; }
 
 function emergency(){
@@ -117,7 +125,7 @@ function result(k){
 }
 
 function navRender(){
-  if(st.step==='g')return checklist(t('q0'),GLOBAL_FLAGS,emergency,()=>{st.step=st.cat?'f':'c';navRender()});
+  if(st.step==='g')return checklist(t('q0'),getGlobalFlags(),emergency,()=>{st.step=st.cat?'f':'c';navRender()});
   if(st.step==='c'){
     $('flow').innerHTML=`<h2>${esc(t('pick'))}</h2><p class="sub">${esc(t('chooseList'))}</p>
       <div class="nav-layout">
