@@ -1,18 +1,197 @@
 /* ---------- i18n (UI shell only; falls back to English). Have native speakers review. ---------- */
 const I18N={
- en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
-  q0:"Do any of these apply right now?",none:"None of these. Continue",pick:"What is your main concern?",back:"Start over",best:"Best place to go",alt:"Other options",worse:"Go to the ER or call 9-1-1 if",next:"Prepare what to say",anyflag:"Any of these needs emergency care",
-  chooseList:"Choose from the list, or use the body guide on the right.",bodyTitle:"Where does it feel wrong?",bodySub:"Tap a body area for a faster route.",closest:"Which one is closest?",closestSub:"Choose the problem that best matches what you are feeling.",notListed:"Not listed? Start a conversation",notListedSub:"Describe what is happening in your own words and the AI assistant will help guide you.",
+ en:{
+  sos: "Chest pain, stroke signs, trouble breathing, heavy bleeding?",
+
+  h1: "From first symptom to next follow-up.",
+
+  sub: "A guide for newcomers, refugees, older adults and anyone new to BC healthcare.\nIt helps you choose where to go. It does not diagnose.",
+
+  t1: "Navigate",
+  t2: "Communicate",
+  t3: "Manage",
+  t4: "Follow up",
+
+  t2h: "Explain it clearly to your provider",
+  t3h: "Keep track of your medication",
+  t4h: "Is it getting better?",
+
+  foot: "Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
+
+  q0: "Do any of these apply right now?",
+
+  none: "None of these. Continue",
+
+  pick: "What is your main concern?",
+
+  back: "Start over",
+
+  best: "Best place to go",
+
+  alt: "Other options",
+
+  worse: "Go to the ER or call 9-1-1 if",
+
+  next: "Prepare what to say",
+
+  anyflag: "Any of these needs emergency care",
+
+  chooseList: "Choose from the list, or use the body guide on the right.",
+
+  bodyTitle: "Where does it feel wrong?",
+
+  bodySub: "Tap a body area for a faster route.",
+
+  closest: "Which one is closest?",
+
+  closestSub: "Choose the problem that best matches what you are feeling.",
+
+  notListed: "Not listed? Start a conversation",
+
+  notListedSub: "Describe what is happening in your own words and the AI assistant will help guide you.",
+
+  chooseAny: "Select all that apply.",
+
+  selectOneFirst: "Select at least one option first.",
+
+  flagChest: "Chest pain or pressure",
+
+  flagStroke: "Face drooping, arm weakness, or trouble speaking",
+
+  flagBreathing: "Severe trouble breathing",
+
+  flagBleeding: "Bleeding that will not stop",
+
+  flagSeizure: "Seizure or loss of consciousness",
+
+  flagHarm: "Thoughts of harming yourself or someone else",
+
+  chatTitle: "💬 Ask in your own language",
+
+  chatBefore: "Before you chat",
+
+  chatConsent: "Your messages are sent to an AI service to get a reply. Do not type your name, address or health card number. Do not use this chat in an emergency: call 9-1-1.",
+
+  chatStart: "I understand, start chat",
+
+  chatPlaceholder: "Describe your symptoms…",
+
+  chatSend: "Send",
+
+  chatNote: "Helps you choose where to go. It does not diagnose.",
+
+  chatHintNavigate: "Describe your symptoms…",
+
+  chatHintCommunicate: "Ask how to explain your problem to your healthcare provider…",
+
+  chatHintManage: "Ask a question about your medication…",
+
+  chatHintFollowup: "Tell us how you are feeling today…",
+
+  commIntro: "Fill in what you can. Your summary stays in your browser.",
+
+  commWhere: "Where you are going",
+
+  commWherePlaceholder: "e.g. Optometrist",
+
+  commStory: "What is happening?",
+
+  commStoryPlaceholder: "e.g. My right eye is red and crusty.",
+
+  commStart: "When did it start?",
+
+  commToday: "Today",
+
+  comm1to2: "1–2 days ago",
+
+  comm3to7: "3–7 days ago",
+
+  commWeekPlus: "More than a week ago",
+
+  commSeverity: "How bad is it?",
+
+  commMeds: "Medications and allergies",
+
+  commMedsPlaceholder: "e.g. Penicillin allergy; takes metformin",
+
+  commQuestions: "Questions I don't want to forget",
+
+  commQuestionsPlaceholder: "e.g. Is it contagious? Can I wear contacts?",
+
+  commInterpreter: "Interpreter needed?",
+
+  commInterpreterPlaceholder: "e.g. Punjabi",
+
+  commMakeSummary: "Make my summary",
+
+  commProviderSummary: "Provider summary",
+
+  commSummaryEmpty: "Your summary will appear here.",
+
+  commSayAloud: "Say this aloud",
+
+  commCopy: "Copy",
+
+  commPrint: "Print",
+
+  medIntro: "Enter what is written on your label. This never changes what your doctor or pharmacist told you.",
+
+  medName: "Medication",
+
+  medNamePlaceholder: "e.g. Ciprofloxacin 0.3% eye drops",
+
+  medDose: "How to take it",
+
+  medDosePlaceholder: "e.g. 1 drop right eye every 4 hours for 5 days",
+
+  medAdd: "Add medication",
+
+  medEmpty: "No medications added yet.",
+
+  medTaken: "Taken",
+
+  medSkip: "Skip",
+
+  medLater: "Later",
+
+  medTakenLog: "Taken",
+
+  medSkippedLog: "Skipped",
+
+  medLaterLog: "Take later",
+
+  medAt: "Time",
+
+  medPhotoTitle: "Photo scan (planned)",
+
+  medPhotoDesc: "Snap the label, AI reads it, you confirm. Needs a vision backend, so it is not active yet.",
+
+  nearbyTitle: "Care near you",
+
+  nearbyDesc: "Use your location to find nearby places and compare open status and distance.",
+
+  nearbyButton: "Find nearby care",
+
+  nearestERButton: "Find nearest emergency department",
+
+  waitTimeNote: "Wait times change by day and location. CarePath only links to verified wait-time information when available. Call 8-1-1 if you are unsure where to go. This tool does not diagnose.",
+
+  fuIntro: "Check in once a day. Your answers are saved on this device.",
+
   fuBetter: "Feeling better",
+
   fuBetterSub: "Symptoms are improving",
 
   fuSame: "About the same",
+
   fuSameSub: "No major change",
 
   fuWorse: "Feeling worse",
+
   fuWorseSub: "Symptoms are getting worse",
-  fuIntro: "Check in once a day. Your answers are saved on this device.",
+
   fuTimeline: "Timeline"
+
 },
 fr: {
   sos: "Douleur à la poitrine, signes d’AVC, difficulté importante à respirer ou saignement qui ne s’arrête pas ?",
@@ -2872,6 +3051,226 @@ let lang='en';
 const t=k=>(I18N[lang]&&I18N[lang][k])||I18N.en[k]||k;
 
 const CAT_I18N={
+en: {
+  findingPrimaryCare:
+  "Finding family doctors, walk-in clinics and pharmacies near you...",
+
+familyDoctors:
+  "Family doctors",
+
+walkInClinics:
+  "Walk-in clinics",
+
+pharmacies:
+  "Pharmacies",
+
+nearbySearchFailed:
+  "Nearby search failed.",
+
+pleaseTryAgain:
+  "Please try again.",
+
+noNearbyLocations:
+  "No nearby locations found.",
+
+openNow:
+  "Open now",
+
+closed:
+  "Closed",
+
+hoursUnavailable:
+  "Hours unavailable",
+
+unknownLocation:
+  "Unknown location",
+
+addressUnavailable:
+  "Address unavailable",
+
+locationNotSupported:
+  "Location is not supported by this browser.",
+
+requestingLocation:
+  "Requesting your location...",
+
+locationFound:
+  "Location found.",
+
+nearbyStillLoading:
+  "Nearby search is still loading.",
+
+nearbyStillLoadingDesc:
+  'Please wait a few seconds and press "Find nearby care" again.',
+
+searchingNearbyCare:
+  "Searching nearby care...",
+
+locationPermissionUnavailable:
+  "Location permission was not available.",
+
+nearbyCare:
+  "Nearby care",
+
+nearbyOptometrists:
+  "Nearby optometrists",
+
+nearbyDentists:
+  "Nearby dentists",
+
+nearbyEmergencyDepartments:
+  "Nearby emergency departments",
+
+nearbyUrgentCareCentres:
+  "Nearby urgent care centres",
+
+nearbyPharmacies:
+  "Nearby pharmacies",
+
+ emergencyTitle:
+  "Call 9-1-1 or go to the nearest ER now",
+
+emergencyDesc:
+  "Do not drive yourself. Tell the operator your location and what is happening.",
+
+suicideEmergencyLabel:
+  "If you are thinking about suicide:",
+
+suicideEmergencyDesc:
+  "call or text 9-8-8 any time, or 9-1-1 if you are in immediate danger.",
+
+call911:
+  "Call 9-1-1",
+
+bodyHead:
+  "Head / face",
+
+bodyChest:
+  "Chest / breathing",
+
+bodyStomach:
+  "Stomach / pelvis",
+
+bodyArm:
+  "Arms / hands",
+
+bodyLeg:
+  "Legs / feet",
+
+bodyGeneral:
+  "Whole body / not sure",
+
+chooseProblem:
+  "Choose a problem",
+
+bodyMapAria:
+  "Clickable body map",
+fuNothingYet:
+  "Nothing yet. Start with Navigate.",
+
+fuCheckIn:
+  "Check-in",
+
+fuGoodTitle:
+  "Good. Keep finishing your treatment as prescribed.",
+
+fuSameTitle:
+  "No change.",
+
+fuSameDesc:
+  "If nothing improves in 48 hours, contact your provider or call 8-1-1.",
+
+fuWorseTitle:
+  "Getting worse. Re-check where to go.",
+
+fuReroute:
+  "Re-route me",
+
+fuCall811:
+  "Call 8-1-1",
+commVisitSummary:
+  "Visit summary",
+
+commSeeing:
+  "Seeing",
+
+commProblem:
+  "Problem",
+
+commStarted:
+  "Started",
+
+commSeverityLabel:
+  "Severity",
+
+commMedsAllergies:
+  "Medications/allergies",
+
+commQuestionsLabel:
+  "Questions",
+
+commInterpreterNeeded:
+  "Interpreter needed",
+
+commNotStated:
+  "not stated",
+
+commNoneStated:
+  "none stated",
+
+commNone:
+  "none",
+
+commHello:
+  "Hello.",
+
+commNeedHelp:
+  "I need help.",
+
+commItStarted:
+  "It started",
+
+commScale:
+  "On a scale of 1 to 10 it is a",
+
+commMyQuestion:
+  "My question is",
+
+commWritingSummary:
+  "Writing your summary…",
+
+commSayInEnglish:
+  "Say in English:",
+
+commInYourLanguage:
+  "In your language:",
+
+commAiUnavailable:
+  "The AI summary is not available right now. This is a basic version of what you typed.",
+
+commCopied:
+  "Copied",
+  chatGreeting:
+  "Hello. Tell me what is happening and how long it has been going on. You can write in any language.",
+
+chatEmergency:
+  "This may be an emergency. Call 9-1-1 now.",
+
+chatSuicideEmergency:
+  "If you are thinking about suicide, call or text 9-8-8.",
+
+chatCall911:
+  "Call 9-1-1",
+
+chatCheckWhere:
+  "Check where to go",
+
+chatUseProviderSummary:
+  "Use in my provider summary",
+
+chatUnavailable:
+  "The assistant is not available right now. Use the Navigate tab, or call 8-1-1 to talk to a nurse."
+},
  ko: {
     eye: {
       name: "눈 문제",

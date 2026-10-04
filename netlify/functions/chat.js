@@ -42,8 +42,31 @@ exports.handler = async (event) => {
     return json(400, { error: 'Invalid JSON body' });
   }
 
-  const { message = '', history = [], tab = 'navigate' } = parsed;
-  if (!message.trim()) return json(400, { error: 'Message is required' });
+  const {
+    message = '',
+    history = [],
+    tab = 'navigate',
+    lang = 'en'
+  } = parsed;
+
+  if (!message.trim()) {
+    return json(400, {
+      error: 'Message is required'
+    });
+  }
+
+  const promptText = `User current tab context: ${tab}
+  User selected language: ${lang}
+
+  Conversation history:
+  ${history
+    .map(h => `${h.role}: ${h.content}`)
+    .join('\n')}
+
+  User message: ${message}
+
+  Remember to respond with strictly valid raw JSON:
+  {"reply": string, "urgent": boolean, "category": string|null, "summary_en": string|null}`;
 
   // Map conversation into Gemini prompt format
   const promptText = `User current tab context: ${tab}

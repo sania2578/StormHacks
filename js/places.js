@@ -137,11 +137,11 @@ async function searchPlaces(lat, lng, mode, queryOrType) {
       return {
         name:
           place.displayName ||
-          "Unknown location",
+          t("Unknown location"),
 
         vicinity:
           place.formattedAddress ||
-          "Address unavailable",
+          t("Address unavailable"),
 
         distance:
           distance,
@@ -209,8 +209,7 @@ async function findPrimaryCareOptions(
 
   list.innerHTML = `
     <p class="gpsmsg">
-      Finding family doctors,
-      walk-in clinics and pharmacies near you...
+      ${esc(t("findingPrimaryCare"))}
     </p>
   `;
 
@@ -250,21 +249,21 @@ async function findPrimaryCareOptions(
     list.innerHTML =
 
       renderPlaceGroup(
-        "👨‍⚕️ Family doctors",
+        `👨‍⚕️ ${t("familyDoctors")}`,
         familyDoctors
       )
 
       +
 
       renderPlaceGroup(
-        "🏥 Walk-in clinics",
+        `🏥 ${t("walkInClinics")}`,
         walkIns
       )
 
       +
 
       renderPlaceGroup(
-        "💊 Pharmacies",
+        `💊 ${t("pharmacies")}`,
         pharmacies
       );
 
@@ -278,11 +277,11 @@ async function findPrimaryCareOptions(
     list.innerHTML = `
       <div class="place">
         <strong>
-          Nearby search failed.
+          ${esc(t("nearbySearchFailed"))}
         </strong>
 
         <p class="gpsmsg">
-          Please try again.
+          ${esc(t("pleaseTryAgain"))}
         </p>
       </div>
     `;
@@ -296,7 +295,7 @@ function renderPlaceGroup(title, places) {
       <div style="margin-top:1.5rem">
         <h4>${title}</h4>
         <p class="gpsmsg">
-          No nearby locations found.
+          ${esc(t("noNearbyLocations"))}
         </p>
       </div>
     `;
@@ -311,10 +310,10 @@ function renderPlaceGroup(title, places) {
 
         const openStatus =
           p.open === true
-            ? '<span class="badge open">Open now</span>'
+            ? `<span class="badge open">${esc(t("openNow"))}</span>`
             : p.open === false
-            ? '<span class="badge closed">Closed</span>'
-            : '<span class="badge">Hours unavailable</span>';
+            ? `<span class="badge closed">${esc(t("closed"))}</span>`
+            : `<span class="badge">${esc(t("hoursUnavailable"))}</span>`;
 
         const rating =
           p.rating
@@ -407,7 +406,7 @@ async function findNearbyCare(best) {
 
     status.innerHTML = `
       <p class="gpsmsg">
-        Location is not supported by this browser.
+        ${esc(t("locationNotSupported"))}
       </p>
     `;
 
@@ -416,7 +415,7 @@ async function findNearbyCare(best) {
 
   status.innerHTML = `
     <p class="gpsmsg">
-      Requesting your location...
+      ${esc(t("requestingLocation"))}
     </p>
   `;
 
@@ -437,7 +436,7 @@ async function findNearbyCare(best) {
 
       status.innerHTML = `
         <p class="gpsmsg">
-          Location found.
+          ${esc(t("locationFound"))}
         </p>
       `;
 
@@ -454,12 +453,11 @@ async function findNearbyCare(best) {
           <div class="place">
 
             <strong>
-              Nearby search is still loading.
+              ${esc(t("nearbyStillLoading"))}
             </strong>
 
             <p class="gpsmsg">
-              Please wait a few seconds
-              and press "Find nearby care" again.
+              ${esc(t("nearbyStillLoadingDesc"))}
             </p>
 
           </div>
@@ -499,7 +497,7 @@ async function findNearbyCare(best) {
         // ===================================
 
         let title =
-          "📍 Nearby care";
+          `📍 ${t("nearbyCare")}`;
 
         let mode =
           "text";
@@ -516,7 +514,7 @@ async function findNearbyCare(best) {
         ) {
 
           title =
-            "👁️ Nearby optometrists";
+            `👁️ ${t("nearbyOptometrists")}`;
 
           mode =
             "text";
@@ -534,7 +532,7 @@ async function findNearbyCare(best) {
         ) {
 
           title =
-            "🦷 Nearby dentists";
+            `🦷 ${t("nearbyDentists")}`;
 
           mode =
             "text";
@@ -554,7 +552,7 @@ async function findNearbyCare(best) {
         ) {
 
           title =
-            "🚨 Nearby emergency departments";
+            `🚨 ${t("nearbyEmergencyDepartments")}`;
 
           mode =
             "text";
@@ -573,7 +571,7 @@ async function findNearbyCare(best) {
         ) {
 
           title =
-            "🏥 Nearby urgent care centres";
+            `🏥 ${t("nearbyUrgentCareCentres")}`;
 
           mode =
             "text";
@@ -592,7 +590,7 @@ async function findNearbyCare(best) {
         ) {
 
           title =
-            "💊 Nearby pharmacies";
+            `💊 ${t("nearbyPharmacies")}`;
 
           mode =
             "nearby";
@@ -607,7 +605,7 @@ async function findNearbyCare(best) {
         // -----------------------------------
         list.innerHTML = `
           <p class="gpsmsg">
-            Searching nearby care...
+            ${esc(t("searchingNearbyCare"))}
           </p>
         `;
 
@@ -668,7 +666,7 @@ async function findNearbyCare(best) {
 
       status.innerHTML = `
         <p class="gpsmsg">
-          Location permission was not available.
+          ${esc(t("locationPermissionUnavailable"))}
         </p>
       `;
 

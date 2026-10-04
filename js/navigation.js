@@ -88,10 +88,11 @@ function checklist(title,items,onYes,onNo){
 function emergency(){
   st.res={urgent:true};
   $('flow').innerHTML=`<div class="res urgent" role="alert">
-    <h3>🚨 Call 9-1-1 or go to the nearest ER now</h3>
-    <p>Do not drive yourself. Tell the operator your location and what is happening.</p>
-    <p style="margin-top:.6rem"><strong>If you are thinking about suicide:</strong> call or text <strong>9-8-8</strong> any time, or 9-1-1 if you are in immediate danger.</p>
-    <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">Call 9-1-1</a>
+  
+    <h3>🚨 ${esc(t("emergencyTitle"))}</h3>
+    <p>${esc(t("emergencyDesc"))}</p>
+    <p style="margin-top:.6rem"><strong>${esc(t("suicideEmergencyLabel"))}</strong> ${esc(t("suicideEmergencyDesc"))}</p>
+    <a class="btn" href="tel:911" style="display:inline-block;text-decoration:none">${esc(t("call911"))}</a>
     <button class="btn g" id="rs">${esc(t('back'))}</button>
     ${nearbyShell('Emergency department',true)}
   </div>`;
@@ -146,8 +147,13 @@ function navRender(){
           <p>${esc(t('bodySub'))}</p>
 
           <div class="body-figure">
-            <svg class="body-svg" viewBox="0 0 180 360" role="img" aria-label="Clickable body map">
-              <title>Clickable body map</title>
+            <svg
+              class="body-svg"
+              viewBox="0 0 180 360"
+              role="img"
+              aria-label="${esc(t("bodyMapAria"))}"
+            >
+              <title>${esc(t("bodyMapAria"))}</title>
 
               <!-- base human silhouette -->
               <circle class="body-silhouette" cx="90" cy="34" r="22"/>
@@ -187,12 +193,37 @@ function navRender(){
           <div class="body-popover" id="bodyPopover" role="dialog" aria-live="polite"></div>
 
           <div class="body-map">
-            <button class="body-btn" data-body="head"><strong>👁️ Head / face</strong><small>${esc(t('closestSub'))}</small></button>
-            <button class="body-btn" data-body="chest"><strong>🫁 Chest / breathing</strong><small>${esc(t('closestSub'))}</small></button>
-            <button class="body-btn" data-body="stomach"><strong>🤢 Stomach / pelvis</strong><small>${esc(t('closestSub'))}</small></button>
-            <button class="body-btn" data-body="arm"><strong>🖐 Arms / hands</strong><small>${esc(t('closestSub'))}</small></button>
-            <button class="body-btn" data-body="leg"><strong>🦵 Legs / feet</strong><small>${esc(t('closestSub'))}</small></button>
-            <button class="body-btn" data-body="general"><strong>❓ Whole body / not sure</strong><small>${esc(t('notListedSub'))}</small></button>
+
+            <button class="body-btn" data-body="head">
+              <strong>👁️ ${esc(t("bodyHead"))}</strong>
+              <small>${esc(t("closestSub"))}</small>
+            </button>
+
+            <button class="body-btn" data-body="chest">
+              <strong>🫁 ${esc(t("bodyChest"))}</strong>
+              <small>${esc(t("closestSub"))}</small>
+            </button>
+
+            <button class="body-btn" data-body="stomach">
+              <strong>🤢 ${esc(t("bodyStomach"))}</strong>
+              <small>${esc(t("closestSub"))}</small>
+            </button>
+
+            <button class="body-btn" data-body="arm">
+              <strong>🖐 ${esc(t("bodyArm"))}</strong>
+              <small>${esc(t("closestSub"))}</small>
+            </button>
+
+            <button class="body-btn" data-body="leg">
+              <strong>🦵 ${esc(t("bodyLeg"))}</strong>
+              <small>${esc(t("closestSub"))}</small>
+            </button>
+
+            <button class="body-btn" data-body="general">
+              <strong>❓ ${esc(t("bodyGeneral"))}</strong>
+              <small>${esc(t("notListedSub"))}</small>
+            </button>
+
           </div>
         </aside>
       </div>`;
@@ -212,13 +243,13 @@ function navRender(){
       general:["meds","mental","cold"]
     };
 
-    const bodyNames={
-      head:"Head / face",
-      chest:"Chest / breathing",
-      stomach:"Stomach / pelvis",
-      arm:"Arm / hand",
-      leg:"Leg / foot",
-      general:"Whole body / not sure"
+    const bodyNames = {
+      head: t("bodyHead"),
+      chest: t("bodyChest"),
+      stomach: t("bodyStomach"),
+      arm: t("bodyArm"),
+      leg: t("bodyLeg"),
+      general: t("bodyGeneral")
     };
 
     const popover=$('bodyPopover');
@@ -231,7 +262,7 @@ function navRender(){
       }).join('');
 
       popover.innerHTML=`
-        <strong>${esc(bodyNames[key]||'Choose a problem')}</strong>
+        <strong>${esc(bodyNames[key] || t("chooseProblem"))}</strong>
         <small>${esc(t('closestSub'))}</small>
         <div class="mini-options">${cards}</div>
       `;
