@@ -1163,6 +1163,198 @@ ar: {
 
   fuTimeline: "سجل المتابعة"
 },
+fa: {
+  sos: "آیا درد قفسه سینه، علائم سکته مغزی، تنگی نفس شدید یا خونریزی‌ای دارید که بند نمی‌آید؟",
+
+  h1: "از اولین علامت تا پیگیری بعدی.",
+
+  sub: "راهنمایی برای تازه‌واردان، پناهندگان، سالمندان و هر کسی که با سیستم مراقبت‌های بهداشتی بریتیش کلمبیا آشنا نیست.\nاین ابزار به شما کمک می‌کند بفهمید برای دریافت مراقبت به کجا مراجعه کنید، اما تشخیص پزشکی ارائه نمی‌دهد.",
+
+  t1: "پیدا کردن مراقبت",
+  t2: "آماده شدن برای توضیح علائم",
+  t3: "مدیریت داروها",
+  t4: "پیگیری",
+
+  t2h: "علائم خود را به‌طور واضح برای ارائه‌دهنده خدمات درمانی توضیح دهید",
+  t3h: "داروهای خود را پیگیری کنید",
+  t4h: "آیا حال شما بهتر شده است؟",
+
+  foot: "این ابزار جایگزین توصیه یا تشخیص پزشکی نیست. اورژانس: 9-1-1. مشاوره پرستاری: 8-1-1. حمایت در بحران: 9-8-8.",
+
+  q0: "آیا در حال حاضر هیچ‌یک از موارد زیر را دارید؟",
+
+  none: "هیچ‌کدام. ادامه",
+
+  pick: "مشکل اصلی شما چیست؟",
+
+  back: "شروع دوباره",
+
+  best: "مناسب‌ترین محل برای دریافت مراقبت",
+
+  alt: "گزینه‌های دیگر",
+
+  worse: "اگر موارد زیر رخ داد، به اورژانس بروید یا با 9-1-1 تماس بگیرید",
+
+  next: "آماده کنید که به ارائه‌دهنده خدمات درمانی چه بگویید",
+
+  anyflag: "هر یک از این علائم ممکن است نیاز به مراقبت فوری داشته باشد",
+
+  chooseList: "از فهرست انتخاب کنید یا از تصویر بدن در سمت راست استفاده کنید.",
+
+  bodyTitle: "مشکل را در کدام قسمت بدن احساس می‌کنید؟",
+
+  bodySub: "برای پیدا کردن سریع‌تر گزینه مناسب، روی قسمت موردنظر بدن بزنید.",
+
+  closest: "کدام گزینه بیشتر با علائم شما مطابقت دارد؟",
+
+  closestSub: "گزینه‌ای را انتخاب کنید که بیشترین شباهت را به علائم فعلی شما دارد.",
+
+  notListed: "در فهرست نیست؟ از چت استفاده کنید",
+
+  notListedSub: "با زبان خودتان توضیح دهید چه اتفاقی افتاده است.",
+
+  chooseAny: "همه گزینه‌هایی را که شامل حال شما می‌شوند انتخاب کنید.",
+
+  selectOneFirst: "ابتدا حداقل یک گزینه را انتخاب کنید.",
+
+  flagChest: "درد یا فشار در قفسه سینه",
+
+  flagStroke: "افتادگی یک طرف صورت، ضعف بازو یا اختلال در گفتار",
+
+  flagBreathing: "تنگی نفس شدید",
+
+  flagBleeding: "خونریزی‌ای که بند نمی‌آید",
+
+  flagSeizure: "تشنج یا از دست دادن هوشیاری",
+
+  flagHarm: "افکار آسیب زدن به خود یا فرد دیگر",
+
+  chatTitle: "💬 به زبان خودتان سؤال کنید",
+
+  chatBefore: "پیش از شروع چت",
+
+  chatConsent: "پیام‌های شما برای دریافت پاسخ به یک سرویس هوش مصنوعی ارسال می‌شوند. نام، نشانی یا شماره کارت سلامت خود را وارد نکنید. در شرایط اضطراری از این چت استفاده نکنید — با 9-1-1 تماس بگیرید.",
+
+  chatStart: "متوجه شدم. شروع چت",
+
+  chatPlaceholder: "علائم خود را توضیح دهید…",
+
+  chatSend: "ارسال",
+
+  chatNote: "به شما کمک می‌کند بفهمید برای دریافت مراقبت به کجا مراجعه کنید. تشخیص پزشکی ارائه نمی‌دهد.",
+
+  chatHintNavigate: "علائم خود را توضیح دهید…",
+
+  chatHintCommunicate: "بپرسید چگونه مشکل خود را برای ارائه‌دهنده خدمات درمانی توضیح دهید…",
+
+  chatHintManage: "درباره داروهای خود سؤال کنید…",
+
+  chatHintFollowup: "بگویید امروز چه احساسی دارید…",
+
+  commIntro: "هرچه می‌دانید وارد کنید. خلاصه شما در همین مرورگر باقی می‌ماند.",
+
+  commWhere: "برای دریافت مراقبت به کجا می‌روید؟",
+
+  commWherePlaceholder: "مثال: اپتومتریست",
+
+  commStory: "چه اتفاقی افتاده است؟",
+
+  commStoryPlaceholder: "مثال: چشم راست من قرمز است و ترشح دارد.",
+
+  commStart: "چه زمانی شروع شد؟",
+
+  commToday: "امروز",
+
+  comm1to2: "۱ تا ۲ روز پیش",
+
+  comm3to7: "۳ تا ۷ روز پیش",
+
+  commWeekPlus: "بیش از یک هفته پیش",
+
+  commSeverity: "شدت آن چقدر است؟",
+
+  commMeds: "داروها و حساسیت‌ها",
+
+  commMedsPlaceholder: "مثال: حساسیت به پنی‌سیلین؛ متفورمین مصرف می‌کنم",
+
+  commQuestions: "سؤال‌هایی که نمی‌خواهم فراموش کنم",
+
+  commQuestionsPlaceholder: "مثال: آیا مسری است؟ آیا می‌توانم لنز تماسی استفاده کنم؟",
+
+  commInterpreter: "آیا به مترجم نیاز دارید؟",
+
+  commInterpreterPlaceholder: "مثال: فارسی",
+
+  commMakeSummary: "ایجاد خلاصه برای ارائه‌دهنده خدمات درمانی",
+
+  commProviderSummary: "خلاصه برای ارائه‌دهنده خدمات درمانی",
+
+  commSummaryEmpty: "خلاصه شما اینجا نمایش داده می‌شود.",
+
+  commSayAloud: "می‌توانید این را به ارائه‌دهنده خدمات درمانی بگویید",
+
+  commCopy: "کپی",
+
+  commPrint: "چاپ",
+
+  medIntro: "آنچه روی برچسب دارو نوشته شده وارد کنید. این ویژگی دستورهای پزشک یا داروساز شما را تغییر نمی‌دهد.",
+
+  medName: "نام دارو",
+
+  medNamePlaceholder: "مثال: قطره چشمی سیپروفلوکساسین ۰٫۳٪",
+
+  medDose: "نحوه مصرف",
+
+  medDosePlaceholder: "مثال: هر ۴ ساعت ۱ قطره در چشم راست به مدت ۵ روز",
+
+  medAdd: "افزودن دارو",
+
+  medEmpty: "هنوز دارویی اضافه نشده است.",
+
+  medTaken: "مصرف شد",
+
+  medSkip: "رد کردن",
+
+  medLater: "بعداً",
+
+  medTakenLog: "مصرف شد",
+
+  medSkippedLog: "رد شد",
+
+  medLaterLog: "بعداً مصرف شود",
+
+  medAt: "زمان",
+
+  medPhotoTitle: "خواندن برچسب دارو با عکس (در برنامه)",
+
+  medPhotoDesc: "از برچسب عکس بگیرید، هوش مصنوعی اطلاعات را می‌خواند و سپس شما آن را تأیید می‌کنید. این قابلیت به تشخیص تصویر نیاز دارد و هنوز فعال نیست.",
+
+  nearbyTitle: "مراقبت‌های نزدیک شما",
+
+  nearbyDesc: "با استفاده از موقعیت مکانی خود، خدمات درمانی نزدیک را پیدا کنید و فاصله و وضعیت باز بودن آن‌ها را مقایسه کنید.",
+
+  nearbyButton: "پیدا کردن مراقبت نزدیک",
+
+  nearestERButton: "پیدا کردن نزدیک‌ترین بخش اورژانس",
+
+  waitTimeNote: "زمان انتظار ممکن است بر اساس روز و محل تغییر کند. CarePath فقط زمانی اطلاعات تأییدشده درباره زمان انتظار را نشان می‌دهد که این اطلاعات در دسترس باشد. اگر مطمئن نیستید به کجا مراجعه کنید، با 8-1-1 تماس بگیرید. این ابزار تشخیص پزشکی ارائه نمی‌دهد.",
+
+  fuIntro: "روزی یک بار وضعیت خود را ثبت کنید. پاسخ‌های شما روی همین دستگاه ذخیره می‌شوند.",
+
+  fuBetter: "حالم بهتر است",
+
+  fuBetterSub: "علائم در حال بهتر شدن هستند",
+
+  fuSame: "تقریباً بدون تغییر",
+
+  fuSameSub: "تغییر قابل توجهی وجود ندارد",
+
+  fuWorse: "حالم بدتر است",
+
+  fuWorseSub: "علائم در حال بدتر شدن هستند",
+
+  fuTimeline: "سابقه پیگیری"
+},
 tl: {
   sos: "May pananakit ng dibdib, senyales ng stroke, matinding hirap sa paghinga, o pagdurugong hindi tumitigil?",
 
@@ -1709,6 +1901,198 @@ ja: {
   fuWorseSub: "症状が悪化しています",
 
   fuTimeline: "経過記録"
+},
+vi: {
+  sos: "Bạn có đau ngực, dấu hiệu đột quỵ, khó thở nghiêm trọng hoặc chảy máu không cầm được không?",
+
+  h1: "Từ triệu chứng đầu tiên đến lần theo dõi tiếp theo.",
+
+  sub: "Hướng dẫn dành cho người mới đến, người tị nạn, người lớn tuổi và bất kỳ ai chưa quen với hệ thống chăm sóc sức khỏe của British Columbia.\nCông cụ này giúp bạn biết nên tìm nơi chăm sóc nào, nhưng không đưa ra chẩn đoán.",
+
+  t1: "Tìm nơi chăm sóc",
+  t2: "Chuẩn bị cách trình bày",
+  t3: "Quản lý thuốc",
+  t4: "Theo dõi",
+
+  t2h: "Giải thích rõ các triệu chứng của bạn cho nhân viên y tế",
+  t3h: "Theo dõi các loại thuốc của bạn",
+  t4h: "Tình trạng của bạn có đang cải thiện không?",
+
+  foot: "Không thay thế lời khuyên hoặc chẩn đoán y tế. Cấp cứu: 9-1-1. Tư vấn điều dưỡng: 8-1-1. Hỗ trợ khủng hoảng: 9-8-8.",
+
+  q0: "Hiện tại bạn có bất kỳ triệu chứng nào sau đây không?",
+
+  none: "Không có triệu chứng nào ở trên. Tiếp tục",
+
+  pick: "Vấn đề chính của bạn là gì?",
+
+  back: "Bắt đầu lại",
+
+  best: "Nơi phù hợp nhất để nhận chăm sóc",
+
+  alt: "Các lựa chọn khác",
+
+  worse: "Hãy đến khoa cấp cứu hoặc gọi 9-1-1 nếu",
+
+  next: "Chuẩn bị những gì bạn sẽ nói với nhân viên y tế",
+
+  anyflag: "Bất kỳ dấu hiệu nào sau đây cũng có thể cần được chăm sóc khẩn cấp",
+
+  chooseList: "Chọn từ danh sách hoặc sử dụng hình cơ thể bên phải.",
+
+  bodyTitle: "Bạn cảm thấy vấn đề ở đâu?",
+
+  bodySub: "Nhấn vào một vùng trên cơ thể để tìm lựa chọn phù hợp nhanh hơn.",
+
+  closest: "Lựa chọn nào giống với triệu chứng của bạn nhất?",
+
+  closestSub: "Chọn lựa chọn mô tả đúng nhất những gì bạn đang cảm thấy lúc này.",
+
+  notListed: "Không có trong danh sách? Dùng trò chuyện",
+
+  notListedSub: "Hãy mô tả điều đang xảy ra bằng lời của bạn.",
+
+  chooseAny: "Chọn tất cả các mục phù hợp.",
+
+  selectOneFirst: "Vui lòng chọn ít nhất một mục trước.",
+
+  flagChest: "Đau hoặc tức ngực",
+
+  flagStroke: "Méo mặt, yếu tay hoặc nói khó",
+
+  flagBreathing: "Khó thở nghiêm trọng",
+
+  flagBleeding: "Chảy máu không cầm được",
+
+  flagSeizure: "Co giật hoặc mất ý thức",
+
+  flagHarm: "Có ý nghĩ làm hại bản thân hoặc người khác",
+
+  chatTitle: "💬 Hỏi bằng ngôn ngữ của bạn",
+
+  chatBefore: "Trước khi bắt đầu trò chuyện",
+
+  chatConsent: "Tin nhắn của bạn sẽ được gửi đến một dịch vụ trí tuệ nhân tạo để nhận phản hồi. Không nhập tên, địa chỉ hoặc số thẻ y tế của bạn. Không sử dụng trò chuyện này trong trường hợp khẩn cấp — hãy gọi 9-1-1.",
+
+  chatStart: "Tôi hiểu. Bắt đầu trò chuyện",
+
+  chatPlaceholder: "Mô tả triệu chứng của bạn…",
+
+  chatSend: "Gửi",
+
+  chatNote: "Giúp bạn xác định nơi nên tìm chăm sóc. Không đưa ra chẩn đoán.",
+
+  chatHintNavigate: "Mô tả triệu chứng của bạn…",
+
+  chatHintCommunicate: "Hỏi cách giải thích vấn đề của bạn với nhân viên y tế…",
+
+  chatHintManage: "Hỏi về thuốc của bạn…",
+
+  chatHintFollowup: "Cho chúng tôi biết hôm nay bạn cảm thấy thế nào…",
+
+  commIntro: "Điền những gì bạn biết. Bản tóm tắt của bạn sẽ được lưu trong trình duyệt này.",
+
+  commWhere: "Bạn sẽ đi đâu để được chăm sóc?",
+
+  commWherePlaceholder: "Ví dụ: bác sĩ đo thị lực",
+
+  commStory: "Điều gì đang xảy ra?",
+
+  commStoryPlaceholder: "Ví dụ: Mắt phải của tôi đỏ và có ghèn.",
+
+  commStart: "Triệu chứng bắt đầu khi nào?",
+
+  commToday: "Hôm nay",
+
+  comm1to2: "1–2 ngày trước",
+
+  comm3to7: "3–7 ngày trước",
+
+  commWeekPlus: "Hơn một tuần trước",
+
+  commSeverity: "Mức độ nghiêm trọng như thế nào?",
+
+  commMeds: "Thuốc và dị ứng",
+
+  commMedsPlaceholder: "Ví dụ: dị ứng penicillin; đang dùng metformin",
+
+  commQuestions: "Những câu hỏi tôi không muốn quên",
+
+  commQuestionsPlaceholder: "Ví dụ: Có lây không? Tôi có thể đeo kính áp tròng không?",
+
+  commInterpreter: "Bạn có cần thông dịch viên không?",
+
+  commInterpreterPlaceholder: "Ví dụ: tiếng Việt",
+
+  commMakeSummary: "Tạo bản tóm tắt cho nhân viên y tế",
+
+  commProviderSummary: "Bản tóm tắt cho nhân viên y tế",
+
+  commSummaryEmpty: "Bản tóm tắt của bạn sẽ xuất hiện ở đây.",
+
+  commSayAloud: "Bạn có thể nói điều này với nhân viên y tế",
+
+  commCopy: "Sao chép",
+
+  commPrint: "In",
+
+  medIntro: "Nhập thông tin được ghi trên nhãn thuốc. Tính năng này không thay đổi hướng dẫn của bác sĩ hoặc dược sĩ.",
+
+  medName: "Tên thuốc",
+
+  medNamePlaceholder: "Ví dụ: thuốc nhỏ mắt ciprofloxacin 0,3%",
+
+  medDose: "Cách dùng",
+
+  medDosePlaceholder: "Ví dụ: nhỏ 1 giọt vào mắt phải mỗi 4 giờ trong 5 ngày",
+
+  medAdd: "Thêm thuốc",
+
+  medEmpty: "Chưa có thuốc nào được thêm.",
+
+  medTaken: "Đã dùng",
+
+  medSkip: "Bỏ qua",
+
+  medLater: "Để sau",
+
+  medTakenLog: "Đã dùng",
+
+  medSkippedLog: "Đã bỏ qua",
+
+  medLaterLog: "Dùng sau",
+
+  medAt: "Thời gian",
+
+  medPhotoTitle: "Đọc nhãn thuốc bằng ảnh (dự kiến)",
+
+  medPhotoDesc: "Chụp ảnh nhãn thuốc, AI sẽ đọc thông tin và sau đó bạn xác nhận. Tính năng này cần nhận dạng hình ảnh nên hiện chưa khả dụng.",
+
+  nearbyTitle: "Dịch vụ chăm sóc gần bạn",
+
+  nearbyDesc: "Sử dụng vị trí của bạn để tìm các dịch vụ y tế gần đó và so sánh khoảng cách cũng như tình trạng mở cửa.",
+
+  nearbyButton: "Tìm dịch vụ chăm sóc gần đây",
+
+  nearestERButton: "Tìm khoa cấp cứu gần nhất",
+
+  waitTimeNote: "Thời gian chờ có thể thay đổi theo ngày và địa điểm. CarePath chỉ hiển thị thông tin thời gian chờ đã được xác minh khi có sẵn. Nếu bạn không chắc nên đi đâu, hãy gọi 8-1-1. Công cụ này không đưa ra chẩn đoán.",
+
+  fuIntro: "Kiểm tra tình trạng của bạn mỗi ngày một lần. Câu trả lời sẽ được lưu trên thiết bị này.",
+
+  fuBetter: "Tôi cảm thấy tốt hơn",
+
+  fuBetterSub: "Các triệu chứng đang cải thiện",
+
+  fuSame: "Gần như không thay đổi",
+
+  fuSameSub: "Không có thay đổi đáng kể",
+
+  fuWorse: "Tôi cảm thấy tệ hơn",
+
+  fuWorseSub: "Các triệu chứng đang trở nên nặng hơn",
+
+  fuTimeline: "Lịch sử theo dõi"
 },
 es: {
   sos: "¿Dolor en el pecho, signos de derrame cerebral, dificultad grave para respirar o sangrado que no se detiene?",
@@ -4373,6 +4757,363 @@ ar: {
   }
 
 },
+fa: {
+
+  eye: {
+    name: "مشکل چشم",
+    hint: "قرمزی، تورم، درد یا ترشح چشم",
+
+    flags: [
+      "کاهش یا تغییر ناگهانی شدید بینایی",
+      "ورود ماده شیمیایی به چشم",
+      "وجود جسم خارجی در چشم یا آسیب چشمی",
+      "درد شدید چشم همراه با تهوع یا استفراغ"
+    ],
+
+    best: "اپتومتریست (برای بررسی امکان ویزیت همان روز، ابتدا تماس بگیرید)",
+
+    why: "اپتومتریست‌های بریتیش کلمبیا می‌توانند مشکلات فوری چشم مانند عفونت و خراش قرنیه را ارزیابی کنند. بعضی مراکز ویزیت همان روز ارائه می‌دهند. هنگام تماس درباره پوشش بیمه و هزینه سؤال کنید.",
+
+    alt: [
+      "داروساز برای بعضی مشکلات خفیف چشم مانند التهاب ملتحمه",
+      "UPCC اگر امکان مراجعه به اپتومتریست ندارید",
+      "تماس با 8-1-1 برای مشاوره پرستاری"
+    ],
+
+    worse: [
+      "بینایی تار یا ضعیف‌تر شود",
+      "درد بیشتر شود",
+      "پلک بیشتر متورم شود یا قرمزی به صورت گسترش پیدا کند"
+    ]
+  },
+
+  cold: {
+    name: "سرفه، سرماخوردگی، تب",
+    hint: "گلودرد، گرفتگی بینی، تب خفیف",
+
+    flags: [
+      "تنگی نفس شدید یا آبی شدن لب‌ها",
+      "تب در نوزاد کمتر از ۳ ماه",
+      "گیجی شدید یا دشواری زیاد در بیدار شدن",
+      "تب بیش از ۳ روز ادامه داشته باشد یا پایین نیاید"
+    ],
+
+    best: "داروساز یا پزشک خانواده / کلینیک بدون وقت قبلی",
+
+    why: "بیشتر موارد سرماخوردگی و گلودرد را می‌توان در مراکز درمانی جامعه ارزیابی کرد. داروساز می‌تواند برای کاهش علائم کمک کند و توضیح دهد چه زمانی باید به پزشک مراجعه کنید.",
+
+    alt: [
+      "تماس با 8-1-1 برای مشاوره پرستاری",
+      "UPCC یا کلینیک بدون وقت قبلی برای ارزیابی همان روز",
+      "مراقبت مجازی از طریق تلفن یا ویدیو"
+    ],
+
+    worse: [
+      "تنفس سخت‌تر شود",
+      "هنگام نفس کشیدن درد قفسه سینه ایجاد شود",
+      "نتوانید در طول روز مایعات را نگه دارید"
+    ]
+  },
+
+  injury: {
+    name: "پیچ‌خوردگی، افتادن یا بریدگی",
+    hint: "تورم، لنگیدن یا زخمی که ممکن است به بخیه نیاز داشته باشد",
+
+    flags: [
+      "خونریزی شدید که متوقف نمی‌شود",
+      "دیده شدن استخوان یا تغییر شکل واضح",
+      "تغییر سطح هوشیاری پس از آسیب سر",
+      "ناتوانی در حرکت دادن بازو یا پا"
+    ],
+
+    best: "کلینیک بدون وقت قبلی یا UPCC",
+
+    why: "پیچ‌خوردگی‌های خفیف، زمین خوردن و بریدگی را می‌توان در مراکز درمانی جامعه ارزیابی کرد. همچنین می‌توان مشخص کرد که آیا به بخیه یا عکس‌برداری نیاز دارید.",
+
+    alt: [
+      "پزشک خانواده",
+      "داروساز برای راهنمایی درباره کاهش درد",
+      "8-1-1 برای مشاوره پرستاری"
+    ],
+
+    worse: [
+      "درد یا تورم به سرعت بیشتر شود",
+      "بی‌حسی ایجاد شود یا دست یا پا سرد شود",
+      "خونریزی ادامه پیدا کند"
+    ]
+  },
+
+  skin: {
+    name: "راش پوستی، سوزش ادرار یا عفونت خفیف",
+    hint: "عفونت ساده ادراری، اگزما، تبخال لب",
+
+    flags: [
+      "راش قرمز همراه با تب بالا که به سرعت گسترش پیدا کند",
+      "تورم صورت یا گلو همراه با دشواری تنفس",
+      "درد شدید یا تاول‌هایی که سریع گسترش پیدا کنند"
+    ],
+
+    best: "داروساز یا کلینیک بدون وقت قبلی",
+
+    why: "در بریتیش کلمبیا، داروسازان می‌توانند برخی بیماری‌های خفیف را ارزیابی و درمان کنند. علائم پیچیده‌تر یا شدیدتر ممکن است به ارزیابی پزشک نیاز داشته باشند.",
+
+    alt: [
+      "پزشک خانواده",
+      "UPCC",
+      "8-1-1 برای مشاوره پرستاری"
+    ],
+
+    worse: [
+      "تب بالا ایجاد شود",
+      "قرمزی به سرعت گسترش پیدا کند",
+      "درد شدید یا تورم ایجاد شود"
+    ]
+  },
+
+  dental: {
+    name: "درد دندان یا دهان",
+    hint: "دندان‌درد، دندان شکسته، تورم لثه",
+
+    flags: [
+      "تورم شدید صورت یا گلو همراه با دشواری تنفس",
+      "دشواری در بلع یا ناتوانی در بلع بزاق",
+      "عفونت دندان همراه با تب بالا یا احساس بیماری شدید"
+    ],
+
+    best: "دندانپزشک",
+
+    why: "دندانپزشک می‌تواند علت دندان‌درد، شکستگی دندان یا تورم لثه را تشخیص دهد و درمان مناسب ارائه کند.",
+
+    alt: [
+      "داروساز برای راهنمایی موقت درباره کاهش درد",
+      "UPCC یا اورژانس اگر عفونت شدید باشد",
+      "اگر مطمئن نیستید با 8-1-1 تماس بگیرید"
+    ],
+
+    worse: [
+      "تورم به گردن یا اطراف چشم گسترش پیدا کند",
+      "تنفس یا بلع دشوار شود",
+      "تب ایجاد شود و وضعیت به سرعت بدتر شود"
+    ]
+  },
+
+  stomach: {
+    name: "مشکل معده / شکم",
+    hint: "درد شکم، استفراغ، اسهال، یبوست",
+
+    flags: [
+      "درد شدید یا رو به افزایش شکم",
+      "استفراغ خونی یا مدفوع سیاه",
+      "ناتوانی در نگه داشتن مایعات همراه با احساس غش",
+      "بارداری همراه با درد شدید شکم یا خونریزی زیاد"
+    ],
+
+    best: "پزشک خانواده / کلینیک بدون وقت قبلی یا UPCC",
+
+    why: "ارزیابی بیشتر مشکلات غیر اورژانسی معده و شکم را می‌توان در مراقبت‌های اولیه یا فوری آغاز کرد. درد شدید، کم‌آبی یا خونریزی نیاز به ارزیابی سریع‌تر دارد.",
+
+    alt: [
+      "داروساز برای علائم خفیف",
+      "اگر مطمئن نیستید با 8-1-1 تماس بگیرید",
+      "اورژانس برای درد شدید یا ناگهانی، خونریزی یا غش"
+    ],
+
+    worse: [
+      "درد شدید شود یا در یک نقطه متمرکز شود",
+      "کم‌آبی یا غش رخ دهد",
+      "در استفراغ یا مدفوع خون دیده شود"
+    ]
+  },
+
+  neuro: {
+    name: "سردرد / سرگیجه",
+    hint: "سردرد، سرگیجه، سبکی سر یا احساس غش",
+
+    flags: [
+      "سردرد ناگهانی و شدیدترین سردرد زندگی",
+      "ضعف جدید، افتادگی صورت یا مشکل در صحبت کردن",
+      "سردرد پس از آسیب شدید سر",
+      "غش همراه با درد قفسه سینه یا گیجی مداوم"
+    ],
+
+    best: "پزشک خانواده / کلینیک بدون وقت قبلی یا UPCC",
+
+    why: "بیشتر سردردها و سرگیجه‌ها را می‌توان در مراقبت‌های اولیه ارزیابی کرد، اما علائم عصبی ناگهانی نیاز به مراقبت اورژانسی دارند.",
+
+    alt: [
+      "تماس با 8-1-1 برای مشاوره پرستاری",
+      "داروساز اگر سرگیجه ممکن است با دارو مرتبط باشد",
+      "اورژانس برای علائم عصبی شدید و ناگهانی"
+    ],
+
+    worse: [
+      "ضعف یا مشکل در صحبت کردن ایجاد شود",
+      "سردرد ناگهان بسیار شدید شود",
+      "هوشیاری خود را از دست بدهید یا نتوانید ایمن راه بروید"
+    ]
+  },
+
+  ent: {
+    name: "گوش / بینی / گلو",
+    hint: "گوش‌درد، خونریزی بینی، گلودرد، فشار سینوس‌ها",
+
+    flags: [
+      "دشواری در تنفس یا بلع",
+      "خونریزی شدید بینی که متوقف نمی‌شود",
+      "تورم شدید گلو یا گردن",
+      "تب بالا همراه با خشکی شدید گردن"
+    ],
+
+    best: "داروساز یا پزشک خانواده / کلینیک بدون وقت قبلی",
+
+    why: "بسیاری از مشکلات رایج گوش، بینی و گلو را می‌توان در جامعه ارزیابی کرد. خونریزی شدید یا مشکلات تنفس و بلع نیاز به مراقبت فوری دارند.",
+
+    alt: [
+      "تماس با 8-1-1",
+      "UPCC برای ارزیابی همان روز اگر علائم بدتر می‌شوند",
+      "اورژانس برای مشکلات شدید تنفسی یا خونریزی"
+    ],
+
+    worse: [
+      "تورم گسترش پیدا کند",
+      "نتوانید مایعات را قورت دهید",
+      "خونریزی متوقف نشود"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "درد کمر / عضله / مفصل",
+    hint: "کمردرد، کشیدگی عضله، درد مفاصل، خشکی",
+
+    flags: [
+      "از دست دادن جدید کنترل ادرار یا مدفوع",
+      "بی‌حسی در ناحیه کشاله ران",
+      "سرد، رنگ‌پریده یا ناگهان ضعیف شدن یک اندام",
+      "درد شدید پس از افتادن شدید یا تصادف"
+    ],
+
+    best: "پزشک خانواده / کلینیک بدون وقت قبلی یا فیزیوتراپی",
+
+    why: "بیشتر مشکلات غیر اورژانسی عضلات، مفاصل و کمر را می‌توان ابتدا در مراقبت‌های اولیه یا توسط متخصصان عضلانی‌اسکلتی ارزیابی کرد.",
+
+    alt: [
+      "فیزیوتراپیست",
+      "داروساز برای راهنمایی درباره کنترل درد",
+      "UPCC"
+    ],
+
+    worse: [
+      "ضعف یا بی‌حسی ناگهانی ایجاد شود",
+      "کنترل ادرار یا مدفوع دشوار شود",
+      "درد به سرعت بدتر شود"
+    ]
+  },
+
+  breathing: {
+    name: "مشکل تنفسی / آسم",
+    hint: "خس‌خس، تنگی نفس، بدتر شدن آسم",
+
+    flags: [
+      "ناتوانی در تنفس مناسب",
+      "آبی شدن لب‌ها یا صورت",
+      "تنگی نفس به حدی که نتوانید یک جمله کامل بگویید"
+    ],
+
+    best: "UPCC یا پزشک خانواده / کلینیک بدون وقت قبلی",
+
+    why: "حملات خفیف آسم و بعضی علائم تنفسی را می‌توان در مراکز درمانی جامعه ارزیابی کرد، اما تنگی نفس شدید یک وضعیت اورژانسی است.",
+
+    alt: [
+      "داروساز برای راهنمایی درباره اسپری تنفسی",
+      "8-1-1 برای مشاوره پرستاری"
+    ],
+
+    worse: [
+      "تنفس سخت‌تر شود",
+      "اسپری تنفسی کمک نکند",
+      "لب‌ها آبی شوند"
+    ]
+  },
+
+  pregnancy: {
+    name: "بارداری / سلامت جنسی",
+    hint: "علائم بارداری، خونریزی، پیشگیری از بارداری، پرسش درباره عفونت‌های مقاربتی",
+
+    flags: [
+      "خونریزی شدید در دوران بارداری",
+      "درد شدید شکم یا غش",
+      "تنگی نفس شدید در دوران بارداری"
+    ],
+
+    best: "پزشک خانواده، ارائه‌دهنده مراقبت بارداری یا کلینیک سلامت جنسی",
+
+    why: "مشکلات مربوط به بارداری و سلامت جنسی را می‌توان بر اساس علائم، توسط پزشک خانواده، ارائه‌دهنده مراقبت بارداری یا کلینیک سلامت جنسی ارزیابی کرد.",
+
+    alt: [
+      "UPCC",
+      "داروساز",
+      "8-1-1 برای مشاوره پرستاری"
+    ],
+
+    worse: [
+      "خونریزی شدید",
+      "درد شدید شکم",
+      "غش یا بدتر شدن سریع وضعیت"
+    ]
+  },
+
+  mental: {
+    name: "استرس، خلق پایین یا بحران",
+    hint: "احساس فشار زیاد، اضطراب یا ناامنی",
+
+    flags: [
+      "افکار آسیب زدن به خود یا خودکشی",
+      "افکار آسیب زدن به فرد دیگر",
+      "احساس ناامنی در همین لحظه"
+    ],
+
+    best: "حمایت در بحران یا خدمات سلامت روان",
+
+    why: "در شرایط بحران می‌توانید فوراً کمک دریافت کنید. برای درخواست حمایت نیازی به تشخیص رسمی ندارید.",
+
+    alt: [
+      "تماس یا پیام به 9-8-8",
+      "تماس با 8-1-1 و پرسیدن درباره خدمات سلامت روان",
+      "پزشک خانواده یا کلینیک بدون وقت قبلی"
+    ],
+
+    worse: [
+      "احساس کنید در خطر هستید",
+      "برنامه مشخصی برای آسیب زدن به خود داشته باشید"
+    ]
+  },
+
+  meds: {
+    name: "تمدید نسخه یا سؤال درباره دارو",
+    hint: "دارو در حال تمام شدن است، عوارض جانبی یا نحوه مصرف",
+
+    flags: [
+      "تورم صورت یا گلو پس از مصرف دارو",
+      "دشواری تنفس پس از مصرف دارو",
+      "احتمال مصرف بیش از حد دارو"
+    ],
+
+    best: "داروساز",
+
+    why: "داروساز می‌تواند درباره نحوه مصرف دارو، عوارض جانبی و در بسیاری از موارد تمدید نسخه‌های موجود کمک کند.",
+
+    alt: [
+      "با 8-1-1 تماس بگیرید و درخواست صحبت با داروساز کنید",
+      "اگر به نسخه جدید نیاز دارید، به پزشک خانواده یا کلینیک بدون وقت قبلی مراجعه کنید"
+    ],
+
+    worse: [
+      "واکنش شدید به دارو ایجاد شود",
+      "به دلیل استفراغ نتوانید دارو را مصرف کنید"
+    ]
+  }
+
+},
 fr: {
 
   eye: {
@@ -6511,6 +7252,363 @@ pt: {
     worse: [
       "Você apresenta uma reação grave ao medicamento",
       "Não consegue tomar o medicamento por causa dos vômitos"
+    ]
+  }
+
+},
+vi: {
+
+  eye: {
+    name: "Vấn đề về mắt",
+    hint: "Mắt đỏ, sưng, đau hoặc có ghèn",
+
+    flags: [
+      "Mất thị lực đột ngột hoặc thị lực thay đổi nghiêm trọng",
+      "Hóa chất bắn vào mắt",
+      "Có dị vật trong mắt hoặc mắt bị chấn thương",
+      "Đau mắt dữ dội kèm buồn nôn hoặc nôn"
+    ],
+
+    best: "Bác sĩ đo thị lực (hãy gọi trước để hỏi xem có thể khám trong ngày không)",
+
+    why: "Các bác sĩ đo thị lực ở British Columbia có thể đánh giá những vấn đề mắt khẩn cấp như nhiễm trùng hoặc trầy xước giác mạc. Nhiều nơi có thể có lịch khám trong ngày. Hãy hỏi về bảo hiểm và chi phí khi gọi.",
+
+    alt: [
+      "Dược sĩ đối với một số vấn đề mắt nhẹ như viêm kết mạc",
+      "UPCC nếu bạn không thể gặp bác sĩ đo thị lực",
+      "Gọi 8-1-1 để được y tá tư vấn"
+    ],
+
+    worse: [
+      "Thị lực trở nên mờ hoặc giảm",
+      "Đau tăng lên",
+      "Mí mắt sưng nhiều hơn hoặc đỏ lan ra mặt"
+    ]
+  },
+
+  cold: {
+    name: "Ho, cảm lạnh, sốt",
+    hint: "Đau họng, nghẹt mũi, sốt nhẹ",
+
+    flags: [
+      "Khó thở nghiêm trọng hoặc môi tím tái",
+      "Trẻ dưới 3 tháng tuổi bị sốt",
+      "Lú lẫn hoặc rất khó đánh thức",
+      "Sốt kéo dài hơn 3 ngày hoặc không giảm"
+    ],
+
+    best: "Dược sĩ hoặc bác sĩ gia đình / phòng khám không cần hẹn",
+
+    why: "Hầu hết cảm lạnh và đau họng có thể được đánh giá trong cộng đồng. Dược sĩ có thể giúp giảm triệu chứng và hướng dẫn khi nào bạn cần gặp bác sĩ.",
+
+    alt: [
+      "Gọi 8-1-1 để được y tá tư vấn",
+      "UPCC hoặc phòng khám không cần hẹn nếu cần được đánh giá trong ngày",
+      "Chăm sóc sức khỏe từ xa qua điện thoại hoặc video"
+    ],
+
+    worse: [
+      "Khó thở ngày càng tăng",
+      "Đau ngực khi thở",
+      "Không thể giữ được nước hoặc chất lỏng trong cả ngày"
+    ]
+  },
+
+  injury: {
+    name: "Bong gân, té ngã hoặc vết cắt",
+    hint: "Sưng, đi khập khiễng hoặc vết cắt có thể cần khâu",
+
+    flags: [
+      "Chảy máu nhiều và không cầm được",
+      "Lộ xương hoặc biến dạng rõ rệt",
+      "Thay đổi ý thức sau chấn thương đầu",
+      "Không thể cử động tay hoặc chân"
+    ],
+
+    best: "Phòng khám không cần hẹn hoặc UPCC",
+
+    why: "Bong gân nhẹ, té ngã và vết cắt có thể được đánh giá tại các cơ sở chăm sóc cộng đồng. Họ cũng có thể xác định xem bạn có cần khâu hoặc chụp X-quang hay không.",
+
+    alt: [
+      "Bác sĩ gia đình",
+      "Dược sĩ để được tư vấn giảm đau",
+      "Gọi 8-1-1 để được y tá tư vấn"
+    ],
+
+    worse: [
+      "Đau hoặc sưng tăng nhanh",
+      "Xuất hiện tê hoặc tay chân trở nên lạnh",
+      "Chảy máu vẫn tiếp tục"
+    ]
+  },
+
+  skin: {
+    name: "Phát ban, đau khi tiểu hoặc nhiễm trùng nhẹ",
+    hint: "Nhiễm trùng tiểu đơn giản, chàm, mụn rộp môi",
+
+    flags: [
+      "Phát ban đỏ lan nhanh kèm sốt cao",
+      "Sưng mặt hoặc cổ họng kèm khó thở",
+      "Đau dữ dội hoặc bóng nước lan nhanh"
+    ],
+
+    best: "Dược sĩ hoặc phòng khám không cần hẹn",
+
+    why: "Ở British Columbia, dược sĩ có thể đánh giá và điều trị một số tình trạng nhẹ. Các triệu chứng phức tạp hoặc nghiêm trọng hơn có thể cần bác sĩ đánh giá.",
+
+    alt: [
+      "Bác sĩ gia đình",
+      "UPCC",
+      "Gọi 8-1-1 để được y tá tư vấn"
+    ],
+
+    worse: [
+      "Xuất hiện sốt cao",
+      "Vùng đỏ lan nhanh",
+      "Xuất hiện đau dữ dội hoặc sưng"
+    ]
+  },
+
+  dental: {
+    name: "Đau răng hoặc miệng",
+    hint: "Đau răng, răng gãy, nướu sưng",
+
+    flags: [
+      "Sưng nhiều ở mặt hoặc cổ họng kèm khó thở",
+      "Khó nuốt hoặc không thể nuốt nước bọt",
+      "Nhiễm trùng răng kèm sốt cao hoặc cảm thấy rất mệt"
+    ],
+
+    best: "Nha sĩ",
+
+    why: "Nha sĩ có thể xác định nguyên nhân gây đau răng, răng gãy hoặc nướu sưng và cung cấp điều trị phù hợp.",
+
+    alt: [
+      "Dược sĩ để được tư vấn giảm đau tạm thời",
+      "UPCC hoặc khoa cấp cứu nếu nhiễm trùng nghiêm trọng",
+      "Gọi 8-1-1 nếu bạn không chắc chắn"
+    ],
+
+    worse: [
+      "Sưng lan xuống cổ hoặc quanh mắt",
+      "Khó thở hoặc khó nuốt tăng lên",
+      "Xuất hiện sốt và tình trạng xấu đi nhanh chóng"
+    ]
+  },
+
+  stomach: {
+    name: "Vấn đề về dạ dày / bụng",
+    hint: "Đau bụng, nôn, tiêu chảy, táo bón",
+
+    flags: [
+      "Đau bụng dữ dội hoặc ngày càng tăng",
+      "Nôn ra máu hoặc phân đen",
+      "Không thể giữ được chất lỏng và cảm thấy sắp ngất",
+      "Đang mang thai và bị đau bụng dữ dội hoặc chảy máu nhiều"
+    ],
+
+    best: "Bác sĩ gia đình / phòng khám không cần hẹn hoặc UPCC",
+
+    why: "Hầu hết các vấn đề dạ dày không phải cấp cứu có thể bắt đầu được đánh giá tại cơ sở chăm sóc ban đầu hoặc chăm sóc khẩn cấp. Đau dữ dội, mất nước hoặc chảy máu cần được đánh giá nhanh hơn.",
+
+    alt: [
+      "Dược sĩ đối với triệu chứng nhẹ",
+      "Gọi 8-1-1 nếu bạn không chắc chắn",
+      "Khoa cấp cứu nếu đau dữ dội, đột ngột hoặc kèm chảy máu hay ngất"
+    ],
+
+    worse: [
+      "Đau trở nên dữ dội hoặc tập trung ở một vùng",
+      "Bị mất nước hoặc ngất",
+      "Có máu trong chất nôn hoặc phân"
+    ]
+  },
+
+  neuro: {
+    name: "Đau đầu / chóng mặt",
+    hint: "Đau đầu, chóng mặt, choáng váng hoặc cảm giác sắp ngất",
+
+    flags: [
+      "Đau đầu đột ngột và dữ dội nhất từ trước đến nay",
+      "Yếu mới xuất hiện, méo mặt hoặc khó nói",
+      "Đau đầu sau chấn thương đầu nghiêm trọng",
+      "Ngất kèm đau ngực hoặc lú lẫn kéo dài"
+    ],
+
+    best: "Bác sĩ gia đình / phòng khám không cần hẹn hoặc UPCC",
+
+    why: "Hầu hết đau đầu và chóng mặt có thể được đánh giá trong chăm sóc ban đầu, nhưng các triệu chứng thần kinh xuất hiện đột ngột cần chăm sóc cấp cứu.",
+
+    alt: [
+      "Gọi 8-1-1 để được y tá tư vấn",
+      "Dược sĩ nếu chóng mặt có thể liên quan đến thuốc",
+      "Khoa cấp cứu nếu có triệu chứng thần kinh nghiêm trọng và đột ngột"
+    ],
+
+    worse: [
+      "Xuất hiện yếu hoặc khó nói",
+      "Đau đầu đột ngột trở nên rất dữ dội",
+      "Mất ý thức hoặc không thể đi lại an toàn"
+    ]
+  },
+
+  ent: {
+    name: "Tai / mũi / họng",
+    hint: "Đau tai, chảy máu mũi, đau họng, áp lực xoang",
+
+    flags: [
+      "Khó thở hoặc khó nuốt",
+      "Chảy máu mũi nhiều và không cầm được",
+      "Sưng nghiêm trọng ở họng hoặc cổ",
+      "Sốt cao kèm cứng cổ nghiêm trọng"
+    ],
+
+    best: "Dược sĩ hoặc bác sĩ gia đình / phòng khám không cần hẹn",
+
+    why: "Nhiều vấn đề thường gặp ở tai, mũi và họng có thể được đánh giá trong cộng đồng. Chảy máu nghiêm trọng hoặc khó thở, khó nuốt cần được chăm sóc khẩn cấp.",
+
+    alt: [
+      "Gọi 8-1-1",
+      "UPCC để được đánh giá trong ngày nếu triệu chứng đang xấu đi",
+      "Khoa cấp cứu nếu có vấn đề nghiêm trọng về hô hấp hoặc chảy máu"
+    ],
+
+    worse: [
+      "Sưng tiếp tục lan rộng",
+      "Không thể nuốt chất lỏng",
+      "Chảy máu không dừng"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "Đau lưng / cơ / khớp",
+    hint: "Đau lưng, căng cơ, đau khớp, cứng khớp",
+
+    flags: [
+      "Mới mất kiểm soát tiểu tiện hoặc đại tiện",
+      "Tê vùng bẹn",
+      "Một chi trở nên lạnh, nhợt nhạt hoặc đột ngột yếu",
+      "Đau dữ dội sau cú ngã nghiêm trọng hoặc tai nạn"
+    ],
+
+    best: "Bác sĩ gia đình / phòng khám không cần hẹn hoặc vật lý trị liệu",
+
+    why: "Hầu hết các vấn đề không khẩn cấp về cơ, khớp và lưng có thể bắt đầu được đánh giá trong chăm sóc ban đầu hoặc bởi chuyên gia cơ xương khớp.",
+
+    alt: [
+      "Chuyên viên vật lý trị liệu",
+      "Dược sĩ để được tư vấn kiểm soát đau",
+      "UPCC"
+    ],
+
+    worse: [
+      "Đột ngột xuất hiện yếu hoặc tê",
+      "Khó kiểm soát tiểu tiện hoặc đại tiện",
+      "Đau xấu đi nhanh chóng"
+    ]
+  },
+
+  breathing: {
+    name: "Vấn đề hô hấp / hen suyễn",
+    hint: "Khò khè, khó thở, hen suyễn nặng hơn",
+
+    flags: [
+      "Không thể thở bình thường",
+      "Môi hoặc mặt chuyển màu xanh tím",
+      "Khó thở đến mức không thể nói trọn câu"
+    ],
+
+    best: "UPCC hoặc bác sĩ gia đình / phòng khám không cần hẹn",
+
+    why: "Cơn hen nhẹ hoặc các triệu chứng hô hấp khác có thể được đánh giá trong cộng đồng, nhưng khó thở nghiêm trọng là tình trạng cấp cứu.",
+
+    alt: [
+      "Dược sĩ để được tư vấn về ống hít",
+      "Gọi 8-1-1 để được y tá tư vấn"
+    ],
+
+    worse: [
+      "Khó thở tăng lên",
+      "Ống hít không giúp cải thiện",
+      "Môi chuyển màu xanh tím"
+    ]
+  },
+
+  pregnancy: {
+    name: "Mang thai / sức khỏe tình dục",
+    hint: "Triệu chứng khi mang thai, chảy máu, tránh thai, câu hỏi về STI",
+
+    flags: [
+      "Chảy máu nhiều trong thai kỳ",
+      "Đau bụng dữ dội hoặc ngất",
+      "Khó thở nghiêm trọng trong thai kỳ"
+    ],
+
+    best: "Bác sĩ gia đình, người cung cấp chăm sóc thai kỳ hoặc phòng khám sức khỏe tình dục",
+
+    why: "Các vấn đề liên quan đến thai kỳ và sức khỏe tình dục có thể được đánh giá bởi bác sĩ gia đình, người cung cấp chăm sóc thai kỳ hoặc phòng khám sức khỏe tình dục tùy theo triệu chứng.",
+
+    alt: [
+      "UPCC",
+      "Dược sĩ",
+      "Gọi 8-1-1 để được y tá tư vấn"
+    ],
+
+    worse: [
+      "Chảy máu nhiều",
+      "Đau bụng dữ dội",
+      "Ngất hoặc tình trạng xấu đi nhanh chóng"
+    ]
+  },
+
+  mental: {
+    name: "Căng thẳng, tâm trạng buồn hoặc khủng hoảng",
+    hint: "Cảm thấy quá tải, lo lắng hoặc không an toàn",
+
+    flags: [
+      "Có ý nghĩ tự làm hại bản thân hoặc tự tử",
+      "Có ý nghĩ làm hại người khác",
+      "Cảm thấy mình không an toàn ngay lúc này"
+    ],
+
+    best: "Hỗ trợ khủng hoảng hoặc dịch vụ sức khỏe tâm thần",
+
+    why: "Bạn có thể nhận được hỗ trợ ngay lập tức khi đang trong khủng hoảng. Bạn không cần chẩn đoán chính thức để yêu cầu giúp đỡ.",
+
+    alt: [
+      "Gọi hoặc nhắn tin 9-8-8",
+      "Gọi 8-1-1 và hỏi về dịch vụ sức khỏe tâm thần",
+      "Bác sĩ gia đình hoặc phòng khám không cần hẹn"
+    ],
+
+    worse: [
+      "Bạn cảm thấy mình đang gặp nguy hiểm",
+      "Bạn có kế hoạch cụ thể để tự làm hại bản thân"
+    ]
+  },
+
+  meds: {
+    name: "Gia hạn đơn thuốc hoặc câu hỏi về thuốc",
+    hint: "Sắp hết thuốc, tác dụng phụ hoặc cách dùng",
+
+    flags: [
+      "Sưng mặt hoặc cổ họng sau khi dùng thuốc",
+      "Khó thở sau khi dùng thuốc",
+      "Có thể đã dùng thuốc quá liều"
+    ],
+
+    best: "Dược sĩ",
+
+    why: "Dược sĩ có thể giúp bạn về cách sử dụng thuốc, tác dụng phụ và trong nhiều trường hợp có thể hỗ trợ gia hạn đơn thuốc hiện tại.",
+
+    alt: [
+      "Gọi 8-1-1 và yêu cầu nói chuyện với dược sĩ",
+      "Bác sĩ gia đình hoặc phòng khám không cần hẹn nếu bạn cần đơn thuốc mới"
+    ],
+
+    worse: [
+      "Xuất hiện phản ứng nghiêm trọng với thuốc",
+      "Không thể dùng thuốc do nôn"
     ]
   }
 
