@@ -3,14 +3,17 @@ const I18N={
  en:{sos:"Chest pain, stroke signs, trouble breathing, heavy bleeding?",h1:"From first symptom to next follow-up.",sub:"A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.",t1:"Navigate",t2:"Communicate",t3:"Manage",t4:"Follow up",t2h:"Explain it clearly to your provider",t3h:"Keep track of your medication",t4h:"Is it getting better?",foot:"Not medical advice. Emergency: 9-1-1. Nurse advice any time: 8-1-1. Crisis line: call or text 9-8-8.",
   q0:"Do any of these apply right now?",none:"None of these. Continue",pick:"What is your main concern?",back:"Start over",best:"Best place to go",alt:"Other options",worse:"Go to the ER or call 9-1-1 if",next:"Prepare what to say",anyflag:"Any of these needs emergency care",
   chooseList:"Choose from the list, or use the body guide on the right.",bodyTitle:"Where does it feel wrong?",bodySub:"Tap a body area for a faster route.",closest:"Which one is closest?",closestSub:"Choose the problem that best matches what you are feeling.",notListed:"Not listed? Start a conversation",notListedSub:"Describe what is happening in your own words and the AI assistant will help guide you.",
-fuBetter: "Feeling better",
-fuBetterSub: "Symptoms are improving",
+  fuBetter: "Feeling better",
+  fuBetterSub: "Symptoms are improving",
 
-fuSame: "About the same",
-fuSameSub: "No major change",
+  fuSame: "About the same",
+  fuSameSub: "No major change",
 
-fuWorse: "Feeling worse",
-fuWorseSub: "Symptoms are getting worse",},
+  fuWorse: "Feeling worse",
+  fuWorseSub: "Symptoms are getting worse",
+  fuIntro: "Check in once a day. Your answers are saved on this device.",
+  fuTimeline: "Timeline"
+},
 fr: {
   sos: "Douleur à la poitrine, signes d’AVC, difficulté importante à respirer ou saignement qui ne s’arrête pas ?",
 
@@ -1702,6 +1705,7 @@ ko: {
 
   medPhotoDesc: "약 라벨을 촬영하면 AI가 내용을 읽고 사용자가 확인하는 기능입니다. 이미지 인식 기능이 필요하므로 현재는 사용할 수 없습니다.",
 
+  fuIntro: "하루에 한 번 상태를 확인하세요. 답변은 이 기기에 저장됩니다.",
   fuBetter: "나아졌어요",
   fuBetterSub: "증상이 호전되고 있어요",
 
@@ -1709,7 +1713,9 @@ ko: {
   fuSameSub: "큰 변화가 없어요",
 
   fuWorse: "더 나빠졌어요",
-  fuWorseSub: "증상이 심해지고 있어요",},
+  fuWorseSub: "증상이 심해지고 있어요",
+  fuTimeline: "경과 기록",
+}, 
 ja: {
   sos: "胸の痛み、脳卒中の兆候、重い呼吸困難、止まらない出血がありますか？",
 
