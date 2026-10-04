@@ -280,3 +280,50 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;b
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
 }
+
+.language-controls {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.lang-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: .45rem .75rem;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  border-color: var(--pri);
+  background: #f0f9ff;
+}
+
+.lang-btn.active {
+  background: var(--pri);
+  color: #fff;
+  border-color: var(--pri);
+}
+
+#moreLang {
+  width: auto;
+  padding: .45rem .7rem;
+}
+
+@media (max-width: 900px) {
+  header {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .language-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

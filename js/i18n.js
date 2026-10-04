@@ -8780,4 +8780,28 @@ function applyLang(){
 
   navRender();
 }
-$('lang').onchange=e=>{lang=e.target.value;applyLang()};
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    lang = btn.dataset.lang;
+
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b === btn);
+    });
+
+    document.getElementById('moreLang').value = '';
+
+    applyLang();
+  });
+});
+
+document.getElementById('moreLang').addEventListener('change', e => {
+  if (!e.target.value) return;
+
+  lang = e.target.value;
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  applyLang();
+});

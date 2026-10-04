@@ -10,24 +10,48 @@
 <div class="sos"><span data-i="sos">Chest pain, stroke signs, trouble breathing, heavy bleeding?</span><a href="tel:911">Call 9-1-1</a></div>
 <header>
   <div class="brand">CarePath BC</div>
-  <select id="lang" aria-label="Language">
-    <option value="en">🇨🇦 English</option>
-    <option value="fr">⚜️ Français (Québec)</option>   
-    <option value="zh">🇨🇳 中文</option> 
-    <option value="zh-HK">🇭🇰 粵語（香港）</option>
-    <option value="tl">🇵🇭 Tagalog</option>
-    <option value="ko">🇰🇷 한국어</option>
-    <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-    <option value="hi">🇮🇳 हिन्दी</option>
-    <option value="ja">🇯🇵 日本語</option>
-    <option value="fa">🇮🇷 فارسی</option>
-    <option value="ar">🇸🇦 العربية</option>
-    <option value="es">🇪🇸 Español</option>
-    <option value="pt">🇵🇹 Português</option>
-    <option value="ru">🇷🇺 Русский</option>
-    <option value="vi">🇻🇳 Tiếng Việt</option>
-    <option value="th">🇹🇭 ไทย</option>
-  </select>
+
+  <div class="language-controls">
+
+    <button class="lang-btn active" data-lang="en">
+      🇨🇦 English
+    </button>
+
+    <button class="lang-btn" data-lang="fr">
+      ⚜️ Français
+    </button>
+
+    <button class="lang-btn" data-lang="zh">
+      🇨🇳 中文
+    </button>
+
+    <button class="lang-btn" data-lang="zh-HK">
+      🇭🇰 粵語
+    </button>
+
+    <button class="lang-btn" data-lang="ko">
+      🇰🇷 한국어
+    </button>
+
+    <button class="lang-btn" data-lang="pa">
+      🇮🇳 ਪੰਜਾਬੀ
+    </button>
+
+    <select id="moreLang" aria-label="More languages">
+      <option value="">More languages ▾</option>
+      <option value="tl">🇵🇭 Tagalog</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="fa">🇮🇷 فارسی</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="vi">🇻🇳 Tiếng Việt</option>
+      <option value="th">🇹🇭 ไทย</option>
+    </select>
+
+  </div>
 </header>
 <main>
   <section class="hero">
