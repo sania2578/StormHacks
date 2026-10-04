@@ -222,39 +222,53 @@ async function send() {
           body:
             JSON.stringify({
 
-              messages:
-                chat.slice(
-                  -10
-                ),
+              message:
+                text,
+
+              history:
+                chat
+                  .slice(
+                    -10,
+                    -1
+                  )
+                  .map(
+                    item => ({
+                      role:
+                        item.role,
+
+                      content:
+                        item.content
+                    })
+                  ),
 
               lang,
 
               tab:
                 curTab
             })
-        }
-      );
+          }
+        );
 
 
-    if (!r.ok) {
+              if (!r.ok) {
 
-      throw new Error(
-        r.status
-      );
-    }
-
-
-    const d =
-      await r.json();
+                throw new Error(
+                  r.status
+                );
+              }
 
 
-    chat.push({
-      role:
-        'assistant',
+              const d =
+                await r.json();
 
-      content:
-        d.reply
-    });
+
+              chat.push({
+                role:
+                  'assistant',
+
+                content:
+                  d.reply
+              });
 
 
     w.innerHTML =
