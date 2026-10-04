@@ -14,8 +14,7 @@ function localSummary(){
   if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}
   store.set('summary',summaryText); log('Summary created');
 }
-const SUM_URL='/.netlify/functions/summarize';
-function drawQR(){$('qr').innerHTML='';if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}}
+const SUM_URL=(location.hostname.endsWith('github.io')?'https://YOUR-SITE.netlify.app':'')+'/.netlify/functions/summarize';function drawQR(){$('qr').innerHTML='';if(window.QRCode){try{new QRCode($('qr'),{text:summaryText.slice(0,900),width:150,height:150})}catch{}}}
 $('mk').onclick=async()=>{
   const g=id=>$(id).value.trim();
   localSummary(); // instant basic version, replaced if the AI answers
