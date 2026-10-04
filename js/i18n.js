@@ -1901,8 +1901,199 @@ es: {
   fuWorseSub: "Los síntomas están empeorando",
 
   fuTimeline: "Registro de evolución"
-}, pt:{sos:"Dor no peito, sinais de AVC, dificuldade grave para respirar ou sangramento intenso?",h1:"Do primeiro sintoma ao próximo acompanhamento.",sub:"Um guia para recém-chegados, refugiados, idosos e qualquer pessoa nova no sistema de saúde da Colúmbia Britânica. Ajuda a escolher onde ir. Não faz diagnóstico.",t1:"Orientação",t2:"Comunicar",t3:"Medicamentos",t4:"Acompanhamento",t2h:"Explique claramente o seu problema ao profissional",t3h:"Acompanhe os seus medicamentos",t4h:"Está melhorando?",foot:"Não substitui orientação médica. Emergência: 9-1-1. Enfermagem: 8-1-1. Crise: 9-8-8.",q0:"Algum destes sintomas está acontecendo agora?",none:"Nenhum. Continuar",pick:"Qual é a sua principal preocupação?",back:"Começar de novo",best:"Melhor lugar para procurar atendimento",alt:"Outras opções",worse:"Vá ao pronto-socorro ou ligue 9-1-1 se",next:"Prepare o que dizer",anyflag:"Qualquer um destes sinais pode precisar de atendimento de emergência",chooseList:"Escolha na lista ou use o guia corporal à direita.",bodyTitle:"Onde você sente o problema?",bodySub:"Toque em uma área do corpo para encontrar uma opção mais rapidamente.",closest:"Qual é o mais parecido?",closestSub:"Escolha o problema que mais se aproxima do que você está sentindo.",notListed:"Não está na lista? Inicie uma conversa",notListedSub:"Descreva com suas próprias palavras o que está acontecendo."},
-ru: {
+}, 
+pt: {
+  sos: "Dor no peito, sinais de AVC, dificuldade grave para respirar ou sangramento que não para?",
+
+  h1: "Do primeiro sintoma ao próximo acompanhamento.",
+
+  sub: "Um guia para recém-chegados, refugiados, idosos e qualquer pessoa que não conheça bem o sistema de saúde da Colúmbia Britânica.\nAjuda você a decidir onde procurar atendimento, mas não faz diagnóstico.",
+
+  t1: "Encontrar atendimento",
+  t2: "Preparar o que dizer",
+  t3: "Medicamentos",
+  t4: "Acompanhamento",
+
+  t2h: "Explique seus sintomas claramente ao profissional de saúde",
+  t3h: "Acompanhe seus medicamentos",
+  t4h: "Você está melhorando?",
+
+  foot: "Não substitui aconselhamento ou diagnóstico médico. Emergência: 9-1-1. Orientação de enfermagem: 8-1-1. Apoio em crise: 9-8-8.",
+
+  q0: "Você tem agora algum dos seguintes sintomas?",
+
+  none: "Nenhum destes. Continuar",
+
+  pick: "Qual é a sua principal preocupação?",
+
+  back: "Começar novamente",
+
+  best: "Local mais adequado para receber atendimento",
+
+  alt: "Outras opções",
+
+  worse: "Vá ao pronto-socorro ou ligue para 9-1-1 se",
+
+  next: "Preparar o que dizer ao profissional de saúde",
+
+  anyflag: "Qualquer um destes sinais pode exigir atendimento urgente",
+
+  chooseList: "Escolha uma opção da lista ou use a figura do corpo à direita.",
+
+  bodyTitle: "Onde você sente o problema?",
+
+  bodySub: "Toque em uma parte do corpo para encontrar a opção adequada mais rapidamente.",
+
+  closest: "Qual opção mais se parece com seus sintomas?",
+
+  closestSub: "Escolha a opção que melhor descreve o que você está sentindo agora.",
+
+  notListed: "Não está na lista? Use o chat",
+
+  notListedSub: "Descreva com suas próprias palavras o que está acontecendo.",
+
+  chooseAny: "Selecione todas as opções que se aplicam.",
+
+  selectOneFirst: "Selecione pelo menos uma opção primeiro.",
+
+  flagChest: "Dor ou pressão no peito",
+
+  flagStroke: "Queda de um lado do rosto, fraqueza em um braço ou fala enrolada",
+
+  flagBreathing: "Dificuldade grave para respirar",
+
+  flagBleeding: "Sangramento que não para",
+
+  flagSeizure: "Convulsão ou perda de consciência",
+
+  flagHarm: "Pensamentos de machucar a si mesmo ou outra pessoa",
+
+  chatTitle: "💬 Pergunte no seu próprio idioma",
+
+  chatBefore: "Antes de iniciar o chat",
+
+  chatConsent: "Suas mensagens são enviadas a um serviço de inteligência artificial para obter uma resposta. Não digite seu nome, endereço ou número do cartão de saúde. Não use este chat em uma emergência — ligue para 9-1-1.",
+
+  chatStart: "Entendi. Iniciar chat",
+
+  chatPlaceholder: "Descreva seus sintomas…",
+
+  chatSend: "Enviar",
+
+  chatNote: "Ajuda você a decidir onde procurar atendimento. Não faz diagnóstico.",
+
+  chatHintNavigate: "Descreva seus sintomas…",
+
+  chatHintCommunicate: "Pergunte como explicar seu problema ao profissional de saúde…",
+
+  chatHintManage: "Pergunte sobre seus medicamentos…",
+
+  chatHintFollowup: "Conte como você está se sentindo hoje…",
+
+  commIntro: "Preencha o que souber. Seu resumo permanece salvo neste navegador.",
+
+  commWhere: "Onde você pretende buscar atendimento?",
+
+  commWherePlaceholder: "Exemplo: optometrista",
+
+  commStory: "O que está acontecendo?",
+
+  commStoryPlaceholder: "Exemplo: Meu olho direito está vermelho e com secreção.",
+
+  commStart: "Quando começou?",
+
+  commToday: "Hoje",
+
+  comm1to2: "Há 1–2 dias",
+
+  comm3to7: "Há 3–7 dias",
+
+  commWeekPlus: "Há mais de uma semana",
+
+  commSeverity: "Qual é a gravidade?",
+
+  commMeds: "Medicamentos e alergias",
+
+  commMedsPlaceholder: "Exemplo: alergia à penicilina; usa metformina",
+
+  commQuestions: "Perguntas que não quero esquecer",
+
+  commQuestionsPlaceholder: "Exemplo: É contagioso? Posso usar lentes de contato?",
+
+  commInterpreter: "Precisa de intérprete?",
+
+  commInterpreterPlaceholder: "Exemplo: português",
+
+  commMakeSummary: "Criar resumo para o profissional de saúde",
+
+  commProviderSummary: "Resumo para o profissional de saúde",
+
+  commSummaryEmpty: "Seu resumo aparecerá aqui.",
+
+  commSayAloud: "Você pode dizer isto ao profissional de saúde",
+
+  commCopy: "Copiar",
+
+  commPrint: "Imprimir",
+
+  medIntro: "Digite o que está escrito no rótulo do medicamento. Esta função não altera as instruções do seu médico ou farmacêutico.",
+
+  medName: "Nome do medicamento",
+
+  medNamePlaceholder: "Exemplo: colírio de ciprofloxacino 0,3%",
+
+  medDose: "Como tomar ou usar",
+
+  medDosePlaceholder: "Exemplo: 1 gota no olho direito a cada 4 horas por 5 dias",
+
+  medAdd: "Adicionar medicamento",
+
+  medEmpty: "Nenhum medicamento foi adicionado ainda.",
+
+  medTaken: "Tomado",
+
+  medSkip: "Pular",
+
+  medLater: "Mais tarde",
+
+  medTakenLog: "Tomado",
+
+  medSkippedLog: "Pulado",
+
+  medLaterLog: "Tomar mais tarde",
+
+  medAt: "Horário",
+
+  medPhotoTitle: "Ler o rótulo pela foto (planejado)",
+
+  medPhotoDesc: "Tire uma foto do rótulo, a IA lerá as informações e você fará a confirmação. Esse recurso exige reconhecimento de imagem e ainda não está disponível.",
+
+  nearbyTitle: "Atendimento perto de você",
+
+  nearbyDesc: "Use sua localização para encontrar serviços de saúde próximos e comparar a distância e se estão abertos.",
+
+  nearbyButton: "Encontrar atendimento próximo",
+
+  nearestERButton: "Encontrar o pronto-socorro mais próximo",
+
+  waitTimeNote: "Os tempos de espera podem variar conforme o dia e o local. O CarePath mostra apenas informações verificadas sobre o tempo de espera quando disponíveis. Se você não souber onde ir, ligue para 8-1-1. Esta ferramenta não faz diagnóstico.",
+
+  fuIntro: "Faça um acompanhamento uma vez por dia. Suas respostas ficam salvas neste dispositivo.",
+
+  fuBetter: "Estou me sentindo melhor",
+
+  fuBetterSub: "Os sintomas estão melhorando",
+
+  fuSame: "Estou igual",
+
+  fuSameSub: "Sem grandes mudanças",
+
+  fuWorse: "Estou me sentindo pior",
+
+  fuWorseSub: "Os sintomas estão piorando",
+
+  fuTimeline: "Histórico de acompanhamento"
+},ru: {
   sos: "Боль в груди, признаки инсульта, сильная одышка или неостанавливающееся кровотечение?",
 
   h1: "От первого симптома до следующего обращения за помощью.",
@@ -5963,6 +6154,363 @@ zh: {
     worse: [
       "出現嚴重藥物反應",
       "因為不停嘔而無法食藥"
+    ]
+  }
+
+},
+pt: {
+
+  eye: {
+    name: "Problema nos olhos",
+    hint: "Olho vermelho, inchado, dolorido ou com secreção",
+
+    flags: [
+      "Perda súbita ou alteração importante da visão",
+      "Produto químico entrou no olho",
+      "Objeto preso no olho ou lesão ocular",
+      "Dor intensa no olho com náusea ou vômitos"
+    ],
+
+    best: "Optometrista (ligue antes para verificar atendimento no mesmo dia)",
+
+    why: "Os optometristas da Colúmbia Britânica podem avaliar problemas oculares urgentes, como infecções e arranhões na córnea. Muitos oferecem consultas no mesmo dia. Pergunte sobre cobertura e custos ao ligar.",
+
+    alt: [
+      "Farmacêutico para alguns problemas leves, como conjuntivite",
+      "UPCC se não conseguir consultar um optometrista",
+      "Ligue para 8-1-1 para falar com uma enfermeira"
+    ],
+
+    worse: [
+      "A visão fica embaçada ou piora",
+      "A dor aumenta",
+      "A pálpebra incha muito ou a vermelhidão se espalha para o rosto"
+    ]
+  },
+
+  cold: {
+    name: "Tosse, resfriado, febre",
+    hint: "Dor de garganta, congestão, febre leve",
+
+    flags: [
+      "Dificuldade grave para respirar ou lábios azulados",
+      "Febre em bebê com menos de 3 meses",
+      "Confusão ou grande dificuldade para acordar",
+      "Febre por mais de 3 dias ou que não diminui"
+    ],
+
+    best: "Farmacêutico ou médico de família / clínica sem agendamento",
+
+    why: "A maioria dos resfriados e dores de garganta pode ser avaliada na comunidade. O farmacêutico pode ajudar a aliviar os sintomas e orientar quando procurar um médico.",
+
+    alt: [
+      "Ligue para 8-1-1 para orientação de enfermagem",
+      "UPCC ou clínica sem agendamento para avaliação no mesmo dia",
+      "Atendimento virtual por telefone ou vídeo"
+    ],
+
+    worse: [
+      "Fica cada vez mais difícil respirar",
+      "Aparece dor no peito ao respirar",
+      "Você não consegue manter líquidos durante o dia"
+    ]
+  },
+
+  injury: {
+    name: "Entorse, queda ou corte",
+    hint: "Inchaço, mancar ou corte que pode precisar de pontos",
+
+    flags: [
+      "Sangramento intenso que não para",
+      "Osso exposto ou deformidade importante",
+      "Alteração da consciência após lesão na cabeça",
+      "Não consegue mover o braço ou a perna"
+    ],
+
+    best: "Clínica sem agendamento ou UPCC",
+
+    why: "Entorses leves, quedas e cortes podem ser avaliados em serviços comunitários. Também podem determinar se você precisa de pontos ou raio-X.",
+
+    alt: [
+      "Médico de família",
+      "Farmacêutico para orientação sobre alívio da dor",
+      "8-1-1 para falar com uma enfermeira"
+    ],
+
+    worse: [
+      "A dor ou o inchaço aumentam rapidamente",
+      "Surge dormência ou o membro fica frio",
+      "O sangramento continua"
+    ]
+  },
+
+  skin: {
+    name: "Erupção, ardor ao urinar ou infecção leve",
+    hint: "ITU simples, eczema, herpes labial",
+
+    flags: [
+      "Erupção vermelha que se espalha rapidamente com febre alta",
+      "Inchaço no rosto ou garganta com dificuldade para respirar",
+      "Dor intensa ou bolhas que se espalham rapidamente"
+    ],
+
+    best: "Farmacêutico ou clínica sem agendamento",
+
+    why: "Na Colúmbia Britânica, os farmacêuticos podem avaliar e tratar algumas condições menores. Sintomas mais graves ou complexos podem precisar de avaliação médica.",
+
+    alt: [
+      "Médico de família",
+      "UPCC",
+      "8-1-1 para orientação de enfermagem"
+    ],
+
+    worse: [
+      "Aparece febre alta",
+      "A vermelhidão se espalha rapidamente",
+      "Aparece dor intensa ou inchaço"
+    ]
+  },
+
+  dental: {
+    name: "Dor no dente ou na boca",
+    hint: "Dor de dente, dente quebrado, gengiva inchada",
+
+    flags: [
+      "Inchaço importante no rosto ou garganta com dificuldade para respirar",
+      "Dificuldade para engolir ou incapacidade de engolir saliva",
+      "Infecção dentária com febre alta ou mal-estar intenso"
+    ],
+
+    best: "Dentista",
+
+    why: "O dentista pode identificar a causa da dor de dente, de um dente quebrado ou da gengiva inchada e fornecer o tratamento adequado.",
+
+    alt: [
+      "Farmacêutico para orientação temporária sobre alívio da dor",
+      "UPCC ou pronto-socorro se a infecção for grave",
+      "Ligue para 8-1-1 se não tiver certeza"
+    ],
+
+    worse: [
+      "O inchaço se espalha para o pescoço ou ao redor do olho",
+      "Fica difícil respirar ou engolir",
+      "Surge febre e seu estado piora rapidamente"
+    ]
+  },
+
+  stomach: {
+    name: "Problema no estômago / abdômen",
+    hint: "Dor abdominal, vômitos, diarreia, constipação",
+
+    flags: [
+      "Dor abdominal intensa ou que está piorando",
+      "Vômito com sangue ou fezes pretas",
+      "Não consegue manter líquidos e sente que vai desmaiar",
+      "Gravidez com dor abdominal intensa ou sangramento forte"
+    ],
+
+    best: "Médico de família / clínica sem agendamento ou UPCC",
+
+    why: "A maioria dos problemas de estômago que não são emergências pode começar a ser avaliada em atenção primária ou urgente. Dor intensa, desidratação ou sangramento precisam de avaliação mais rápida.",
+
+    alt: [
+      "Farmacêutico para sintomas leves",
+      "Ligue para 8-1-1 se não tiver certeza",
+      "Pronto-socorro se a dor for intensa, súbita ou acompanhada de sangramento ou desmaio"
+    ],
+
+    worse: [
+      "A dor fica intensa ou se concentra em uma área",
+      "Você fica desidratado ou desmaia",
+      "Há sangue no vômito ou nas fezes"
+    ]
+  },
+
+  neuro: {
+    name: "Dor de cabeça / tontura",
+    hint: "Dor de cabeça, vertigem, sensação de cabeça leve ou de desmaio",
+
+    flags: [
+      "Dor de cabeça súbita, a pior da sua vida",
+      "Nova fraqueza, queda de um lado do rosto ou dificuldade para falar",
+      "Dor de cabeça após uma lesão importante na cabeça",
+      "Desmaio com dor no peito ou confusão persistente"
+    ],
+
+    best: "Médico de família / clínica sem agendamento ou UPCC",
+
+    why: "A maioria das dores de cabeça e tonturas pode ser avaliada na atenção primária, mas sintomas neurológicos súbitos exigem atendimento de emergência.",
+
+    alt: [
+      "Ligue para 8-1-1 para orientação de enfermagem",
+      "Farmacêutico se a tontura puder estar relacionada a medicamentos",
+      "Pronto-socorro para sintomas neurológicos graves e repentinos"
+    ],
+
+    worse: [
+      "Surge fraqueza ou dificuldade para falar",
+      "A dor de cabeça fica súbita e muito intensa",
+      "Você perde a consciência ou não consegue caminhar com segurança"
+    ]
+  },
+
+  ent: {
+    name: "Ouvido / nariz / garganta",
+    hint: "Dor de ouvido, sangramento nasal, dor de garganta, pressão nos seios da face",
+
+    flags: [
+      "Dificuldade para respirar ou engolir",
+      "Sangramento nasal intenso que não para",
+      "Inchaço importante da garganta ou pescoço",
+      "Febre alta com rigidez intensa no pescoço"
+    ],
+
+    best: "Farmacêutico ou médico de família / clínica sem agendamento",
+
+    why: "Muitos problemas comuns de ouvido, nariz e garganta podem ser avaliados na comunidade. Sangramento grave ou dificuldade para respirar ou engolir exige atendimento urgente.",
+
+    alt: [
+      "Ligue para 8-1-1",
+      "UPCC para avaliação no mesmo dia se os sintomas estiverem piorando",
+      "Pronto-socorro em caso de problema grave de respiração ou sangramento"
+    ],
+
+    worse: [
+      "O inchaço se espalha",
+      "Você não consegue engolir líquidos",
+      "O sangramento não para"
+    ]
+  },
+
+  musculoskeletal: {
+    name: "Dor nas costas / músculos / articulações",
+    hint: "Dor nas costas, distensão muscular, dor articular, rigidez",
+
+    flags: [
+      "Nova perda do controle da bexiga ou do intestino",
+      "Dormência na região da virilha",
+      "Um membro fica frio, pálido ou subitamente fraco",
+      "Dor intensa após uma queda importante ou acidente"
+    ],
+
+    best: "Médico de família / clínica sem agendamento ou fisioterapia",
+
+    why: "A maioria dos problemas não urgentes de músculos, articulações e costas pode começar a ser avaliada na atenção primária ou com um profissional musculoesquelético.",
+
+    alt: [
+      "Fisioterapeuta",
+      "Farmacêutico para orientação sobre controle da dor",
+      "UPCC"
+    ],
+
+    worse: [
+      "Aparece fraqueza ou dormência de repente",
+      "Você tem dificuldade para controlar a bexiga ou o intestino",
+      "A dor piora rapidamente"
+    ]
+  },
+
+  breathing: {
+    name: "Problema respiratório / asma",
+    hint: "Chiado, falta de ar, piora da asma",
+
+    flags: [
+      "Não consegue respirar adequadamente",
+      "Os lábios ou o rosto ficam azulados",
+      "Falta de ar tão intensa que não consegue falar frases completas"
+    ],
+
+    best: "UPCC ou médico de família / clínica sem agendamento",
+
+    why: "Crises leves de asma e outros sintomas respiratórios podem ser avaliados na comunidade, mas dificuldade grave para respirar é uma emergência.",
+
+    alt: [
+      "Farmacêutico para orientação sobre o inalador",
+      "8-1-1 para orientação de enfermagem"
+    ],
+
+    worse: [
+      "Fica cada vez mais difícil respirar",
+      "O inalador não ajuda",
+      "Os lábios ficam azulados"
+    ]
+  },
+
+  pregnancy: {
+    name: "Gravidez / saúde sexual",
+    hint: "Sintomas da gravidez, sangramento, contracepção, dúvidas sobre IST",
+
+    flags: [
+      "Sangramento intenso durante a gravidez",
+      "Dor abdominal intensa ou desmaio",
+      "Dificuldade grave para respirar durante a gravidez"
+    ],
+
+    best: "Médico de família, profissional de pré-natal ou clínica de saúde sexual",
+
+    why: "Questões relacionadas à gravidez e à saúde sexual podem ser avaliadas por um médico de família, profissional de pré-natal ou clínica de saúde sexual, dependendo dos sintomas.",
+
+    alt: [
+      "UPCC",
+      "Farmacêutico",
+      "8-1-1 para falar com uma enfermeira"
+    ],
+
+    worse: [
+      "Sangramento intenso",
+      "Dor abdominal intensa",
+      "Desmaio ou piora rápida do estado"
+    ]
+  },
+
+  mental: {
+    name: "Estresse, humor deprimido ou crise",
+    hint: "Sentir-se sobrecarregado, ansioso ou inseguro",
+
+    flags: [
+      "Pensamentos de se machucar ou de suicídio",
+      "Pensamentos de machucar outra pessoa",
+      "Sentir que não está seguro neste momento"
+    ],
+
+    best: "Apoio em crise ou serviços de saúde mental",
+
+    why: "Você pode receber ajuda imediatamente durante uma crise. Não precisa de um diagnóstico formal para pedir apoio.",
+
+    alt: [
+      "Ligue ou envie mensagem para 9-8-8",
+      "Ligue para 8-1-1 e pergunte sobre serviços de saúde mental",
+      "Médico de família ou clínica sem agendamento"
+    ],
+
+    worse: [
+      "Você sente que está em perigo",
+      "Você tem um plano específico para se machucar"
+    ]
+  },
+
+  meds: {
+    name: "Renovação de receita ou dúvida sobre medicamento",
+    hint: "Medicamento acabando, efeitos colaterais ou como tomar",
+
+    flags: [
+      "Inchaço do rosto ou garganta após tomar um medicamento",
+      "Dificuldade para respirar após tomar um medicamento",
+      "Possível overdose"
+    ],
+
+    best: "Farmacêutico",
+
+    why: "O farmacêutico pode ajudar com o uso de medicamentos, efeitos colaterais e, em muitos casos, com a renovação de receitas atuais.",
+
+    alt: [
+      "Ligue para 8-1-1 e peça para falar com um farmacêutico",
+      "Médico de família ou clínica sem agendamento se precisar de uma nova receita"
+    ],
+
+    worse: [
+      "Você apresenta uma reação grave ao medicamento",
+      "Não consegue tomar o medicamento por causa dos vômitos"
     ]
   }
 
