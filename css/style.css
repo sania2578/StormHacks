@@ -9,12 +9,45 @@ header{background:var(--card);border-bottom:1px solid var(--line);padding:.8rem 
 select,input,textarea{font:inherit;padding:.55rem .7rem;border:1px solid #94a3b8;border-radius:8px;background:#fff;width:100%}
 header select{width:auto}
 main{max-width:1400px;margin:0 auto;padding:1.5rem 2rem 3rem}
-.hero{margin-bottom:1.5rem}
-.hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;color:var(--pri2);letter-spacing:-.02em;margin-bottom:.5rem}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--pri2);
+  letter-spacing: -.02em;
+  margin-bottom: .5rem;
+}
+
 .hero p {
   color: var(--mut);
   max-width: 62ch;
   white-space: pre-line;
+}
+
+.hero-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-art img {
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 /* ==========================================
    JOURNEY / TOP SECTION BUTTONS
@@ -196,6 +229,22 @@ main{max-width:1400px;margin:0 auto;padding:1.5rem 2rem 3rem}
       repeat(2, minmax(240px, 1fr));
 
     gap: 1.1rem;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hero-art {
+    justify-content: flex-start;
+  }
+
+  .hero-art img {
+    max-width: 260px;
   }
 }
 
@@ -746,4 +795,43 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:1.5rem 1rem;b
         #FFF9F4 0px,
         #FFFFFF 90px
       );
+}
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 220px;
+
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-school-logo {
+  justify-self: center;
+}
+
+.footer-school-logo img {
+  display: block;
+  width: 185px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-text {
+  text-align: center;
+  color: var(--mut);
+}
+
+.footer-text p {
+  margin: .25rem 0;
+}
+
+.footer-spacer {
+  width: 180px;
 }
