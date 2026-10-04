@@ -610,152 +610,295 @@ function nearbyShell(best,isEmergency=false){
   </div>`;
 }
 
-function findNearbyCare(best) {
-  const status = $('gpsStatus');
-  const list = $('nearbyList');
+async function findNearbyCare(best) {
 
+  const status = $("gpsStatus");
+  const list = $("nearbyList");
+
+  // -----------------------------------
+  // Check browser geolocation support
+  // -----------------------------------
   if (!navigator.geolocation) {
-    status.innerHTML =
-      '<p class="gpsmsg">Location is not supported by this browser.</p>';
+
+    status.innerHTML = `
+      <p class="gpsmsg">
+        Location is not supported by this browser.
+      </p>
+    `;
+
     return;
   }
 
-  status.innerHTML =
-    '<p class="gpsmsg">Requesting your location…</p>';
+  status.innerHTML = `
+    <p class="gpsmsg">
+      Requesting your location...
+    </p>
+  `;
 
+
+  // -----------------------------------
+  // Get user's current location
+  // -----------------------------------
   navigator.geolocation.getCurrentPosition(
-    async pos => {
 
-      const lat = pos.coords.latitude;
-      const lng = pos.coords.longitude;
+    async position => {
 
-      status.innerHTML =
-        '<p class="gpsmsg">Location found.</p>';
+      const lat =
+        position.coords.latitude;
 
-      // IMPORTANT:
-      // Check Google Places BEFORE doing any searches
+      const lng =
+        position.coords.longitude;
+
+
+      status.innerHTML = `
+        <p class="gpsmsg">
+          Location found.
+        </p>
+      `;
+
+
+      // -----------------------------------
+      // Check Google Places loaded
+      // -----------------------------------
       if (
         !window.google ||
-        !google.maps ||
-        !google.maps.places
+        !google.maps
       ) {
+
         list.innerHTML = `
           <div class="place">
-            <strong>Nearby search is still loading.</strong>
+
+            <strong>
+              Nearby search is still loading.
+            </strong>
+
             <p class="gpsmsg">
-              Please wait a few seconds and press "Find nearby care" again.
+              Please wait a few seconds
+              and press "Find nearby care" again.
             </p>
+
           </div>
         `;
+
         return;
       }
 
-      // Family doctor / walk-in recommendation
-      // → show 3 separate lists
-      if (
-        best.toLowerCase().includes('family doctor') ||
-        best.toLowerCase().includes('walk-in')
-      ) {
-        await findPrimaryCareOptions(lat, lng);
-        return;
-      }
 
-      // Other recommendations:
-      // dentist, optometrist, ER, pharmacy, etc.
-      const cfg = careSearchFor(best);
+      try {
 
-      const service =
-        new google.maps.places.PlacesService(
-          document.createElement('div')
+        const lower =
+          best.toLowerCase();
+
+
+        // ===================================
+        // FAMILY DOCTOR / WALK-IN RESULT
+        // Show 3 different groups
+        // ===================================
+
+        if (
+          lower.includes("family doctor") ||
+          lower.includes("walk-in")
+        ) {
+
+          await findPrimaryCareOptions(
+            lat,
+            lng
+          );
+
+          return;
+        }
+
+
+        // ===================================
+        // ALL OTHER CARE TYPES
+        // ===================================
+
+        let title =
+          "📍 Nearby care";
+
+        let mode =
+          "text";
+
+        let query =
+          best;
+
+
+        // -----------------------------------
+        // Optometrist
+        // -----------------------------------
+        if (
+          lower.includes("optometrist")
+        ) {
+
+          title =
+            "👁️ Nearby optometrists";
+
+          mode =
+            "text";
+
+          query =
+            "optometrist";
+        }
+
+
+        // -----------------------------------
+        // Dentist
+        // -----------------------------------
+        else if (
+          lower.includes("dentist")
+        ) {
+
+          title =
+            "🦷 Nearby dentists";
+
+          mode =
+            "text";
+
+          query =
+            "dentist";
+        }
+
+
+        // -----------------------------------
+        // Emergency room
+        // -----------------------------------
+        else if (
+          lower.includes("emergency") ||
+          lower.includes(" er") ||
+          lower.startsWith("er")
+        ) {
+
+          title =
+            "🚨 Nearby emergency departments";
+
+          mode =
+            "text";
+
+          query =
+            "hospital emergency department";
+        }
+
+
+        // -----------------------------------
+        // UPCC / urgent care
+        // -----------------------------------
+        else if (
+          lower.includes("upcc") ||
+          lower.includes("urgent")
+        ) {
+
+          title =
+            "🏥 Nearby urgent care centres";
+
+          mode =
+            "text";
+
+          query =
+            "urgent primary care centre";
+        }
+
+
+        // -----------------------------------
+        // Pharmacy / pharmacist
+        // -----------------------------------
+        else if (
+          lower.includes("pharmacist") ||
+          lower.includes("pharmacy")
+        ) {
+
+          title =
+            "💊 Nearby pharmacies";
+
+          mode =
+            "nearby";
+
+          query =
+            "pharmacy";
+        }
+
+
+        // -----------------------------------
+        // Run Places API (New)
+        // -----------------------------------
+        list.innerHTML = `
+          <p class="gpsmsg">
+            Searching nearby care...
+          </p>
+        `;
+
+
+        const results =
+          await searchPlaces(
+            lat,
+            lng,
+            mode,
+            query
+          );
+
+
+        // -----------------------------------
+        // Show results
+        // -----------------------------------
+        list.innerHTML =
+          renderPlaceGroup(
+            title,
+            results
+          );
+
+
+      } catch (error) {
+
+        console.error(
+          "Nearby care search failed:",
+          error
         );
 
-      service.nearbySearch(
-        {
-          location: new google.maps.LatLng(lat, lng),
-          radius: 12000,
-          type: cfg.type,
-          keyword: cfg.keyword
-        },
+        list.innerHTML = `
+          <div class="place">
 
-        (results, placeStatus) => {
+            <strong>
+              Nearby search failed.
+            </strong>
 
-          if (
-            placeStatus !==
-              google.maps.places.PlacesServiceStatus.OK ||
-            !results ||
-            !results.length
-          ) {
-            list.innerHTML =
-              '<p class="gpsmsg">No nearby locations found.</p>';
-            return;
-          }
+            <p class="gpsmsg">
+              Please try again.
+            </p>
 
-          const rank = value =>
-            value === true ? 0 :
-            value === false ? 2 :
-            1;
+          </div>
+        `;
+      }
 
-          const rows = results
-            .map(p => {
-
-              const pLat =
-                p.geometry?.location?.lat();
-
-              const pLng =
-                p.geometry?.location?.lng();
-
-              const distance =
-                pLat != null && pLng != null
-                  ? distanceKm(
-                      lat,
-                      lng,
-                      pLat,
-                      pLng
-                    )
-                  : 999;
-
-              return {
-                ...p,
-                distance: distance,
-                open: p.opening_hours?.open_now
-              };
-
-            })
-
-            .sort((a, b) =>
-              rank(a.open) -
-                rank(b.open) ||
-              a.distance -
-                b.distance
-            )
-
-            .slice(0, 5);
-
-          list.innerHTML =
-            renderPlaceGroup(
-              'Nearby options',
-              rows
-            );
-        }
-      );
     },
 
+
+    // -----------------------------------
+    // Geolocation error
+    // -----------------------------------
     error => {
 
       console.error(
-        'Location error:',
+        "Location error:",
         error
       );
 
-      status.innerHTML =
-        '<p class="gpsmsg">Location permission was not available.</p>';
+      status.innerHTML = `
+        <p class="gpsmsg">
+          Location permission was not available.
+        </p>
+      `;
+
     },
 
+
+    // -----------------------------------
+    // Location settings
+    // -----------------------------------
     {
       enableHighAccuracy: true,
       timeout: 10000,
       maximumAge: 300000
     }
+
   );
 }
 /* ---------- Navigate: data-driven triage ---------- */
