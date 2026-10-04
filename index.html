@@ -220,107 +220,211 @@ $('tabs').onclick=e=>{if(e.target.dataset.tab)openTab(e.target.dataset.tab)};
 /* ---------- Nearby care finder ---------- */
 const WAIT_TIMES_URL='https://www.edwaittimes.ca/welcome';
 
-function searchPlaces(
-  lat,
-  lng,
-  type,
-  keyword
-) {
+async function searchPlaces(lat, lng, mode, queryOrType) {
+  try {
+    const {
+      Place,
+      SearchByTextRankPreference,
+      SearchNearbyRankPreference
+    } = await google.maps.importLibrary("places");
 
-  return new Promise(resolve => {
+    let places = [];
 
-    const service =
-      new google.maps.places.PlacesService(
-        document.createElement('div')
-      );
+    // -----------------------------------
+    // TEXT SEARCH
+    // Used for:
+    // - family doctor
+    // - walk-in clinic
+    // -----------------------------------
+    if (mode === "text") {
+      const request = {
+        textQuery: queryOrType,
 
-    service.nearbySearch(
-      {
-        location:
-          new google.maps.LatLng(
-            lat,
-            lng
-          ),
+        fields: [
+          "displayName",
+          "formattedAddress",
+          "location",
+          "businessStatus",
+          "rating",
+          "regularOpeningHours"
+        ],
 
-        radius: 10000,
+        locationBias: {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          radius: 10000
+        },
 
-        type: type,
+        maxResultCount: 10,
 
-        keyword: keyword
-      },
+        rankPreference:
+          SearchByTextRankPreference.DISTANCE
+      };
 
-      (results, status) => {
+      const response =
+        await Place.searchByText(request);
 
-        console.log(
-          keyword,
-          status,
-          results
-        );
+      places = response.places || [];
+    }
 
-        if (
-          status !==
-            google.maps.places.PlacesServiceStatus.OK ||
-          !results
-        ) {
-          resolve([]);
-          return;
+    // -----------------------------------
+    // NEARBY SEARCH
+    // Used for:
+    // - pharmacy
+    // -----------------------------------
+    else if (mode === "nearby") {
+      const request = {
+        fields: [
+          "displayName",
+          "formattedAddress",
+          "location",
+          "businessStatus",
+          "rating",
+          "regularOpeningHours"
+        ],
+
+        locationRestriction: {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          radius: 10000
+        },
+
+        includedPrimaryTypes: [
+          queryOrType
+        ],
+
+        maxResultCount: 10,
+
+        rankPreference:
+          SearchNearbyRankPreference.DISTANCE
+      };
+
+      const response =
+        await Place.searchNearby(request);
+
+      places = response.places || [];
+    }
+
+    // -----------------------------------
+    // Convert Google results into
+    // CarePath-friendly data
+    // -----------------------------------
+    const results = places.map(place => {
+
+      const pLat =
+        typeof place.location?.lat === "function"
+          ? place.location.lat()
+          : place.location?.lat;
+
+      const pLng =
+        typeof place.location?.lng === "function"
+          ? place.location.lng()
+          : place.location?.lng;
+
+      // Calculate distance from user
+      const distance =
+        pLat != null && pLng != null
+          ? distanceKm(
+              lat,
+              lng,
+              pLat,
+              pLng
+            )
+          : 999;
+
+      // Check if open now
+      let open = undefined;
+
+      if (
+        place.regularOpeningHours &&
+        typeof place.regularOpeningHours.isOpen === "function"
+      ) {
+        try {
+          open =
+            place.regularOpeningHours.isOpen(
+              new Date()
+            );
+        } catch (error) {
+          open = undefined;
         }
-
-        const places =
-          results.map(place => {
-
-            const pLat =
-              place.geometry?.location?.lat();
-
-            const pLng =
-              place.geometry?.location?.lng();
-
-            const distance =
-              pLat != null && pLng != null
-                ? distanceKm(
-                    lat,
-                    lng,
-                    pLat,
-                    pLng
-                  )
-                : 999;
-
-            return {
-              ...place,
-              distance: distance,
-              open:
-                place.opening_hours?.open_now
-            };
-
-          });
-
-        const rank = value =>
-          value === true ? 0 :
-          value === false ? 2 :
-          1;
-
-        places.sort(
-          (a, b) =>
-            rank(a.open) -
-              rank(b.open) ||
-            a.distance -
-              b.distance
-        );
-
-        resolve(
-          places.slice(0, 5)
-        );
       }
+
+      return {
+        name:
+          place.displayName ||
+          "Unknown location",
+
+        vicinity:
+          place.formattedAddress ||
+          "Address unavailable",
+
+        distance:
+          distance,
+
+        rating:
+          place.rating,
+
+        open:
+          open,
+
+        businessStatus:
+          place.businessStatus
+      };
+    });
+
+    // -----------------------------------
+    // Sorting:
+    // 1. Open now
+    // 2. Unknown hours
+    // 3. Closed
+    // Then nearest first
+    // -----------------------------------
+    const openRank = value => {
+      if (value === true) return 0;
+      if (value === undefined) return 1;
+      if (value === false) return 2;
+      return 1;
+    };
+
+    results.sort((a, b) => {
+      const openDifference =
+        openRank(a.open) -
+        openRank(b.open);
+
+      if (openDifference !== 0) {
+        return openDifference;
+      }
+
+      return (
+        a.distance -
+        b.distance
+      );
+    });
+
+    // Only return top 5
+    return results.slice(0, 5);
+
+  } catch (error) {
+    console.error(
+      "Places API search error:",
+      mode,
+      queryOrType,
+      error
     );
-  });
+
+    return [];
+  }
 }
 
 async function findPrimaryCareOptions(
   lat,
   lng
 ) {
-
-  const list = $('nearbyList');
+  const list = $("nearbyList");
 
   list.innerHTML = `
     <p class="gpsmsg">
@@ -329,54 +433,79 @@ async function findPrimaryCareOptions(
     </p>
   `;
 
-  const [
-    familyDoctors,
-    walkIns,
-    pharmacies
-  ] = await Promise.all([
+  try {
 
-    searchPlaces(
-      lat,
-      lng,
-      'doctor',
-      'family doctor family practice'
-    ),
-
-    searchPlaces(
-      lat,
-      lng,
-      'doctor',
-      'walk-in clinic'
-    ),
-
-    searchPlaces(
-      lat,
-      lng,
-      'pharmacy',
-      'pharmacy'
-    )
-  ]);
-
-  list.innerHTML =
-
-    renderPlaceGroup(
-      '👨‍⚕️ Family doctors',
-      familyDoctors
-    )
-
-    +
-
-    renderPlaceGroup(
-      '🏥 Walk-in clinics',
-      walkIns
-    )
-
-    +
-
-    renderPlaceGroup(
-      '💊 Pharmacies',
+    const [
+      familyDoctors,
+      walkIns,
       pharmacies
+    ] = await Promise.all([
+
+      // Family doctors
+      searchPlaces(
+        lat,
+        lng,
+        "text",
+        "family doctor"
+      ),
+
+      // Walk-in clinics
+      searchPlaces(
+        lat,
+        lng,
+        "text",
+        "walk-in clinic"
+      ),
+
+      // Pharmacies
+      searchPlaces(
+        lat,
+        lng,
+        "nearby",
+        "pharmacy"
+      )
+    ]);
+
+    list.innerHTML =
+
+      renderPlaceGroup(
+        "👨‍⚕️ Family doctors",
+        familyDoctors
+      )
+
+      +
+
+      renderPlaceGroup(
+        "🏥 Walk-in clinics",
+        walkIns
+      )
+
+      +
+
+      renderPlaceGroup(
+        "💊 Pharmacies",
+        pharmacies
+      );
+
+  } catch (error) {
+
+    console.error(
+      "Primary care search failed:",
+      error
     );
+
+    list.innerHTML = `
+      <div class="place">
+        <strong>
+          Nearby search failed.
+        </strong>
+
+        <p class="gpsmsg">
+          Please try again.
+        </p>
+      </div>
+    `;
+  }
 }
 
 function renderPlaceGroup(title, places) {
@@ -411,13 +540,17 @@ function renderPlaceGroup(title, places) {
             ? `<span class="badge">★ ${p.rating}</span>`
             : '';
 
+        const distanceText =
+          p.distance < 999
+            ? `${p.distance.toFixed(1)} km`
+            : '';
+
         return `
           <div class="place">
 
             <div class="place-top">
 
               <div>
-
                 <div class="place-name">
                   ${index + 1}. ${esc(p.name)}
                 </div>
@@ -425,11 +558,10 @@ function renderPlaceGroup(title, places) {
                 <div class="gpsmsg">
                   ${esc(p.vicinity || 'Address unavailable')}
                 </div>
-
               </div>
 
               <strong>
-                ${p.distance.toFixed(1)} km
+                ${distanceText}
               </strong>
 
             </div>
@@ -830,18 +962,20 @@ $('cin').onkeydown=e=>{if(e.key==='Enter')send()};
 (function(){
   const GOOGLE_MAPS_API_KEY='AIzaSyA-pnQ_tYg4HEk_DsQnkQ-cwYbMs_6Y_ms';
 
-  if(GOOGLE_MAPS_API_KEY==='AIzaSyA-pnQ_tYg4HEk_DsQnkQ-cwYbMs_6Y_ms'){
+  if(!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY==='YOUR_GOOGLE_MAPS_API_KEY'){
     console.warn('Add your Google Maps API key.');
     return;
   }
 
   const s=document.createElement('script');
+
   s.src=`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+
   s.async=true;
   s.defer=true;
+
   document.head.appendChild(s);
 })();
-
 applyLang();
 </script>
 </body>
