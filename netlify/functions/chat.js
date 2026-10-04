@@ -2,7 +2,7 @@
 // Setup: set GEMINI_API_KEY in Netlify > Site configuration > Environment variables
 // (see lib/llm.js for all settings). The key never reaches the browser.
 
-const { callLLM } = require('./lib/llm');
+const { callLLM, parseJSON } = require('./lib/llm');
 const { withCors } = require('./lib/http');
 
 
@@ -372,13 +372,14 @@ ${TAB_CONTEXT[safeTab]}`,
 
     try {
 
-      out = JSON.parse(raw.replace(/```json|```/g, '').trim());
+      out = parseJSON(raw);
 
     } catch {
 
+      // Never show half a JSON object to the person
       out = {
 
-        reply: raw || 'Sorry, I could not answer that.',
+        reply: /^\s*[{\[]/.test(raw) ? 'Sorry, I could not answer that. Please try again.' : (raw || 'Sorry, I could not answer that.'),
 
         urgent: false,
 

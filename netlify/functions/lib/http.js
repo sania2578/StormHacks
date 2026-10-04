@@ -5,7 +5,12 @@
 //   https://sania2578.github.io,https://yoursite.netlify.app
 // Use "*" to allow any site (not recommended once real users arrive).
 
-const DEFAULTS = ['https://sania2578.github.io', 'http://localhost:8888', 'http://127.0.0.1:5500'];
+const DEFAULTS = [
+  'https://legendary-licorice-2161a7.netlify.app',
+  'https://sania2578.github.io',
+  'http://localhost:8888',
+  'http://127.0.0.1:5500',
+];
 
 function allowedList() {
   const fromEnv = (process.env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);

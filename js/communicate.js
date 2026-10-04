@@ -18,11 +18,18 @@
 
 // On GitHub Pages the functions live on Netlify, so we need the full address.
 // On Netlify itself, the short address works.
-const SUM_URL =
-  (location.hostname.endsWith('github.io')
-    ? 'https://legendary-licorice-2161a7.netlify.app'
-    : '')
-  + '/.netlify/functions/summarize';
+const SUM_SITE = 'https://legendary-licorice-2161a7.netlify.app';
+
+// Relative address only works when the page itself is served by Netlify
+// (or by "netlify dev" on port 8888). Anywhere else, use the full address.
+const SUM_ON_NETLIFY =
+  location.hostname.endsWith('.netlify.app') || location.port === '8888';
+
+const SUM_URL = (SUM_ON_NETLIFY ? '' : SUM_SITE) + '/.netlify/functions/summarize';
+
+// The "When did it start?" options show translated text, but the AI needs the
+// English wording. These are in the same order as the <option> list.
+const START_EN = ['Today', '1–2 days ago', '3–7 days ago', 'More than a week ago'];
 
 const STORY_MAX_LENGTH = 3000;
 
@@ -116,6 +123,7 @@ function commError(message) {
 
   summaryText = '';
   sayText = '';
+  lastResult = null;
 
   $('sum').textContent = message;
 
@@ -159,13 +167,13 @@ function basicSummary() {
 }
 
 
-// Show the AI's answer
-function commRender(data) {
+// The latest AI answer, kept so a language switch can redraw it
+let lastResult = null;
 
-  summaryText = data.summary_en;
+// Show the AI's answer on screen (no saving, no logging)
+function commShow(data) {
 
-  sayText = data.say_en;
-
+  const summaryText = data.summary_en;
 
   // 1. English summary (for the doctor)
   $('sum').textContent = summaryText;
@@ -199,9 +207,22 @@ function commRender(data) {
   }
 
   $('say').innerHTML = sayHtml;
+}
 
 
-  // 4. QR code and saving
+// Show the AI's answer, then save it
+function commRender(data) {
+
+  summaryText = data.summary_en;
+
+  sayText = data.say_en;
+
+  lastResult = data;
+
+  commShow(data);
+
+
+  // QR code and saving
   drawQR();
 
   store.set('summary', summaryText);
@@ -263,12 +284,12 @@ $('mk').onclick = async () => {
 
       body: JSON.stringify({
 
-        lang: $('lang').value,
+        lang: lang,
 
         fields: {
           where: commVal('f_where'),
           story: story,
-          start: $('f_start').value,
+          start: START_EN[$('f_start').selectedIndex] || '',
           severity: $('f_sev').value,
           meds: commVal('f_meds'),
           questions: commVal('f_q'),
@@ -364,7 +385,7 @@ $('mk').onclick = async () => {
     ].join(' ');
 
     const isPlainEnglish =
-      $('lang').value === 'en'
+      lang === 'en'
       && !/[^\x00-\x7F]/.test(allText);
 
     if (isPlainEnglish && error.status !== 400) {
@@ -378,6 +399,27 @@ $('mk').onclick = async () => {
   } finally {
 
     button.disabled = false;
+  }
+};
+
+
+/* ===================================
+   Language switch
+   ===================================
+
+   i18n.js rewrites every data-i element when the language changes, which
+   would wipe the summary box. Wrap applyLang() to draw the answer again.
+*/
+
+const applyLangForSummary = applyLang;
+
+applyLang = function () {
+
+  applyLangForSummary();
+
+  if (lastResult) {
+
+    commShow(lastResult);
   }
 };
 

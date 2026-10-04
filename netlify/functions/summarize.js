@@ -7,7 +7,7 @@
 //
 // Uses the same AI settings as chat.js (see lib/llm.js).
 
-const { callLLM } = require('./lib/llm');
+const { callLLM, parseJSON } = require('./lib/llm');
 const { withCors } = require('./lib/http');
 
 
@@ -27,7 +27,12 @@ const LANG_NAMES = {
   ja: 'Japanese',
   es: 'Spanish',
   pt: 'Portuguese',
-  ru: 'Russian'
+  ru: 'Russian',
+  'zh-HK': 'Traditional Chinese (Cantonese)',
+  hi: 'Hindi',
+  fa: 'Persian (Farsi)',
+  vi: 'Vietnamese',
+  th: 'Thai'
 };
 
 
@@ -246,7 +251,7 @@ async function handle(event) {
         }
       ],
 
-      maxTokens: 2500
+      maxTokens: 4096
     });
 
 
@@ -254,7 +259,7 @@ async function handle(event) {
     // Read the AI's JSON answer
     // -----------------------------------
 
-    const out = JSON.parse(raw.replace(/```json|```/g, '').trim());
+    const out = parseJSON(raw);
 
     if (typeof out.summary_en !== 'string' || typeof out.say_en !== 'string') {
 

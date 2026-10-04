@@ -13,11 +13,14 @@
 
 // On GitHub Pages the functions live on Netlify, so we need the full address.
 // On Netlify itself, the short address works.
-const API_URL =
-  (location.hostname.endsWith('github.io')
-    ? 'https://legendary-licorice-2161a7.netlify.app'
-    : '')
-  + '/.netlify/functions/chat';
+const NETLIFY_SITE = 'https://legendary-licorice-2161a7.netlify.app';
+
+// Relative address only works when the page itself is served by Netlify
+// (or by "netlify dev" on port 8888). Anywhere else, use the full address.
+const ON_NETLIFY =
+  location.hostname.endsWith('.netlify.app') || location.port === '8888';
+
+const API_URL = (ON_NETLIFY ? '' : NETLIFY_SITE) + '/.netlify/functions/chat';
 
 
 // Backup emergency check on the person's own words
@@ -40,6 +43,12 @@ const HINT = {
 };
 
 const HINT_EN = { ...HINT };
+
+// tabs.js calls this when a tab opens
+function getHint(tab) {
+
+  return HINT[tab] || HINT.navigate;
+}
 
 
 /* ===================================
@@ -292,7 +301,9 @@ const CHAT_TEXT = {
 // Any missing line falls back to English.
 function getChatText() {
 
-  const chosen = CHAT_TEXT[$('lang').value] || {};
+  // "lang" is the language variable from i18n.js (there is no #lang element).
+  // zh-HK falls back to zh, other missing languages fall back to English.
+  const chosen = CHAT_TEXT[lang] || CHAT_TEXT[String(lang).split('-')[0]] || {};
 
   return { ...CHAT_TEXT.en, ...chosen };
 }
@@ -331,7 +342,7 @@ function applyChatLang() {
 
   // Typing hint: English keeps one hint per tab,
   // other languages use one translated hint for every tab
-  const isEnglish = $('lang').value === 'en';
+  const isEnglish = lang === 'en';
 
   Object.keys(HINT).forEach(tab => {
 
@@ -341,7 +352,16 @@ function applyChatLang() {
   $('cin').placeholder = HINT[curTab] || HINT.navigate;
 }
 
-$('lang').addEventListener('change', applyChatLang);
+// i18n.js has no hook for other files, so wrap applyLang(): after it rewrites
+// the page text, put the chat text back in the chosen language.
+const applyLangBase = applyLang;
+
+applyLang = function () {
+
+  applyLangBase();
+
+  applyChatLang();
+};
 
 
 /* ===================================
@@ -487,7 +507,7 @@ async function send() {
 
         messages: chat.slice(-10),
 
-        lang: $('lang').value,
+        lang: lang,
 
         tab: curTab
       })
