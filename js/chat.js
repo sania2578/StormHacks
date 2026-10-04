@@ -1,6 +1,5 @@
 /* ---------- Ask: AI chat (calls your backend, never the AI API directly) ---------- */
-const API_URL='/.netlify/functions/chat'; // change if you host the backend elsewhere
-const URGENT_RE=/chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
+const API_URL=(location.hostname.endsWith('github.io')?'https://legendary-licorice-2161a7.netlify.app':'')+'/.netlify/functions/chat';const URGENT_RE=/chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
 let chat=[],busy=false,curTab='navigate';
 const HINT={navigate:"Describe your symptoms…",communicate:"Ask how to explain your problem…",manage:"Ask about your medication…",followup:"Tell me how you feel today…"};
 function setDock(open){$('dockbody').hidden=!open;$('dockbar').setAttribute('aria-expanded',open);$('chev').textContent=open?'▼':'▲';
