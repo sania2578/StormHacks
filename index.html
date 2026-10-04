@@ -220,72 +220,112 @@ $('tabs').onclick=e=>{if(e.target.dataset.tab)openTab(e.target.dataset.tab)};
 /* ---------- Nearby care finder ---------- */
 const WAIT_TIMES_URL='https://www.edwaittimes.ca/welcome';
 
-function searchPlaces(lat, lng, type, keyword) {
+function searchPlaces(
+  lat,
+  lng,
+  type,
+  keyword
+) {
+
   return new Promise(resolve => {
 
     const service =
-      new google.maps.places.PlacesService(document.createElement('div'));
+      new google.maps.places.PlacesService(
+        document.createElement('div')
+      );
 
-    service.nearbySearch({
-      location: new google.maps.LatLng(lat, lng),
-      radius: 10000,
-      type: type,
-      keyword: keyword
-    }, (results, status) => {
+    service.nearbySearch(
+      {
+        location:
+          new google.maps.LatLng(
+            lat,
+            lng
+          ),
 
-      if (
-        status !== google.maps.places.PlacesServiceStatus.OK ||
-        !results
-      ) {
-        resolve([]);
-        return;
-      }
+        radius: 10000,
 
-      const places = results.map(place => {
+        type: type,
 
-        const pLat = place.geometry?.location?.lat();
-        const pLng = place.geometry?.location?.lng();
+        keyword: keyword
+      },
 
-        const distance =
-          pLat != null && pLng != null
-            ? distanceKm(lat, lng, pLat, pLng)
-            : 999;
+      (results, status) => {
 
-        return {
-          ...place,
-          distance: distance,
-          open: place.opening_hours?.open_now
-        };
+        console.log(
+          keyword,
+          status,
+          results
+        );
 
-      });
+        if (
+          status !==
+            google.maps.places.PlacesServiceStatus.OK ||
+          !results
+        ) {
+          resolve([]);
+          return;
+        }
 
-      // OPEN first → unknown → closed
-      // then closest first
-      places.sort((a, b) => {
+        const places =
+          results.map(place => {
+
+            const pLat =
+              place.geometry?.location?.lat();
+
+            const pLng =
+              place.geometry?.location?.lng();
+
+            const distance =
+              pLat != null && pLng != null
+                ? distanceKm(
+                    lat,
+                    lng,
+                    pLat,
+                    pLng
+                  )
+                : 999;
+
+            return {
+              ...place,
+              distance: distance,
+              open:
+                place.opening_hours?.open_now
+            };
+
+          });
 
         const rank = value =>
           value === true ? 0 :
-          value === false ? 2 : 1;
+          value === false ? 2 :
+          1;
 
-        return (
-          rank(a.open) - rank(b.open) ||
-          a.distance - b.distance
+        places.sort(
+          (a, b) =>
+            rank(a.open) -
+              rank(b.open) ||
+            a.distance -
+              b.distance
         );
 
-      });
-
-      resolve(places.slice(0, 5));
-    });
+        resolve(
+          places.slice(0, 5)
+        );
+      }
+    );
   });
 }
 
-async function findPrimaryCareOptions(lat, lng) {
+async function findPrimaryCareOptions(
+  lat,
+  lng
+) {
 
   const list = $('nearbyList');
 
   list.innerHTML = `
     <p class="gpsmsg">
-      Finding family doctors, walk-in clinics and pharmacies near you…
+      Finding family doctors,
+      walk-in clinics and pharmacies near you...
     </p>
   `;
 
@@ -315,19 +355,23 @@ async function findPrimaryCareOptions(lat, lng) {
       'pharmacy',
       'pharmacy'
     )
-
   ]);
 
   list.innerHTML =
+
     renderPlaceGroup(
       '👨‍⚕️ Family doctors',
       familyDoctors
-    ) +
+    )
+
+    +
 
     renderPlaceGroup(
       '🏥 Walk-in clinics',
       walkIns
-    ) +
+    )
+
+    +
 
     renderPlaceGroup(
       '💊 Pharmacies',
@@ -435,46 +479,153 @@ function nearbyShell(best,isEmergency=false){
 }
 
 function findNearbyCare(best) {
+  const status = $('gpsStatus');
+  const list = $('nearbyList');
 
-  navigator.geolocation.getCurrentPosition(pos => {
+  if (!navigator.geolocation) {
+    status.innerHTML =
+      '<p class="gpsmsg">Location is not supported by this browser.</p>';
+    return;
+  }
 
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
+  status.innerHTML =
+    '<p class="gpsmsg">Requesting your location…</p>';
 
-    // SPECIAL CASE:
-    // show 3 separate lists
-    if (
-      best.toLowerCase().includes('family doctor') ||
-      best.toLowerCase().includes('walk-in')
-    ) {
-      findPrimaryCareOptions(lat, lng);
-      return;
-    }
+  navigator.geolocation.getCurrentPosition(
+    async pos => {
 
-    // OTHERWISE:
-    // use your existing single nearby search
-    const cfg = careSearchFor(best);
+      const lat = pos.coords.latitude;
+      const lng = pos.coords.longitude;
 
-    const service =
-      new google.maps.places.PlacesService(
-        document.createElement('div')
+      status.innerHTML =
+        '<p class="gpsmsg">Location found.</p>';
+
+      // IMPORTANT:
+      // Check Google Places BEFORE doing any searches
+      if (
+        !window.google ||
+        !google.maps ||
+        !google.maps.places
+      ) {
+        list.innerHTML = `
+          <div class="place">
+            <strong>Nearby search is still loading.</strong>
+            <p class="gpsmsg">
+              Please wait a few seconds and press "Find nearby care" again.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      // Family doctor / walk-in recommendation
+      // → show 3 separate lists
+      if (
+        best.toLowerCase().includes('family doctor') ||
+        best.toLowerCase().includes('walk-in')
+      ) {
+        await findPrimaryCareOptions(lat, lng);
+        return;
+      }
+
+      // Other recommendations:
+      // dentist, optometrist, ER, pharmacy, etc.
+      const cfg = careSearchFor(best);
+
+      const service =
+        new google.maps.places.PlacesService(
+          document.createElement('div')
+        );
+
+      service.nearbySearch(
+        {
+          location: new google.maps.LatLng(lat, lng),
+          radius: 12000,
+          type: cfg.type,
+          keyword: cfg.keyword
+        },
+
+        (results, placeStatus) => {
+
+          if (
+            placeStatus !==
+              google.maps.places.PlacesServiceStatus.OK ||
+            !results ||
+            !results.length
+          ) {
+            list.innerHTML =
+              '<p class="gpsmsg">No nearby locations found.</p>';
+            return;
+          }
+
+          const rank = value =>
+            value === true ? 0 :
+            value === false ? 2 :
+            1;
+
+          const rows = results
+            .map(p => {
+
+              const pLat =
+                p.geometry?.location?.lat();
+
+              const pLng =
+                p.geometry?.location?.lng();
+
+              const distance =
+                pLat != null && pLng != null
+                  ? distanceKm(
+                      lat,
+                      lng,
+                      pLat,
+                      pLng
+                    )
+                  : 999;
+
+              return {
+                ...p,
+                distance: distance,
+                open: p.opening_hours?.open_now
+              };
+
+            })
+
+            .sort((a, b) =>
+              rank(a.open) -
+                rank(b.open) ||
+              a.distance -
+                b.distance
+            )
+
+            .slice(0, 5);
+
+          list.innerHTML =
+            renderPlaceGroup(
+              'Nearby options',
+              rows
+            );
+        }
+      );
+    },
+
+    error => {
+
+      console.error(
+        'Location error:',
+        error
       );
 
-    service.nearbySearch({
-      location: new google.maps.LatLng(lat, lng),
-      radius: 12000,
-      type: cfg.type,
-      keyword: cfg.keyword
-    }, (results, status) => {
+      status.innerHTML =
+        '<p class="gpsmsg">Location permission was not available.</p>';
+    },
 
-      // your current result rendering code here
-
-    });
-
-  });
-
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 300000
+    }
+  );
 }
-
 /* ---------- Navigate: data-driven triage ---------- */
 const GLOBAL_FLAGS=["Chest pain or pressure","Face drooping, arm weakness or slurred speech","Severe trouble breathing","Bleeding that will not stop","Seizure or passing out","Thoughts of ending your life, or of harming someone"];
 /* NOTE: door names/availability vary by region. Have a BC clinician review all clinical content before launch. */
