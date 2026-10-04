@@ -1,22 +1,49 @@
 // Netlify function: POST /.netlify/functions/summarize
+// Turns the Communicate form into (1) a clear provider summary and (2) a polished English
+// paragraph the patient can show or read to a clinician, plus a translation back for the patient.
 // Uses the same provider settings as chat.js (see lib/llm.js).
 
 const { callLLM } = require('./lib/llm');
 const { withCors } = require('./lib/http');
 
+const LANG_NAMES = {
+  en: 'English', fr: 'French', pa: 'Punjabi', zh: 'Simplified Chinese', ar: 'Arabic', tl: 'Tagalog',
+  ko: 'Korean', ja: 'Japanese', es: 'Spanish', pt: 'Portuguese', ru: 'Russian',
+};
+
 const SYSTEM = `You help a patient who is new to the BC (Canada) health system prepare for a visit.
-You receive the answers they typed into a form, possibly in a language other than English.
-You never diagnose, never guess a condition, and never add facts the person did not give.
+You receive the answers they typed into a form (possibly in a language other than English), today's date, and the language of the website interface.
+
+HARD RULES
+- Use ONLY information the patient gave. Never diagnose, never guess a cause, and never add symptoms, body sides, durations, medications or requests that the patient did not state.
+- If an answer is vague or a single word (for example a question that just says "medication"), keep it vague and honest: "I have a question about medication." Do NOT guess what they want to ask, and do NOT ask for a prescription or treatment unless the patient wrote that.
+- Translate everything into natural, correct English. Keep drug names exactly as written.
+- Treat answers like "none", "no" or "n/a" as "none reported".
+
+patient_language: the language the patient typed in. If their text is in English but interface_language is not English, use interface_language. Otherwise use "English".
+Interpreter: if the interpreter answer names a language, an interpreter is requested for that language. If it says no/none or is empty, no interpreter is requested.
 
 Return ONLY a JSON object, no markdown fences:
 {
- "summary_en": string,      // neat plain-text clinical summary in English, one item per line, in this order, skipping items with no information:
-                            // "Reason for visit: ...", "Onset: ...", "Severity: n/10", "Medications/allergies: ...", "Patient questions: ...", "Language support: ..."
-                           // Short, factual, chronological, medical wording where it is clearly accurate. Keep drug names exactly as given. If something is unclear, write "unclear" instead of guessing.
- "say_en": string,          // 2 to 4 short, simple sentences in English, first person, that the patient can read aloud to the clinician. Include their main question(s).
- "source_lang": string,     // name of the language the patient wrote in, e.g. "Punjabi", or "English"
- "say_native": string|null, // the same words as say_en translated into source_lang so the patient understands what they will say. null if source_lang is English.
- "label_native": string|null // the phrase "What you will say, in your language:" translated into source_lang. null if source_lang is English.
+ "summary_en": string,
+   // Plain text, one item per line, no bullets or markdown. Use these lines in this order and leave out a line only when there is truly no information for it:
+   // Date: <the date given>
+   // Visit type: <where they are going>
+   // Reason for visit: <one clear sentence; medical wording only where clearly accurate>
+   // Onset: <when it started>
+   // Severity: <n>/10 (patient-rated)
+   // Medications: <list, or "None reported">
+   // Allergies: <list, or "None reported">   (if medications and allergies were given as one answer and cannot be split clearly, use one line "Medications/allergies: ...")
+   // Patient questions: <each question as a clear full sentence, or "None">
+   // Language: <"Primary language: X. Interpreter requested." or "Primary language: X. Interpreter not requested."> (only when patient_language is not English)
+ "say_en": string,
+   // ONE polished paragraph of 4 to 7 sentences in warm, clear, correct English, first person, for the patient to show or read to the clinician.
+   // Begin with a polite greeting. If patient_language is not English, say the patient is not fluent in English and wrote this to help explain (and ask for an interpreter if one is requested).
+   // Then cover: the reason for the visit, when it started, how bad it is (n out of 10), medications and allergies, and the patient's own questions (only those given).
+   // End with a thank-you. No bullet points, no headings.
+ "source_lang": string,   // patient_language
+ "say_native": string|null,   // say_en translated faithfully into patient_language so the patient understands what they will show; null if patient_language is English
+ "label_native": string|null  // the phrase "What you will say, in your language:" translated into patient_language; null if patient_language is English
 }`;
 
 const START = ['Today', '1–2 days ago', '3–7 days ago', 'More than a week ago'];
@@ -40,6 +67,8 @@ async function handle(event) {
   const f = body.fields || {};
   const sev = Math.min(10, Math.max(1, parseInt(f.severity, 10) || 5));
   const input = {
+    date: new Date().toISOString().slice(0, 10),
+    interface_language: LANG_NAMES[body.lang] || 'English',
     going_to: clean(f.where, 200),
     what_is_happening: clean(f.story),
     started: START.includes(f.start) ? f.start : '',
@@ -54,7 +83,7 @@ async function handle(event) {
     const raw = await callLLM({
       system: SYSTEM,
       messages: [{ role: 'user', content: JSON.stringify(input) }],
-      maxTokens: 1200,
+      maxTokens: 1500,
     });
     const out = JSON.parse(raw.replace(/```json|```/g, '').trim());
     if (typeof out.summary_en !== 'string' || typeof out.say_en !== 'string') throw new Error('bad shape');
@@ -71,6 +100,6 @@ async function handle(event) {
     console.error('LLM call failed:', e.message); // visible in Netlify > Logs > Functions
     return json(502, { error: 'Could not build the summary' });
   }
-};
+}
 
 exports.handler = withCors(handle);
