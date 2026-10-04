@@ -9,7 +9,14 @@
 <body>
 <div class="sos"><span data-i="sos">Chest pain, stroke signs, trouble breathing, heavy bleeding?</span><a href="tel:911">Call 9-1-1</a></div>
 <header>
-  <div class="brand">CarePath BC</div>
+  <div class="brand-wrap">
+  <div class="brand-icon" aria-hidden="true">✚</div>
+
+  <div class="brand-text">
+    <div class="brand-title">CarePath BC</div>
+    <div class="brand-subtitle">Medical Care Navigator</div>
+  </div>
+</div>
 
   <div class="language-controls">
 
@@ -58,11 +65,83 @@
     <h1 data-i="h1">From first symptom to next follow-up.</h1>
     <p data-i="sub">A guide for newcomers, refugees, older adults and anyone new to BC healthcare. It helps you choose where to go. It does not diagnose.</p>
   </section>
-  <div class="tabs" role="tablist" id="tabs">
-    <button role="tab" aria-selected="true" data-tab="navigate" data-i="t1">Navigate</button>
-    <button role="tab" aria-selected="false" data-tab="communicate" data-i="t2">Communicate</button>
-    <button role="tab" aria-selected="false" data-tab="manage" data-i="t3">Manage</button>
-    <button role="tab" aria-selected="false" data-tab="followup" data-i="t4">Follow up</button>
+  <div class="tabs journey-tabs" role="tablist" id="tabs">
+
+    <button
+      class="journey-tab nav-tab"
+      role="tab"
+      aria-selected="true"
+      data-tab="navigate"
+    >
+      <span class="journey-num">01</span>
+
+      <span class="journey-icon">
+        ✚
+      </span>
+
+      <span class="journey-text">
+        <strong data-i="t1">Navigate</strong>
+        <small>Find the right care</small>
+      </span>
+    </button>
+
+
+    <button
+      class="journey-tab comm-tab"
+      role="tab"
+      aria-selected="false"
+      data-tab="communicate"
+    >
+      <span class="journey-num">02</span>
+
+      <span class="journey-icon">
+        💬
+      </span>
+
+      <span class="journey-text">
+        <strong data-i="t2">Communicate</strong>
+        <small>Tell your story</small>
+      </span>
+    </button>
+
+
+    <button
+      class="journey-tab med-tab"
+      role="tab"
+      aria-selected="false"
+      data-tab="manage"
+    >
+      <span class="journey-num">03</span>
+
+      <span class="journey-icon">
+        💊
+      </span>
+
+      <span class="journey-text">
+        <strong data-i="t3">Manage</strong>
+        <small>Track your medicine</small>
+      </span>
+    </button>
+
+
+    <button
+      class="journey-tab follow-tab"
+      role="tab"
+      aria-selected="false"
+      data-tab="followup"
+    >
+      <span class="journey-num">04</span>
+
+      <span class="journey-icon">
+        ↻
+      </span>
+
+      <span class="journey-text">
+        <strong data-i="t4">Follow up</strong>
+        <small>Check how you feel</small>
+      </span>
+    </button>
+
   </div>
 
   <section id="navigate" class="panel on"><div id="flow"></div></section>
