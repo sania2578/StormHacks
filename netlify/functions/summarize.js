@@ -1,83 +1,67 @@
 // Netlify function: POST /.netlify/functions/summarize
-// Uses the same ANTHROPIC_API_KEY (and optional CLAUDE_MODEL) as chat.js.
+// Generates doctor-ready clinical handoff using Gemini 1.5 Flash
 
-const SYSTEM = `You help a patient who is new to the BC (Canada) health system prepare for a visit.
-You receive the answers they typed into a form, possibly in a language other than English.
-You never diagnose, never guess a condition, and never add facts the person did not give.
+const json = (statusCode, body) => ({
+  statusCode,
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(body),
+});
 
-Return ONLY a JSON object, no markdown fences:
-{
- "summary_en": string,      // neat plain-text clinical summary in English, one item per line, in this order, skipping items with no information:
-                            // "Reason for visit: ...", "Onset: ...", "Severity: n/10", "Medications/allergies: ...", "Patient questions: ...", "Language support: ..."
-                            // Short, factual, chronological, medical wording where it is clearly accurate. Keep drug names exactly as given. If something is unclear, write "unclear" instead of guessing.
- "say_en": string,          // 2 to 4 short, simple sentences in English, first person, that the patient can read aloud to the clinician. Include their main question(s).
- "source_lang": string,     // name of the language the patient wrote in, e.g. "Punjabi", or "English"
- "say_native": string|null, // the same words as say_en translated into source_lang so the patient understands what they will say. null if source_lang is English.
- "label_native": string|null // the phrase "What you will say, in your language:" translated into source_lang. null if source_lang is English.
-}`;
-
-const START = ['Today', '1–2 days ago', '3–7 days ago', 'More than a week ago'];
-const hits = new Map();
-const json = (statusCode, body) => ({ statusCode, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-const clean = (v, n = 800) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
+const SYSTEM_INSTRUCTION = `You are a clinical communication assistant for CarePath BC.
+Your task is to take a patient's self-described symptoms (often written by newcomers/refugees in non-English languages) and create:
+1. "summary_en": A structured, professional English handoff summary for a Canadian doctor/nurse (Reason for visit, Onset/duration, Severity, Relevant context, Patient questions).
+2. "script_en": A short first-person script in plain English for the patient to read aloud to the clinician.
+3. "script_user_lang": The exact translation of the script back into the patient's language so they know what they are saying.
+Never invent symptoms not stated by the user. Do not diagnose or recommend treatments.
+Respond ONLY with a valid raw JSON object:
+{"summary_en": string, "script_en": string, "script_user_lang": string}`;
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return json(405, { error: 'POST only' });
 
-  const ip = event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || 'unknown';
-  const now = Date.now();
-  const recent = (hits.get(ip) || []).filter((t) => now - t < 60000);
-  if (recent.length >= 6) return json(429, { error: 'Too many requests. Wait a minute and try again.' });
-  recent.push(now);
-  hits.set(ip, recent);
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return json(500, { error: 'GEMINI_API_KEY not configured' });
 
-  let body;
-  try { body = JSON.parse(event.body || '{}'); } catch { return json(400, { error: 'Invalid JSON' }); }
+  let parsed;
+  try {
+    parsed = JSON.parse(event.body || '{}');
+  } catch {
+    return json(400, { error: 'Invalid JSON' });
+  }
 
-  const f = body.fields || {};
-  const sev = Math.min(10, Math.max(1, parseInt(f.severity, 10) || 5));
-  const input = {
-    going_to: clean(f.where, 200),
-    what_is_happening: clean(f.story),
-    started: START.includes(f.start) ? f.start : '',
-    severity_out_of_10: sev,
-    medications_and_allergies: clean(f.meds),
-    questions_for_provider: clean(f.questions),
-    interpreter_needed: clean(f.interpreter, 100),
-  };
-  if (!input.what_is_happening) return json(400, { error: 'Describe what is happening first.' });
+  const { story = '', question = '', language = 'en' } = parsed;
+
+  const prompt = `Patient input:
+- Story/Symptoms: ${story}
+- Main question: ${question}
+- User primary language: ${language}
+
+Produce the structured JSON output.`;
 
   try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: process.env.CLAUDE_MODEL || 'claude-sonnet-5-5',
-        max_tokens: 900,
-        system: SYSTEM,
-        messages: [{ role: 'user', content: JSON.stringify(input) }],
-      }),
+        systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: 'application/json',
+          temperature: 0.2
+        }
+      })
     });
-    if (!r.ok) return json(502, { error: 'AI service error' });
 
-    const data = await r.json();
-    const raw = (data.content || []).find((b) => b.type === 'text')?.text || '';
-    const out = JSON.parse(raw.replace(/```json|```/g, '').trim());
-    if (typeof out.summary_en !== 'string' || typeof out.say_en !== 'string') throw new Error('bad shape');
+    if (!response.ok) {
+      const err = await response.text();
+      return json(response.status, { error: err });
+    }
 
-    const english = /^english$/i.test(String(out.source_lang || ''));
-    return json(200, {
-      summary_en: out.summary_en,
-      say_en: out.say_en,
-      source_lang: String(out.source_lang || ''),
-      say_native: !english && typeof out.say_native === 'string' ? out.say_native : null,
-      label_native: !english && typeof out.label_native === 'string' ? out.label_native : null,
-    });
-  } catch {
-    return json(502, { error: 'Could not build the summary' });
+    const data = await response.json();
+    const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+    return json(200, JSON.parse(candidateText));
+  } catch (err) {
+    return json(500, { error: err.message || 'Internal error' });
   }
 };
