@@ -12,16 +12,21 @@
   <div class="brand">CarePath BC</div>
   <select id="lang" aria-label="Language">
     <option value="en">🇨🇦 English</option>
-    <option value="fr">🇫🇷 Français</option>
-    <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-    <option value="zh">🇨🇳 中文</option>
-    <option value="ar">🇸🇦 العربية</option>
+    <option value="fr">⚜️ Français (Québec)</option>   
+    <option value="zh">🇨🇳 中文</option> 
+    <option value="zh-HK">🇭🇰 粵語（香港）</option>
     <option value="tl">🇵🇭 Tagalog</option>
     <option value="ko">🇰🇷 한국어</option>
+    <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+    <option value="hi">🇮🇳 हिन्दी</option>
     <option value="ja">🇯🇵 日本語</option>
+    <option value="fa">🇮🇷 فارسی</option>
+    <option value="ar">🇸🇦 العربية</option>
     <option value="es">🇪🇸 Español</option>
     <option value="pt">🇵🇹 Português</option>
     <option value="ru">🇷🇺 Русский</option>
+    <option value="vi">🇻🇳 Tiếng Việt</option>
+    <option value="th">🇹🇭 ไทย</option>
   </select>
 </header>
 <main>
@@ -39,75 +44,281 @@
   <section id="navigate" class="panel on"><div id="flow"></div></section>
 
   <section id="communicate" class="panel">
-    <h2 data-i="t2h">Explain it clearly to your provider</h2>
-    <p class="sub">Fill in what you can. Your summary stays in your browser.</p>
-    <div class="two">
-      <div>
-        <label for="f_where">Where you are going</label><input id="f_where" placeholder="e.g. Optometrist">
-        <label for="f_story">What is happening?</label><textarea id="f_story" rows="3" placeholder="e.g. My right eye is red and crusty."></textarea>
-        <label for="f_start">When did it start?</label>
-        <select id="f_start"><option>Today</option><option>1–2 days ago</option><option>3–7 days ago</option><option>More than a week ago</option></select>
-        <label for="f_sev">How bad is it? (<span id="sevv">5</span>/10)</label><input id="f_sev" type="range" min="1" max="10" value="5" style="padding:0">
-        <label for="f_meds">Medications and allergies</label><input id="f_meds" placeholder="e.g. Penicillin allergy; takes metformin">
-        <label for="f_q">Questions I don't want to forget</label><input id="f_q" placeholder="e.g. Is it contagious? Can I wear contacts?">
-        <label for="f_int">Interpreter needed?</label><input id="f_int" placeholder="e.g. Punjabi">
-        <button class="btn" id="mk">Make my summary</button>
-      </div>
-      <div>
-        <label style="margin-top:0">Provider summary</label>
-        <div class="paper" id="sum">Your summary will appear here.</div>
-        <label>Say this aloud</label>
-        <div class="paper" id="say" style="min-height:3rem"></div>
-        <div id="qr"></div>
-        <button class="btn g" id="cp">Copy</button><button class="btn g" id="pr">Print</button>
-      </div>
-    </div>
-    <p class="note">You can type in your own language. The AI writes a neat English summary and a script to say aloud, and shows you what it means in your language. Read it before you show your provider. If something is wrong, edit your answers and try again.</p>
-  </section>
+  <h2 data-i="t2h">Explain it clearly to your provider</h2>
 
-  <section id="manage" class="panel">
-    <h2 data-i="t3h">Keep track of your medication</h2>
-    <p class="sub">Enter what is written on your label. This never changes what your doctor or pharmacist told you.</p>
-    <div class="two">
-      <div>
-        <label for="m_name">Medication</label><input id="m_name" placeholder="e.g. Ciprofloxacin 0.3% eye drops">
-        <label for="m_dose">How to take it</label><input id="m_dose" placeholder="e.g. 1 drop right eye every 4 hours for 5 days">
-        <button class="btn" id="m_add">Add medication</button>
+  <p class="sub" data-i="commIntro">
+    Fill in what you can. Your summary stays in your browser.
+  </p>
+
+  <div class="two">
+    <div>
+
+      <label for="f_where" data-i="commWhere">
+        Where you are going
+      </label>
+
+      <input
+        id="f_where"
+        placeholder="e.g. Optometrist"
+        data-i-placeholder="commWherePlaceholder"
+      >
+
+      <label for="f_story" data-i="commStory">
+        What is happening?
+      </label>
+
+      <textarea
+        id="f_story"
+        rows="3"
+        placeholder="e.g. My right eye is red and crusty."
+        data-i-placeholder="commStoryPlaceholder"
+      ></textarea>
+
+      <label for="f_start" data-i="commStart">
+        When did it start?
+      </label>
+
+      <select id="f_start">
+        <option data-i="commToday">Today</option>
+        <option data-i="comm1to2">1–2 days ago</option>
+        <option data-i="comm3to7">3–7 days ago</option>
+        <option data-i="commWeekPlus">More than a week ago</option>
+      </select>
+
+      <label for="f_sev">
+        <span data-i="commSeverity">How bad is it?</span>
+        (<span id="sevv">5</span>/10)
+      </label>
+
+      <input
+        id="f_sev"
+        type="range"
+        min="1"
+        max="10"
+        value="5"
+        style="padding:0"
+      >
+
+      <label for="f_meds" data-i="commMeds">
+        Medications and allergies
+      </label>
+
+      <input
+        id="f_meds"
+        placeholder="e.g. Penicillin allergy; takes metformin"
+        data-i-placeholder="commMedsPlaceholder"
+      >
+
+      <label for="f_q" data-i="commQuestions">
+        Questions I don't want to forget
+      </label>
+
+      <input
+        id="f_q"
+        placeholder="e.g. Is it contagious? Can I wear contacts?"
+        data-i-placeholder="commQuestionsPlaceholder"
+      >
+
+      <label for="f_int" data-i="commInterpreter">
+        Interpreter needed?
+      </label>
+
+      <input
+        id="f_int"
+        placeholder="e.g. Punjabi"
+        data-i-placeholder="commInterpreterPlaceholder"
+      >
+
+      <button class="btn" id="mk" data-i="commMakeSummary">
+        Make my summary
+      </button>
+
+    </div>
+
+    <div>
+
+      <label style="margin-top:0" data-i="commProviderSummary">
+        Provider summary
+      </label>
+
+      <div class="paper" id="sum" data-i="commSummaryEmpty">
+        Your summary will appear here.
       </div>
-      <div><div id="meds"></div>
-        <div class="med" style="background:#f8fafc"><strong>Photo scan (planned)</strong><p class="sub" style="margin:0">Snap the label, AI reads it, you confirm. Needs a vision backend, so it is not active yet.</p></div>
+
+      <label data-i="commSayAloud">
+        Say this aloud
+      </label>
+
+      <div
+        class="paper"
+        id="say"
+        style="min-height:3rem"
+      ></div>
+
+      <div id="qr"></div>
+
+      <button class="btn g" id="cp" data-i="commCopy">
+        Copy
+      </button>
+
+      <button class="btn g" id="pr" data-i="commPrint">
+        Print
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<section id="manage" class="panel">
+  <h2 data-i="t3h">Keep track of your medication</h2>
+
+  <p class="sub" data-i="medIntro">
+    Enter what is written on your label. This never changes what your doctor or pharmacist told you.
+  </p>
+
+  <div class="two">
+    <div>
+      <label for="m_name" data-i="medName">
+        Medication
+      </label>
+
+      <input
+        id="m_name"
+        placeholder="e.g. Ciprofloxacin 0.3% eye drops"
+        data-i-placeholder="medNamePlaceholder"
+      >
+
+      <label for="m_dose" data-i="medDose">
+        How to take it
+      </label>
+
+      <input
+        id="m_dose"
+        placeholder="e.g. 1 drop right eye every 4 hours for 5 days"
+        data-i-placeholder="medDosePlaceholder"
+      >
+
+      <button class="btn" id="m_add" data-i="medAdd">
+        Add medication
+      </button>
+    </div>
+
+    <div>
+      <div id="meds"></div>
+
+      <div class="med" style="background:#f8fafc">
+        <strong data-i="medPhotoTitle">
+          Photo scan (planned)
+        </strong>
+
+        <p class="sub" style="margin:0" data-i="medPhotoDesc">
+          Snap the label, AI reads it, you confirm. Needs a vision backend, so it is not active yet.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="followup" class="panel">
-    <h2 data-i="t4h">Is it getting better?</h2>
-    <p class="sub">Check in once a day. Your answers are saved on this device.</p>
-    <div class="three">
-      <button style="border-color:var(--grn);color:var(--grn)" data-s="Better">Better</button>
-      <button style="border-color:var(--amb);color:var(--amb)" data-s="Same">Same</button>
-      <button style="border-color:var(--red);color:var(--red)" data-s="Worse">Worse</button>
-    </div>
-    <div id="fuMsg"></div>
-    <h3 style="margin:1.25rem 0 .6rem;font-size:1rem">Timeline</h3>
-    <div id="tl"></div>
-  </section>
+
+  <h2 data-i="t4h">
+    Is it getting better?
+  </h2>
+
+  <p class="sub" data-i="fuIntro">
+    Check in once a day. Your answers are saved on this device.
+  </p>
+
+  <div class="followup-options">
+
+    <button class="fu-btn better" data-s="Better">
+      <span class="fu-emoji">😊</span>
+      <span class="fu-label" data-i="fuBetter">
+        Feeling better
+      </span>
+      <small data-i="fuBetterSub">
+        Symptoms are improving
+      </small>
+    </button>
+
+    <button class="fu-btn same" data-s="Same">
+      <span class="fu-emoji">😐</span>
+      <span class="fu-label" data-i="fuSame">
+        About the same
+      </span>
+      <small data-i="fuSameSub">
+        No major change
+      </small>
+    </button>
+
+    <button class="fu-btn worse" data-s="Worse">
+      <span class="fu-emoji">☹️</span>
+      <span class="fu-label" data-i="fuWorse">
+        Feeling worse
+      </span>
+      <small data-i="fuWorseSub">
+        Symptoms are getting worse
+      </small>
+    </button>
+
+  </div>
+
+  <div id="fuMsg"></div>
+
+  <h3
+    style="margin:1.25rem 0 .6rem;font-size:1rem"
+    data-i="fuTimeline"
+  >
+    Timeline
+  </h3>
+
+  <div id="tl"></div>
+
+</section>
 </main>
 
 <div class="dock" id="dock">
   <button class="dockbar" id="dockbar" aria-expanded="false" aria-controls="dockbody">
-    <span>💬 Ask in your own language</span><span id="chev">▲</span>
+    <span data-i="chatTitle">💬 Ask in your own language</span>
+    <span id="chev">▲</span>
   </button>
+
   <div id="dockbody" hidden>
     <div id="consent" class="res">
-      <strong>Before you chat</strong>
-      <p>Your messages are sent to an AI service to get a reply. Do not type your name, address or health card number. Do not use this chat in an emergency: call 9-1-1.</p>
-      <button class="btn" id="ok">I understand, start chat</button>
+      <strong data-i="chatBefore">Before you chat</strong>
+
+      <p data-i="chatConsent">
+        Your messages are sent to an AI service to get a reply.
+        Do not type your name, address or health card number.
+        Do not use this chat in an emergency: call 9-1-1.
+      </p>
+
+      <button class="btn" id="ok" data-i="chatStart">
+        I understand, start chat
+      </button>
     </div>
+
     <div id="chatbox" hidden>
       <div id="log" role="log" aria-live="polite"></div>
-      <div class="send"><input id="cin" placeholder="Describe your symptoms…" aria-label="Your message" maxlength="1000"><button class="btn" id="snd">Send</button></div>
-      <p class="note" style="margin-top:.5rem">Helps you choose where to go. It does not diagnose.</p>
+
+      <div class="send">
+        <input
+          id="cin"
+          placeholder="Describe your symptoms…"
+          data-i-placeholder="chatPlaceholder"
+          aria-label="Your message"
+          maxlength="1000"
+        >
+
+        <button class="btn" id="snd" data-i="chatSend">
+          Send
+        </button>
+      </div>
+
+      <p class="note" style="margin-top:.5rem" data-i="chatNote">
+        Helps you choose where to go. It does not diagnose.
+      </p>
     </div>
   </div>
 </div>
