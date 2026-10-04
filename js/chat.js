@@ -1,18 +1,17 @@
 /* ---------- Ask: AI chat (calls your backend, never the AI API directly) ---------- */
 
 const API_URL =
+  (location.hostname.endsWith('github.io')
+    ? 'https://legendary-licorice-2161a7.netlify.app'
+    : '') +
   '/.netlify/functions/chat';
-
 
 const URGENT_RE =
   /chest pain|can'?t breathe|cannot breathe|stroke|overdose|suicid|kill myself|end my life|unconscious|seizure/i;
 
-
 let chat = [];
 let busy = false;
 let curTab = 'navigate';
-
-
 function getHint(id) {
 
   const hints = {

@@ -93,9 +93,10 @@ function localSummary() {
     'Summary created'
   );
 }
-
-
 const SUM_URL =
+  (location.hostname.endsWith('github.io')
+    ? 'https://legendary-licorice-2161a7.netlify.app'
+    : '') +
   '/.netlify/functions/summarize';
 
 
